@@ -1,2 +1,2 @@
-# fastqa
-Code implement reposity of Paper MDQA
+# HiQA
+Hierarchical Contextual Augmentation RAG for Massive Documents QA
