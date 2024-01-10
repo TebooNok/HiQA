@@ -1,0 +1,3 @@
+title: 图 1 栅极驱动等效电路栅极驱动等效电路
+和di/dt和体二极管反向恢复都可能导致功率器件损坏。一般情况，MOSFET产品手册会直接提供Ciss（CGS+CGD）输入 电容、Coss（CDS+CGD）输出电容以及Crss（CGD）米勒电容寄生参数。 图 1 栅极驱动等效电路栅极驱动等效电路
+base name:AN014_栅极驱动电阻设计方法_APPNOTE

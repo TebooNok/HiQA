@@ -1,0 +1,3 @@
+title: 图  17 PFC  升压电路电压采样图
+V Range  为放大器最大输入差分电压， V OUT  为输出电压 , fs  为变换器开关频率。  C OUT v bus Boost Q1 GND2 INP INN GND1 OUTP OUTN CA-IS1200 CA-IS1300 VDD2 VDD1 Zener
+base name:AN011_隔离电流检测放大器在PFC升压系统的应用_APPNOTE

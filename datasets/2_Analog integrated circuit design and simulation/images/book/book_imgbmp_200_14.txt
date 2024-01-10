@@ -1,0 +1,3 @@
+title: 图  6- 21   新建项目库
+Development Kit) 添加到项目的  cds.lib  文件中，然后通过 “Library Manager” 新建一个叫做 “AMP” 的库，并将其关联到  PDK  提供的工艺库上，如图  6- 21  所示。  图  6- 21   新建项目库 在 “AMP” 库中，还需要新建两个 “cell” 分别为 “HGAMP” 和 “HGAMP_tb” 。前者用于保
+base name:book

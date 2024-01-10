@@ -1,0 +1,3 @@
+title: 图  F- 31  优化波形
+�   选中 “Functional Goals” ，将按照图  F- 31  中展示的例子的方式，显示一个波 形对象是如何向目标靠近的。  图  F- 31  优化波形 如果有太多或者太少的波形需要显示，可以在 “No. of Functional Iterations to
+base name:book

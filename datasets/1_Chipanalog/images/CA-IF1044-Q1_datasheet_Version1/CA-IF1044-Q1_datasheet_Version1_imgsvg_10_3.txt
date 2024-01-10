@@ -1,0 +1,3 @@
+title: 图 7-5发射端显性超时示意图发射端显性超时示意图
+opyright © 2019, Chipanalog Incorporated                                                                                                                                                                  11 上海川土微电子有限公司上海川土微电子有限公司 image_5 图 7-5发射端显性超时示意图发射端显性超时示意图
+base name:CA-IF1044-Q1_datasheet_Version1

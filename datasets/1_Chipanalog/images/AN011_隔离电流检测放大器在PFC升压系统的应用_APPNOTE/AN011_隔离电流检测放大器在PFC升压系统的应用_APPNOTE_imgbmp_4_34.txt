@@ -1,0 +1,3 @@
+title: 图  9  BCM  峰值控制  PFC  升压电路
+波形分别如图  9  和图  10  所示。  C OUT v bus v ac i ac Boost Rectifier DRV DRV Isolation + - V REF PI/PID Multiplier Vbus_SNS Ibus_SNS
+base name:AN011_隔离电流检测放大器在PFC升压系统的应用_APPNOTE

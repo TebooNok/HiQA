@@ -1,0 +1,3 @@
+title: 图  8- 134   载入  Output  的设置
+� “ Load State ”，载入刚才保存的名叫 “temp” 的 “state” ，只选择载入 “Output” ，如图  8- 134 所示。  图  8- 134   载入  Output  的设置 然后对 “res1_2” 的阻值进行优化。在  ADE  窗口中选择菜单“ Tools ” � “ Optimization ”，
+base name:book

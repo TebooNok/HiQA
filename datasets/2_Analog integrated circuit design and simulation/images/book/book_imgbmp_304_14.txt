@@ -1,0 +1,3 @@
+title: 图  8- 37 “Display Results” 窗口
+点击 “ ” ，在弹出的 “Display Results” 对话框中（如下图所示 ) 选择 “Value” ，并 点击 “OK” 或者 “Apply” 显示计算结果。如图  8- 37  所示。  图  8- 37 “Display Results” 窗口 “Calculator” 对数据的处理结果将在 “Results Display Window” 窗口中显示，如图
+base name:book

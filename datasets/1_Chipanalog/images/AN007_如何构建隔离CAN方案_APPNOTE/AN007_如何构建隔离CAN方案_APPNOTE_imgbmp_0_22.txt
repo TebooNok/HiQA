@@ -1,0 +1,3 @@
+title: 图  1 CA-IS3731HW+CA-IF1051S/HS+CA-IS3105W  收发器方案
+次侧电源。但是，由于这是多芯片方案，对外部电路的要求较高，对 PCB 板要求空间也较大。 MCU S TX CA-IF1051HS/S RX VDDA VDDB VCC EP1 VI1 VI2 VO3 VO2 VO3 VI3 1 μ F 1 μ F 1 μ F CA-IF3731HW
+base name:AN007_如何构建隔离CAN方案_APPNOTE

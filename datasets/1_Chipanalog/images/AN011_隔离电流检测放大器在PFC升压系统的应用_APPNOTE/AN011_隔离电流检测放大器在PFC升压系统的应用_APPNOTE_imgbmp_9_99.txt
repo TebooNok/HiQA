@@ -1,0 +1,3 @@
+title: 图  19  两隔离地间保持足够距离以防止爬电
+OUTP/CLKIN OUTN/DOUT VIA VIA  图  18  应用于电流检测的  PCB  设计范例  ≥ 8mm GND1 GND2  图  19  两隔离地间保持足够距离以防止爬电
+base name:AN011_隔离电流检测放大器在PFC升压系统的应用_APPNOTE

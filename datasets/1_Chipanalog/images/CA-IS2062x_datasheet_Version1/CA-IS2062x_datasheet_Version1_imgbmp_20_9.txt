@@ -1,0 +1,3 @@
+title: Not Found
+下图给出了  SOIC16  宽体封装的尺寸图和建议焊盘尺寸图。尺寸以毫米为单位。
+base name:CA-IS2062x_datasheet_Version1

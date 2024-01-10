@@ -1,0 +1,3 @@
+title: 图 8-2 开关特性测试电路开关特性测试电路
+10                                                                                                                                                                                     Copyright © 2022, Chipanalog Incorporated 上海川土微电子有限公司上海川土微电子有限公司 图 8-2 开关特性测试电路开关特性测试电路 9. 详细说明详细说明 CA-IF1021是一款应用于LIN协议控制器和物理总线之间的接口芯片，可应用于卡车、公交、小汽车和工业控制等
+base name:CA-IF1021S_datasheet_Version1

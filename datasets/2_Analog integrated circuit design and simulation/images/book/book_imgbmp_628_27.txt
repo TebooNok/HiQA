@@ -1,0 +1,3 @@
+title: 图  F- 9“Optimizer” 窗口的 “Variables Pane”
+Enable  显示 “yes” 或者 “no” 。  “yes” 表示这个对象包含在当前优化中， “no” 则反之。 �   Variables Pane  图  F- 9“Optimizer” 窗口的 “Variables Pane”
+base name:book

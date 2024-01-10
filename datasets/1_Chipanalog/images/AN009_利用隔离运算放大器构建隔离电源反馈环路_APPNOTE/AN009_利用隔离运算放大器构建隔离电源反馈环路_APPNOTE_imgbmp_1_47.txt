@@ -1,0 +1,3 @@
+title: 图  2.  基于光耦隔离的开关电源框图
+Controller Isolation Vin Driver Primary Side PGND1 Power Stage VOUT PGND2 PWM Rc Cc R1 Secondary Side i1 i2 功率模块 功率模块  图  2.  基于光耦隔离的开关电源框图
+base name:AN009_利用隔离运算放大器构建隔离电源反馈环路_APPNOTE

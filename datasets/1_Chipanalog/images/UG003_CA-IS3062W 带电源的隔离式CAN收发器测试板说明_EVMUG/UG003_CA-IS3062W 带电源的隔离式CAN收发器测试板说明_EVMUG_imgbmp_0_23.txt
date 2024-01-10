@@ -1,0 +1,3 @@
+图  1  CA-IS3062W PCB  的  3D  仿真图
+输出短路，共模电压范围为  -12 V  至  12 V 。 CA-IS3062  额定温度范围为  -40°C  至  125°C ，提供宽体  SOIC16 封装。 测试板  3D  仿真图  图  1  CA-IS3062W PCB  的  3D  仿真图
+base name:UG003_CA-IS3062W 带电源的隔离式CAN收发器测试板说明_EVMUG

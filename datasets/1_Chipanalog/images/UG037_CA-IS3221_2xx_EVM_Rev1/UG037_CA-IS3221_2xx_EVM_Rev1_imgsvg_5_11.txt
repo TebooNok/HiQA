@@ -1,0 +1,3 @@
+title: 图10展示了SOIC16-WB和SOIC14-WB封装的EVM硬件连接方式。图11展示了SOIC16-NB封装的EVM
+图10展示了SOIC16-WB和SOIC14-WB封装的EVM硬件连接方式。图11展示了SOIC16-NB封装的EVM 硬件连接方式。
+base name:UG037_CA-IS3221_2xx_EVM_Rev1

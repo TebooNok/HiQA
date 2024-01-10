@@ -1,0 +1,3 @@
+title: Not Found
+下图说明了  CA-IS2631HA  系列数字隔离器采用的  LGA16  宽体封装大小尺寸图和建议焊盘尺寸图，尺寸以毫米为单 位。
+base name:CA-IS2631HA_datasheet_Version1

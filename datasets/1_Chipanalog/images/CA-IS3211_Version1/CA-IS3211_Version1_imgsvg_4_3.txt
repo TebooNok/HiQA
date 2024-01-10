@@ -1,0 +1,3 @@
+title: 图 6-2 CA-IS3211SBG/ CA-IS3211SCG SOIC8-WB配置配置
+上海川土微电子有限公司上海川土微电子有限公司  Version 1.04, 2023/06/29 .3. CA-IS3211SBG/CA-IS3211SCG描述描述 图 6-2 CA-IS3211SBG/ CA-IS3211SCG SOIC8-WB配置配置 表 6-2 CA-IS3211SBG/ CA-IS3211SCG SOIC8-WB引脚功能描述引脚功能描述
+base name:CA-IS3211_Version1

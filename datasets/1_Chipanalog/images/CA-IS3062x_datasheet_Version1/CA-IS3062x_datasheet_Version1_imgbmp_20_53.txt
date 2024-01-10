@@ -1,0 +1,3 @@
+title: 图  10-3  推荐  PCB  电源部分走线
+GND2 10 μ F 10 μ F 0.1 μ F 0.1 μ F <2mm <2mm V CCL GND1 1 μ F :PCB top layer :PCB bottom layer :PCB Via （ PIN11 ） V ISO
+base name:CA-IS3062x_datasheet_Version1

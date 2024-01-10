@@ -1,0 +1,3 @@
+title: 图  G- 6 “Performance Measurement” 输出界面
+G.2.4   输出设置界面 —“Performance Measurement” 输出界面位于工艺角的分析窗口的下半部，显示的是当前定义的输出信息，如图  G- 6 所示。  图  G- 6 “Performance Measurement” 输出界面 这个界面的信息一般是从 .cdsinit  文件中用  loadDcf  命令定义的设计定制文件（ Design
+base name:book

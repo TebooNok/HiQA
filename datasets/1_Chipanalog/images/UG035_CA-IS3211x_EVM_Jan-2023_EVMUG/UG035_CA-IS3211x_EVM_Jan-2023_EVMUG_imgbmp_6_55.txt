@@ -1,0 +1,3 @@
+1nF
+VCC ANODE NC VEE VOUT1 Isolation            Barrier VCC=15V 1nF CATHODE 130Ω 130Ω e f=20kHz duty=50% VPP=5V LSON HSON R EXT
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

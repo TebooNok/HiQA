@@ -1,0 +1,3 @@
+title: 图 8-7 短路电流短路电流测试电路测试电路
+opyright © 2019, Chipanalog Incorporated                                                                                                                                                                                   13 上海川土微电子有限公司上海川土微电子有限公司 图 8-7 短路电流短路电流测试电路测试电路
+base name:CA-IF1051HS_datasheet_version1

@@ -1,0 +1,3 @@
+title: 图  6- 24  从电路图生成 “symbol”
+选择工具栏中的 “Design”→“Create cellview” →“From Cellview” ，如图  6- 24  所示。  图  6- 24  从电路图生成 “symbol” 然后会出现如图  6- 25  所示窗口。一般情况按默认属性即可，按 “OK” 继续。
+base name:book

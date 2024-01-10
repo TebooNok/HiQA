@@ -1,0 +1,3 @@
+title: Not Found
+Figure 6   下管  GATE  上升沿 ,  CH1:GATE_L, CH3:IL, CH4:SW
+base name:AN012_基于CA-IS3211x的100W半桥降压转换器-Jan 2023_APPNOTE

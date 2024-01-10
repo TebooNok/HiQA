@@ -1,0 +1,3 @@
+title: 图  3  基于电容隔离运算放大器的开关电源框图
+Vin Vo Driver Primary Side Secondary Side Voltage sense PGND1 PGND2 Power Stage PGND2 Controller side RT RB Tx Rx EAOUT
+base name:AN009_利用隔离运算放大器构建隔离电源反馈环路_APPNOTE

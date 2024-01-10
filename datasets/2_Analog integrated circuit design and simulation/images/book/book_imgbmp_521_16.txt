@@ -1,0 +1,3 @@
+title: 图  B- 1 “Results Browser” 窗口
+件夹中。通过点文件夹，可以将文件夹展开，从而进入下一级文件夹获得更具体的信息。 图  B- 1  显示了 “Results Browser” 窗口。  图  B- 1 “Results Browser” 窗口 B.1.1   “Results Browser” 的菜单。
+base name:book

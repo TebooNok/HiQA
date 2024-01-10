@@ -1,0 +1,3 @@
+title: 图  8- 102  选择需要添加的模型库
+而且库已经连接（ attach ）了 “st02” 工艺库时， ADE  启动后可以自动设置好所需模型。  图  8- 102  选择需要添加的模型库 (3)   设置变量 在  ADE  中设置电路中的变量。在菜单中选择“ Variables ” � “ Copy From Cellview ”
+base name:book

@@ -1,0 +1,3 @@
+图 8 上升沿  V SENSE  电压                图 9 下降沿  V SENSE  电压
+图 8 上升沿  V SENSE  电压                图 9 下降沿  V SENSE  电压
+base name:AN015_栅极驱动器输出峰值拉&灌电流测量方法_APPNOTE

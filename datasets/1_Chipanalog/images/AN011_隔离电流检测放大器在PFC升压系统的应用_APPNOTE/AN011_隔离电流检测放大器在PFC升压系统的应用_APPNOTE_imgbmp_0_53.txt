@@ -1,0 +1,3 @@
+title: 图  2  整流桥 + 升压电路
+生畸变的电流  i ac ，里面含有基波成分，也含有谐波成分。在该电路中，升压电路只控制输出电压  V OUT ，对输入电流没 有任何调节。波形如图  3  所示： C OUT C BULK v bus v ac i ac Boost Rectifier Boost  controller DRV DRV Isolation V OUT _SNS
+base name:AN011_隔离电流检测放大器在PFC升压系统的应用_APPNOTE

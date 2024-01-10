@@ -1,0 +1,3 @@
+title: Not Found
+注： (1)  波形通道设置  CH1:INA, CH2:INB, CH3:OUTA, CH4:OUTB.
+base name:UG037_CA-IS3221_2xx_EVM_Rev1

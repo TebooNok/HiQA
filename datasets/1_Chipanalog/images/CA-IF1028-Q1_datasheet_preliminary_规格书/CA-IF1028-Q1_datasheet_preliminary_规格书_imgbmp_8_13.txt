@@ -1,0 +1,3 @@
+title: 图  8- 1  总线信号传输时序图
+8.   参数测量信息 t bit t bit t bit t bus(dom)(max) t bus(rec)(min) t bus(dom)(min) t bus(rec)(max)
+base name:CA-IF1028-Q1_datasheet_preliminary_规格书

@@ -1,0 +1,3 @@
+title: 图  2.  基于光耦隔离的开关电源框图
+VCC Optical coupler TL431 R T R B Controller Isolation Vin Driver Primary Side PGND1 Power Stage VOUT PGND2 PWM Rc Cc
+base name:AN009_利用隔离运算放大器构建隔离电源反馈环路_APPNOTE

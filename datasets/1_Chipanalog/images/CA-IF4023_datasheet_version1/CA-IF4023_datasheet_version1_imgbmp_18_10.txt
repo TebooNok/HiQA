@@ -1,0 +1,3 @@
+title: Not Found
+QFN16  外形尺寸  注 : 1.   图中所有数值单位为毫米。 图  11-1 QFN16  封装尺寸图
+base name:CA-IF4023_datasheet_version1

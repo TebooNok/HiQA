@@ -1,0 +1,3 @@
+title: 图10-3 CA-IF4023塔台端典型应用端典型应用电路电路
+18                                                                                                                                                                                                                Copyright © 2020, Chipanalog Incorporated 上海川土微电子有限公司上海川土微电子有限公司 图10-3 CA-IF4023塔台端典型应用端典型应用电路电路
+base name:CA-IF4023_datasheet_version1

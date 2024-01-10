@@ -1,0 +1,3 @@
+title: A-IF4220NF简化简化原理原理图
+该系列的芯片ESD保护能力：±15kV HBM 。CA- IF4220NF在自然通风环境下的工作温度范围为–40°C至 125°C。 表表 1器件信息器件信息 A-IF4220NF简化简化原理原理图
+base name:CA-IF4220NF_datasheet_Version1

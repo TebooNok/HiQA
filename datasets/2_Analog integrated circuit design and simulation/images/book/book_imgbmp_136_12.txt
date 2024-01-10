@@ -1,0 +1,3 @@
+title: Browser” 软件，如图  5- 33  所示：
+频特性。在 “ADE” 窗口的 “Tools” 下拉菜单中，选择 “Results Browser” 来打开 “Results Browser” 软件，如图  5- 33  所示：
+base name:book

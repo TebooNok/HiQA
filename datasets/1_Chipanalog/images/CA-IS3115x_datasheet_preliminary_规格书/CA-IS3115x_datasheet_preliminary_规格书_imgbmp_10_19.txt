@@ -1,0 +1,3 @@
+VINP =5V ， V ISO =5.4V ，动态负载电流： 30mA/270mA  VINP =5V ， V ISO =5V/5.4V/3.3V/3.7V,   输出电流  300mA
+VINP =5V ， V ISO =5.4V ，动态负载电流： 30mA/270mA  VINP =5V ， V ISO =5V/5.4V/3.3V/3.7V,   输出电流  300mA
+base name:CA-IS3115x_datasheet_preliminary_规格书

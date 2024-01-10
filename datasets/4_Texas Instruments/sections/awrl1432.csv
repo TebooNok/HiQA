@@ -1,0 +1,1445 @@
+section
+"[desc] awrl1432 __ 1 特性 [desc]
+FMCW 收发器
+- 集成 PLL、发送器、接收器、基带和 ADC
+- 覆盖范围为 76GHz 至 81GHz，具有 5GHz 的连 续带宽
+- 3 个接收通道和 2 个发送通道
+- 短距
+- 每个 Tx 的输出功率典型值为 11dBm
+- 14.5dB 典型噪声系数
+- 1MHz 时的典型相位噪声为 -89dBc/Hz
+- FMCW 运行
+- 5MHz IF 带宽，仅实部 Rx 通道
+- 基于分数 N PLL 的超精确线性调频脉冲引擎
+- 每个发送器二进制移相器
+处理要素
+- 具有单精度 FPU (160MHz) 的 Arm® M4F® 内核
+- 用于 FFT、对数幅度和 CFAR 运算 (80MHz) 的 TI 雷达硬件加速器 (HWA 1.2)
+支持多个低功耗模式- 空闲模式和深度睡眠模式
+电源管理
+- 1.8V 与 3.3V IO 支持
+- 内置的 LDO 网络，可增强 PSRR
+- BOM 优化模式和低功耗模式
+- 一个或两个电源轨适用于 1.8V IO 模式，两个或 三个电源轨适用于 3.3V IO 模式
+- FCCSP 器件封装尺寸：6.45mm x 6.45mm
+内置校准和自检
+- 内置的固件 (ROM)
+- 片上自包含校准系统
+主机接口
+- UART
+- CAN-FD
+- SPI
+- LIN
+用于原始 ADC 样本采集的 RDIF（雷达数据接口）
+为用户应用提供的其他接口
+- QSPI
+- I2C
+- JTAG
+- GPIO
+- PWM 接口
+内部存储器
+- 1MB 片上 RAM
+- 用于雷达立方体的可配置 L3 共享存储器
+- (512/640/768KB) 的数据和代码 RAM
+以功能安全合规型为目标
+- 专为功能安全应用开发
+- 以硬件完整性高达 ASIL B 级为目标
+- 具有 12 x 12、102 个 BGA 焊球的 FCCSP 封装
+- 符合 AEC Q-100 标准
+时钟源
+- 用于主时钟的 40.0MHz 晶体
+- 支持外部驱动、频率为 40.0 MHz 的时钟（方波/ 正弦波）
+- 用于低功耗运行的 32kHz 内部振荡器
+支持工作温度范围
+- 工作结温范围：–40°C 至 125°C"
+"[desc] awrl1432 __ 应用 [desc]
+脚踢开启（引导）
+自动泊车
+车门开启器
+侧向来车辅助系统（前）
+盲点检测
+车道变换辅助系统"
+"[desc] awrl1432 __ 说明 [desc]
+AWRL1432 毫米波传感器器件是一款基于 FMCW 雷达技术的集成式单芯片毫米波传感器。该器件能够在 76GHz 至 81GHz 频段内运行，主要分为四个电源域：
+- 射频/模拟子系统：该块包含发送和接收射频信号所需的所有射频和模拟元件。
+- 前端控制器子系统 (FECSS)：FECSS 包含负责雷达前端配置、控制和校准的处理器。
+- 应用子系统 (APPSS)：在 APPSS 中，该器件实现了一个用户可编程的 ARM Cortex M4，允许自定义控制和 汽车接口应用。顶部子系统 (TOPSS) 是 APPSS 电源域的一部分，包含时钟和电源管理子块。- 硬件加速器 (HWA)：HWA 块通过卸载通用雷达处理（例如 FFT、恒定误报率 (CFAR)、缩放和压缩）来对 APPSS 进行补充。 AWRL1432 专为上述每个电源域配备单独的旋钮，可根据用例要求控制其状态（上电或断电）。该器件还具有运 行各种低功耗状态（如睡眠和深度睡眠）的功能，其中低功耗睡眠模式是通过时钟门控和关闭器件的内部 IP 块来 实现的。该器件还提供了保留器件某些内容的选项，例如在此类情况下保留的应用图像或射频配置文件。
+此外，该器件采用 TI 的低功耗 45nm RF CMOS 工艺制造，以超小的外形尺寸实现了出色的集成度。AWRL1432 专为汽车领域的低功耗、自监控、超精确雷达系统而设计，适用于车内儿童检测、入侵监测、手势检测和占位检 测等应用。"
+"[desc] awrl1432 __ 1 封装信息 [desc]
+---table begin---
+Table tile: 封装信息
+| 器件型号(1) | 封装 | 封装尺寸(2) | 托盘/卷带包装 | 说明 |
+|---|---|---|---|---|
+| AWRL1432BGAMF | Q1 | FCCSP | 6.45mm x 6.45mm |托盘| 汽车量产型号。以符合功能安全标准为目 标。数量少 |
+| AWRL1432BGAMF | RQ1 | FCCSP | 6.45mm x 6.45mm |卷带包装| 汽车量产型号。以符合功能安全标准为目 标。数量多 |
+---table end---
+(1) 如需更多信息，请参阅节 12
+(2) 如需更多信息，请参阅节 11.1"
+"[desc] awrl1432 __ Functional Block Diagram [desc]
+Digital Front-end (Decimation filter chain)
+IF ADC LNA IF ADC LNA PA PA Synth (20 GHz) Ramp Generator (Timing Engine) x4 RF control processor (M3) (TI firmware) Prog RAM and ROM Data RAM Cortex-M4F at 160 MHz Prog + Data RAM 512 KB Boot ROM + optional fixed routines 256-KB ROM QSPI SPI UART Test/Debug ADC Buffer mmWave RF/Analog subsystem Front-end controller subsystem Application subsystem (Customer programmable) Serial flash interface Control/Communication interface Communication interface For debug and/or Control/Comm interface JTAG for debug/ development CAN-FD Watchdog Bus Matrix L3 RAM 256 kB Osc. PRCM, RTC & Wakeup Seq DPLL LDOs XTAL (40 MHz) Communication interface LIN APLL Temp sensor SOCC IF ADC LNA DMA ECC PMIC control/EEPROM interface I2C ECC LBIST, PBIST ESM DCC HWA1.2 (80 MHz) Internal loopback for Test & Monitoring PWM Hardware Accelerator subsystem Always On subsystem Shared RAM (L3) 256 kB 32-kHz Oscillator 图 4-1. Functional Block Diagram"
+"[desc] awrl1432 __ Device Comparison [desc]
+The following table compares the features of radar devices.
+---table begin---
+Table tile: Device Features Comparison
+| FUNCTION | AWRL1432 | AWRL6432 | AWR1843AOP (1) | AWR1843 (1) | AWR1642 |
+|---|---|---|---|---|---|
+| Antenna on Package (AOP) | - | - | Yes | - | - |
+| Number of receivers | 3 | 3 | 4 | 4 | 4 |
+| Number of transmitters | 2 | 2 | 3(2) | 3(2) | 2 |
+| RF frequency range | 76 to 81 GHz | 57 to 64 GHz | 76 to 81 GHz | 76 to 81 GHz | 76 to 81 GHz |
+| On-chip memory | 1 MB | 1 MB | 2MB | 2MB | 1.5MB |
+| Max I/F (Intermediate Frequency) (MHz) | 5 | 5 | 10 | 10 | 5 |
+| Max real sampling rate (Msps) | 12.5 | 12.5 | 25 | 25 | 12.5 |
+| Max complex sampling rate (Msps) | - | - | 12.5 | 12.5 | 6.25 |
+| Safety and Security Functional Safety -Compliance | ASIL-B Targeted | ASIL-B Targeted | ASIL-B | ASIL-B | - |
+| Device Security(3) | - | - | Yes | Yes | Yes |
+| Processors MCU | M4F | M4F | R4F | R4F | R4F |
+---table end---"
+"[desc] awrl1432 __ Device Comparison __ Functional Block Diagram [desc]
+SOCC, IF, ADC, LNA, DMA, ECC, PMIC control/EEPROM interface, I2C, ECC, LBIST, PBIST, ESM, DCC, HWA1.2 (80 MHz) Internal loopback for Test & Monitoring, PWM, Hardware Accelerator subsystem, Always On subsystem, Shared RAM (L3), 256 kB, 32-kHz Oscillator
+ADVANCE INFORMATION"
+"[desc] awrl1432 __ Device Comparison __ Related Products [desc]
+For information about other devices in this family of products or related products see the links that follow.
+mmWave Sensors, TI’s mmWave sensors rapidly and accurately sense range, angle and velocity with less power using the smallest footprint mmWave sensor portfolio for automotive applications.
+Automotive mmWave Sensors, TI’s automotive mmWave sensor portfolio offers high-performance radar front end to ultra-high resolution, small and low-power single-chip radar solutions. TI’s scalable sensor portfolio enables design and development of ADAS system solution for every performance, application and sensor configuration ranging from comfort functions to safety functions in all vehicles.
+Companion Products for AWRL1432, Review products that are similar to this# 1. mmWave Sensors Introduction
+Sense range, angle and velocity with less power using the smallest footprint mmWave sensor portfolio for automotive applications."
+"[desc] awrl1432 __ Automotive mmWave Sensors [desc]
+TI’s automotive mmWave sensor portfolio offers high-performance radar front end to ultra-high resolution, small and low-power single-chip radar solutions. TI’s scalable sensor portfolio enables design and development of ADAS system solution for every performance, application and sensor configuration ranging from comfort functions to safety functions in all vehicles."
+"[desc] awrl1432 __ Companion Products for AWRL1432 [desc]
+Review products that are similar to this product."
+"[desc] awrl1432 __ Reference designs for AWRL1432 [desc]
+TI Designs Reference Design Library is a robust reference design library spanning analog, embedded processor and connectivity. Created by TI experts to help you jump-start your system design, all TI Designs include schematic or block diagrams, BOMs, and design files to speed your time to market. Search and download designs at ti.com/tidesigns."
+"[desc] awrl1432 __ Obstacle detection reference design [desc]
+This reference design demonstrates the use of the AWRL1432/AWR1642 single-chip mmWave sensor with integrated DSP as an obstacle-detection sensor for the car door and trunk, enabling applications like automatic car door openers and intelligent car doors that can accurately detect obstacles/objects in a wide field of view (FoV)."
+"[desc] awrl1432 __ ADVANCE INFORMATION - Terminal Configurations and Functions [desc]
+7 Terminal Configurations and Functions"
+"[desc] awrl1432 __ Pin Diagrams [desc]
+7.1 Pin Diagrams
+12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, M, L, K, J, H, G, F, E, D, C, B, A
+Not to scale
+VSS, VIOIN, HOST_CLK, _REQ, VIOIN_18, VDD_SRAM, GPADC1, VDDA_18BB, VDDA_12RF, VDDA_10RF, VSSA, VSSA, UARTA_TX, UARTA_RTS, NRESET, VNWA, VIOIN_18, GPADC2, VDDA_18BB, VDDA_12RF, VDDA_10RF, VSSA, VSSA, VIOIN_18, NERROR, _OUT, VSS, VDD, VSSA, RX1, UARTA_RX, GPIO_5, VIN_18PM, VSSA, VSSA, VSS, PMIC "
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ CAN Signal Descriptions [desc]
+---table begin---
+Table title: CAN Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| CAN_FD_RX | CAN Receive Data | I | - |
+| CAN_FD_TX | CAN Transmit Data | O | - |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ Clock Signal Descriptions [desc]
+---table begin---
+Table title: Clock Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| MCU_CLKOUT | MCU clock output | O | K11, M10 |
+| PMIC_CLKOUT | PMIC clock output. This also serves as a Sense On Power [Reset] Line. Impacts boot mode SOP1. | O | H11 |
+| RTC_CLK_IN | RTC clock input | I | B8, E12, H10, K11, L11 | 
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ EPWM Signal Descriptions [desc]
+---table begin---
+Table title: EPWM Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| EPWMA | EPWM Output A | O | C11, D11, G11, L11 |
+| EPWMB | EPWM Output B | O | B12, C12, D10, J10 |
+| EPWM_SYNC_IN | EPWM Sync Input | I | E10, E12, J10 |
+| EPWM_SYNC_OUT | EPWM Sync output | O | E12 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ GPIO Signal Descriptions [desc]
+---table begin---
+Table title: GPIO Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| GPIO_0 | General Purpose Input/Output | IO | B12 |
+| GPIO_1 | General Purpose Input/Output | IO | C11 |
+| GPIO_2 | General Purpose Input/Output | IO | H10 |
+| GPIO_3 | General Purpose Input/Output | IO | J11 |
+| GPIO_4 | General Purpose Input/Output | IO | K11 |
+| GPIO_5 | General Purpose Input/Output | IO | J10 |
+| GPIO_6 | General Purpose Input/Output | IO | L11 |
+| GPIO_7 | General Purpose Input/Output | IO | M10 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ I2C Signal Descriptions [desc]
+---table begin---
+Table title: I2C Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| I2C_SCL | I2C Clock | IO | B10, D10, E10, L12, M10 |
+| I2C_SDA | I2C Data | IO | B9, D11, F11, H10, J11 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ JTAG Signal Descriptions [desc]
+---table begin---
+Table title: JTAG Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| TCK | JTAG Test Clock Input | I | C12 |
+| TDI | JTAG Test Data Input | I | G11 |
+| TDO | JTAG Test Data Output. Also serves as a Sense On Power [Reset] Line Impacts boot mode SOP0. | O | E11 |
+| TMS | JTAG Test Mode Select Input | I | E12 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ LIN Signal Descriptions [desc]
+---table begin---
+Table title: LIN Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| LIN_RX | LIN Receive Data | I | F11, H10, J10, J11 |
+| LIN_TX | LIN Transmit Data | O | E10, H11, L11, L12, M10 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ RDIF Signal Descriptions [desc]
+---table begin---
+Table title: RDIF Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| RDIF_CLK | RDIF Clock | O | L11 |
+| RDIF_D0 | RDIF data 0 | O | H10 |
+| RDIF_D1 | RDIF data 1 | O | J11 |
+| RDIF_D2 | RDIF data 2 | O | L12 |
+| RDIF_D3 | RDIF data 3 | O | K11 |
+| RDIF_FRM_CLK | RDIF Frame Clock | O | M10 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ Power Supply Signal Descriptions [desc]
+---table begin---
+Table title: Power Supply Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| VDD | 1.2V Core supply | PWR | C9, G7, G8, G9, H8, K7 |
+| VDDA_12RF | 1.2V RF Supply | PWR | L4, M4 |
+| VDDA_18BB | 1.8V analog supply | PWR | L5, M5 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ Power Supply Signal Descriptions __ Power Supply Signal Descriptions (continued) [desc]
+---table begin---
+Table title: Power Supply Signal Descriptions (continued)
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| VDDA_18VCO | 1.8V analog supply | PWR | F3 |
+| VDD_SRAM | 1.2V SRAM supply | PWR | M7 |
+| VIN_18PM | 1.8V core supply | PWR | J5 |
+| VIOIN | 1.8V analog supply | PWR | G12, M11 |
+| VIOIN_18 | 1.8V analog supply | PWR | C8, K12, L8, M8 |
+| VIOIN_18CLK | 1.8V analog supply | PWR | C6 |
+| VNWA | 1.2V VNWA supply. Always connected to SRAM supply | PWR | L9 |
+| VPP | 1.8V VPP supply | PWR | A8 |
+| VSS | Ground | GND | A12, B7, E6, E7, E8, E9, F6, F7, F8, F9, H12, K9, M12 |
+| VSSA | Ground | GND | A1, A2, A4, A6, B2, B3, B4, B5, B6, C1, C2, D2, E1, E2, F2, G1, G2, H2, J1, J2, K2, L1, L2, M1, M2 |
+| VSSA_PM | Ground | GND | E5 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ QSPI Signal Descriptions [desc]
+---table begin---
+Table title: QSPI Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| QSPI_D0 | QSPI Data bit 0 | IO | B11 |
+| QSPI_D1 | QSPI Data bit 1 | I | B8 |
+| QSPI_D2 | QSPI Data bit 2 | I | B10 |
+| QSPI_D3 | QSPI Data bit 3 | I | B9 |
+| QSPI_SCLK | QSPI clock | IO | A11 |
+| QSPI_CS | QSPI Chip select | O | A10 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ RS232 Debug Signal Descriptions [desc]
+---table begin---
+Table title: RS232 Debug Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| RS232_RX | Debug UART (Operates as Bus Main) - Receive Signal | I | F11 |
+| RS232_TX | Debug UART (Operates as Bus Main) - Transmit Signal | O | E10 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ SPIA Signal Descriptions [desc]
+---table begin---
+Table title: SPIA Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| SPIA_CLK | SPIA Clock | IO | D10 |
+| SPIA_CS0_N | SPIA Chip Select 0 | IO | D11 |
+| SPIA_MISO | SPIA MISO | IO | C11 |
+| SPIA_MOSI | SPIA MOSI | IO | B12 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ SPIB Signal Descriptions [desc]
+---table begin---
+Table title: SPIB Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| SPIB_CLK | SPIB Clock | IO | A11, D10 |
+| SPIB_CS0_N | SPIB Chip Select 0 | IO | A10, D11 |
+| SPIB_MISO | SPIB MISO | IO | B8, C11 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ SPIB Signal Descriptions __ SPIB Signal Descriptions (continued) [desc]
+---table begin---
+Table title: SPIB Signal Descriptions (continued)
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| SPIB_MOSI | SPIB MOSI | IO | B11, B12 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ System Signal Descriptions [desc]
+---table begin---
+Table title: System Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| HOST_CLK_REQ | Host clock request output | O | M10 |
+| NERROR_OUT | NERROR output signal | O | K11 |
+| SYNC_IN | Sync input | I | B9, E12, J10, J11, K11 |
+| WARM_RESET_OUT | Warm reset output | O | E12, H10 |
+| WU_REQIN | Wakeup Request input | I | B10, H10, K11, L11, L12, M10 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ UARTA Signal Descriptions [desc]
+---table begin---
+Table title: UARTA Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| UARTA_RTS | UARTA RTS output | O | L11 |
+| UARTA_RX | UARTA Receive Data | I | J11 |
+| UARTA_TX | UARTA Transmit Data | O | L12 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ UARTB Signal Descriptions [desc]
+---table begin---
+Table title: UARTB Signal Descriptions
+| SIGNAL NAME | DESCRIPTION | PIN TYPE | BGA PIN |
+|---|---|---|---|
+| UARTB_RX | UARTB Receive Data | I | F11, J11 |
+| UARTB_TX | UARTB Transmit Data | O | E10, L12 |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ Pin Muxing Table [desc]
+---table begin---
+Table title: Pin Muxing Table
+| BGA BALL NUMBER | BALL NAME | SIGNAL NAME | PINCNTL REGISTER | PIN CNTL REGISTER ADDRESS | MODE | TYPE | PULL UP/DOWN TYPE | BALL STATE DURING RST | BALL STATE AFTER RST |
+|---|---|---|---|---|---|---|---|---|---|
+| H10 | GPIO_2 | GPIO_2 | PADAL_CFG_REG | 0x5A00 002C | 0 | IO | PU/PD | OFF/OFF/OFF | OFF/OFF/OFF |
+| J10 | GPIO_5 | GPIO_5 | PADAV_CFG_REG | 0x5A00 0054 | 0 | IO | PU/PD | OFF/OFF/OFF | OFF/OFF/OFF |
+| M10 | HOST_CLK_REQ | HOST_CLK_REQ | PADAX_CFG_REG | 0x5A00 005C | 0 | O | PU/PD | OFF/OFF/OFF | OFF/SS/OFF |
+| K11 | NERROR_OUT | NERROR_OUT | PADAU_CFG_REG | 0x5A00 0050 | 0 | O | PU/PD | OFF/OFF/OFF | OFF/OFF/OFF |
+| H11 | PMIC_CLKOUT | PMIC_CLKOUT | PADAK_CFG_REG | 0x5A00 0028 | 0 | O | PU/PD | OFF/OFF/OFF | OFF/OFF/OFF |
+| B11 | QSPI[0] | QSPI[0] | PADAC_CFG_REG | 0x5A00 0008 | 0 | IO | PU/PD | OFF/OFF/OFF | OFF/OFF/OFF |
+---table end---"
+"[desc] awrl1432 __ Advanced Information - Signal Descriptions __ Pin Muxing Table (continued) [desc]
+---table begin---
+Table tile: Pin Muxing Information
+| BGA BALL NUMBER | BALL NAME | SIGNAL NAME | PINCNTL REGISTER | PIN CNTL REGISTER ADDRESS | MODE | TYPE | PULL UP/DOWN TYPE | BALL STATE DURING RST | BALL STATE AFTER RST |
+|---|---|---|---|---|---|---|---|---|---|
+| B9 | QSPI[3] | QSPI[3]| PADAF_CFG_REG | 0x5A00 0014 | 0 | I | PU/PD | OFF/OFF/OFF | OFF/OFF/OFF |
+| A11 | QSPI_CLK | QSPI_CLK | PADAA_CFG_REG | 0x5A00 0000 | 0 | IO | PU/PD | OFF/OFF/OFF | OFF/OFF/OFF |
+| A10 | QSPI_CS | QSPI_CS | PADAB_CFG_REG | 0x5A00 0004 | 0 | O | PU/PD | OFF/OFF/OFF | OFF/OFF/OFF |
+| F11 | RS232_RX | RS232_RX | PADAP_CFG_REG | 0x5A00 003C | 0 | I | PU/PD | OFF/OFF/UP | ON/OFF/UP |
+| E10 | RS232_TX | RS232_TX | PADAQ_CFG_REG | 0x5A00 0038 | 0 | O | PU/PD | OFF/OFF/OFF | OFF/SS/OFF |
+| D10 | SPIA_CLK | SPIA_CLK | PADAG_CFG_REG | 0x5A00 0018 | 0 | IO | PU/PD | OFF/OFF/OFF | OFF/OFF/OFF |
+| D11 | SPIA_CS0_N | SPIA_CS0_N | PADAH_CFG_REG | 0x5A00 001C | 0 | IO | PU/PD | OFF/OFF/OFF | OFF/OFF/OFF |
+| C11 | SPIA_MISO | SPIA_MISO | PADAJ_CFG_REG | 0x5A00 0024 | 0 | IO | PU/PD | OFF/OFF/OFF | OFF/OFF/OFF |
+| B12 | SPIA_MOSI | SPIA_MOSI | PADAI_CFG_REG | 0x5A00 0020 | 0 | IO | PU/PD | OFF/OFF/OFF | OFF/OFF/OFF |
+---table end---"
+"[desc] awrl1432 __ 1 Absolute Maximum Ratings [desc]
+---table begin---
+Table tile: Absolute Maximum Ratings
+| PARAMETERS(1) (2) | MIN | MAX | UNIT |
+|---|---|---|---|
+| VDD 1.2 V digital power supply | –0.5 | 1.4 | V |
+| VIOIN I/O supply (3.3 V or 1.8 V): All CMOS I/Os operate on the same VIOIN voltage level | –0.5 | 3.8 | V |
+| VIOIN_18 1.8 V supply for CMOS IO | –0.5 | 2 | V |
+| VIOIN_18CLK 1.8 V supply for clock module | –0.5 | 2 | V |
+| VDDA_18BB 1.8-V Analog baseband power supply | –0.5 | 2 | V |
+| VDDA_18VCO supply 1.8-V RF VCO supply | –0.5 | 2 | V |
+| RX1-3 Externally applied power on RF inputs | | 10 | dBm |
+| TX1-2 Externally applied power on RF outputs(3) | | 10 | dBm |
+| Input and output voltage range Dual-voltage LVCMOS inputs, 3.3 V or 1.8 V (Steady State) | –0.3V | VIOIN + 0.3 | V |
+| Dual-voltage LVCMOS inputs, operated at 3.3 V/1.8 V (Transient Overshoot/Undershoot) or external oscillator input| | VIOIN + 20% up to 20% of signal period | |
+| CLKP, CLKM Input ports for reference crystal | –0.5 | 2 | V |
+| Clamp current Input or Output Voltages 0.3 V above or below their respective power rails. Limit clamp current that flows through the internal diode protection cells of the I/O. | –20 | 20 | mA |
+| TJ Operating junction temperature range | –40 | 125 | °C |
+| TSTG Storage temperature range after soldered onto PC board | –55 | 150 | °C |
+---table end---"
+"[desc] awrl1432 __ Additional Notes [desc]
+(1) Stresses beyond those listed under Absolute Maximum Ratings may cause permanent damage to the device. These are stress ratings only, and functional operation of the device at these or any other conditions beyond those indicated under Recommended Operating Conditions is not implied. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
+(2) All voltage values are with respect to VSS, unless otherwise noted.
+(3) This value is for an externally applied signal level on the TX. Additionally, a reflection coefficient up to Gamma = 1 can be applied on the TX output."
+"[desc] awrl1432 __ 2 ESD Ratings [desc]
+---table begin---
+Table tile: ESD Ratings
+| VALUE | UNIT |
+|---|---|
+| V(ESD) Electrostatic discharge Human-body model (HBM), per AECQ100-002 (1) All pins | ±2000 | V |
+| Charged-device model (CDM), per AEC Q100-011 All pins | ±500 | V |
+| Corner pins | ±750 | V |
+---table end---
+(1) AEC Q100-002 indicates that HBM stressing shall be in accordance with the ANSI/ESDA/JEDEC JS-001 specification."
+"[desc] awrl1432 __ 3 Power-On Hours (POH) [desc]
+---table begin---
+Table tile: Power-On Hours (POH)
+| JUNCTION TEMPERATURE (Tj) | OPERATING CONDITION | NOMINAL CVDD VOLTAGE (V) | POWER-ON HOURS [POH] (HOURS) |
+|---|---|---|---|
+| –40°C | 100% duty cycle | 1.2 | 600 (6%) |
+| 75°C |  |   | 2000 (20%) |
+| 95°C |  |   | 6500 (65%) |
+| 125°C |  |   | 900 (9%) |
+---table end---
+(1) This information is provided solely for your convenience and does not extend or modify the warranty provided under TI's standard terms and conditions for TI semiconductor products."
+"[desc] awrl1432 __ 4 Recommended Operating Conditions [desc]
+---table begin---
+Table tile: Recommended Operating Conditions
+| MIN | NOM | MAX | UNIT |
+|---|---|---|---|
+| VDD 1.2 V digital power supply | 1.14 | 1.2 | 1.26 | V |
+| VIOIN I/O supply (3.3 V or 1.8 V): All CMOS I/Os would operate on this supply. | 3.135 | 3.3 | 3.465 | V |
+| VIOIN | 1.71 | 1.8 | 1.89 | V |
+| VIOIN_18 1.8 V supply for CMOS IO | 1.71 | 1.8 | 1.89 | V |
+| VIOIN_18CLK 1.8 V supply for clock module | 1.71 | 1.8 | 1.89 | V |
+| VDDA_18BB 1.8-V Analog baseband power supply | 1.71 | 1.8 | 1.89 | V |
+| VDDA_18VCO 1.8V RF VCO supply | 1.71 | 1.8 | 1.89 | V |
+| VIH Voltage Input High (1.8 V mode) | | 1.17 | | V |
+| VIL Voltage Input Low (1.8 V mode) | 0.3*VIOIN | | | V |
+| High-level output threshold (IOH = 6 mA) | VIOIN – 450 | | | mV |
+| Low-level output threshold (IOL = 6 mA) | 450 | | | mV |
+| NRESET SOP[1:0] VIL (1.8V Mode) | 0.2 | | | V |
+| VIH (1.8V Mode) | 0.96 | | | V |
+| VIL (3.3V Mode) | 0.3 | | | V |
+| VIH (3.3V Mode) | 1.57 | | | V |
+---table end---"
+"[desc] awrl1432 __ 5 Power Supply Specifications __ 3V I/O Topology [desc]
+表 8-1 describes the power rails from an external power supply block to the device via a 3.3V I/O topology.
+---table begin---
+Table tile: Power Supply Rails Characteristics: Power Optimized 3.3V I/O Topology
+| SUPPLY | DEVICE BLOCKS POWERED FROM THE SUPPLY | RELEVANT IOs IN THE DEVICE |
+|---|---|---|
+| 3.3 V | Digital I/Os | Input: VIOIN |
+| 1.8 V | Synthesizer and APLL VCOs, crystal oscillator, IF Amplifier stages, ADC | Input: VDDA_18VCO, VIOIN_18CLK, VDDA_18BB, VIOIN_18, VIN_18PM |
+| LDO Output: VOUT_14SYNTH, VOUT_14APLL |
+| 1.2 V | Core Digital and SRAMs, RF | Input: VDD, VNWA, VDD_SRAM, VDDA_12RF |
+| LDO Output: VDDA_10RF |
+---table end---"
+"[desc] awrl1432 __ 5 Power Supply Specifications __ 3V I/O Topology __ 3V I/O Topology [desc]
+表 8-2 describes the power rails from an external power supply block to the device via a BOM Optimized 3.3V I/O Topology.
+---table begin---
+Table tile: Power Supply Rails Characteristics: BOM Optimized 3.3V I/O Topology
+| SUPPLY | DEVICE BLOCKS POWERED FROM THE SUPPLY | RELEVANT IOs IN THE DEVICE |
+|---|---|---|
+| 3.3V | Digital I/Os | Input: VIOIN |
+| 1.8V | Synthesizer and APLL VCOs, crystal oscillator, IF Amplifier stages, ADC | Input: VDDA_18VCO, VIOIN_18CLK, VDDA_18BB, VIOIN_18, VIN_18PM |
+| LDO Output: VOUT_14SYNTH, VDDA_10RF, VDD_SRAM, VOUT_14APLL, VDDA_12RF, VDD |
+---table end---"
+"[desc] awrl1432 __ 5 Power Supply Specifications __ 3V I/O Topology __ 8V I/O Topology [desc]
+8-3 describes the power rails from an external power supply block to the device via a power optimized 1.8V I/O topology.
+---table begin---
+Table tile: Power Supply Rails Characteristics: Power Optimized 1.8V I/O Topology
+| SUPPLY | DEVICE BLOCKS POWERED FROM THE SUPPLY | RELEVANT IOs IN THE DEVICE |
+|---|---|---|
+| 1.8 V | Synthesizer and APLL VCOs, crystal oscillator, IF Amplifier stages, ADC | Input: VIOIN, VIN_18PM, VDDA_18VCO, VIOIN_18CLK, VDDA_18BB, VIOIN_18 |
+|  |  | LDO Output: VOUT_14SYNTH, VOUT_14APLL |
+---table end---"
+"[desc] awrl1432 __ 5 Power Supply Specifications __ 3V I/O Topology __ 8V I/O Topology [desc]
+8-4 describes the power rails from an external power supply block to the device via a BOM optimized 1.8V I/O topology.
+---table begin---
+Table tile: Power Supply Rails Characteristics: BOM Optimized 1.8V I/O Topology
+| SUPPLY | DEVICE BLOCKS POWERED FROM THE SUPPLY | RELEVANT IOs IN THE DEVICE |
+|---|---|---|
+| 1.8 V | Synthesizer and APLL VCOs, crystal oscillator, IF Amplifier stages, ADC, Digital I/Os | Input: VIOIN, VDDA_18VCO, VIOIN_18CLK, VIOIN_18, VDDA_18BB, VIN_18PM, VDDA_18VCO |
+|  |  | LDO Output: VDD, VDD_SRAM, VDDA_10RF, VDDA_12RF, VOUT_14APLL, VOUT_14SYNTH |
+---table end---"
+"[desc] awrl1432 __ 5 Power Supply Specifications __ 5 System Topologies [desc]
+The following the system topologies are supported."
+"[desc] awrl1432 __ 5 Power Supply Specifications __ 5 System Topologies __ 1 Power Topologies [desc]
+The device supports two unique power topologies for BOM optimized and Power Optimized modes."
+"[desc] awrl1432 __ 5 Power Supply Specifications __ 5 System Topologies __ 1 Power Topologies __ 1 BOM Optimized Mode [desc]
+In this mode the device can be powered using one 1.8V regulator OR using a 3.3V and a 1.8V regulator mode. "
+"[desc] awrl1432 __ 5 Power Supply Specifications __ 5 System Topologies __ 1 Power Topologies __ 2 Power Optimized Mode [desc]
+This mode is for applications needing ultra-low power applications. The device can either be powered using two rails (1.8 V and 1.2 V) or with three rails (3.3 V, 1.8 V and 1.2 V)."
+"[desc] awrl1432 __ 6 Power Save Modes [desc]
+The power states supported by the device are listed in the table below.
+---table begin---
+Table tile: Device Power States
+| Power State | Details |
+|---|---|
+| Active | Active Power State is when RF/chirping activity is ongoing |
+| Processing | Processing Power State is when data is being processed RF turned off(1) |
+| Idle | Idle Power State is during inter-frame/inter-burst/inter-chirp idle time |
+| Deep Sleep | Lowest possible power state of the device where the contents of the device can be retained (Application Image, Chirp Profile etc) and device need not boot from scratch again. Device can enter this state after the frame processing is complete in order to save power significantly. Deep sleep exit can be through a number of external wakeup sources and internal timing maintenance. |
+---table end---"
+"[desc] awrl1432 __ 6 Power Save Modes __ 6 Noise and Ripple Specifications [desc]
+Note: The power consumed here also includes the Hardware Accelerator Power Consumption."
+"[desc] awrl1432 __ 6 Power Save Modes __ 1 Typical Power Consumption Numbers [desc]
+The table below lists the typical power consumption for each power save modes in different power topologies and antenna configurations. The power numbers quoted are based on initial silicon measurements and might be subjected to changes/improvements due to further characterization.
+---table begin---
+Table tile: Estimated Power Consumed in 3.3-V IO Mode
+| Power Mode | Power Consumption (mW)(1) | Power Optimized Mode | BOM Optimized Mode |
+|---|---|---|---|
+| Active (2TX, 3RX) | Sampling: 12.5 MSps, Continuous Streaming Mode (CW) mode Freq =77 GHz TX Power = 10dBm RX gain = 30 dB | 1358 | 1867 |
+| Active (2TX, 2RX) | | 1267 | 1747 |
+| Active (1TX, 2RX) | | 1013 | 1368 |
+| Active (1TX, 1RX) | | 945 | 1271 |
+| Processing | | 159 | 233 |
+| Idle (Frame Idle) | APPSS CM4 = 20MHz, FECSS, HWA powered off, SPI Interface active | 13.80 | 23.13 |
+| Deep sleep | Memory Retained = 114KB | 1.38 | 1.34 |
+---table end---"
+"[desc] awrl1432 __ 6 Power Save Modes __ 1 Typical Power Consumption Numbers __ 8-V IO Mode [desc]
+The table below lists the estimated power consumption in 1.8-V IO mode.
+---table begin---
+Table tile: Estimated Power Consumed in 1.8-V IO Mode
+| Power Mode | Power Consumption (mW) | Power Optimized Mode | BOM Optimized Mode |
+|---|---|---|---|
+| Deep Sleep | | 0.640 | 0.780 |
+---table end---"
+"[desc] awrl1432 __ 6 Power Save Modes __ 1 Typical Power Consumption Numbers __ 3-V Power Optimized Topology [desc]
+The table below lists the use-case power consumption in 3.3-V Power Optimized Topology. The conditions and parameters are defined in the table.
+---table begin---
+Table tile: Use-Case Power Consumed in 3.3-V Power Optimized Topology
+| Parameter | Condition | Typical (mW) |
+|---|---|---|
+| Average Power Consumption (Presence Detection -Minor Motion)| RF Front End Configuration : 2TX, 3RX 5MHz Sampling Rate Num of ADC samples = 64 Ramp End time = 19us Chirp Idle Time = 6us Chirp Slope = 32MHz/us Number of chirps per burst = 8 Burst Periodicity = 315us Number of bursts per frame = 1 Device configured to go to deep sleep state after active operation. Memory Retained in deep sleep = 900KB 1Hz Update Rate | 2.6 |
+---table end---"
+"[desc] awrl1432 __ 7 Peak Current Requirement per Voltage Rail [desc]
+---table begin---
+Table tile: Maximum Peak Current per Voltage Rail
+| Mode(1) | IO Voltage(3) | Maximum Current (mA)(2) |
+|---|---|---|
+| 1.2V: total current drawn by all nodes driven by 1.2V rail | | |
+| 1.8V: total current drawn by all nodes driven by 1.8V rail | | |
+---table end---"
+"[desc] awrl1432 __ 10 Maximum Peak Current per Voltage Rail [desc]
+---table begin---
+Table tile: Maximum Peak Current per Voltage Rail (continued)
+| Mode(1) | IO Voltage(3) | Maximum Current (mA)(2) |
+|---|---|---|
+| BOM Optimized | 3.3 V | NA |
+| 1360 | 90 | |
+| BOM Optimized | 1.8V | NA |
+| 1450 | NA | |
+| Power Optimized | 3.3 V | 1100 |
+| 270 | 90 | |
+| Power Optimized | 1.8 V | 1100 |
+| 360 | NA | |
+---table end---"
+"[desc] awrl1432 __ 8 RF Specification [desc]
+Over recommended operating conditions (unless otherwise noted)\
+PARAMETER\
+MIN\
+TYP\
+MAX\
+UNIT\
+Receiver(1)\
+Noise figure\
+76 to 81 GHz\
+14.5\
+dB\
+1-dB compression point (Out Of Band)(2)\
+–9\
+dBm\
+Maximum gain\
+40\
+dB\
+Gain range\
+10\
+dB\
+Gain step size\
+2\
+dB\
+IF bandwidth(3)\
+5\
+MHz\
+ADC sampling rate (real)\
+12.5\
+Msps\
+ADC resolution\
+12\
+Bits\
+Transmitter(1)\
+Output Power\
+11\
+dBm\
+Clock\
+subsystem\
+Frequency range\
+76\
+81\
+GHz\
+Ramp rate\
+400 MHz/µs\
+Phase noise at 1-MHz offset\
+76 to 81 GHz\
+–89\
+dBc/Hz"
+"[desc] awrl1432 __ 9 Supported DFE Features [desc]
+- TX output back-off
+    - Binary Phase Modulation supported on each TX
+- RX gain
+    - Real RX channels
+    - Total RX gain range of 30 dB to 40 dB, in 2 dB steps
+- VCO
+    - Single VCO covering entire RF sweep bandwidth up to 5 GHz.
+- High-pass filter
+    - Supports corner frequency options 175 KHz, 350 KHz, 700 KHz, 1400 KHz
+    - First-order high pass filter only
+- Low-pass filter
+    - Max IF bandwidth supported is 5 MHz\
+    - 40 dB stopband rejection, two filtering options supported
+    - 80% visibility – IF bandwidth is 80% of Nyquist and is 30% faster due to quicker settling time, compared 
+    with 90% visibility
+    - 90% visibility – IF bandwidth is 90%# y Phase Modulation supported on each TX"
+"[desc] awrl1432 __ RX gain [desc]
+- Real RX channels
+- Total RX gain range of 30 dB to 40 dB, in 2 dB steps"
+"[desc] awrl1432 __ VCO [desc]
+- Single VCO covering entire RF sweep bandwidth up to 5 GHz."
+"[desc] awrl1432 __ High-pass filter [desc]
+- Supports corner frequency options 175 KHz, 350 KHz, 700 KHz, 1400 KHz
+- First-order high pass filter only"
+"[desc] awrl1432 __ Low-pass filter [desc]
+- Max IF bandwidth supported is 5 MHz
+- 40 dB stopband rejection, two filtering options supported
+- 80% visibility – IF bandwidth is 80% of Nyquist and is 30% faster due to quicker settling time, compared 
+with 90% visibility
+- 90% visibility – IF bandwidth is 90% of Nyquist (has longer setting time due to larger filter length)"
+"[desc] awrl1432 __ Timing Engine [desc]
+- Support for chirps, bursts and frames
+- Larger idle times can give more power saving
+- Chirp accumulation (averaging) possible across closely spaced chirps to reduce memory requirement
+- Provision for per-chirp dithering of parameters"
+"[desc] awrl1432 __ 10 CPU Specifications [desc]
+Over recommended operating conditions (unless otherwise noted)
+---table begin---
+Table tile: CPU Specifications
+| PARAMETER | TYP | UNIT |
+|---|---|---|
+| Application Subsystem (M4F Family) | Clock Speed | 160 MHz |
+| Tightly Coupled Memory - A (Program + Data) |  | 512 KB |
+| Shared Memory | Shared L3 Memory(1) | 256 KB |
+|  | L3 Memory dedicated for HWA | 256 KB |
+---table end---"
+"[desc] awrl1432 __ 11 Thermal Resistance Characteristics [desc]
+---table begin---
+Table tile: Thermal Resistance Characteristics for FCCSP Package [AMF0102A]
+| THERMAL METRICS(1) (4) | °C/W(2) (3) |
+|---|---|
+| RΘJC Junction-to-case | 8.5 |
+| RΘJB Junction-to-board | 6.2 |
+| RΘJA Junction-to-free air | 24.7 |
+| PsiJC Junction-to-package top | 0.36 |
+| PsiJB Junction-to-board | 6.2 |
+---table end---"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 1 Power Supply Sequencing and Reset Timing [desc]
+The AWRL1432 device expects all external voltage rails to be stable before reset is deasserted."
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 2 Synchronized Frame Triggering [desc]
+The AWRL1432 device supports a hardware based mechanism to trigger radar frames. An external host can 
+pulse the SYNC_IN signal to start radar frames. The typical time difference between the rising edge of the 
+external pulse and the frame transmission on air (Tlag) is about 160 ns. There is also an additional 
+programmable delay that the user can set to control the frame start time.
+The periodicity of the external SYNC_IN pulse should be always greater than the active frame duration in all 
+instances.# 8.12.2 Synchronized Frame Triggering
+The AWRL1432 device supports a hardware based mechanism to trigger radar frames. An external host can 
+pulse the SYNC_IN signal to start radar frames. The typical time difference between the rising edge of the 
+external pulse and the frame transmission on air (Tlag) is about 160 ns. There is also an additional 
+programmable delay that the user can set to control the frame start time.
+The periodicity of the external SYNC_IN pulse should be always greater than the active frame duration in all 
+instances.
+---table begin---
+Table tile: Frame Trigger Timing
+| PARAMETER | DESCRIPTION | MIN | MAX | UNIT |
+|---|---|---|---|---|
+| Tactive_frame | Active frame duration | User defined | - | ns |
+| Tpulse | - | 25 | < Tactive_frame | - |
+---table end---"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 3 Input Clocks and Oscillators __ 1 Clock Specifications [desc]
+The AWRL1432 requires external clock source (that is, a 40-MHz crystal or external oscillator to CLKP) for initial 
+boot and as a reference for an internal APLL hosted in the device. An external crystal connected to the device 
+pins 图 8-8 shows the crystal implementation.
+The load capacitors, Cf1 and Cf2 in 图 8-8, should be chosen such that 方程式 1 is satisfied. CL in the 
+equation is the load specified by the crystal manufacturer. All discrete components used to implement 
+the oscillator circuit should be placed as close as possible to the associated oscillator CLKP and 
+CLKM pins.
+---table begin---
+Table tile: Crystal Electrical Characteristics (Oscillator Mode)
+| NAME | DESCRIPTION | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| fP | Parallel resonance crystal frequency | 40| - | - | MHz |
+| CL | Crystal load capacitance | 5 | 8 | 12 | pF |
+| ESR | Crystal ESR | 50 | - | - | Ω |
+| Temperature range | Expected temperature range of operation | –40 | - | 125 | °C |
+| Frequency tolerance | Crystal frequency tolerance(1) (2) (3) | –200 | - | 200 | ppm |
+| Drive level | - | 50 | - | 200 | µW |
+---table end---"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 4 MultiChannel buffered / Standard Serial Peripheral Interface (McSPI) [desc]
+The McSPI module is a multichannel transmit/receive, controller/peripheral synchronous serial bus"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 4 MultiChannel buffered / Standard Serial Peripheral Interface (McSPI) __ 1 McSPI Features [desc]
+The McSPI modules include the following main features:
+• Serial clock with programmable frequency, polarity, and phase for each channel
+• Wide selection of SPI word lengths, ranging from 4 to 32 bits
+• Up to four channels in controller mode, or single channel in receive mode
+• Controller multichannel mode:
+– Full duplex/half duplex
+– Transmit-only/receive-only/transmit-and-receive modes
+– Flexible input/output (I# 8.12.4.1 McSPI Features
+The McSPI modules include the following main features:
+- Serial clock with programmable frequency, polarity, and phase for each channel
+- Wide selection of SPI word lengths, ranging from 4 to 32 bits
+- Up to four channels in controller mode, or single channel in receive mode
+- Controller multichannel mode:
+    - Full duplex/half duplex
+    - Transmit-only/receive-only/transmit-and-receive modes
+    - Flexible input/output (I/O) port controls per channel
+    - Programmable clock granularity
+    - Per channel configuration for clock definition, polarity enabling, and word width
+- Single interrupt line for multiple interrupt source events
+- Enable the addition of a programmable start-bit for McSPI transfer per channel (start-bit mode)
+- Supports start-bit write command
+- Supports start-bit pause and break sequence
+- Programmable shift operations (1-32 bits)
+- Programmable timing control between chip select and external clock generation
+- Built-in FIFO available for a single channel"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 4 MultiChannel buffered / Standard Serial Peripheral Interface (McSPI) __ 2 SPI Timing Conditions [desc]
+---table begin---
+Table title: Table 8-15 McSPI Timing Conditions
+| MIN | TYP | MAX | UNIT |
+|---|---|---|---|
+| tR | Input rise time | 1 | 3 | ns |
+| tF | Input fall time | 1 | 3 | ns |
+| CLOAD | Output load capacitance | 2 | 15 | pF |
+---table end---"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 4 MultiChannel buffered / Standard Serial Peripheral Interface (McSPI) __ 3 SPI—Controller Mode __ 1 Timing and Switching Requirements for SPI - Controller Mode [desc]
+---table begin---
+Table title: Table 8 17 SPI Switching Characteristics Controller Mode (continued)
+| NO.(1) | (8) | MODE | MIN | MAX | UNIT |
+|---|---|---|---|---|---|
+| SM3 | tw(SPICLKH) | Typical Pulse duration, SPI_CLK high | (1) | -1 + 0.5P(4) | ns |
+| SM6 | td(SPICLK-SIMO) | Delay time, SPI_CLK active edge to SPI_D[x] transition  | (1) | -2 | 5 | ns |
+| SM7 | tsk(CS-SIMO) | Delay time, SPI_CS[x] active to SPI_D[x] transition | - | 5 | ns |
+| SM8 | td(SPICLK-CS) | Delay time, SPI_CS[x] active to SPI_CLK first edge | Controller_PHA0_POL 0;  Controller_PHA0_POL 1;(5) | -4 + B(6) | ns |
+| SM9 | td(SPICLK-CS) | Delay time, SPI_CLK last edge to SPI_CS[x] inactive | Controller_PHA0_POL 0; Controller_PHA0_POL 1;(5) | -4 + A(7) | ns |
+| SM11 | Cb | Capacitive load for each bus line | - | 3 | 15 | pF |
+---table end---"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 4 MultiChannel buffered / Standard Serial Peripheral Interface (McSPI) __ 3 SPI—Controller Mode __ Related to the SPI_CLK maximum frequency [desc]
+(2)
+Related to the SPI_CLK maximum frequency
+(3)
+20 ns cycle time = 50 MHz
+(4)
+P = SPICLK period
+(5)
+SPI_CLK phase is programmable with the PHA bit of the SPI_CH(i)CONF register
+(6)
+B = (TCS + .5) × TSPICLKREF, where TCS is a bit field of the SPI_CH(i)CONF register and Fratio = Even >= 2.
+(7)
+When P = 20.8 ns, A = (TCS + 1) × TSPICLKREF, where TCS is a bit field of the SPI_CH(i)CONF register.
+When P > 20.8 ns, A = (TCS + 0.5) × Fratio × TSPICLKREF, where TCS is a bit field of the SPI_CH(i)CONF register."
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 4 MultiChannel buffered / Standard Serial Peripheral Interface (McSPI) __ 3 SPI—Controller Mode __ Timing and Switching Characteristics for SPI Output Timings—Controller Mode [desc]
+SM8  SM9  SM3  SM1  SM2  SM1  SM2  SM3 SM4  SM5  SM4  SM5  SM4  SM4  SM5  SM5"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 4 MultiChannel buffered / Standard Serial Peripheral Interface (McSPI) __ 3 SPI—Controller Mode __ SPI Timing -Controller Mode Receive [desc]
+PHA=0  EPOL=1  PHA=1  EPOL=1  POL=0  POL=1"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 4 MultiChannel buffered / Standard Serial Peripheral Interface (McSPI) __ 3 SPI—Controller Mode __ SPI Timing- Controller Mode Transmit [desc]
+---table begin---
+Table tile: SPI Switching Characteristics Peripheral Mode
+| NO. | PARAMETER | DESCRIPTION | MIN | MAX | UNIT |
+|---|---|---|---|---|---|
+| SS6 | td(SPICLK-SOMI) | Delay time, SPI_CLK active edge to McSPI_somi transition | 0 | 5.77 | ns |
+| SS7 | tsk(CS-SOMI) | Delay time, SPI_CS[x] active edge to McSPI_somi transition | - | 5.77 | ns |
+---table end---"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 4 MultiChannel buffered / Standard Serial Peripheral Interface (McSPI) __ 3 SPI—Controller Mode __ Timing and Switching Characteristics for SPI Output Timings—Secondary Mode [desc]
+SPI_CS[x] (IN)  SPI_SCLK (IN)  SPI_SCLK (IN)  SPI_D[x] (IN)  SPI_CS[x] (IN)  SPI_SCLK (IN)  SPI_SCLK (IN)  SPI_D[x] (IN)  Bit n-1  Bit n-2  Bit n-3  Bit n-4  Bit 0  Bit# 8.12.4.4.2 Timing and Switching Characteristics for SPI Output Timings—Secondary Mode
+SPI_CS[x] (IN)
+SPI_SCLK (IN)
+SPI_SCLK (IN)
+SPI_D[x] (IN)
+SPI_CS[x] (IN)
+SPI_SCLK (IN)
+SPI_SCLK (IN)
+SPI_D[x] (IN)
+Bit n-1
+Bit n-2
+Bit n-3
+Bit n-4
+Bit 0
+Bit n-1
+Bit n-2
+Bit n-3
+Bit 1
+Bit 0
+PHA=0
+EPOL=1
+POL=0
+POL=1
+POL=0
+POL=1
+PHA=1
+EPOL=1
+SS3
+SS1
+SS3
+SS1
+SS3
+SS1
+SS2
+SS1
+SS8
+SS9
+SS8
+SS9
+SS2
+SS3
+SS2
+SS2
+SS4
+SS5
+SS5
+SS4
+SS4
+SS5
+SS4
+SS5
+Table tile: SPRSP08_TIMING_McSPI_04
+| SPI Timing | Peripheral mode Receive |
+|---|---|
+| Bit | PHA=0 |
+| EPOL=1  | POL=0 |
+| POL=1 | PHA=1 |
+| SS3 | SS1 |
+| SS2 | SS4 |
+| SS5 |  |"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 5 RDIF Interface Configuration [desc]
+The supported Radar Data InterFace (RDIF) is developed as a debug interface (for example: to capture raw 
+ADC data) and not as a production interface. The RDIF has four data lanes, one Bit Clock lane, and one Frame 
+Clock lane. From this interface, high-speed data is sent out for debug purposes. The RDIF interface supports the 
+following data rates1:
+•
+400 Mbps
+•
+320 Mbps
+•
+200 Mbps
+•
+160 Mbps
+•
+100 Mbps"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 5 RDIF Interface Configuration __ 1 RDIF Interface Timings [desc]
+---table begin---
+Table tile: Timing Requirements for RDIF Interface 
+| No. | PARAMETER  | DESCRIPTION   | MODE  | MIN | MAX  | UNIT |
+|---|---|---|---|---|---|---|
+| SM1 | Tb (RDIF_D[x]) | Bit Interval, RDIF_d[x] | Internal Clock | 9.6 | - | ns |
+| SM2 | Tvb (RDIF_D[x] - RDIF_CLK) | Data valid time, RDIF_d[x] and RDIF_frm_clk valid before RDIF_clk active edge | Internal Clock | 4.8 | - | ns |
+| SM3 | Tva (RDIF_CLK - RDIF_D[x]) | Data valid time, RDIF_d[x] valid after RDIF_clk active edge | Internal Clock | 4.8 | - | ns |
+| SM4 | Cb | Capacitive load for each bus line | - | 3 | 15 | pF |
+---table end---"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 5 RDIF Interface Configuration __ 2 RDIF Data Format [desc]
+The samples are sent one channel by one channel as shown in the diagram above. All the 12-bits of one 
+channel are sent on 4 data lanes in 3 DDR_CLK edges, followed by next RX channel.
+The frame clock (FRM_CLK) spans 12 DDR_CLK edges and 48 bits are sent in 1 FRM_CLK
+The FRM_CLK can have gaps in between. This is required as the interface rate is greater than the incoming 
+rate
+DDR_CLK is continuous.
+DDR_CLK is generated from 400MHz ADC CLK (one of the ADC CLKs) - selected for the DFE. It is the same 
+400MHz clock selected for DFE.
+New sample always starts at the rise edge of the DDR_CLK
+The FRM_CLK is valid for the entire data bit and is meets the Tsu/Th wrt DDR_CLK."
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 6 LIN [desc]
+The LIN module can be programmed to work either as an SCI or as a LIN. The SCI hardware features are 
+augmented to achieve LIN compatibility. The LIN standard is based on the SCI (UART) serial data link format. 
+The communication concept is single-/ multiple- with a message identification for multicast transmission between 
+any network nodes.
+The LIN has following features:
+•
+Compatibility with LIN 1.3 , 2.0, and 2.1 protocols
+•
+Configurable Baud Rate up to 20 kpbs
+•
+Two external pins: LINRX and LINTX.
+•
+Multi-buffered receive an# 8.12.6. LIN Module
+The LIN module can be programmed to work either as an SCI or as a LIN. The SCI hardware features are augmented to achieve LIN compatibility. The LIN standard is based on the SCI (UART) serial data link format. The communication concept is single-/ multiple- with a message identification for multicast transmission between any network nodes.
+The LIN has following features:
+* Compatibility with LIN 1.3 , 2.0, and 2.1 protocols
+* Configurable Baud Rate up to 20 kpbs
+* Two external pins: LINRX and LINTX.
+* Multi-buffered receive and transmit units
+* Identification masks for message filtering
+* Automatic Controller header generation – Programmable synchronization break field ADVANCE INFORMATION Synchronization field – Identifier field
+* Peripheral automatic synchronization – Synchronization break detection – Optional baud rate update – Synchronization validation
+* 231 programmable transmission rates with 7 fractional bits
+* Wake up on LINRX dominant level from transceiver
+* Automatic wake up support – Wakeup signal generation – Expiration times on wakeup signals
+* Automatic bus idle detection
+* Error detection – Bit error – Bus error – No-response error – Checksum error – Synchronization field error – Parity error
+* Capability to use Direct Memory Access (DMA) for transmit and receive data.
+* 2 Interrupt lines with priority encoding for: – Receive – Transmit – ID, error, and status
+* Support for LIN 2.0 checksum
+* Enhanced synchronizer finite state machine (FSM) support for frame processing
+* Enhanced handling of extended frames
+* Enhanced baud rate generator 
+* Update wakeup/go to sleep
+---table begin---
+Table title: LIN Timing Requirements
+| Frequency | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|
+| Supported baud rate | 1 |  | 20 | kHz |
+---table end---"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 7 General-Purpose Input/Output [desc]
+---table begin---
+Table title: Switching Characteristics for Output Timing versus Load Capacitance (CL) (continued)
+| PARAMETER(1) (2) | TEST CONDITIONS | VIOIN = 1.8V | VIOIN = 3.3V | UNIT |
+|---|---|---|---|---|
+| Max rise time, Slew control = 1 | CL = 20 pF | 3.3 | 3.3 | ns |
+| | CL = 50 pF | 6.7 | 7.2 | |
+| | CL = 75 pF | 9.6 | 10.5 | |
+| Max fall time | CL = 20 pF | 3.1 | 3.1 | ns |
+| | CL = 50 pF | 6.6 | 6.6 | |
+| | CL = 75 pF | 9.6 | 9.6 | |
+---table end---"
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 7 General-Purpose Input/Output [desc]
+(1) Slew control, which is configured by PADxx_CFG_REG, changes behavior of the output driver (faster or slower output slew rate). (2) The rise/fall time is measured as the time taken by the signal to transition from 10% and 90% of VIOIN voltage."
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ 8 Controller Area Network - Flexible Data-rate (CAN-FD) [desc]
+The CAN-FD module supports both classic CAN and CAN FD (CAN with Flexible Data-Rate) specifications. CAN FD feature allows high throughput and increased payload per data frame. The classic CAN and CAN FD devices can coexist on the same network without any conflict.
+The CAN-FD has the following features:
+* Conforms with CAN Protocol 2.0 A, B and ISO 11898-1
+* Full CAN FD support (up to 64 data bytes per frame)
+* AUTOSAR and SAE J1939 support
+* Up to 32 dedicated Transmit Buffers
+* Configurable Transmit FIFO, up to 32 elements
+* Configurable Transmit Queue, up to 32 elements
+* Configurable Transmit Event FIFO, up to 32 elements# 1. CAN and CAN FD (CAN with Flexible Data-Rate) specifications
+sic CAN and CAN FD (CAN with Flexible Data-Rate) specifications. CAN FD feature allows high throughput and increased payload per data frame. The classic CAN and CAN FD devices can coexist on the same network without any conflict.
+The CAN-FD has the following features:
+- Conforms with CAN Protocol 2.0 A, B and ISO 11898-1
+- Full CAN FD support (up to 64 data bytes per frame)
+- AUTOSAR and SAE J1939 support
+- Up to 32 dedicated Transmit Buffers
+- Configurable Transmit FIFO, up to 32 elements
+- Configurable Transmit Queue, up to 32 elements
+- Configurable Transmit Event FIFO, up to 32 elements
+- Up to 64 dedicated Receive Buffers
+- Two configurable Receive FIFOs, up to 64 elements each
+- Up to 128 11-bit filter elements
+- Internal Loopback mode for self-test
+- Mask-able interrupts, two interrupt lines
+- Two clock domains (CAN clock / Host clock)
+- Parity / ECC support - Message RAM single error correction and double error detection (SECDED) mechanism
+- Full Message Memory capacity (4352 words)."
+"[desc] awrl1432 __ 12 Timing and Switching Characteristics __ Dynamic Characteristics for the CANx TX and RX Pins [desc]
+---table begin---
+Table tile: Dynamic Characteristics for the CANx TX and RX Pins
+| PARAMETER | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|
+| td(CAN_FD_tx) |  |  | 15 | ns |
+| td(CAN_FD_rx) |  |  | 15 | ns |
+Note: These values do not include rise/fall times of the output buffer.
+---table end---"
+"[desc] awrl1432 __ Serial Communication Interface (SCI) [desc]
+The SCI has the following features:
+- Standard universal asynchronous receiver-transmitter (UART) communication
+- Supports full- or half-duplex operation
+- Standard non-return to zero (NRZ) format
+- Double-buffered receive and transmit functions in compatibility mode
+- Supports two individually enabled interrupt lines: level 0 and level 1
+- Configurable frame format of 3 to 13 bits per character based on the following:
+    - Data word length programmable from one to eight bits
+    - Additional address bit in address-bit mode
+    - Parity programmable for zero or one parity bit, odd or even parity
+    - Stop programmable for one or two stop bits
+- Asynchronous or iso-synchronous communication modes with no CLK pin
+- Two multiprocessor communication formats allow communication between more than two devices
+- Sleep mode is available to free CPU resources during multiprocessor communication and then wake up to receive an incoming message
+- Capability to use Direct Memory Access (DMA) for transmit and receive data
+- Five error flags and Seven status flags provide detailed information regarding SCI events
+- Two external pins: RS232_RX and RS232_TX
+  ADVANCE INFORMATION
+  Multi buffered receive and transmit units"
+"[desc] awrl1432 __ Serial Communication Interface (SCI) __ SCI Timing Requirements [desc]
+---table begin---
+Table tile: SCI Timing Requirements
+|  | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|
+| f(baud) |  |  | 115200 | Hz |
+---table end---"
+"[desc] awrl1432 __ Inter-Integrated Circuit Interface (I2C) [desc]
+The inter-integrated circuit (I2C) module is a multi-controller communication module providing an interface between devices compliant with Philips Semiconductor I2C-bus specification version 2.1 and connected by an I2C-bus™. This module will support any target or controller I2C compatible device.
+The I2C has the following features:
+- Compliance to the Philips I2C bus specification, v2.1 (The I2C Specification, Philips document number 9398 393 40011)
+    - Bit/Byte format transfer
+    - 7-bit and 10-bit device addressing modes
+    - START byte
+    - Multi-controller transmitter/ target receiver mode
+    - Multi-controller receiver/ target transmitter mode
+    - Combined controller transmit/receive and receive/transmit mode
+    - Transfer rates of 100 kbps up to 400 kbps (Phillips fast-mode rate)
+- Free data format
+- Two DMA events (transmit and receive)
+- DMA event enable/disable capability
+- Mo# 8.12.10.1 I2C Timing Requirements
+The I2C module has a memory that provides a direct interface for accessing data from external SPI devices, simplifying software requirements. However, this I2C module does not support High-speed (HS) mode, C-bus compatibility mode, or the combined format in 10-bit address mode.
+---table begin---
+Table tile: I2C Timing Requirements
+| STANDARD MODE(1) | FAST MODE | UNIT |
+|---|---|---|
+| MIN | MAX | MIN | MAX |
+| tc(SCL) Cycle time, SCL | 10 | - | 2.5 | - | μs |
+| tsu(SCLH-SDAL) Setup time, SCL high before SDA low (for a repeated START condition) | 4.7 | - | 0.6 | - | μs |
+| th(SCLL-SDAL) Hold time, SCL low after SDA low (for a START and a repeated START condition) | 4 | - | 0.6 | - | μs |
+| tw(SCLL) Pulse duration, SCL low | 4.7 | - | 1.3 | - | μs |
+| tw(SCLH) Pulse duration, SCL high | 4 | - | 0.6 | - | μs |
+| tsu(SDA-SCLH) Setup time, SDA valid before SCL high | 250 | - | 100 | - | μs |
+| th(SCLL-SDA) Hold time, SDA valid after SCL low | 0 | 3.45(1) | 0 | 0.9 | μs |
+| tw(SDAH) Pulse duration, SDA high between STOP and START conditions | 4.7 | - | 1.3 | - | μs |
+| tsu(SCLH-SDAH) Setup time, SCL high before SDA high (for STOP condition) | 4 | - | 0.6 | - | μs |
+| tw(SP) Pulse duration, spike (must be suppressed) | - | 50 | - | 50 | ns |
+| Cb (2) (3) Capacitive load for each bus line | 400 | - | 400 | - | pF |
+---table end---"
+"[desc] awrl1432 __ Inter-Integrated Circuit Interface (I2C) __ 11 Quad Serial Peripheral Interface (QSPI) [desc]
+The quad serial peripheral interface (QSPI) module is a kind of SPI module that allows single, dual, or quad read access to external SPI devices. This module has a memory mapped register interface, which provides a direct interface for accessing data from external SPI devices and thus simplifying software requirements.# 8.12.11 
+Quad Serial Peripheral Interface (QSPI)
+The quad serial peripheral interface (QSPI) module is a kind of SPI module that allows single, dual, or quad read access to external SPI devices. This module has a memory mapped register interface, which provides a direct interface for accessing data from external SPI devices and thus simplifying software requirements. The QSPI works as a controller only. The QSPI in the device is primarily intended for fast booting from quad-SPI flash memories.
+The QSPI supports the following features:
+- Programmable clock divider
+- Six-pin interface
+- Programmable length (from 1 to 128 bits) of the words transferred
+- Programmable number (from 1 to 4096) of the words transferred
+- Optional interrupt generation on word or frame (number of words) completion
+- Programmable delay between chip select activation and output data from 0 to 3 QSPI clock cycles
+节 8.12.11.2 and 节 8.12.11.3 assume the operating conditions stated in 节 8.12.11.1."
+"[desc] awrl1432 __ Inter-Integrated Circuit Interface (I2C) __ 11 Quad Serial Peripheral Interface (QSPI) __ 1 [desc]
+QSPI Timing Conditions
+---table begin---
+Table tile: QSPI Timing Conditions
+| | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|
+|tR Input rise time| 1 | - | 3 | ns |
+|tF Input fall time| 1 | - | 3 | ns |
+|CLOAD Output load capacitance| 2 | - | 15 | pF |
+---table end---"
+"[desc] awrl1432 __ Inter-Integrated Circuit Interface (I2C) __ 11 Quad Serial Peripheral Interface (QSPI) __ 2 [desc]
+Timing Requirements for QSPI Input (Read) Timings
+---table begin---
+Table tile: Timing Requirements for QSPI Input (Read) Timings
+| | MIN(1) (2) | TYP | MAX | UNIT |
+|---|---|---|---|---|
+|tsu(D-SCLK) Setup time, d[3:0] valid before falling sclk edge| 5 | - | - | ns |
+|th(SCLK-D) Hold time, d[3:0] valid after falling sclk edge| 1 | - | - | ns |
+|tsu(D-SCLK) Setup time, final d[3:0] bit valid before final falling sclk edge| 5 – P(3) | - | - | ns |
+|th(SCLK-D) Hold time, final d[3:0] bit valid after final falling sclk edge| 1 + P(3) | - | - | ns |
+---table end---
+(1) Clock Mode 0 (clk polarity = 0 ; clk phase = 0 ) is the mode of operation.
+(2) The Device captures data on the falling clock edge in Clock Mode 0, as opposed to the traditional rising clock edge. Although non-standard, the falling-edge-based setup and hold time timings have been designed to be compatible with standard SPI devices that launch data on the falling edge in Clock Mode 0.
+(3) P = SCLK period in ns. ADVANCE INFORMATION"
+"[desc] awrl1432 __ Inter-Integrated Circuit Interface (I2C) __ 11 Quad Serial Peripheral Interface (QSPI) __ 3 [desc]
+QSPI Switching Characteristics
+---table begin---
+Table tile: QSPI Switching Characteristics
+|NO. | PARAMETER | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+|Q1 | tc(SCLK) Cycle time, sclk | - | 12.5 | - | ns |
+|Q2 | tw(SCLKL) Pulse duration, sclk low | Y*P – 3(1) (2) | - | - | ns |
+|Q3 | tw(SCLKH) Pulse duration, sclk high | Y*P – 3(1) (2) | - | - | ns |
+|Q4 | td(CS-SCLK) Delay time, sclk falling edge to cs active edge | –M*P – 1(2) (3) | - | –M*P + 2.5(2)(3) | ns |
+|Q5 | td(SCLK-CS) Delay time, sclk falling edge to cs inactive edge | N*P – 1(2) (3) | - | N*P + 2.5(2) (3) | ns |
+|Q6 | td(SCLK-D1) Delay time, sclk falling edge to d[1] transition | -2 | - | 4 | ns|
+|Q7 | tena(CS-D1LZ) Enable time, cs active edge to d[1] driven (lo-z) | –P – 4(2) | - | –P +1(2) | ns|
+|Q8 | tdis(CS-D1Z) Disable time, cs active edge to d[1] tri-stated (hi-z) | –P – 4(2) | - | –P +1(2) | ns |
+|Q9 | td(SCLK-D1) Delay time, sclk first falling edge to first d[1] transition (for PHA = 0 only) | –2 – P(2) | - | 4– P(2) | ns |
+|Q12 | tsu(D-SCLK) Setup time, d[3:0] valid before falling sclk edge | 5 | - | - | ns |
+|Q13 | th(SCLK-D) Hold time, d[3:0] valid after falling sclk edge | 1 | - | - | ns |
+|Q14 | tsu(D-SCLK) Setup time, final d[3:0] bit valid before final falling sclk edge | 5 — P(2) | - | - | ns |
+|Q15 | th(SCLK-D) Hold time, final d[3:0] bit valid after final falling sclk edge | 1 + P(2) | - | - | ns |
+---table end---
+(1) The Y parameter is defined as follows: If DCLK_DIV is 0 or ODD then, Y equals 0.5. If DCLK_DIV is EVEN then, Y equals (DCLK_DIV/2) / (DCLK_DIV+1). For best performance, it is recommended to use a DCLK_DIV of 0 or ODD to minimize the duty cycle dist"
+"[desc] awrl1432 __ P(2) [desc]
+4– P(2)
+---table begin---
+Table title: Setup and Hold Times
+| Parameter | Description | Value | Unit |
+|---|---|---|---|  
+| Q12 | tsu(D-SCLK) Setup time, d[3:0] valid before falling sclk edge | 5 | ns |
+| Q13 | th(SCLK-D) Hold time, d[3:0] valid after falling sclk edge | 1 | ns |
+| Q14 | tsu(D-SCLK) Setup time, final d[3:0] bit valid before final falling sclk edge | 5 — P(2) | ns |
+| Q15 | th(SCLK-D) Hold time, final d[3:0] bit valid after final falling sclk edge | 1 + P(2) | ns |
+---table end---"
+"[desc] awrl1432 __ DCLK_DIV Definition [desc]
+
+(1) The Y parameter is defined as follows: If DCLK_DIV is 0 or ODD then, Y equals 0.5. If DCLK_DIV is EVEN then, Y equals (DCLK_DIV/2) / (DCLK_DIV+1). For best performance, it is recommended to use a DCLK_DIV of 0 or ODD to minimize the duty cycle distortion. All required details about clock division factor DCLK_DIV can be found in the device-specific Technical Reference Manual.
+(2) P = SCLK period in ns.
+(3) M = QSPI_SPI_DC_REG.DDx + 1, N = 2"
+"[desc] awrl1432 __ 12 JTAG Interface __ 1 JTAG Timing Conditions [desc]
+---table begin---
+Table title: JTAG Timing Conditions
+| Condition | Parameter | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| Input Conditions | tR Input rise time | 1 | 3 | - | ns |
+| Input Conditions | tF Input fall time | 1 | 3 | - | ns |
+| Output Conditions | CLOAD Output load capacitance | 2 | - | 15 | pF |
+---table end---"
+"[desc] awrl1432 __ 12 JTAG Interface __ 1 JTAG Timing Conditions __ 1 JTAG [desc]
+---table begin---
+Table title: Timing Requirements for IEEE 1149.1 JTAG
+| NO. | Parameter | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| 1 | tc(TCK) Cycle time TCK | - | 66.66 | - | ns |
+| 1a | tw(TCKH) Pulse duration TCK high (40% of tc) | 20 | - | - | ns |
+| 1b | tw(TCKL) Pulse duration TCK low(40% of tc) | 20 | - | - | ns |
+| 3 | tsu(TDI-TCK) Input setup time TDI valid to TCK high | 2.5 | - | - | ns |
+| 4 | th(TCK-TDI) Input hold time TDI valid from TCK high | 18 | - | - | ns |
+---table end---"
+"[desc] awrl1432 __ 1 Overview [desc]
+The AWRL1432 device is a complete SOC which include mmWave front end, customer programmable MCU and analog baseband signal chain for two transmitters and three receivers. This device is applicable as a radar-on-a-
+chip in use-cases with quality provision for memory, processing capacity, and application code size. These could 
+be cost-effective automotive applications that are evolving from 24-GHz narrowband implementation and some 
+emerging radar applications. Typical application examples for this device include gesture detection and kick 
+sensor. In terms of scalability, the AWRL1432 device could be paired with a low-end external MCU, to address 
+more complex applications that might require additional memory for larger application software footprint and 
+faster interfaces. The AWRL1432 device also provides high speed data interfaces like RDIF and is suitable for 
+ADC capture.# 9.2 Functional Block Diagram
+Digital Front-end
+(Decimation filter chain)
+IF
+ADC
+LNA
+IF
+ADC
+LNA
+PA
+PA
+Synth 
+(20 GHz)
+Ramp Generator 
+(Timing Engine)
+x4
+RF control  processor 
+(M3)
+(TI firmware)
+Prog RAM 
+and ROM
+Data 
+RAM
+Cortex-M4F
+at 160 MHz
+Prog + Data 
+RAM 
+512 KB
+Boot ROM 
++ optional 
+fixed routines 
+256-KB ROM
+QSPI
+SPI
+UART
+Test/Debug
+ADC Buffer
+mmWave RF/Analog subsystem
+Front-end controller 
+subsystem
+Application subsystem
+(Customer programmable)
+Serial flash interface
+Control/Communication 
+interface
+Communication interface    
+For debug and/or 
+Control/Comm interface
+JTAG for debug/
+development
+CAN-FD
+Watchdog
+Bus Matrix
+L3 RAM
+256 kB
+Osc.
+PRCM, RTC & 
+Wakeup Seq
+DPLL
+LDOs
+XTAL (40 MHz)
+Communication interface    
+LIN
+APLL
+Temp 
+sensor
+SOCC
+IF
+ADC
+LNA
+DMA
+ECC
+PMIC control/EEPROM 
+interface
+I2C
+ECC
+LBIST, PBIST
+ESM
+DCC
+HWA1.2
+(80 MHz)
+Internal loopback for 
+Test & Monitoring
+PWM
+Hardware Accelerator 
+subsystem
+Always On subsystem
+Shared RAM (L3)
+256 kB
+32-kHz
+Oscillator"
+"[desc] awrl1432 __ 3 Subsystems __ 1 RF and Analog Subsystem [desc]
+The RF and analog subsystem includes the RF and analog circuitry – namely, the synthesizer, PA, LNA, mixer, 
+IF, and ADC. This subsystem also includes the crystal oscillator and temperature sensors. The two TX can be 
+operated simultaneously for beam forming in BPM mode or individually in TDM mode. Similarly, the device 
+allows configuring the number of receive channels based on application and power requirements. For system 
+power saving, RF and analog subsystems can be put into low power mode configuration."
+"[desc] awrl1432 __ 3 Subsystems __ 2 Clock Subsystem [desc]
+The AWRL1432 clock subsystem generates 76 to 81 GHz from an input reference from a crystal. It has a built-in 
+oscillator circuit followed by a clean-up PLL and a RF synthesizer circuit. The output of the RF synthesizer is 
+then processed by an X4 multiplier to create the required frequency in the 76 to 81 GHz spectrum. The RF 
+synthesizer output is modulated by the timing engine block to create the required waveforms for effective sensor 
+operation.
+The clean-up PLL also provides a reference clock for the host processor after system wakeup.
+The clock subsystem also has built-in mechanisms for detecting the presence of a crystal and monitoring the 
+quality of the generated clock."
+"[desc] awrl1432 __ 3 Subsystems __ 3 Transmit Subsystem [desc]
+The AWRL1432 transmit subsystem consists of two parallel transmit chains, each with independent phase and 
+amplitude control. The device supports binary phase modulation for MIMO radar.
+The transmit chains also support programmable backoff for system optimization."
+"[desc] awrl1432 __ 3 Subsystems __ 4 Receive Subsystem [desc]
+The AWRL1432 receive subsystem consists of three parallel channels. A single receive channel consists of an 
+LNA, mixer, IF filtering, ADC conversion, and decimation. All three receive channels can either operate 
+simultaneously OR can be powered down individually based on system power needs and application design.
+The AWRL1432 device supports a real baseband architecture, which uses real mixer, single IF and ADC chains 
+to provide output for each receiver channel. The device is targeted for fast chirp systems. The band-pass IF 
+chain has configurable lower cutoff frequencies above 175 kHz and can support bandwidths up to 5 MHz."
+"[desc] awrl1432 __ 3 Subsystems __ Receive Subsystem (Per Channel) [desc]
+r, IF filtering, ADC conversion, and decimation. All three receive channels can either operate 
+simultaneously OR can be powered down individually based on system power needs and application design.
+The AWRL1432 device supports a real baseband architecture, which uses real mixer, single IF and ADC chains 
+to provide output for each receiver channel. The device is targeted for fast chirp systems. The band-pass IF 
+chain has configurable lower cutoff frequencies above 175 kHz and can support bandwidths up to 5 MHz.
+ADVANCE INFORMATION"
+"[desc] awrl1432 __ 3 Subsystems __ Receive Subsystem (Per Channel) __ Processor Subsystem [desc]
+At a high level there are two customer programmable subsystems, as shown separated by a dotted line in the 
+diagram. The left hand side shows the HWA, a high-bandwidth interconnect for high performance (64-bit, 
+80MHz), and associated peripherals data transfer. RDIF interface for Measurement data output, L3 Radar data 
+cube memory, the ADC buffers, the CRC engine, and data handshake memory (additional memory provided on 
+interconnect).
+The right side of the diagram shows the Main Subsystem. The Main Subsystem is the brain of the device and 
+controls all the device peripherals and house-keeping activities of the device. The Main Subsystem contains 
+Cortex-M4F processor and associated peripherals and house-keeping components such as DMAs, CRC and 
+Peripherals (I2C, UART, SPIs, CAN, PMIC clocking module, PWM, LIN,and others) connected to Main 
+Interconnect through Peripheral Central Resource (PCR interconnect)."
+"[desc] awrl1432 __ 3 Subsystems __ Receive Subsystem (Per Channel) __ Automotive Interface [desc]
+The AWRL1432 communicates with the automotive network over the following main interfaces:
+•
+CAN-FD
+•
+LIN
+ADVANCE INFORMATION"
+"[desc] awrl1432 __ 3 Subsystems __ Receive Subsystem (Per Channel) __ Host Interface [desc]
+The host interface can be provided through a SPI, LIN, UART, or CAN-FD interface.
+The AWRL1432 device communicates with the host radar processor over the following main interfaces:
+•
+Reference Clock – Reference clock available for host processor after device wakeup
+•
+Control – 4-port standard SPI (peripheral) for host control . All radio control commands (and response) flow 
+through this interface.
+•
+Reset – Active-low reset for device wakeup from host.
+•
+Host Interrupt - an indication that the mmWave sensor needs host interface
+•
+Error – Used for notifying the host in case the radio controller detects a fault"
+"[desc] awrl1432 __ 3 Subsystems __ Receive Subsystem (Per Channel) __ Main Subsystem Cortex-M4F [desc]
+The main system includes an ARM Cortex M4F processor clocked with a maximum operating frequency of 160 
+MHz. User applications executing on this processor control the overall operation of the device, including radar 
+control through well-defined API messages, radar signal processing (assisted by the radar hardware 
+accelerator), and peripherals for external interfaces.
+See the Technical Reference Manual for a complete description and memory map."
+"[desc] awrl1432 __ 3 Subsystems __ Receive Subsystem (Per Channel) __ Main Subsystem Cortex-M4F __ 2) Features [desc]
+•
+Fast FFT computation, with programmable 2N sizes, up to 1024-point complex FFT
+•
+Internal FFT bit-width of 24 bits for good Signal-to-Quantization-Noise Ratio (SQNR) performance
+•
+Fully programmable butterfly scaling at every radix-2 stage for user flexibility
+•
+Built-in capabilities for pre-FFT processing – Ex: DC estimation and subtraction
+•
+DC estimation & subtraction, Interference estimation & zero-out, Real window, Complex pre-multiplication
+•
+Magnitude (absolute value) and Log-magnitude computation
+•
+Flexible data flow and data sample arrangement to support efficient multi-# 2. Features
+- Fast FFT computation, with programmable 2N sizes, up to 1024-point complex FFT
+- Internal FFT bit-width of 24 bits for good Signal-to-Quantization-Noise Ratio (SQNR) performance
+- Fully programmable butterfly scaling at every radix-2 stage for user flexibility
+- Built-in capabilities for pre-FFT processing – Ex: DC estimation and subtraction
+- DC estimation & subtraction, Interference estimation & zero-out, Real window, Complex pre-multiplication
+- Magnitude (absolute value) and Log-magnitude computation
+- Flexible data flow and data sample arrangement to support efficient multi-dimensional FFT operations and 
+transpose accesses
+- Chaining and looping mechanism to sequence a set of operations one after another with minimal intervention 
+from the main processor
+- Peak detection – CFAR (CFAR-CA, CFAR-OS) detector
+- Basic statistics, including Sum and 1D Max
+- Compression engine for radar cube memory optimization
+ADVANCE INFORMATION"
+"[desc] awrl1432 __ 3 Subsystems __ Receive Subsystem (Per Channel) __ Main Subsystem Cortex-M4F __ 2) Features __ 2 [desc]
+---table begin---
+Table tile: Hardware Accelerator Feature Differences
+| Feature | HWA1.0, HWA1.1 (xWR1843, xWR6843) | HWA1.2 (xWRL6432, xWRL1432) |
+|---|---|---|
+| FFT features | FFT sizes: 1024, 512, 256, ... | FFT sizes: 1024, 512, 256, ... |
+| Internal bit-width | 24-bit I, 24-bit Q | 24-bit I, 24-bit Q |
+| Configurable butterfly scaling at each stage | Yes | Yes |
+| FFT stitching | up to 4096 point | up to 4096 point |
+| FFT benchmark for four 256-pt FFTs | 1312 clock cycles (6.56 µs at 200 MHz) | 1320 clock cycles (16.5 µs at 80 MHz) |
+| No. of parameter-sets | 16 | 32 |
+| Local memory | 64KB | 64KB |
+---table end---"
+"[desc] awrl1432 __ 4 Other Subsystems __ 1 GPADC Channels (Service) for User Application [desc]
+The AWRL1432 device includes provision for an ADC service for user application, where the GPADC engine 
+present inside the device can be used to measure up to two external voltages. The GPADC1, and GPADC2 pins 
+are used for this purpose.
+- GPADC itself is controlled by TI firmware running inside the FEC subsystem and access to it for customer’s 
+external voltage monitoring purpose is via ‘APPSS’ calls routed to the FEC subsystem. This API could be 
+linked with the user application running on MSS M4F.
+- Device Firmware package (DFP) provides APIs to configure and measure these signals. The API allows 
+configuring the settling time (number of ADC samples to skip) and number of consecutive samples to take. At 
+the end of a frame, the minimum, maximum and average of the readings will be reported for each of the 
+monitored voltages.
+ADVANCE INFORMATION
+GPADC structures are used for measuring the output of internal temperature sensors. The accuracy of these 
+measurement# 9.4.2 GPADC Parameters
+GPADC structures are used for measuring the output of internal temperature sensors. The accuracy of these measurements is ±7°C.
+---table begin---
+Table tile: GPADC Parameters
+| PARAMETER | TYP | UNIT |
+|---|---|---|
+| ADC supply | 1.8 | V |
+| ADC unbuffered input voltage range | 0 – 1.8 | V |
+| ADC buffered input voltage range(1) | 0.4 – 1.3 | V |
+| ADC resolution | 8 | bits |
+| ADC offset error | ±5 | LSB |
+| ADC gain error | ±5 | LSB |
+| ADC DNL | –1/+2.5 | LSB |
+| ADC INL | ±2.5 | LSB |
+| ADC sample rate(2) | 831 | Ksps |
+| ADC sampling time(2) | 300 | ns |
+| ADC internal cap | 10 | pF |
+| ADC buffer input capacitance | 2 | pF |
+| ADC input leakage current | 3 | uA |
+---table end---"
+"[desc] awrl1432 __ 5 Memory Partitioning Options [desc]
+AWRL1432 devices will have a total memory of 1MB. The L3 memory has two memory banks and can be associated with radar cube memory or with the Cortex-M4F RAM.
+---table begin---
+Table tile: Memory Partition Options
+| Config 1 | Config 2 | Config 3 |
+|---|---|---|
+| Radar data memory* (L3) | Includes data cube, detection matrix, heatmap | 256KB | 384kB | 512KB |
+| Application (M4F program + data) | Includes drivers, mmWavelink, BIOS (and AUTOSAR) | 768KB | 640KB | 512KB |
+| Total memory | 1024KB | 1024KB | 1024KB |
+---table end---"
+"[desc] awrl1432 __ 6 Boot Modes [desc]
+As soon as device reset is de-asserted, the processor of the APPSS starts executing its bootloader from an on-chip ROM memory.
+The bootloader operates in three basic modes and these are specified on the user hardware (Printed Circuit Board) by configuring what are termed as ""Sense on power"" (SOP) pins. 
+---table begin---
+Table tile: SOP Combinations
+| SOP1 | SOP0 | BOOTLOADER MODE AND OPERATION |
+|---|---|---|
+| 0 | 0 | Flashing Mode: Device Bootloader spins in loop to allow flashing of user application (or device firmware patch - Supplied by TI) to the serial flash. |
+| 0 | 1 | Functional Mode: Device Bootloader loads user application from QSPI Serial Flash to internal RAM and switches the control to it. |
+| 1 | 1 | Debug Mode: Bootloader is bypassed and M4F processor is halted. This allows user to connect emulator at a known point. |
+---table end---"
+"[desc] awrl1432 __ 10 Applications, Implementation, and Layout [desc]
+Information in the following Applications section is not part of the TI component specification, and TI does not warrant its accuracy or completeness. TI's customers are responsible for determining suitability of components for their purposes. Customers should validate and test their design implementation to confirm system functionality."
+"[desc] awrl1432 __ 1 Application Information [desc]
+Application information can be found on AWR Application web page."
+"[desc] awrl1432 __ 2 Reference Schematic [desc]
+Please check the device product page for latest Hardware design information under Design Kits - typically, at Design and Development Listed for convenience are: Design Files, Schematics, Layouts, and Stack up for PCB
+* Altium AWRL1432 EVM Design Files
+* AWRL1432 EVM Schematic Drawing, Assembly Drawing, and Bill of Materials"
+"[desc] awrl1432 __ 11 Device and Documentation Support [desc]
+TI offers an extensive line of development tools. Tools and software to evaluate the performance of the device, generate code, and develop solutions follow."
+"[desc] awrl1432 __ 1 Device Nomenclature [desc]
+To designate the stages in the product development cycle, TI assigns prefixes to the part numbers of all microprocessors (MPUs) and support tools. Each device has one of three prefixes: X, P, or null (no prefix) (for example, AWRL1432). Texas Instruments recommends two of three possible prefix designators for its support tools: TMDX and TMDS. These prefixes represent evolutionary stages of product development from engineering prototypes (TMDX) through fully qualified production devices and tools (TMDS).
+Device development evolutionary flow:
+X - Experimental device that is not necessarily representative of the final device's electrical specifications and may not use production assembly flow.
+P - Prototype device that is not necessarily the final silicon die and may not necessarily meet final electrical specifications.
+null - Production version of the silicon die that is fully qualified.
+Support tool development evolutionary flow:
+* TMDX - Development-support product that has not yet completed Texas Instruments internal qualification testing.
+* TMDS - Fully-qualified development-support product.
+X and P devices and TMDX development-support tools are shipped against the following disclaimer: ""Developmental product is intended for internal evaluation purposes.""
+Production devices and TMDS development-support tools have been characterized fully, and the quality and reliability of the device have been demonstrated fully. TI's standard warranty applies.
+Predictions show that prototype devices (X or P) have a greater failure rate than the standard production devices. Texas Instruments recommends that these devices not be used in any production system because their expected end-use failure rate still is undefined. Only qualified production devices are to be used.
+TI device nomenclature also includes a suffix with the device family name. This suffix indicates the package type (for example, ABL0161), the temperature range (for example, blank is the default commercial temperature range). 图 11-1 provides a legend for reading the complete device name for any AWRL1432device.
+For orderable part numbers of AWRL1432 devices in the ABL0161 package types, see the Package Option Addendum of this document (when available), the TI website (www.ti.com), or contact your TI sales representative.
+For additiona# 11.1. Device Nomenclature
+fined. Only qualified production devices are to be used.
+TI device nomenclature also includes a suffix with the device family name. This suffix indicates the package type (for example, ABL0161), 
+the temperature range (for example, blank is the default commercial temperature range). 
+---table begin---
+Table tile: Nomenclature of device AWRL1432device
+| Market | Generation | Variant | Num RX / TX Channels | Silicon PG Revision | Features | Tray or Tape & Reel | Package | Security | Safety | Prefix  |
+|---|---|---|---|---|---|---|---|---|---|---|
+| A = Automotive | 1, 2, 3,… = 77 GHz | 4 = FE + HWA + MCU + CAN + 0.5MB | RX = 1, 2, 3, 4 TX = 1, 2, 3, 4 | Blank = Rev 1.0 A = Rev 1.x B = Rev 2.x | Blank = Baseline N = Narrow band (76-77 GHz) P = High Performance R = Antenna D = Deep Sleep Mode Enabled | T = Small Reel R = Tape & Reel Blank = Tray | AMF = FCCSP YFF = WCSP ALP = AOP | G = General S = Secure D = Development Secure A = Authenticated Boot | Q = Non-Functional Safety A = ASIL A Capable / SIL 1 B = ASIL B Capable / SIL 2 | X = Pre-Production ABL = BGA |
+---table end---"
+"[desc] awrl1432 __ 1 Device Nomenclature __ Tools and Software Models [desc]
+AWRL1432 BSDL model Boundary scan database of testable input and output pins for IEEE 1149.1 of the specific device.
+AWRL1432 IBIS model IO buffer information model for the IO buffers of the device. For simulation on a circuit board, see IBIS Open Forum."
+"[desc] awrl1432 __ 1 Device Nomenclature __ Documentation Support [desc]
+To receive notification of documentation updates, navigate to the device product folder on ti.com. Click on Subscribe to updates to register and receive a weekly digest of any product information that has changed. For change details, review the revision history included in any revised document.
+The current documentation that describes the peripherals, and other technical collateral follows."
+"[desc] awrl1432 __ 1 Device Nomenclature __ Support Resources [desc]
+TI E2E™ support forums are an engineer's go-to source for fast, verified answers and design help—straight from the experts. "
+"[desc] awrl1432 __ 1 Device Nomenclature __ Trademarks [desc]
+E2E™ is a trademark of Texas Instruments.
+Arm® and M4F® are registered trademarks of Arm Limited."
+"[desc] awrl1432 __ 1 Device Nomenclature __ Electrostatic Discharge Caution [desc]
+This integrated circuit can be damaged by ESD. Texas Instruments recommends that all integrated circuits be handled with appropriate precautions. "
+"[desc] awrl1432 __ 1 Device Nomenclature __ Glossary [desc]
+TI Glossary
+This glossary lists and explains terms, acronyms, and definitions."
+"[desc] awrl1432 __ Mechanical, Packaging, and Orderable Information [desc]
+The following pages include mechanical, packaging, and orderable information. This information is the most current data available for the designated devices. This data is subject to change without notice and revision of this document.
+---table begin---
+Table title: Packaging Information
+| Product | OPNs | BL | Ti.com Symbolization | APL | Purpose |
+|---|---|---|---|---|---|
+| AWRL1432 | FCCSP | XA1432ADQGAMF | BODY | XAL1432DQ | Yes |
+| Pre-production ES1.1 | - | - | - | - | Low Power, Deep Sleep Enabled |
+---table end---"
+"[desc] awrl1432 __ Advance Information [desc]
+The dimension and tolerancing information provided below are subject to change without notice.
+---table begin---
+Table title: Packaging Information 2
+| Orderable Device | Status | Package Type | Package Drawing | Pins | Package Qty | Eco Plan | Lead Finish/Ball Material | MSL Peak Temp | Op Temp (℃) | Device Marking |
+|---|---|---|---|---|---|---|---|---|---|---|
+| XA1432ADQGAMF | ACTIVE | FCCSP | AMF | 102 | 1 | TBD | Call TI | Call TI | -40 to 125 | Samples |
+---table end---
+Please note: The marketing status values are defined as follows: ACTIVE - Product device recommended for new designs; LIFEBUY - TI has announced that the device will be discontinued, and a lifetime-buy period is in effect; NRND - Not recommended for new designs. Device is in production to support existing customers, but TI does not recommend using this part for new designs."
+"[desc] awrl1432 __ Other Packaging Information [desc]
+Various notes and data for reference.
+---table begin---
+Table title: Example Stencil Design
+| A | B | C | D | E | F | G | H | J | K | L | M |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
+---table end---
+Please note: Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release."
+"[desc] awrl1432 __ Derable Device Status [desc]
+---table begin---
+Table title: Device Status
+| Device | Status | Package Type | Package Drawing | Pins | Package Qty | Eco Plan | Lead finish/Ball material | MSL Peak Temp | Op Temp (°C) | Device Marking |
+|---|---|---|---|---|---|---|---|---|---|---|
+| XA1432ADQGAMF | ACTIVE | FCCSP | AMF | 102 |1 |TBD | Call TI | Call TI | -40 to 125 | Samples |
+---table end---"
+"[desc] awrl1432 __ Marketing Status Values Definition [desc]
+The marketing status values are defined as follows:
+ACTIVE: Product device recommended for new designs.
+LIFEBUY: TI has announced that the device will be discontinued, and a lifetime-buy period is in effect.
+NRND: Not recommended for new designs. Device is in production to support existing customers, but TI does not recommend using this part in a new design.
+PREVIEW: Device has been announced but is not in production. Samples may or may not be available.
+OBSOLETE: TI has discontinued the production of the device."
+"[desc] awrl1432 __ RoHS Definition [desc]
+(2) RoHS:  TI defines ""RoHS"" to mean semiconductor products that are compliant with the current EU RoHS requirements for all 10 RoHS substances, including the requirement that RoHS substance do not exceed 0.1% by weight in homogeneous materials. Where designed to be soldered at high temperatures, ""RoHS"" products are suitable for use in specified lead-free processes. TI may reference these types of products as ""Pb-Free"".
+RoHS Exempt: TI defines ""RoHS Exempt"" to mean products that contain lead but are compliant with EU RoHS pursuant to a specific EU RoHS exemption.
+Green: TI defines ""Green"" to mean the content of Chlorine (Cl) and Bromine (Br) based flame retardants meet JS709B low halogen requirements of <=1000ppm threshold. Antimony trioxide based flame retardants must also meet the <=1000ppm threshold requirement."
+"[desc] awrl1432 __ MSL, Peak Temp [desc]
+(3) MSL, Peak Temp. - The Moisture Sensitivity Level rating according to the JEDEC industry standard classifications, and peak solder temperature."
+"[desc] awrl1432 __ Additional Marking and Device Marking [desc]
+(4) There may be additional marking, which relates to the logo, the lot trace code information, or the environmental category on the device.
+(5) Multiple Device Markings will be inside parentheses. Only one Device Marking contained in parentheses and separated by a ""~"" will appear on a device. If a line is indented then it is a continuation of the previous line and the two combined represent the entire Device Marking for that device."
+"[desc] awrl1432 __ Lead Finish/Ball Material [desc]
+(6) Lead finish/Ball material - Orderable Devices may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum column width."
+"[desc] awrl1432 __ Important Information and Disclaimer [desc]
+Important Information and Disclaimer:The information provided on this page represents TI's knowledge and belief as of the date that it is provided. TI bases its knowledge and belief on information provided by third parties, and makes no representation or warranty as to the accuracy of such information. Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals.
+TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers and other limited information may not be available for release.
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer on an annual basis.# 1. Chapter Title
+lysis on incoming materials and chemicals.
+TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers and other limited information may not be available for release."

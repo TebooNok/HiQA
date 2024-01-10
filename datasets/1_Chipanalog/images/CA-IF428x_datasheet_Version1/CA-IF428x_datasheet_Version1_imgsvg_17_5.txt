@@ -1,0 +1,3 @@
+title: 图13- 1 焊接温度曲线焊接温度曲线
+18                                                                                                                                                                                     Copyright © 2019, Chipanalog Incorporated 上海川土微电子有限公司 3. 焊接信息焊接信息 图13- 1 焊接温度曲线焊接温度曲线
+base name:CA-IF428x_datasheet_Version1

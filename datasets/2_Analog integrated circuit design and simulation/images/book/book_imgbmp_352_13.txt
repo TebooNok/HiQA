@@ -1,0 +1,3 @@
+title: 图  8- 122   输出电压  vs.  温度
+择。在  ADE  窗口中选择菜单 “Tools” � “Parametric Analysis” ，如图  8- 123  所示。  图  8- 122   输出电压  vs.  温度
+base name:book

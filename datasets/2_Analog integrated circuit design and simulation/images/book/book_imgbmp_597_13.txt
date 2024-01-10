@@ -1,0 +1,3 @@
+title: 图  D- 40 “ gain ”函数设置对话框
+2)   在函数窗口中点击“ integ ”函数。然后函数窗口将变为如图  D- 40  所示的“ integ ” 对话框。  图  D- 40 “ gain ”函数设置对话框 3)   在“ Initial Value ”和“ Final Value ”中填入定积分的开始和结束值。
+base name:book

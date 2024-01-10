@@ -1,0 +1,3 @@
+title: 图  20  应用于电压检测的  PCB  设计范例
+GND1 GND2 ≥ 8mm INP INN C1 C2 R1 C2 OUTP/CLKIN OUTN/DOUT VIA VIA Bulk Cap R_bot  图  20  应用于电压检测的  PCB  设计范例     7   版本信息 版本   日期   状态描述
+base name:AN011_隔离电流检测放大器在PFC升压系统的应用_APPNOTE

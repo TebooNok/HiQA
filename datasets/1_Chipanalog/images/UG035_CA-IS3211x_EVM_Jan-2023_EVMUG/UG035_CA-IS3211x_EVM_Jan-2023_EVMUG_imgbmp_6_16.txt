@@ -1,0 +1,3 @@
+title: Not Found
+注： (1)  波形通道设置  CH1: Input_HSON, CH2: Input_LSON, CH3: VOUT1, CH4: VOUT2.     10uF|| 100nF VCC ANODE NC VEE OUT Isolation            Barrier
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

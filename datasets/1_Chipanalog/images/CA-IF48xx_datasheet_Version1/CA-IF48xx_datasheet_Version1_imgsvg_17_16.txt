@@ -1,0 +1,3 @@
+title: 图10-2. CA-IF48xxFS/FM/FD全双工全双工RS-485收发器点收发器点-点通信网络点通信网络
+图10-1. CA-IF48xxHS/HM/HD半双工半双工RS-485收发器网络连接收发器网络连接 图10-2. CA-IF48xxFS/FM/FD全双工全双工RS-485收发器点收发器点-点通信网络点通信网络
+base name:CA-IF48xx_datasheet_Version1

@@ -1,0 +1,3 @@
+title: Not Found
+(2) tPDLH  传输延时取输入信号  IN  上升沿  50%  至输出信号  OUT  上升沿的  10% ； tPDHL  传输延时取输 入信号  IN  下降沿  50%  至输出信号  OUT  下降沿的  90% ；
+base name:UG037_CA-IS3221_2xx_EVM_Rev1

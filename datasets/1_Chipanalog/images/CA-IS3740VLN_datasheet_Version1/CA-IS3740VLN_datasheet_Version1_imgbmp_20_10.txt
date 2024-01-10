@@ -1,0 +1,3 @@
+title: Not Found
+下图说明了  CA-IS3740VLS  数字隔离器采用  SOIC16  窄体封装大小尺寸图和建议焊盘尺寸图。   尺寸以毫米为单位。
+base name:CA-IS3740VLN_datasheet_Version1

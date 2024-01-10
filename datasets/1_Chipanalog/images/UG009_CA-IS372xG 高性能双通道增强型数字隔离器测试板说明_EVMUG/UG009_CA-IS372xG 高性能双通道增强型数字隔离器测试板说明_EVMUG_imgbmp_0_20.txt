@@ -1,0 +1,3 @@
+图  1  CA-IS372x  SOIC8-G PCB  的  3D  仿真图
+测试板  3D  仿真图  图  1  CA-IS372x  SOIC8-G PCB  的  3D  仿真图
+base name:UG009_CA-IS372xG 高性能双通道增强型数字隔离器测试板说明_EVMUG

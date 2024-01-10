@@ -1,0 +1,3 @@
+title: 如下图9-3所示。
+VCC降至UVLOF以下后，当电源电压重新升高至UVLOR，VOUT输出需要经过tUVLO_rec的延迟后才会被设置为高电平。 如下图9-3所示。
+base name:CA-IS3211_Version1

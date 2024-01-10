@@ -1,0 +1,3 @@
+title: 图  7  定频峰值电流控制  PFC  升压电路
++ - V REF PI/PID Multiplier Vbus_SNS Ibus_SNS X V OUT _SNS HG LG i bus R S Q /Q CLK LG HG COMP V COMP K_i bus U1 U2 Q1 Q2 CCM
+base name:AN011_隔离电流检测放大器在PFC升压系统的应用_APPNOTE

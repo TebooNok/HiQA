@@ -1,0 +1,3 @@
+title: Not Found
+上海川土微电子有限公司 11.2.   DFN14  的外形尺寸 DFN14  封装尺寸图和建议焊盘尺寸图。尺寸以毫米为单位
+base name:CA-IF1043 datasheet_V1

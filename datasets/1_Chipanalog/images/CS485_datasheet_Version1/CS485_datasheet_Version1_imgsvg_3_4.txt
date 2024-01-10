@@ -1,0 +1,3 @@
+title: 图 6-1 CS485xx引脚图引脚图：（：（a）DFN8；（；（b）MSOP8；（；（c）SOIC8
+4                                                                                                                                                                                     Copyright © 2021, Chipanalog Incorporated 上海川土微电子有限公司上海川土微电子有限公司 . 引脚功能描述引脚功能描述 图 6-1 CS485xx引脚图引脚图：（：（a）DFN8；（；（b）MSOP8；（；（c）SOIC8
+base name:CS485_datasheet_Version1

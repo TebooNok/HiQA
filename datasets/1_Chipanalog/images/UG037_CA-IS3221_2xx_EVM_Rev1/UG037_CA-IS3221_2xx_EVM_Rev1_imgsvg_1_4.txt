@@ -1,0 +1,3 @@
+title: igure 1  CA-IS3221x内部功能框图
+www.chipanalog.com                                                                                                                                                     Rev1.0, Jun ,2023 image_2 芯片芯片功能框图功能框图 igure 1  CA-IS3221x内部功能框图 igure 2  CA-IS3222x内部功能框图
+base name:UG037_CA-IS3221_2xx_EVM_Rev1

@@ -1,0 +1,3 @@
+title: 图  4  Bottom
+3    Copyright   © 2021, Chipanalog Incorporated 上海川土微电子有限公司 图  3  TOP  图  4  Bottom 物料清单 Item  Ref Des  Qty  Description  Package  MFR  PN.
+base name:UG009_CA-IS372xG 高性能双通道增强型数字隔离器测试板说明_EVMUG

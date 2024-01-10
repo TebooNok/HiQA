@@ -1,0 +1,3 @@
+title: 图  3 PCB  设计简易图
+10μF 0.1μF VDDP VISO OUT VDDL GNDA GNDA VISO IN GNDB GNDB
+base name:AN017_CA-IS2092A隔离电源辐射抑制参考设计_APPNOTE

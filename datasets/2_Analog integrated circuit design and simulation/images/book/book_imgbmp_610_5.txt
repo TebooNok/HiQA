@@ -1,0 +1,3 @@
+title: 图  E- 15  仿真点
+图  E- 15  仿真点 E.5   运行 “Parametric Analysis” 仿真和查看结果
+base name:book

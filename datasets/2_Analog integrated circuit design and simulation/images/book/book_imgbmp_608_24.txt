@@ -1,0 +1,3 @@
+title: 图  E- 11  完成设置后的 “Parametric Analysis” 窗口
+我们在这里选择 “Step Control” 方式为 “Linear Step” ，规定 “Step Size” 为 “1” ，即在每个整 数温度点上做一次仿真。图  E- 11  为设置好的窗口。  图  E- 11  完成设置后的 “Parametric Analysis” 窗口
+base name:book

@@ -1,0 +1,3 @@
+title: 图6-1 CA-IF1021 引脚图引脚图
+4                                                                                                                                                                                     Copyright © 2022, Chipanalog Incorporated 上海川土微电子有限公司上海川土微电子有限公司 . 引脚功能描述引脚功能描述 图6-1 CA-IF1021 引脚图引脚图 表 6-1 CA-IF1021引脚功能描述引脚功能描述
+base name:CA-IF1021S_datasheet_Version1

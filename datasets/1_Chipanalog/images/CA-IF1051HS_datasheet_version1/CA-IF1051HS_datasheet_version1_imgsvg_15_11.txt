@@ -1,0 +1,3 @@
+title: 图 9-2 显性超时保护时序图显性超时保护时序图
+性位，据此可以估算出CA-IF1051HS所允许的最低速率是：11bits /tDOM = 11/ 2ms = 5.5kbps，即将CA-IF1051HS的最低 速率限制在5.5kbps。 图 9-2 显性超时保护时序图显性超时保护时序图
+base name:CA-IF1051HS_datasheet_version1

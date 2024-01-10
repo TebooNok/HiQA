@@ -1,0 +1,3 @@
+title: 化通道结构图简化通道结构图
+CA-IS3720VLS具有3.75kVRMS的隔离额定值。 件信息器件信息 化通道结构图简化通道结构图 道A和B被隔离电容隔开。 GNDA和GNDB分别连接A侧信号和B侧电源隔离接地。
+base name:CA-IS3720VLS_datasheet_version1

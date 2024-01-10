@@ -1,0 +1,3 @@
+图  11-1 SOIC14  封装尺寸图
+SOIC14  封装尺寸图和建议焊盘尺寸图。尺寸以毫米为单位  图  11-1 SOIC14  封装尺寸图
+base name:CA-IF1043 datasheet_V1

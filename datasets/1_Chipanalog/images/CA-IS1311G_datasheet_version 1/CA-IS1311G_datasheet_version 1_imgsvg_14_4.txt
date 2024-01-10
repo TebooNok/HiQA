@@ -1,0 +1,3 @@
+title: 图 8-4 器件关断和使能时间器件关断和使能时间测试波形测试波形
+opyright © 2022, Chipanalog Incorporated                                                                                                                                                                  15 上海川土微电子有限公司上海川土微电子有限公司 图 8-4 器件关断和使能时间器件关断和使能时间测试波形测试波形
+base name:CA-IS1311G_datasheet_version 1

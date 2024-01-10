@@ -1,0 +1,3 @@
+图  4  Bottom
+4    Copyright   © 2021, Chipanalog Incorporated 上海川土微电子有限公司 布线图  图  3  TOP  图  4  Bottom
+base name:UG020_CA-IS308xW 隔离式RS-422收发器测试板说明_EVMUG

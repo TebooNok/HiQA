@@ -1,0 +1,3 @@
+title: 图  10- 44  一个简单的  3-bits SAR  结构  ADC
+图  10- 44  一个简单的  3-bits SAR  结构  ADC 2.   并行  ADC （ Flash  结构）
+base name:book

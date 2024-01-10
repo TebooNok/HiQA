@@ -1,0 +1,3 @@
+title: 来，如图  8- 143  所示。
+的模型库设置对话框（在  ADE  中选择菜单“ Setup ” � “ Model Library ”打开 ) 中拷贝过 来，如图  8- 143  所示。
+base name:book

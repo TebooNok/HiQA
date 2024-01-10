@@ -1,0 +1,3 @@
+title: 图8-2 接收接收链路传输延时和链路传输延时和DIR方向指示信号测试电路方向指示信号测试电路与波形波形
+Copyright © 2020, Chipanalog Incorporated                                                                                                                                                                                          13 上海川土微电子有限公司上海川土微电子有限公司 图8-2 接收接收链路传输延时和链路传输延时和DIR方向指示信号测试电路方向指示信号测试电路与波形波形
+base name:CA-IF4023_datasheet_version1

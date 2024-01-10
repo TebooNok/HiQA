@@ -1,0 +1,3 @@
+title: 图  22 EA OUT /EA OUT2  输出电压动态响应 ( 方波 )
+8    Copyright   © 2021, Chipanalog Incorporated 上海川土微电子有限公司 EA OUT2 EA OUT +IN 20mV/div 20mV/div 50mV/div 2us/div 图  22 EA OUT /EA OUT2  输出电压动态响应 ( 方波 )
+base name:UG010_CA-IS3102W 高稳定性隔离误差放大器测试板说明_EVMUG

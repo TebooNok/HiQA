@@ -1,0 +1,3 @@
+title: 图6-1. CA-IF4023 引脚排列排列
+4                                                                                                                                                                                                                Copyright © 2020, Chipanalog Incorporated 上海川土微电子有限公司上海川土微电子有限公司 . 引脚功能描述引脚功能描述 图6-1. CA-IF4023 引脚排列排列 表6-1. CA-IF4023引脚功能描述引脚功能描述 DIRSET1和DIRSET2用于设置信号速率：
+base name:CA-IF4023_datasheet_version1

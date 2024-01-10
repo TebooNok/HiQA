@@ -1,0 +1,3 @@
+title: 图  A- 47  表  A-4  设定的分段信号 ”vpwl” 波形
+图  A- 46  表  A- 1  设定的脉冲信号 ”vpulse” 波形  图  A- 47  表  A-4  设定的分段信号 ”vpwl” 波形 3.   正弦信号 “vsin”
+base name:book

@@ -1,0 +1,3 @@
+title: Not Found
+All dimensions are nominal A0 (mm) B0 (mm) K0 (mm) P1 (mm) W (mm) image_17 image_18 EEL DIMENSIONS TAPE DIMENSIONS
+base name:CA-IF4023_datasheet_version1

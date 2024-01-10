@@ -1,0 +1,3 @@
+title: Figure 8   Top Layer （ SOIC16-NB ）   Figure 9   Bottom Layer （ SOIC16-NB ）
+上海川土微电子有限公司  Figure 8   Top Layer （ SOIC16-NB ）   Figure 9   Bottom Layer （ SOIC16-NB ）
+base name:UG037_CA-IS3221_2xx_EVM_Rev1

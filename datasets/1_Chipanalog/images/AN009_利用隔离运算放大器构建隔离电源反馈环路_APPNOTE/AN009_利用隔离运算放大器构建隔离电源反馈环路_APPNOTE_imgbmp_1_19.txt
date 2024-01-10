@@ -1,0 +1,3 @@
+title: 图  2.  基于光耦隔离的开关电源框图
+光耦构成的负反馈环路旨在保持稳定的输出电压。当然，设计中需要谨慎考虑环路补偿设计，以确保系统稳定工作。  VCC VOUT VFB VCC Optical coupler TL431 R T R B Controller Isolation Vin Driver
+base name:AN009_利用隔离运算放大器构建隔离电源反馈环路_APPNOTE

@@ -1,0 +1,3 @@
+title: 图  D- 15  “ Waveform ”窗口中选择曲线被传送的“ Calculator ”的缓存中
+自动创建  SKILL  函数来表示选中的波形。最终“ Calculator ”获得的表达式如图  D- 15  所示。  图  D- 15  “ Waveform ”窗口中选择曲线被传送的“ Calculator ”的缓存中
+base name:book

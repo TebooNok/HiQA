@@ -1,0 +1,3 @@
+title: 图  10-2  典型半双工  RS-485  通信网络
+RS-485  总线是在同一总线上并行连接多个收发器，实现多节点间的远距离数据传输。图  10-2  为典型的半双工  RS- 485  通信网络配置。 RS-485 收发器 RO DE DI RE A B RS-485 收发器 RO DE DI RE B A RS-485  收发器 RO DE DI RE
+base name:CA-IS2092A_datasheet_Version1

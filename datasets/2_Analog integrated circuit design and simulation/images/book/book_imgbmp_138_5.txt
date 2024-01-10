@@ -1,0 +1,3 @@
+title: 图  5- 36 “Results Browser” 窗口中的快捷键
+图  5- 36 “Results Browser” 窗口中的快捷键 图  5- 36  中的第二个下拉菜单如图  5- 37  所示，下拉菜单中函数的功能如下：
+base name:book

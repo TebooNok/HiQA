@@ -1,0 +1,3 @@
+title: 5-1 CA-IS3082 顶部视图
+A-IS3082W, CA-IS3082WE 上海川土微电子有限公司上海川土微电子有限公司 引脚功能描述引脚功能描述 5-1 CA-IS3082 顶部视图 5-1 CA-IS3082 引脚功能描述
+base name:CA-IS3082 datasheet_cn

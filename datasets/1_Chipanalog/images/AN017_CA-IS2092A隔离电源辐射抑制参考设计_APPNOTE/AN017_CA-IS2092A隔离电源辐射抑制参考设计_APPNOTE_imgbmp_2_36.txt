@@ -1,0 +1,3 @@
+title: 图  3 PCB  设计简易图
+10μF 0.1μF VDDP VISO OUT VDDL GNDA GNDA VISO IN GNDB GNDB 1μF 10μF 0.1μF 1μF <2mm <2mm  图  3 PCB  设计简易图  6>   当需要在供电电源线和地线上放置过孔时，过孔的摆放位置应在电容相对于芯片引脚的外侧，而非放置在电容和芯片之间，减少过孔
+base name:AN017_CA-IS2092A隔离电源辐射抑制参考设计_APPNOTE

@@ -1,0 +1,3 @@
+title: 图17      VCC对GNDA以及VISO对GNDB拼接电容
+VISO输出电压及负载：5V/100mA 19    加入 10 nF +470pF去耦电容   辐射 输入电压：5V VISO输出电压及负载：5V/100mA 21    加入型号为FBG1005-601Y的磁珠   辐射
+base name:AN001_隔离电源的辐射抑制设计参考_APPNOTE

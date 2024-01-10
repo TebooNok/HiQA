@@ -1,0 +1,3 @@
+title: 图  E- 24  双变量扫描仿真结果
+通过 “Analysis” � “Start Selected” 运行仿真。仿真后，通过 “Results Browser” 观察  MOS 管  M0  的阈值电压，如图  E- 24  所示。  图  E- 23  双扫变量扫描的仿真点  图  E- 24  双变量扫描仿真结果
+base name:book

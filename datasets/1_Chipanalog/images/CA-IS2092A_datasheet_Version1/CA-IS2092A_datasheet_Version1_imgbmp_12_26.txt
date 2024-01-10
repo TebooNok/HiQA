@@ -1,0 +1,3 @@
+title: Not Found
+动态负载电流  I ISO ： 4 mA  阶跃至  40mA ， V ISO  纹波电压峰峰值：  45mV    V ISO   20mV/div 5μs/div 50mA/div   I ISO 1ms /div V ISO
+base name:CA-IS2092A_datasheet_Version1

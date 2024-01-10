@@ -1,0 +1,3 @@
+title: Not Found
+4   Schematic  原理图  Figure 2  Schematic in details
+base name:AN012_基于CA-IS3211x的100W半桥降压转换器-Jan 2023_APPNOTE

@@ -1,0 +1,3 @@
+title: Not Found
+11.3.   DUB8   外形尺寸 下图说明了采用  DUB8  封装大小尺寸图和建议焊盘尺寸图。尺寸以毫米为单位。
+base name:CA-IS3211_Version1

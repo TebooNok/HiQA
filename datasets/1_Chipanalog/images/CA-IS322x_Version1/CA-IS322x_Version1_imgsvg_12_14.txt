@@ -1,0 +1,3 @@
+title: 图8-3为使能/禁止控制响应时序。如果栅极驱动器距离微控制器较远，建议在DIS或EN引脚与GNDI之间增加1nF
+图8-3为使能/禁止控制响应时序。如果栅极驱动器距离微控制器较远，建议在DIS或EN引脚与GNDI之间增加1nF 低ESR、低ESL旁路电容。
+base name:CA-IS322x_Version1

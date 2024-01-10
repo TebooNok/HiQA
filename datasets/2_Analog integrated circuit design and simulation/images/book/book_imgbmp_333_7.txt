@@ -1,0 +1,3 @@
+title: 图  8- 87  输入库的名字
+图  8- 86  新建  Library  的菜单选项  图  8- 87  输入库的名字  图  8- 88 “Attach Library” 的选项 接着弹出的 “Attach Design Library to Technology File” 对话框要求用户为库  BG  指定
+base name:book

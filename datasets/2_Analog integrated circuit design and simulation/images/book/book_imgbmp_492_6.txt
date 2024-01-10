@@ -1,0 +1,3 @@
+title: 图  A- 23 “Rename Reference Library” 窗口
+的路径。  图  A- 23 “Rename Reference Library” 窗口  图  A- 24 “Delete By View” 窗口
+base name:book

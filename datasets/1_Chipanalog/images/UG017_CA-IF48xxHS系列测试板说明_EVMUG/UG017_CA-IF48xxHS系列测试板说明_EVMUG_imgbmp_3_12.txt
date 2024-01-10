@@ -1,0 +1,3 @@
+title: 图  5   硬件连接示意图
+4    Copyright   © 2021, Chipanalog Incorporated 上海川土微电子有限公司   图  5   硬件连接示意图 测试示例 略 ( 详细测试框图见规格书 ) 。
+base name:UG017_CA-IF48xxHS系列测试板说明_EVMUG

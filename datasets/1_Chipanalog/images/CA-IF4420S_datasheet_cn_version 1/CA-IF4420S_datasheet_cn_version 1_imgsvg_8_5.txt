@@ -1,0 +1,3 @@
+title: 图8- 3 TXD到RXD的环路延迟示意图的环路延迟示意图
+opyright © 2019, Chipanalog Incorporated                                                                                                                                                                  9 image_3 上海川土微电子有限公司上海川土微电子有限公司 图8- 3 TXD到RXD的环路延迟示意图的环路延迟示意图
+base name:CA-IF4420S_datasheet_cn_version 1

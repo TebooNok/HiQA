@@ -1,0 +1,3 @@
+型号   输入通道数   A  侧   输入通道数   B  侧   故障安全输出 状态   额定耐压 (kV)  输出使能   封装
+型号   输入通道数   A  侧   输入通道数   B  侧   故障安全输出 状态   额定耐压 (kV)  输出使能   封装 CA-IS3820LG  2  0  低   5.7  No  SOIC8-WB CA-IS3820LW  2  0  低   5.7  No  SOIC16-WB
+base name:CA-IS382x_datasheet_Version1

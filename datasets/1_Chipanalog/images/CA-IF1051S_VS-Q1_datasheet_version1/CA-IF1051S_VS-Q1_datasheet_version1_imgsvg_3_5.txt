@@ -1,0 +1,3 @@
+title: 图6-1 CA-IF1051S-Q1 /CA-IF1051VS-Q1引脚引脚配置配置
+4                                                                                                                                                                                                              Copyright © 2019, Chipanalog Incorporated 上海川土微电子有限公司上海川土微电子有限公司 . 引脚功能描述引脚功能描述 图6-1 CA-IF1051S-Q1 /CA-IF1051VS-Q1引脚引脚配置配置 表6-1 CA-IF1051S-Q1/CA-IF1051VS-Q1引脚功能描述引脚功能描述
+base name:CA-IF1051S_VS-Q1_datasheet_version1

@@ -1,0 +1,3 @@
+title: 图 6- 1  CA-IS372x SOIC8  脚窄体及  SOIC8  脚宽体封装顶部视图
+6. 引脚功能描述 图 6- 1  CA-IS372x SOIC8  脚窄体及  SOIC8  脚宽体封装顶部视图 表  6- 1 CA-IS372x SOIC8  引脚功能描述
+base name:CA-IS372x-datasheet_cn

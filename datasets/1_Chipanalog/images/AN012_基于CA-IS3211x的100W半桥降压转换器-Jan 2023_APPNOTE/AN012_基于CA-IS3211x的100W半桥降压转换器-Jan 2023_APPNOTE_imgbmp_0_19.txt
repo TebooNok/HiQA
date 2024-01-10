@@ -1,0 +1,3 @@
+title: Not Found
+Output  48V/2A Switching frequency  20kHz PWM Duty cycle  12%
+base name:AN012_基于CA-IS3211x的100W半桥降压转换器-Jan 2023_APPNOTE

@@ -1,0 +1,3 @@
+title: 图  13  低边电流采样示意图  1
+4>   高边采样对于升压  boost  电路而言，开关周期内只能对电感充电电流进行监控和控制，  PFC boost  电路控制方 式受限。 R_SNS i bus C OUT Q1 GND2 INP INN GND1 DAT CLK CA-IS1204 CA-IS1305/06 VDD1 VDD2 MCU/DSP Zener
+base name:AN011_隔离电流检测放大器在PFC升压系统的应用_APPNOTE

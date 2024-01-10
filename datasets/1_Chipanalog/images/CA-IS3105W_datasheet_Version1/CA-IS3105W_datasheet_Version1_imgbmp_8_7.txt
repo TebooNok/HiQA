@@ -1,0 +1,3 @@
+title: 图  7- 1  VINP=5V ， VISO=5V ，软启动波形， I ISO= 130mA
+图  7- 1  VINP=5V ， VISO=5V ，软启动波形， I ISO= 130mA  图  7- 2  VINP=5V ， VISO=5.4V ，软启动波形， I ISO =130mA
+base name:CA-IS3105W_datasheet_Version1

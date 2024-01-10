@@ -1,0 +1,1103 @@
+section
+"[desc] ads9815 __ ADS981x 具有集成模拟前端的 18 位 2MSPS/通道双通道同步采样 ADC [desc]
+ADS981x 具有集成模拟前端的 18 位 2MSPS/通道双通道同步采样 ADC"
+"[desc] ads9815 __ ADS981x 具有集成模拟前端的 18 位 2MSPS/通道双通道同步采样 ADC __ Features [desc]
+- 具有模拟前端的 8 通道 18 位 ADC：
+    - 双路同步采样：4 × 1 个通道
+    - 恒定的 1MΩ 输入阻抗前端
+- 可编程模拟输入范围：
+    - ±12V、±10V、±7V、±5V、±3.5V 和 ±2.5V
+    - 单端和差分输入
+    - ±12V 共模电压范围
+    - 输入过压保护：高达 ±18V
+- 用户可选模拟输入带宽：
+    - 21kHz 和 400kHz
+- 集成低漂移精密基准
+    - ADC 基准：4.096V
+    - 用于外部电路的 2.5V 基准输出
+- 最大吞吐量时具有出色的交流和直流性能：
+    - DNL：±0.3 LSB，INL：±1.5 LSB
+    - SNR：92.2 dB，THD：–112 dB
+- 电源：
+    - 模拟和数字：5V 和 1.8V
+    - 数字接口：1.2V 至 1.8V
+- 温度范围：-40°C 至 +125°C"
+"[desc] ads9815 __ ADS981x 具有集成模拟前端的 18 位 2MSPS/通道双通道同步采样 ADC __ Application [desc]
+- 半导体测试
+- 电池测试
+- 数据采集 (DAQ)"
+"[desc] ads9815 __ Description [desc]
+ADS981x 是基于双通道同步采样 18 位逐次逼近寄存
+器 (SAR) 模数转换器 (ADC) 的 8 通道数据采集 (DAQ) 
+系统。ADS981x 的每个通道都具有一个完整的模拟前
+端，其中包含输入钳位保护电路、1MΩ 输入阻抗和一
+个 具 有 用 户 可 选 带 宽 选 项 的 可 编 程 增 益 放 大 器  
+(PGA)。高输入阻抗特性允许直连传感器和变压器，因
+此无需使用外部驱动器电路。ADS981x 可配置为接受
+单极或双极输入，共模电压高达 ±12V。
+该器件还具有用于 ADC 的 4.096V 基准和用于外部电
+路的 2.5V 基准输出。凭借支持 1.2V 至 1.8V 运行的数
+字接口，ADS981x 无需外部电压电平转换器即可使
+用。"
+"[desc] ads9815 __ Packaging Information [desc]
+---table begin---
+Table tile: Packaging Information
+| Device Model | Package(1) | Package Size(2) |
+|---|---|---|
+| ADS981x | RSH（VQFN，56） | 7mm × 7mm |
+---table end---
+(1) 如需更多信息，请参阅机械、封装和可订购信息。
+(2) 封装尺寸（长 x 宽）为标称值，并包括引脚（如适用）。"
+"[desc] ads9815 __ Device Information [desc]
+---table begin---
+Table tile: Device Information
+| Device Model | SPEED | Total Power Consumption |
+|---|---|---|
+|ADS9817 | 2Msp/Channel | 232 mW |
+|ADS9815 | 1MSPS/channel | 160 mW |
+---table end---"
+"[desc] ads9815 __ Device Diagram [desc]
+AIN1P 
+CHANNELS 
+1 - 4
+4.096 V
+4:1
+AIN1M
+1 M�
+Clamp
+1 M
+�
+Clamp
+User-
+selectable 
+LPF
+PGA
+AIN2P
+AIN3P
+AIN4P
+AIN4M
+AIN3M
+AIN2M
+AIN8P
+CHANNELS 
+5 - 8
+4:1
+AIN8M
+1 M�
+Clamp
+1 M�
+Clamp
+User-
+selectable 
+LPF
+PGA
+AIN7P
+AIN6P
+AIN5P
+AIN5M
+AIN6M
+AIN7M
+ADC
+A
+ADC
+B
+REFIO
+ADC Reference
+Data 
+Interface
+User 
+Registers
+DCLKOUT
+FCLKOUT
+D0
+D1
+D2
+D3
+CS
+SCLK
+SDI
+SDO
+Bipolar
+Differential
+Unipolar
+Differential with 
+wide input 
+common-mode 
+voltage
+Dynamic Input 
+Signal Support
+AINxP and AINxM
+PGA
+Optimum 
+SNR for 
+multiple 
+ranges
++12V
++10V
++7V +5V +3.5V+2.5V
+–12V
+–10V
+–7V –5V –3.5V–2.5V
+Multiple analog input 
+ranges
+AVDD_5V = 4.75 V to 5.25 V
+VDD_1V8 = 1.75 V to 1.85 V
+IOVDD = 1.15 V to 1.85 V
+2.5 V
+REFOUT_2V5"
+"[desc] ads9815 __ 3 [desc]
+---table begin---
+Table title: Pin Functions
+| Name | No. | Type | Description |
+|---|---|---|---|
+| AIN5M | 10 | AI | Analog input channel 5, negative input. |
+| AIN5P | 9 | AI | Analog input channel 5, positive input. |
+| AIN6M | 12 | AI | Analog input channel 6, negative input. |
+| AIN6P | 11 | AI | Analog input channel 6, positive input. |
+| AIN7M | 14 | AI | Analog input channel 7, negative input. |
+| AIN7P | 13 | AI | Analog input channel 7, positive input. |
+| AIN8M | 17 | AI | Analog input channel 8, negative input. |
+| AIN8P | 16 | AI | Analog input channel 8, positive input. |
+| AVDD_5V | 15, 56 | P | 5-V analog supply. Connect 1-µF and 0.1-µF decoupling capacitors to GND. |
+| CS | 25 | DI | Chip-select input for SPI interface configuration; active low. This pin has an internal 100-kΩ pullup resistor to IOVDD. |
+| D0 | 34 | DO | Serial output data lane 0. |
+| D1 | 35 | DO | Serial data output lane 1. |
+---table end---"
+"[desc] ads9815 __ 4 [desc]
+---table begin---
+Table title: Pin Functions
+| Name | No. | Type | Description |
+|---|---|---|---|
+| D2 | 36 | DO | Serial data output lane 2. |
+| D3 | 37 | DO | Serial data output lane 3. |
+| DCLKOUT | 33 | DO | Clock output for data interface. |
+| FCLKOUT | 40 | DO | Frame synchronization output for data interface. |
+| GND | 7, 23, 29, 42, 46 | P | Ground. |
+| IOVDD | 30, 41 | P | Digital I/O supply for data interface. Connect 1-µF and 0.1-µF decoupling capacitor to GND. |
+| NC | 20, 38, 39, 50, 51 | — | Not connected. No external connection. |
+| PWDN | 32 | DI | Power-down control; active low. PWDN has an internal 100-kΩ pullup resistor to the digital interface supply. |
+| REFIO | 52 | AI/AO | REFIO acts as an internal reference output when the internal reference is enabled. REFIO functions as an input pin for the external reference when the internal reference is disabled. Connect a 10-µF decoupling capacitor to the REFM pins. |
+| REFM | 8, 18, 53 | AI | Reference ground potential. Connect to GND. |
+| REFOUT_2V5 | 19 | AO | 2.5-V reference output. Connect a decoupling 10-µF capacitor to the REFM pins. |
+---table end---"
+"[desc] ads9815 __ 5 [desc]
+---table begin---
+Table title: Pin Functions
+| Name | No. | Type | Description |
+|---|---|---|---|
+| RESET | 31 | DI | Reset input for the device; active low. RESET has an internal 100-kΩ pullup resistor to the digital interface supply. |
+| SCLK | 26 | DI | Serial clock input for the configuration interface. SCLK has an internal 100-kΩ pulldown resistor to the digital interface ground. |
+| SDI | 27 | DI | SDI is a multifunction logic input; pin function is determined by the SPI_EN pin. SDI has an internal 100-kΩ pulldown resistor to GND. |
+| SDO | 28 | DO | Serial data output for the configuration interface. |
+| SMPL_CLKP | 44 | DI | Single-ended ADC sampling clock input. SMPL_CLKP is the positive input for the differential sampling clock input to the ADC. |
+| SMPL_CLKM | 43 | DI | Connect SMPL_CLKM to GND for a single-ended ADC sampling clock input. SMPL_CLKM is the negative input for the differential sampling clock input to the ADC. |
+| SMPL_SYNC | 45 | DI | Synchronization input. See the Sample Synchronization section on how to use the SMPL_SYNC pin. |
+| SPI_EN | 24 | DI | Logic input to enable the SPI interface configuration (CS, SCLK, SDI, and SDO). SPI_EN has an internal 100-kΩ pullup resistor to the digital interface supply. |
+| VDD_1V8 | 21, 22, 47, 48, 49 | P | 1.8-V power-supply. Connect 1-µF and 0.1-µF decoupling capacitors to GND. |
+| Thermal pad | — | P | Exposed thermal pad; connect to GND. |
+---table end---"
+"[desc] ads9815 __ 1 [desc]
+Absolute Maximum Ratings 
+---table begin---
+Table title: Absolute Maximum Ratings
+| MIN | MAX | UNIT |
+|---|---|---|
+| AVDD_5V to GND | –0.3 | 6 | V |
+| VDD_1V8 to GND | –0.3 | 2.1 | V |
+| IOVDD to GND | –0.3 | 2.1 | V |
+| AINxP and AINxM to GND | –18 | 18 | V |
+| REFIO to REFM | REFM – 0.3 | AVDD_5V + 0.3 | V |
+| REFM to GND | GND – 0.3 | GND + 0.3 | V |
+| Digital inputs to GND | GND – 0.3 | 2.1 | V |
+| Input current to any pin except supply pins(2) | –10 | 10 | mA |
+| Junction temperature, TJ | –40 | 150 | °C |
+| Storage temperature, Tstg | –60 | 150 |  °C |
+---table end---"
+"[desc] ads9815 __  [desc]
+Specifications"
+"[desc] ads9815 __ 2 [desc]
+ESD Ratings"
+"[desc] ads9815 __ 3 [desc]
+Recommended Operating Conditions"
+"[desc] ads9815 __ 4 [desc]
+Thermal Information"
+"[desc] ads9815 __ 5 [desc]
+Electrical Characteristics
+at AVDD_5V = 4.75 V to 5.25 V, VDD_1V8 = 1.75 V to 1.85 V, IOVDD = 1.15 V to 1.85 V, VREF = 4.096 V (internal or external), and maximum throughput (unless otherwise noted); minimum and maximum values at TA = –40°C to +125°C; typic# 6. 
+---table begin---
+Thermal Parameters
+| Parameter | Value | Unit |
+|---|---|---|
+| ΨJB - Junction-to-board characterization parameter | 6.0 | °C/W |
+| RθJC(bot) - Junction-to-case (bottom) thermal resistance | 0.9 | °C/W |
+---table end---
+For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application note."
+"[desc] ads9815 __  [desc]
+---table begin---
+Electrical Characteristics
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| RIN - Input impedance | All input ranges | 0.85 | 1 | 1.15 | MΩ |
+| Input impedance thermal drift | All input ranges |  | 10 | 25 | ppm/°C |
+| Input capacitance |   | | | 10 |  pF |
+| BW(-3 dB) - Analog input LPF bandwidth –3 dB | Low-bandwidth filter, all input ranges | | | 21 | kHz |
+|  | Wide-bandwidth filter, input range = ±2.5 V | | | 182 |-|
+|  | Wide-bandwidth filter, input range = ±3.5 V | | | 240 |-|
+|  | Wide-bandwidth filter, input range = ±5 V | | | 320 |-|
+|  | Wide-bandwidth filter, input range = ±7 V | | | 400 |-|
+|  | Wide-bandwidth filter, input range = ±10 V | | | 385 |-|
+---table end---"
+"[desc] ads9815 __ 5 Electrical Characteristics [desc]
+at AVDD_5V = 4.75 V to 5.25 V, VDD_1V8 = 1.75 V to 1.85 V, IOVDD = 1.15 V to 1.85 V, VREF = 4.096 V (internal or external), and maximum throughput (unless otherwise noted); minimum and maximum values at TA = –40°C to +125°C; typical values at TA = 25°C
+---table begin---
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| SINAD | Signal-to-noise + distortion ratio | | | | |
+|  | Low-noise filter, fIN = 2 kHz, range = ±2.5 V | 85.7 | 88.9 | | dB |
+|  | Low-noise filter, fIN = 2 kHz, range = ±3.5 V | 86.7 | 89.9 | | - |
+|  | Low-noise filter, fIN = 2 kHz, range = ±5 V | 87.3 | 90.7 | | - |
+|  | Low-noise filter, fIN = 2 kHz, range = ±7 V | 88.0 | 90.6 | | - |
+|  | Low-noise filter, fIN = 2 kHz, range = ±10 V | 88.5 | 91.1 | | - |
+|  | Low-noise filter, fIN = 2 kHz, range = ±12 V | 88.6 | 91.3 | | - |
+|  | Wide-bandwidth filter, fIN = 2 kHz, range = ±2.5 V | 78.6 | 82.2 | | - |
+|  | Wide-bandwidth filter, fIN = 2 kHz, range = ±3.5 V | 79.5 | 83.2 | | - |
+|  | Wide-bandwidth filter, fIN = 2 kHz, range = ±5 V | 80.0 | 84.2 | | - |
+|  | Wide-bandwidth filter, fIN = 2 kHz, range = ±7 V | 80.9 | 83.2 | | - |
+|  | Wide-bandwidth filter, fIN = 2 kHz, range = ±10 V | 82.3 | 84.7 | | - |
+|  | Wide-bandwidth filter, fIN = 2 kHz, range = ±12 V | 82.8 | 85.1 | | - |
+| THD | Total harmonic distortion | | -113 | | dB |
+|  | Wide-bandwidth filter, fIN = 2 kHz, all ranges | -113 | | | - |
+| SFDR | Spurious-free dynamic range | | fIN = 2 kHz | 113 | | dB |
+| CMRR | at dc | | -70 | | dB |
+| Isolation crosstalk | at dc | | -100 | | dB |
+| INTERNAL REFERENCE | VREF (1) | | | | |
+|  | Voltage on REFIO pin (configured as output) | | 1-µF capacitor on REFIO pin, TA = 25°C | 4.092 | 4.096 | 4.1 | V |
+| Reference temperature drift | | 10 | | 25 | ppm/°C |
+| DIGITAL INPUTS | VIL | Input low logic level | -0.3 | | 0.3 IOVDD | V |
+| VIH | Input high logic level | 0.7 IOVDD | | IOVDD | V |
+| Input current | -1 | | 0.1 | 1 | µA |
+| Input capacitance | 6 | | | | pF |
+| LVDS SAMPLING CLOCK INPUT | VTH | High-level input voltage | 100 | | | mV |
+| VTL | Low-level input voltage | -100 | | | mV |
+| VICM | Input common-mode voltage | 0.3 | | 1.2 | 1.4 | V |
+| DIGITAL OUTPUTS | VOL | Output low logic level | IOL = 500 µA sink | 0 | | 0.2 IOVDD | V |
+| VOH | Output high logic level | IOH = 500 µA source | 0.8 IOVDD | | IOVDD | V |
+| POWER SUPPLY | Total power dissipation | Maximum throughput | 232 | | 304 | mW |
+| IAVDD_5V | Supply current from AVDD_5V | Maximum throughput, internal reference | 26 | | 32 | mA |
+| Power-down | 0.2 | | | 2 | |
+---table end---"
+"[desc] ads9815 __ 5 Electrical Characteristics （续） [desc]
+at AVDD_5V = 4.75 V to 5.25 V, VDD_1V8 = 1.75 V to 1.85 V, IOVDD = 1.15 V to 1.85 V, VREF = 4.096 V (internal or external), and maximum throughput (unless otherwise noted); minimum and maximum values at TA = –40°C to +125°C; typical values at TA = 25°C
+---table begin---
+Table Title: Electrical Characteristics
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| IVDD_1V8 | Supply current from VDD_1V8 | Maximum throughput, internal reference | 50 | | 70 | mA |
+---table end---"
+"[desc] ads9815 __ 6 Timing Requirements [desc]
+at AVDD_5V = 4.75 V to 5.25 V, VDD_1V8 = 1.75 V to 1.85 V, IOVDD = 1.15 V to 1.85 V, and maximum throughput (unless 
+otherwise noted); minimum and maximum values at TA = -40°C to +125°C; typical values at TA = 25°C
+---table begin---
+Table Title: Timing Requirements
+| MIN | MAX | UNIT |
+|---|---|---|
+| CONVERSION CYCLE | |
+| fSMPL_CLK | Sampling frequency | 3.6 | 8 | MHz |
+| tSMPL_CLK | Sampling time interval | 1 / fSMPL_CLK | | | ns |
+| tPL_SMPL_CLK | SMPL_CLK low time | 0.45 tSMPL_CLK | 0.55 tSMPL_CLK | | ns |
+| tPH_SMPL_CLK | SMPL_CLK high time | 0.45 tSMPL_CLK | 0.55 tSMPL_CLK | | ns |
+| SPI INTERFACE TIMINGS (CONFIGURATION INTERFACE) | |
+| fSCLK | Maximum SCLK frequency | 20 | | | MHz |
+| tPH_CK | SCLK high time | 0.48 | 0.52 | tCLK | |
+| tPL_CK | SCLK low time | 0.48 | 0.52 | tCLK | |
+| thi_CS | Pulse duration: CS high | 220 | | | ns |
+| td_CSCK | Delay time: CS falling to the first SCLK capture edge | 20 | | | ns |
+| tsu_CKDI | Setup time: SDI data valid to the SCLK rising edge | 10 | | | ns |
+| tht_CKDI | Hold time: SCLK rising edge to data valid on SDI | 5 | | | ns |
+| tD_CKCS | Delay time: last SCLK falling to CS rising | 5 | | | ns |
+| CMOS DATA INTERFACE | |
+| tsu_SS | Setup time: SMPL_SYNC rising edge to SMPL_CLK falling edge | 10 | | | ns |
+| tht_SS | Hold time: SMPL_CLK falling edge to SMPL_SYNC high | 10 | | | ns |
+---table end---"
+"[desc] ads9815 __ 7 Switching Characteristics [desc]
+at AVDD_5V = 4.75 V to 5.25 V, VDD_1V8 = 1.75 V to 1.85 V, IOVDD = 1.15 V to 1.85 V, and maximum throughput (unless 
+otherwise noted); minimum and maximum values at TA = -40°C to +125°C; typical values at TA = 25°C
+---table begin---
+Table Title: Switching Characteristics
+| PARAMETER | TEST CONDITIONS | MIN | MAX | UNIT |
+|---|---|---|---|---|
+| RESET | tPU | Power-up time for device | 25 | | ms |
+| SPI INTERFACE TIMINGS (CONFIGURATION INTERFACE) |
+| tden_CKDO | Delay time: 8th SCLK rising edge to data enable | 22 | | | ns |
+| tdz_CKDO | Delay time: 24th SCLK rising edge to SDO going Hi-Z | 50 | | | ns |
+| td_CKDO | Delay time: SCLK falling edge to corresponding data valid on SDO | 16 | | | ns |
+| tht_CKDO | Delay time: SCLK falling edge to previous data valid on SDO | 2 | | | ns |
+| CMOS DATA INTERFACE |
+| tDCLK | Data clock output | DDR mode | 10 | | ns |
+| | | SDR mode | 20 | | |
+| | Clock duty cycle | 45 | 55 | | % |
+| toff_DCLKDO_r | Time offset: DCLK rising to corresponding data valid | DDR mode | tDCLK / 4 – 1.5 | tDCLK / 4 + 1.5 | ns |
+| toff_DCLKDO_f | Time offset: DCLK falling to corresponding data valid | DDR mode | tDCLK / 4 – 1.5 | tDCLK / 4 + 1.5 | ns |
+| td_DCLKDO | Time delay: DCLK rising to corresponding data valid | SDR mode | –1 | 1 | ns |
+| td_SYNC_FCLK | Time delay: SMPL_CLK falling edge with SYNC signal to corresponding FCLKOUT rising edge | 3 | 4 tSMPL_CLK | | |
+---table end---"
+"[desc] ads9815 __ 8 Timing Diagrams [desc]
+---table begin---
+Table tile: SPI Configuration Interface
+| CS | SCLK | SDI | SDO | A7 | A6 | A5 | A4 | A3 | A2 | A1 | A0 | D15 | D14 | D13 | D12 | D11 | D10 | D9 | D8 | D7 | D6 | D5 | D4 | D3 | D2 | D1 | D0 | tsu_CKDI | tht_CKDI | td_CKDO | tht_SDO | td_CSCK | thi_CS | tdz_CKDO | DO15 | DO14 | DO13 | DO12 | DO11 | DO10 | DO9 | DO8 | DO7 | DO6 | DO5 | DO4 | DO3 | DO2 | DO1 | DO0 | td_CKCS | tden_CKDO |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
+| - | - | - | SDO is active only when reading registers; Hi-Z otherwise | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | Hi-Z | - | - |
+---table end---"
+"[desc] ads9815 __ 9 Timing Diagrams [desc]
+---table begin---
+Table tile: DDR CMOS Data Interface
+| D | 23 | D | 21 | D | 19 | D | 13 | D | 9 | D | 1 | D | 11 | toff_DCLKDO_f | tFCLK | Channel 1 | Channel 2 | Channel 3 | Channel 4 | D2 | 6 DCLK | SMPL_CLK | SMPL_SYNC | tsu_SS | tht_SS |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
+---table end---"
+"[desc] ads9815 __ 1 Typical Characteristics [desc]
+at TA = 25°C, AVDD_5V = 5 V, VDD_1V8 = 1.8 V, internal VREF = 4.096 V, ±5-V analog input range, and maximum throughput (unless otherwise noted)
+---table begin---
+Table tile: Typical INL With Low-Bandwidth LPF
+| Output Code | Integral Nonlinearity (LSB) |
+|---|---|
+| 0 | - |
+| 65536 | - |
+| 131072 | - |
+| 196608 | - |
+| 262144 | - |
+| -0.75 | Typical INL = ±0.75 LSB |
+| -0.45 | - |
+| -0.15 | - |
+| 0.15 | - |
+| 0.45 | - |
+| 0.75 | - |
+---table end---# 5.5. 2-SDO SDR CMOS Data Interface
+DCLKs - 96
+SMPL_CLK
+SMPL_SYNC
+tsu_SS
+tht_SS
+D - 23
+D - 22
+D - 11
+D - 0
+td_DCLKDO
+td_SYNC_FCLK
+D[23:6] - 18-bit conversion result
+D[5:0] - 0"
+"[desc] ads9815 __ 1 Typical Characteristics __ Typical Characteristics [desc]
+at TA = 25°C, AVDD_5V = 5 V, VDD_1V8 = 1.8 V, internal VREF = 4.096 V, ±5-V analog input range, and maximum throughput (unless otherwise noted)
+---table begin---
+Table tile: Typical INL With Low-Bandwidth LPF
+| Output Code | Integral Nonlinearity (LSB) |
+|---|---|
+| 0 | - |
+| 65536 | - |
+| 131072 | - |
+| 196608 | - |
+| 262144 | - |
+| -0.75 | - |
+| -0.45 | - |
+| -0.15 | - |
+| 0.15 | - |
+| 0.45 | - |
+| 0.75 | Typical INL = ±0.75 LSB |
+---table end---"
+"[desc] ads9815 __ 1 Typical Characteristics __ Typical INL With Wide-Bandwidth LPF [desc]
+---table begin---
+Table tile: Typical DNL With Wide-Bandwidth LPF
+| Output Code | Differential Nonlinearity (LSB) |
+|---|---|
+| 0 | - |
+| 65536 | - |
+| 131072 | - |
+| 196608 | - |
+| 262144 | - |
+| -0.3 | - |
+| -0.15 | - |
+| 0 | - |
+| 0.15 | - |
+| 0.3 | Typical DNL = ±0.25 LSB |
+---table end---"
+"[desc] ads9815 __ 1 Typical Characteristics __ Typical FFT With Low-Bandwidth LPF, [desc]
+RANGE = ±5 V
+Frequency (kHz) - 0.1
+Amplitude (dBFS) - -200"
+"[desc] ads9815 __ 1 Typical Characteristics __ Typical FFT With Wide-Bandwidth LPF, [desc]
+RANGE = ±5 V
+Frequency (kHz) - 0.1
+Amplitude (dBFS) - -200"
+"[desc] ads9815 __ 1 Typical Characteristics __ Typical Characteristics (continued) [desc]
+at TA = 25°C, AVDD_5V = 5 V, VDD_1V8 = 1.8 V, internal VREF = 4.096 V, ±5-V analog input range, and maximum throughput (unless otherwise noted)
+Frequency (kHz) - 0.1
+Amplitude (dBFS) - -200"
+"[desc] ads9815 __ 1 Typical Characteristics __ Typical FFT With Low-Bandwidth LPF, [desc]
+RANGE = ±10 V
+Frequency (kHz) - 0.1
+Amplitude (dBFS) - -200"
+"[desc] ads9815 __ 1 Typical Characteristics __ Typical FFT With Wide-Bandwidth LPF, [desc]
+RANGE = ±10 V
+Frequency (kHz) - 0.1
+Amplitude (dBFS) - -200"
+"[desc] ads9815 __ 1 Typical Characteristics __ Low-Bandwidth LPF Frequency Response Across Input [desc]
+Ranges
+Frequency (kHz) - 1
+Amplitude (dB) - -48"
+"[desc] ads9815 __ 1 Typical Characteristics __ Wide-Bandwidth LPF Frequency Response Across [desc]
+Input Ranges
+Frequency (kHz) - 10
+Amplitude (dB) - -48"
+"[desc] ads9815 __ 1 Typical Characteristics __ SNR vs Input Signal Frequency Across Input Ranges [desc]
+With Low-Bandwidth LPF
+Frequency (Hz) - 0
+SNR (dBFS) - 88"
+"[desc] ads9815 __ 1 Typical Characteristics __ SNR vs Input Signal Frequency Across Input Ranges [desc]
+With Wide-Bandwidth LPF
+Frequency (Hz) - 0
+SNR (dBFS) - 80"
+"[desc] ads9815 __ 1 Typical Characteristics __ THD vs Input Signal Frequency Across Input Ranges With Low-Bandwidth LPF [desc]
+Frequencies (Hz): 0, 6000, 12000, 18000, 24000, 30000, 36000, 42000, 48000
+THD (dB): -120, -113, -106, -99, -92, -85
+Input Ranges: ±2.5 V, ±3.5 V, ±5 V, ±7 V, ±10 V, ±12 V"
+"[desc] ads9815 __ 1 Typical Characteristics __ THD vs Input Signal Frequency Across Input Ranges With Wide-Bandwidth LPF [desc]
+Frequencies (Hz): 0, 6000, 12000, 18000, 24000, 30000, 36000, 42000, 48000
+THD (dB): -120, -113, -106, -99, -92, -85
+Input Ranges: ±2.5 V, ±3.5 V, ±5 V, ±7 V, ±10 V, ±12 V"
+"[desc] ads9815 __ 1 Typical Characteristics __ SINAD vs Input Signal Frequency Across Input Ranges With Low-Bandwidth LPF [desc]
+Frequencies (Hz): 0, 6000, 12000, 18000, 24000, 30000, 36000, 42000, 48000
+SINAD (dB): 88, 89.5, 91, 92.5, 94
+Input Ranges: ±2.5 V, ±3.5 V, ±5 V, ±7 V, ±10 V, ±12 V"
+"[desc] ads9815 __ 1 Typical Characteristics __ SINAD vs Input Signal Frequency Across Input Ranges With Wide-Bandwidth LPF [desc]
+Frequencies (Hz): 0, 6000, 12000, 18000, 24000, 30000, 36000, 42000, 48000
+SINAD (dB): 78, 80, 82, 84, 86, 88
+Input Ranges: ±2.5 V, ±3.5 V, ±5 V, ±7 V, ±10 V, ±12 V"
+"[desc] ads9815 __ 1 Typical Characteristics __ THD vs Input Frequency, Low-BW Mode, RANGE = ±5 V, ADS9817 [desc]
+Input Frequency (kHz): 0.02, 0.05, 0.1, 0.2, 0.3, 0.5, 1, 2, 3, 4, 5, 7, 10, 20, 30, 50
+THD (dB): -117, -114, -111, -108, -105, -102, -99, -96
+Input Resistances: 0 Ω, 50 Ω, 1 kΩ, 10 kΩ, 50 kΩ"
+"[desc] ads9815 __ 1 Typical Characteristics __ THD vs Input Frequency, High-BW Mode, RANGE = ±5 V, ADS9817 [desc]
+Input Frequency (kHz): 0.02, 0.05, 0.1, 0.2, 0.3, 0.5, 1, 2, 3, 4, 5, 7, 10, 20, 30, 50
+THD (dB): -120, -115, -110, -105, -100, -95, -90
+Input Resistances: 0 Ω, 50 Ω, 1 kΩ, 10 kΩ, 50 kΩ"
+"[desc] ads9815 __ 1 Typical Characteristics __ THD vs Input Frequency, Low-BW Mode, RANGE = ±10 V, ADS9817 [desc]
+Input Frequency (kHz): 0.02, 0.05, 0.1, 0.2, 0.3, 0.5, 1, 2, 3, 4, 5, 7, 10, 20, 30, 50
+THD (dB): -120, -115, -110, -105, -100, -95, -90
+Input Resistances: 0 Ω, 50 Ω, 1 kΩ, 10 kΩ, 50 kΩ"
+"[desc] ads9815 __ 1 Typical Characteristics __ THD vs Input Frequency, High-BW Mode, RANGE = ±10 V, ADS9817 [desc]
+Additional data:
+2 kHz Input Frequency, Wide-BW Mode
+10 kHz Input Frequency, Wide-BW Mode
+2 kHz Input Frequency, Low-BW Mode
+10 kHz Input Frequency, Low-BW Mode# 5.9 Typical Characteristics (continued)
+at TA = 25°C, AVDD_5V = 5 V, VDD_1V8 = 1.8 V, internal VREF = 4.096 V, ±5-V analog input range, and maximum throughput (unless otherwise noted)
+---table begin---
+Table title: THD vs Input Amplitude, RANGE 
+| Input Amplitude (dB) | THD (dB) |
+|---|---|
+| -25 | -135 |
+| -20 | -125 |
+| -15 | -115 |
+| -10 | -105 |
+| -5 | -95 |
+| 0 | -85 |
+---table end---"
+"[desc] ads9815 __ 1 Typical Characteristics __ THD vs Input Frequency, High-BW Mode, RANGE = ±10 V, ADS9817 [desc]
+Additional data:
+2 kHz Input Frequency, Wide-BW Mode
+10 kHz Input Frequency, Wide-BW Mode
+2 kHz Input Frequency, Low-BW Mode
+10 kHz Input Frequency, Low-BW Mode"
+"[desc] ads9815 __ 1 Typical Characteristics __ Temperature (°C) [desc]
+Gain Error (LSB): -40, -20, 0, 20, 40, 60, 80, 100, 120
+Values: -96, -64, -32, 0, 32, 64, 96
+Variables: Channel 1, Channel 2, Channel 3, Channel 4, Channel 5, Channel 6, Channel 7, Channel 8"
+"[desc] ads9815 __ 1 Typical Characteristics __ Gain Error Drift (ppm/°C) [desc]
+Number of Hits: 0, 200, 400, 600, 800, 1000
+Values: 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4"
+"[desc] ads9815 __ 1 Typical Characteristics __ ADC Code [desc]
+Number of Hits: 0, 200, 400, 600, 800, 1000, 1200, 1400, 1600
+Values: 131055, 131060, 131065, 131070, 131075, 131080, 131085# 5.9. Typical Characteristics
+at TA = 25°C, AVDD_5V = 5 V, VDD_1V8 = 1.8 V, internal VREF = 4.096 V, ±5-V analog input range, and maximum throughput (unless otherwise noted)
+---table begin---
+Table title: ADC Code, Number of Hits and Values
+|   | 0     | 200   | 400   | 600  | 800  | 1000 | 1200 | 1400 | 1600 |
+|---|-------|-------|-------|------|------|------|------|------|------|
+|ADC Code | 131055 | 131060 | 131065 | 131070 | 131075 | 131080 | 131085 | 131090 | 131095 |
+|Number of Hits | 0 | 200 | 400 | 600 | 800 | 1000 | 1200 | 1400 | 1600 |
+---table end---
+Variables: CH1, CH2, CH3, CH4, CH5, CH6, CH7, CH8
+Mean = 131074.4 LSB, standard deviation = 5.47 LSB, number of hits = 4096"
+"[desc] ads9815 __ Detailed Description [desc]
+6.1 Overview
+The ADS981x is an 18-bit data acquisition (DAQ) system with eight-channel analog inputs that can be configured as either single-ended or differential. Each analog input channel consists of an input clamp protection circuit, and a programmable gain amplifier (PGA) with user-selectable bandwidth options. The input signals are digitized using an 18-bit analog-to-digital converter (ADC), based on the successive approximation register (SAR) architecture. This overall system can achieve a maximum throughput of 2 MSPS/channel for all channels. The device features a 4.096-V internal reference with a fast-settling buffer.
+The device operates from 5-V and 1.8-V analog supplies and can accommodate true bipolar input signals. The input clamp protection circuitry can tolerate voltages up to ±18 V. The device offers a constant 1-MΩ resistive input impedance irrespective of the sampling frequency or the selected input range. The ADS981x offers a simplified end solution without requiring external high-voltage bipolar supplies and complicated driver circuits.
+6.2 Functional Block Diagram
+(Note: The visual representation of the functional block diagram is not converted due to the lack of image)
+6.3 Feature Description
+6.3.1 Analog Inputs
+The ADS981x incorporates dual, simultaneous-sampling, 18-bit successive approximation register (SAR) analog-to-digital converters (ADCs). Each ADC is connected to four the rest of the content continues...# 6.3 Feature Description"
+"[desc] ads9815 __ Detailed Description __ 1 Analog Inputs [desc]
+The ADS981x incorporates dual, simultaneous-sampling, 18-bit successive approximation register (SAR) analog-to-digital converters (ADCs). Each ADC is connected to four analog input channels through a multiplexer. The device has a total of eight analog input pairs. The ADC digitizes the voltage difference between the analog input pairs AINxP – AINxM."
+"[desc] ads9815 __ Detailed Description __ 1 Analog Inputs __ 1 Input Clamp Protection Circuit [desc]
+The ADS981x features an internal clamp protection circuit on each of the eight analog input channels. The input clamp protection circuit allows each analog input to swing up to a maximum voltage of ±18 V. Beyond an input voltage of ±18 V, the input clamp circuit turns on and still operates from the single 5-V supply.
+For input voltages above the clamp threshold, make sure that the input current never exceeds ±10 mA. A resistor placed in series with the analog inputs is an effective way to limit the input current. In addition to limiting the input current, the series resistor can also provide an antialiasing, low-pass filter (LPF) when coupled with a capacitor. Matching the external source impedance on the AINxP and AINxM pins cancels any additional offset error."
+"[desc] ads9815 __ Detailed Description __ 1 Analog Inputs __ 2 Programmable Gain Amplifier (PGA) [desc]
+Each analog input channel features an antialiasing, low-pass filter (LPF) at the output of the PGA.
+---table begin---
+Table tile: Low-Pass Filter Corner Frequency
+| LPF | ANALOG INPUT RANGE | CORNER FREQUENCY (–3 dB) |
+|---|---|---|
+| Low-bandwidth | All input ranges | 21.2 kHz |
+| Wide-bandwidth | ±12 V | 375 kHz |
+| Wide-bandwidth | ±10 V | 385 kHz |
+| Wide-bandwidth | ±7 V | 400 kHz |
+| Wide-bandwidth | ±5 V | 320 kHz |
+| Wide-bandwidth | ±3.5 V | 240 kHz |
+| Wide-bandwidth | ±2.5 V | 185 kHz |
+---table end---"
+"[desc] ads9815 __ Detailed Description __ 1 Analog Inputs __ 3 Wide-Common-Mode Voltage Range [desc]
+The rest of the content continues...# 5. Possible LPF options
+F options available in the ADS981x corresponding to the analog input range. Figure 5-14 and Figure 5-15 illustrate the frequency responses for low-bandwidth and wide-bandwidth LPF configurations. The analog input bandwidth for the eight analog input channels can be can be selected using the ANA_BW[7:0] bits in address 0xC0 of register bank 1.
+---table begin---
+Table title: Low-Pass Filter Corner Frequency
+| LPF | ANALOG INPUT RANGE | CORNER FREQUENCY (–3 dB) |
+|---|---|---|
+| Low-bandwidth | All input ranges | 21.2 kHz |
+| Wide-bandwidth | ±12 V | 375 kHz |
+| Wide-bandwidth | ±10 V | 385 kHz |
+| Wide-bandwidth | ±7 V | 400 kHz |
+| Wide-bandwidth | ±5 V | 320 kHz |
+| Wide-bandwidth | ±3.5 V | 240 kHz |
+| Wide-bandwidth | ±2.5 V | 185 kHz |
+---table end---"
+"[desc] ads9815 __ Detailed Description __ 1 Analog Inputs __ 3 Wide-Common-Mode Voltage Rejection Circuit [desc]
+The ADS981x features a common-mode (CM) rejection circuit at the analog inputs that supports CM voltages up to ±12 V. The CM voltage for differential inputs is given by Equation 1. On power-up or after reset, the common-mode voltage range for the analog input channels is ±12 V (WIDE_CM_EN1 = 0b). Voltage at the analog inputs in all cases must be within the Absolute Maximum Ratings.
+Common mode voltage =  Voltage on AINP + Voltage on AINM / 2 (1)
+As described in the table below, the CM voltage rejection circuit can be optimized for various CM voltages for differential inputs.
+---table begin---
+Table tile: Wide Common-Mode Configuration for Differential Inputs
+| COMMON-MODE (CM) RANGE | CM_CTRL_EN | ADC A (ANALOG INPUT CHANNELS 1–4) | ADC B (ANALOG INPUT CHANNELS 5–8) | CM_EN_ADC_A | CM_RNG_ADC_A [1:0] | CM_EN_ADC_B | CM_RNG_ADC_B [1:0] |
+|---|---|---|---|---|---|---|---|
+| CM ≤ ±1 V | 1 | 0 | Don't care | 0 | Don't care |
+| CM ≤ ±RANGE / 2 | 1 | 0 | 1 | 0 |
+| CM ≤ ±6 V | 2 | 2 |
+| CM ≤ ±12 V | 1 | 1 |
+---table end---"
+"[desc] ads9815 __ Detailed Description __ 1 Analog Inputs __ 4 Gain Error Calibration [desc]
+The ADS981x features calibration logic to minimize gain error from the analog inputs. Enable gain error calibration for minimum gain error. Gain error calibration can be enabled by configuring the GE_CAL_EN1 (address = 0xD), GE_CAL_EN2, GE_CAL_EN3 (address = 0x33), and GE_CAL_EN4 (address = 0x34).
+If gain error calibration is not enabled as shown in the table below, the full-scale analog input ranges are increased by a factor of 1.024.
+---table begin---
+Table title: Analog Input Ranges vs Gain-Error Calibration
+| RANGE_CHx CONFIGURATION | ANALOG INPUT RANGE WITH CALIBRATION | ANALOG INPUT RANGE WITHOUT CALIBRATION |
+|---|---|---|
+| 5 | ±12 V | ±12.288 V |
+| 4 | ±10 V | ±10.24 V |
+| 3 | ±7 V | ±7.168 V |
+| 0 | ±5 V | ±5.12 V |
+| 1 | ±3.5 V | ±3.584 V |
+| 2 | ±2.5 V | ±2.56 V |
+---table end---"
+"[desc] ads9815 __ Detailed Description __ 2 ADC Transfer Function [desc]
+The ADS981x outputs 18 bits of conversion data in either straight-binary or binary two's-complement formats. The format for the output codes is the same across all analog channels. The format for the output codes can be selected using the DATA_FORMAT field in address 0xD in register bank 1. Figure 6-3 and the table below show the transfer characteristics for the ADS981x. The LSB size depends on the analog input range selected, gain-error calibration, and system gain error calibration as shown in Equation 2.
+LSB =  Analog input range / 2^18 × 1 + G × 0.024 (2) where: G is 0 when gain-error calibration is enabled, otherwise G is 1; see the Gain Error Calibration section ADC OUTPUT C"
+"[desc] ads9815 __  [desc]
+图 6-3 and 表 6-6 show the transfer characteristics for the ADS981x. The LSB size depends on the analog input range selected, gain-error calibration, and system gain error calibration as shown in Equation 2. 
+`LSB =  Analog input range / 2^18 × 1 + G × 0.024 (2)`
+where:
+- G is 0 when gain-error calibration is enabled, otherwise G is1; see the Gain Error Calibration section.
+---table begin---
+Table tile: ADC Full-Scale Range and LSB Size
+| RANGE | +FS | MIDSCALE | -FS | LSB |
+|---|---|---|---|---|
+| ±2.5 V | 2.5 V | 0 V | –2.5 V | 19.07 µV |
+| ±3.5 V | 3.5 V | 0 V | –3.5 V | 26.70 µV |
+| ±5 V | 5 V | 0 V | –5 V | 38.15 µV |
+---table end---"
+"[desc] ads9815 __  __ 3 ADC Sampling Clock Input [desc]
+Use a low-jitter external clock with a high slew rate to maximize SNR performance. The ADS981x can be operated with a differential or a single-ended clock input. Clock amplitude impacts the ADC aperture jitter and consequently the SNR."
+"[desc] ads9815 __  __ 4 Reference [desc]
+The ADS981x has a precision, low-drift voltage reference internal to the device. For best performance, filter the internal reference noise by connecting a 10-µF ceramic bypass capacitor to the REFIO pin. An external reference can also be connected at the REFIO pin and the internal reference voltage can be disabled by writing to PD_REF = 1b in address 0xC1 of register bank 1."
+"[desc] ads9815 __  __ 4 Reference __ 1 Internal Reference Voltage [desc]
+The ADS981x features an internal reference voltage with a nominal output voltage of 4.096 V. On power-up, the internal reference is enabled by default."
+"[desc] ads9815 __  __ 4 Reference __ 2 External Reference Voltage [desc]
+An external 4.096-V reference voltage, as shown in 图 6-7, can be connected at the REFIO pin with an appropriate decoupling capacitor placed between the REFIO and REFM pins. For improved thermal drift performance, the REF7040 is recommended. To disable the internal reference, set PD_REF = 1b in address 0xC1 in register bank 1. The REFIO pin has ESD protection diodes connected to the AVDD_5V and REFM pins."
+"[desc] ads9815 __  __ 5 Sample Synchronization [desc]
+As illustrated in 图 5-2, 图 5-3, 图 5-4, and 图 5-5, the SMPL_SYNC pin can synchronize multiple ADCs using an external SYNC signal. The SMPL_SYNC pin is latched in by the falling edge of the sampling clock. The synchronization signal is only required one time during power-up. As illustrated in 图 5-2, 图 5-3, 图 5-4, and 图 5-5, the SYNC signal resets the internal analog channel selection logic and aligns the FCLKOUT signal to the data frame. If no SYNC signal is given, the internal analog channel selection logic and FCLKOUT are not synchronized, which can lead to a different alignment between the sequence of channel output data and FCLKOUT. When using multiple ADCs with the same sampling clock, the SYNC signal makes sure all ADCs sample the same respective analog input channel at the same time."
+"[desc] ads9815 __  __ 6 Data Interface [desc]
+The ADS981x supports 2-lane and 4-lane mode with single-data-rate (SDR) and double-data-rate (DDR) interface modes. The data interface can be selected using the configuration SPI as described in 表 6-7. The ADC generates the data (D[3:0]), data clock (DCLKOUT), and frame clock (FCLKOUT) in response to the sampling clock signal on the SMPL_CLK input pin. The 18-bit ADC conversion result is output MSB first in a 24-
+bit data packet and the last six bits are zeroes.
+The data interface signals can be described as:
+• D[3:0]: Data output from the ADC. In 4-lane mode all four lanes are used, whereas in 2-lane mode D3 and D1 are used to output ADC data.
+• DCLKOUT: Data clock output from the ADC.
+• FCLKOUT: Frame clock output from the ADC delimiting each set of 8-channel data. A SYNC pulse is required on power-up or after device reset to align the rising edge of FCLKOUT with channel 0 data output, as described in the Sample Synchronization section.
+---table begin---
+Table title: Register Configurations For Interface Modes
+| INTERFACE MODE | FIGURE | DATA_RATE (Address = 0xC1) | DATA_LANES (Address = 0xC1) |
+|---|---|---|---|
+| 4-lane, DDR | 图 5-2 | 0 | 0 |
+| 2-lane, DDR | 图 5-3 | 0 | 1 |
+| 4-lane, SDR | 图 5-4 | 1 | 0 |
+| 2-lane, SDR | 图 5-5 | 1 | 1 |
+---table end---"
+"[desc] ads9815 __  __ 6 Data Interface __ 1 Data Clock Output [desc]
+The ADS981x features a source-synchronous data interface where the ADC provides the output data and the clock to capture the data. The clock to capture the data is output on the DCLKOUT pin. The clock frequency depends on the sampling clock speed, data rate (SDR or DDR), and number of output lanes (4-lanes or 2-lanes) and is given by 方程式 3. The frame clock frequency is given by 方程式 4.
+Data clock frequency =  
+24 bits/channel × 8 channels
+Nu# 6.3.6.1 Data Clock Output
+The ADS981x features a source-synchronous data interface where the ADC provides the output data and the clock to capture the data. The clock to capture the data is output on the DCLKOUT pin. The clock frequency depends on the sampling clock speed, data rate (SDR or DDR), and number of output lanes (4-lanes or 2-lanes) and is given by 方程式 3. The frame clock frequency is given by 方程式 4.
+Data clock frequency =  
+24 bits/channel × 8 channels
+Number of data lanes ×  Data rate SDR =  1,  DDR =  2 × Sampling clock frequency
+(3)
+Frame clock frequency =   Sampling clock frequency
+4
+(4)
+---table begin---
+Table tile: Data Clock Frequency for Interface Modes
+| INTERFACE MODE | ADS9815 (fSMPL_CLK = 4 MHz) | ADS9817 (fSMPL_CLK = 8 MHz) |
+|---|---|---|
+| 4-lane, DDR | 24 MHz | 48 MHz |
+| 2-lane, DDR | 48 MHz | 96 MHz |
+| 4-lane, SDR | 48 MHz | 96 MHz |
+| 2-lane, SDR | 96 MHz | Not supported |
+---table end---"
+"[desc] ads9815 __  __ 6 Data Interface __ 2 ADC Output Data Randomizer [desc]
+As shown in 图 6-8, the ADS981x features a data output randomizer. When enabled, the ADC conversion result is bit-wise exclusive-ORed (XOR) with the LSB of the conversion result. The LSB of the ADC conversion result has equal probability of being either 1 or 0. As a result of the XOR operation, the data output from the ADS981x is randomized. The ground bounce created by the transmission of this randomized result over the data interface is uncorrelated with the analog input voltage. This uncorrelated transmission helps minimize interference between data transmission and analog performance of the ADC when the PCB layout does not minimize ground bounce."
+"[desc] ads9815 __  __ 6 Data Interface __ 3 Test Patterns for Data Interface [desc]
+The ADS981x features test patterns that can be used by the host for debugging and verifying the data interface. The test patterns replace the ADC output data with predefined digital data. The test patterns can be enabled by configuring the corresponding register addresses 0x13 through 0x1B in bank 1.
+The ADS981x supports the following test patterns:
+• User-defined output: User-defined, 24-bit pattern. Separate patterns for ADC A and ADC B; see the User-Defined Test Pattern section.
+• Ramp output: Digital ramp output with a user-defined increment between two steps. There are separate ramp outputs for ADC A and ADC B; see the Ramp Test Pattern section.
+• Alternate output: User-defined, 24-bit outputs that alternate between two user-defined patterns; see the User-Defined Alternating Test Pattern section.
+To disable the test patterns, set TEST_PAT_EN_CHA and TEST_PAT_EN_CHB to 0b."
+"[desc] ads9815 __  __ 6 Data Interface __ 3 Test Patterns for Data Interface __ 1 User-Defined Test Pattern [desc]
+The user-defined test pattern allows the host to specify a fixed 24-bit value that is output by the ADS981x. Configure the registers in bank 1 to enable the user-defined test pattern:
+• Configure the test patterns in TEST_PAT0_ADC_A (address = 0x15 MSB, 0x14 LSB) and TEST_PAT0_ADC_B (address = 0x1A MSB, 0x19 LSB)
+• Set TEST_PAT_EN_ADC_A = 1, TEST_PAT_MODE_ADC_A = 0 (address = 0x13) and TEST PAT_EN_ADC_B = 1, TEST_PAT_MODE_ADC_B = 0 (address = 0x18)
+The ADS981x outputs the TEST_PAT0_ADC_A (address 0x15 [7:0], address 0x14 [15:0]) and TEST_PAT0_ADC_B (address 0x1A [7:0], address 0x19 [15:0]) registers.# 6.3 User-Defined Test Pattern
+User-defined test pattern allows the host to specify a fixed 24-bit value that is output by the ADS981x. Configure the registers in bank 1 to enable the user-defined test pattern:
+1. Configure the test patterns in TEST_PAT0_ADC_A (address = 0x15 MSB, 0x14 LSB) and TEST_PAT0_ADC_B (address = 0x1A MSB, 0x19 LSB)
+2. Set TEST_PAT_EN_ADC_A = 1, TEST_PAT_MODE_ADC_A = 0 (address = 0x13) and TEST PAT_EN_ADC_B = 1, TEST_PAT_MODE_ADC_B = 0 (address = 0x18)
+3. The ADS981x outputs the TEST_PAT0_ADC_A (address 0x15 [7:0], address 0x14 [15:0]) and TEST_PAT0_ADC_B (address 0x1A [7:0], address 0x19 [15:0]) register values in place of ADC A and ADC B data, respectively."
+"[desc] ads9815 __  __ 6 Data Interface __ 3 Test Patterns for Data Interface __ 2 User-Defined Alternating Test Pattern [desc]
+The user-defined alternating test pattern allows the host to specify two fixed 24-bit values that are output by the ADS981x alternately. Configure the registers in bank 1 to enable the user-defined alternating test pattern:
+1. Configure the test patterns in TEST_PAT0_CHA (address = 0x14, 0x15), TEST_PAT1_CHA (address = 0x15, 0x16) and TEST_PAT0_CHB (address = 0x19, 0x1A), TEST_PAT1_CHB (address = 0x1A, 0x1B)
+2. Set TEST_PAT_EN_CHA = 1, TEST_PATMODE_CHA = 3 (address = 0x13) and TEST PAT_EN_CHB = 1, TEST_PATMODE_CHB = 3 (address = 0x18)
+3. The ADS981x outputs the TEST_PAT0_CHA and TEST_PAT0_CHB register values in place of the ADC A and ADC B data, respectively, in one output frame and the TEST_PAT1_CHA and TEST_PAT1_CHB register values in the next frame."
+"[desc] ads9815 __  __ 6 Data Interface __ 3 Test Patterns for Data Interface __ 3 Ramp Test Pattern [desc]
+The ramp test pattern allows the host to specify a digital ramp that is output by the ADS981x. Configure the registers in bank 1 to enable the ramp test pattern:
+1. Configure the increment value between two successive steps of the digital ramp in the RAMP_INC_CHA (address = 0x13) and RAMP_INC_CHB (address = 0x18) registers, respectively. The digital ramp increments by N + 1, where N is the value configured in these registers.
+2. Set TEST_PAT_EN_CHA = 1, TEST_PATMODE_CHA = 2 (address = 0x13) and TEST PAT_EN_CHB = 1, TEST_PATMODE_CHB = 2 (address = 0x18).
+3. The ADS981x outputs digital ramp values in place of the ADC A and ADC B data, respectively."
+"[desc] ads9815 __ 4 Device Functional Modes __ 1 Power-Down [desc]
+The ADS981x can be powered-down by either a logic 0 on the PWDN pin or by writing 11b to the PD_CH field in address 0xC0 in register bank 1. The device registers are initialized to the default values after power-up and the device must be initialized with a sequence of register write operations; see the Initialization Sequence section."
+"[desc] ads9815 __ 4 Device Functional Modes __ 2 Reset [desc]
+The ADS981x can be powered down by either a logic 0 on the RESET pin or by writing 1b to the RESET field in address 0x00 in register bank 0. The device registers are initialized to the default values after reset and the device must be initialized with a sequence of register write operations; see the Initialization Sequence section."
+"[desc] ads9815 __ 4 Device Functional Modes __ 3 Initialization Sequence [desc]
+As shown in Table 6-9, the ADS981x must be initialized by a sequence of register writes after device power-up or reset. A free-running sampling clock must be connected to the ADC before executing the initialization sequence. The ADS981x registers are initialized with the default value after the initialization sequence is complete.
+---table begin---
+Table tile: ADS981x Initialization Sequence
+| STEP NUMBER | REGISTER BANK | ADDRESS | VALUE[15:0] | COMMENT |
+|---|---|---|---|---|
+| 1 | 0 | 0x03 | 0x0002 | Select register bank 1 |
+| 2 | 1 | 0xF6 | 0x0002 | INIT_2 = 1 |
+| 3 | 0 | 0x04 | 0x000B | INIT_1 = 1011b |
+| 4 | 0 | 0x03 | 0x0010 | Select register bank 2 |
+| 5 | 2 | 0x12 | 0x0040 | INIT_3 = 1 |
+| 6 | 2 | 0x13 | 0x8000 | INIT_4 = 1 |
+| 7 | 2 | 0x0A | 0x4 | - |
+---table end---"
+"[desc] ads9815 __ 4 Device Functional Modes __ 3 ADS981x Initialization [desc]
+The ADS981x must be initialized by a sequence of register writes after device power-up or reset. A free-running sampling clock must be connected to the ADC before executing the initialization sequence. The ADS981x registers are initialized with the default value after the initialization sequence is complete.
+---table begin---
+Table tile: ADS981x Initialization Sequence
+| STEP NUMBER | REGISTER BANK | ADDRESS | VALUE[15:0] | COMMENT |
+|---|---|---|---|---|
+| 1 | 0 | 0x03 | 0x0002 | Select register bank 1 |
+| 2 | 1 | 0xF6 | 0x0002 | INIT_2 = 1 |
+| 3 | 0 | 0x04 | 0x000B | INIT_1 = 1011b |
+| 4 | 0 | 0x03 | 0x0010 | Select register bank 2 |
+| 5 | 2 | 0x12 | 0x0040 | INIT_3 = 1 |
+| 6 | 2 | 0x13 | 0x8000 | INIT_4 = 1 |
+| 7 | 2 | 0x0A | 0x4000 | INIT_5 = 1 |
+| 8 | | | | Wait 10 μs (min) |
+| 9 | 2 | 0x0A | 0x0000 | INIT_5 = 0 |
+| 10 | 0 | 0x03 | 0x0002 | Select register bank 1 |
+| 11 | 1 | 0xF6 | 0x0000 | INIT_2 = 0 |
+| 12 | 0 | 0x03 | 0x0010 | Select register bank 2 |
+| 13 | 2 | 0x13 | 0x0000 | INIT_5 = 0 |
+| 14 | 2 | 0x12 | 0x0000 | INIT_4 = 0 |
+| 15 | 0 | 0x04 | 0x0000 | INIT_1 = 0 |
+| 16 | 0 | 0x03 | 0x0002 | Select register bank 1 |
+| 17 | 1 | 0x33 | 0x0030 | Write INIT_KEY |
+| 18 | 1 | 0xF4 | 0x0000 | INIT = 0 |
+| 19 | 1 | 0xF4 | 0x0002 | INIT = 1 |
+| 20 | | | | Wait 1 ms (min) |
+| 21 | 1 | 0xF4 | 0x0000 | INIT = 0 |
+| 22 | | | | Wait 1 ms (min) |
+| 23 | 1 | 0x33 | 0x0000 | INIT_KEY = 0 |
+| 24 | 1 | 0x0D | `<user-defined>` | Enable gain error calibration and select ADC output data format |
+| 25 | 1 | 0x33 | 0x2040 | Enable gain error calibration |
+| 26 | 1 | 0x34 | 0x0010 | Enable gain error calibration |
+---table end---"
+"[desc] ads9815 __ 4 Device Functional Modes __ 3 ADS981x User-Configuration [desc]
+As shown in 表 6-10, the default settings of the ADS981x can be changed for user-defined configuration:
+•
+Analog inputs: analog input range, bandwidth, and common-mode voltage range
+•
+Data interface: number of output lanes, single or double data rate
+---table begin---
+Table tile: ADS981x User-Configuration
+| STEP | REGISTER BANK | ADDRESS | VALUE[15:0] | COMMENT |
+|---|---|---|---|---|
+| 1 | 1 | 0xC1 | `<user-defined>` | Configure data interface (data rate, number of lanes) and select internal or external reference |
+| 2 | 1 | 0xC2 and 0xC3 | `<user-defined>` | Select analog input ranges. See 表 6-1 |
+| 3 | 1 | 0xC0 | `<user-defined>` | Select analog input bandwidth. See 表 6-2 |
+| 4 | 1 | 0xC4 and 0xC5 | `<user-defined>` | Select common-mode range for analog inputs. See 表 6-3 and 表 6-4 |
+---table end---"
+"[desc] ads9815 __ 4 Device Functional Modes __ 4 Normal Operation [desc]
+After the ADS981x is initialized (see 表 6-9), the ADS981x converts analog input voltages to digital output. A 
+free-running sampling clock is required for normal device operation; see the ADC Sampling Clock Input section."
+"[desc] ads9815 __ 5 Programming __ 1 Register Write [desc]
+Register write access is enabled by setting SPI_RD_EN = 0b. The 16-bit configuration registers are grouped in 
+three register banks and are addressable with an 8-bit register address. Register bank 1 and register bank 2 can 
+be selected for read or write operation by configuring the PAGE_SEL0 and PAGE_SEL1 bits, respectively. 
+Registers in bank 0 are always accessible, irrespective of the PAGE_SELx bits because the register addresses 
+in bank 0 are unique and are not used in register banks 1 and 2.
+As shown in 图 6-9, steps to write to a register are:
+1.
+Frame 1: Write to register address 0x03 in register bank 0 to select either register bank 1 or bank 2 for a 
+subsequent register write. This frame has no effect when writing to registers in bank 0.
+2.
+Frame 2: Write to a register in the bank selected in frame 1. Repeat this step for writing to multiple registers 
+in the same register bank.# 6.5.1 Register Write
+Registers in bank 1 and bank 2 are accessible by writing to the bank select register (0x03) in register bank 0. The PAGE_SEL0 and PAGE_SEL1 bits in the bank select register are used to select either register bank 1 or 2. These registers are 8, 16, or 24 bits, respectively. Registers in bank 0 are always accessible, irrespective of the PAGE_SELx bits because the register addresses in bank 0 are unique and are not used in register banks 1 and 2.
+As shown in 图 6-9, steps to write to a register are:
+1. Frame 1: Write to register address 0x03 in register bank 0 to select either register bank 1 or bank 2 for a subsequent register write. This frame has no effect when writing to registers in bank 0.
+2. Frame 2: Write to a register in the bank selected in frame 1. Repeat this step for writing to multiple registers in the same register bank."
+"[desc] ads9815 __ 5 Programming __ 2 Register Read [desc]
+Select the desired register bank by writing to register address 0x03 in register bank 0. Register read access is enabled by setting SPI_RD_EN = 1b and SPI_MODE = 1b in register bank 0. As illustrated in 图 6-10, registers can be read using two 24-bit SPI frames after SPI_RD_EN and SPI_MODE are set. The first SPI frame selects the register bank. The ADC returns the 16-bit register value in the second SPI frame corresponding to the 8-bit register address.
+As illustrated in 图 6-10, steps to read a register are:
+1. Frame 1: With SPI_RD_EN = 0b, write to register address 0x03 in register bank 0 to select the desired register bank 0 for reading.
+2. Frame 2: Set SPI_RD_EN = 1b and SPI_MODE = 1b in register address 0x00 in register bank 0.
+3. Frame 3: Read any register in the selected bank using a 24-bit SPI frame containing the desired register address. Repeat this step with the address of any register in the selected bank to read the corresponding register.
+4. Frame 4: Set SPI_RD_EN = 0 to disable register reads and re-enable register writes.
+5. Repeat steps 1 through 4 to read registers in a different bank."
+"[desc] ads9815 __ 5 Programming __ 3 Multiple Devices: Daisy-Chain Topology for SPI Configuration [desc]
+图 6-11 shows a typical connection diagram showing multiple devices in a daisy-chain topology.
+The CS and SCLK inputs of all ADCs are connected together and controlled by a single CS and SCLK pin of the controller, respectively. The SDI input pin of the first ADC in the chain (ADC1) is connected to the peripheral IN controller OUT (PICO) pin of the controller, the SDO output pin of ADC1 is connected to the SDI input pin of ADC2, and so on. The SDO output pin of the last ADC in the chain (ADC4) is connected to the peripheral OUT controller IN (POCI) pin of the controller. The data on the PICO pin passes through ADC1 with a 24-SCLK delay, as long as CS is active.
+The daisy-chain mode must be enabled after power-up or after the device is reset. Set the daisy-chain length in the DAISY_CHAIN_LENGTH register to enable daisy-chain mode. The daisy-chain length is the number of ADCs in the chain excluding ADC1. In 图 6-11, the DAISY_CHAIN_LENGTH = 3.# 6.5.3.1. Register Write With Daisy-Chain
+Writing to registers in a daisy-chain configuration requires N × 24-SCLKs in one SPI frame. A register write in a 
+daisy-chain containing four ADCs, as shown in 图 6-12, requires 96 SCLKs.
+Daisy-chain mode is enabled on power-up or after device reset. Configure the DAISY_CHAIN_LENGTH field to 
+enable daisy-chain mode. The waveform shown in 图 6-12 must be repeated N times, where N is the number of 
+ADCs in the daisy-chain. 图 6-13 provides the SPI waveform, containing N SPI frames, for enabling daisy-chain 
+mode for N ADCs."
+"[desc] ads9815 __ 5 Programming __ 3 Multiple Devices: Daisy-Chain Topology for SPI Configuration __ Register Read With Daisy-Chain [desc]
+图 6-14 illustrates an SPI waveform for reading registers in a daisy-chain configuration. The steps for reading 
+registers from N ADCs connected in a daisy-chain are as follows:
+1. Register read is enabled by writing to the following registers using the Register Write With Daisy-Chain:
+    a. Write to PAGE_SEL to select the desired register bank
+    b. Enable register read by writing SPI_RD_EN = 0b (default on power-up)
+2. With the register bank selected and SPI_RD_EN = 0b, the controller can read register data in the following 
+two steps:
+    a. N × 24-bit SPI frame containing the 8-bit register address to be read: N-times {0xFE, 0x00, 8-bit register 
+    address}
+    b. N × 24-bit SPI frame to read out register data: N-times {0xFF, 0xFF, 0xFF}
+The 0xFE in step 2a configures the ADC for register read from the specified 8-bit address. At the end of step 2a, 
+the output shift register in the ADC is loaded with register data. The ADC returns the 8-bit register address and 
+corresponding 16-bit register data in step 2b."
+"[desc] ads9815 __ Register Map __ Register Bank 0 [desc]
+---table begin---
+Table title: Register Bank 0 Map
+|ADD |D15      |D14       |D13       |D12       |D11       |D10       |D9        |D8        |D7        |D6        |D5        |D4        |D3        |D2        |D1        |D0        |
+|--- |---      |---       |---       |---       |---       |---       |---       |---       |---       |---       |---       |---       |---       |---       |---       |---       |
+|00h |RESERVED |SPI_MO    |DE        |SPI_RD    |_EN       |RESET     |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |
+|01h |RESERVED |DAISY_CHAIN_LEN      |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |
+|03h |RESERVED |REG_BANK_SEL         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |
+|04h |RESERVED |INIT_1               |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |
+|06h |REG_00H_READBACK               |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |-         |
+---table end---# 7. Register Map"
+"[desc] ads9815 __ 1 Register Bank 0 [desc]
+---table begin---
+Table title: Register Bank 0 Map
+| ADD | D15 | D14 | D13 | D12 | D11 | D10 | D9 | D8 | D7 | D6 | D5 | D4 | D3 | D2 | D1 | D0 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 00h | RESERVED | SPI_MO | DE | SPI_RD | _EN | RESET |
+| 01h | RESERVED | DAISY_CHAIN_LEN | RESERVED |
+| 03h | RESERVED | REG_BANK_SEL |
+| 04h | RESERVED | INIT_1 |
+| 06h | REG_00H_READBACK |
+---table end---"
+"[desc] ads9815 __ 2 Register Bank 1 __ 3 Register 13h (offset 13h) [reset 0h] [desc]
+---table begin---
+Table title: Register 13h Field Descriptions 
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-8 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 7-4 | RAMP_INC_ADC_A | R/W | 0h | Increment value for th |
+---table end---"
+"[desc] ads9815 __ 2 Register Bank 1 __ 2 Register 12h (offset = 12h) [reset = 2h] [desc]
+---table begin---
+Table title: Register 12h Field Descriptions 
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-4 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 3 | XOR_EN | R/W | 0h | Enables XOR operation on ADC conversion result. |
+| 2-0 | RESERVED | R/W | 2h | Reserved. Do not change from the default reset value. |
+---table end---"
+"[desc] ads9815 __ 2 Register Bank 1 __ 1 Register 0Dh (offset 13h) [reset 2002h] [desc]
+---table begin---
+Table title: Register 0Dh Field Descriptions 
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-14 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 13 | DATA_FORMAT | R/W | 1h | Select data format for the ADC conversion result. |
+| 12-9 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 8-7 | GE_CAL_EN1 | R/W | 0h | Global control for gain error calibration. |
+| 6-0 | RESERVED | R/W | 2h | Reserved. Do not change from the default reset value. |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 3 Register 13h (offset 13h) [reset 0h] [desc]
+---table begin---
+Table tile: Register 13h
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-8 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 7-4 | RAMP_INC_ADC_A | R/W | 0h | Increment value for the ramp pattern output. The output ramp increments by N+1, where N is the value configured in this register. |
+| 3-2 | TEST_PAT_MOD | E_ADC_A | R/W | 0h | Select digital test pattern for analog input channels 1, 2, 3, and 4. 0 : Fixed pattern as configured in the TEST_PAT0_ADC_A 
+register 1 : Fixed pattern as configured in the TEST_PAT0_ADC_A register 2 : Digital ramp output 3 : Alternate fixed pattern output as configured in the TEST_PAT0_ADC_A and TEST_PAT1_ADC_A registers |
+| 1 | TEST_PAT_EN_A | DC_A | R/W | 0h | Enable digital test pattern for data corresponding to channels 1, 2, 3, and 4. 0 : ADC conversion result is launched on the data interface 1 : Digital test pattern is launched corresponding to channels 1, 2, 3, and 4 on the data interface |
+| 0 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 4 Register 14h (offset = 14h) [reset = 0h] [desc]
+---table begin---
+Table tile: Register 14h
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-0 | TEST_PAT0_ADC | _A[15:0] | R/W | 0h | Lower 16 bits of test pattern 0 for channels 1, 2, 3, and 4 corresponding to ADC A. |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 5 Register 15h (offset 15h) [reset 0h] [desc]
+---table begin---
+Table tile: Register 15h
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-8 | TEST_PAT1_ADC | _A[7:0] | R/W | 0h | Lower eight bits of test pattern 1 for channels 1, 2, 3, and 4 corresponding to ADC A. |
+| 7-0 | TEST_PAT0_ADC | _A[23:16] | R/W | 0h | Upper eight bits of test pattern 0 for channels 1, 2, 3, and 4 corresponding to ADC A. |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 6 Register 16h (offset = 16h) [reset = 0h] [desc]
+---table begin---
+Table tile: Register 16h
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-0 | TEST_PAT1_ADC | _A[23:8] | R/W | 0h | Upper 16 bits of test pattern 1 for channels 1, 2, 3, and 4 corresponding to ADC A. |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 8 Register 19h (offset = 19h) [reset = 0h] [desc]
+---table begin---
+|  |  |  |
+|---|---|---|
+| 15 | 14 | TEST_PAT0_ADC_B[15:0] |
+| 7 | 6 | TEST_PAT0_ADC_B[15:0] |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 9 Register 1Ah (offset  1Ah) [reset  0h] [desc]
+---table begin---
+|  |  |  |
+|---|---|---|
+| 15 | 14 | TEST_PAT1_ADC_B[7:0] |
+| 7 | 6 | TEST_PAT0_ADC_B[23:16] |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 10 Register 1Bh (offset = 1Bh) [reset = 0h] [desc]
+---table begin---
+|  |  |  |
+|---|---|---|
+| 15 | 14 | TEST_PAT1_ADC_B[23:8] |
+| 7 | 6 | TEST_PAT1_ADC_B[23:8] |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 11 Register 1Ch (offset  1Ch) [reset  0h] [desc]
+---table begin---
+|  |  |  |
+|---|---|---|
+| 15 | 14 | RESERVED |
+| 7 | 6 | RESERVED |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 13 Register 34h (offset  34h) [reset  0h] [desc]
+---table begin---
+Table tile: Register 34h
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-14 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 7-6 | GE_CAL_EN2 | R/W | 0h | Global control for gain error calibration. |
+| 5-4 | INIT_KEY | R/W | 0h | Device initialization sequence access key. |
+| 3-0 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 14 Register C0h (offset = C0h) [reset = 0h] [desc]
+---table begin---
+Table tile: Register C0h
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-10 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 9-2 | ANA_BW | R/W | 0h | Select analog input bandwidth for the respective analog input channels. |
+| 1-0 | PD_CH | R/W | 0h | Power-down control for the analog input channels. |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 15 Register C1h (offset  C1h) [reset  0h] [desc]
+---table begin---
+Table tile: Register C1h
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-12 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 9 | DATA_LANES | R/W | 0h | Select number of output data lanes per ADC channel. |
+| 8 | DATA_RATE | R/W | 0h | Select data rate for the data interface. |
+| 7-0 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 16 Register C2h (offset C2h) [reset 0h] [desc]
+---table begin---
+Table title: Register C2h Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-12 | RANGE_CH4 | R/W | 0h | Select input voltage range for channel 4. <br/> 0 : ±5 V <br/> 1 : ±3.5 V <br/> 2 : ±2.5 V <br/> 3 : ±7 V <br/> 4 : ±10 V <br/> 5 : ±12 V |
+| 11-8 | RANGE_CH3 | R/W | 0h | Select input voltage range for channel 3. <br/> 0 : ±5 V <br/> 1 : ±3.5 V <br/> 2 : ±2.5 V <br/> 3 : ±7 V <br/> 4 : ±10 V <br/> 5 : ±12 V |
+| 7-4 | RANGE_CH2 | R/W | 0h | Select input voltage range for channel 2. <br/> 0 : ±5 V <br/> 1 : ±3.5 V <br/> 2 : ±2.5 V <br/> 3 : ±7 V <br/> 4 : ±10 V <br/> 5 : ±12 V |
+| 3-0 | RANGE_CH1 | R/W | 0h | Select input voltage range for channel 1. <br/> 0 : ±5 V <br/> 1 : ±3.5 V <br/> 2 : ±2.5 V <br/> 3 : ±7 V <br/> 4 : ±10 V <br/> 5 : ±12 V |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 17 Register C3h (offset C3h) [reset 0h] [desc]
+---table begin---
+Table title: Register C3h Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-12 | RANGE_CH8 | R/W | 0h | Select input voltage range for channel 8. <br/> 0 : ±5 V <br/> 1 : ±3.5 V <br/> 2 : ±2.5 V <br/> 3 : ±7 V <br/> 4 : ±10 V <br/> 5 : ±12 V |
+| 11-8 | RANGE_CH7 | R/W | 0h | Select input voltage range for channel 7. <br/> 0 : ±5 V <br/> 1 : ±3.5 V <br/> 2 : ±2.5 V <br/> 3 : ±7 V <br/> 4 : ±10 V <br/> 5 : ±12 V |
+| 7-4 | RANGE_CH6 | R/W | 0h | Select input voltage range for channel 6. <br/> 0 : ±5 V <br/> 1 : ±3.5 V <br/> 2 : ±2.5 V <br/> 3 : ±7 V <br/> 4 : ±10 V <br/> 5 : ±12 V |
+| 3-0 | RANGE_CH5 | R/W | 0h | Select input voltage range for channel 5. <br/> 0 : ±5 V <br/> 1 : ±3.5 V <br/> 2 : ±2.5 V <br/> 3 : ±7 V <br/> 4 : ±10 V <br/> 5 : ±12 V |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 18 Register C4h (offset C4h) [reset 0h] [desc]
+---table begin---
+Table title: Register C4h Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-10 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 9-8 | CM_RNG_ADC_B | R/W | 0h | Common-mode range for channels 5, 6, 7, and 8. <br/> 0 : CM range equal to ±RANGE / 2 for the respective channels <br/> 1 : CM range equal to ±6 V for channels 5, 6, 7, and 8 <br/> 2 : CM range equal to ±12 V for channels 5, 6, 7, and 8 |
+| 7-6 | CM_RNG_ADC_A | R/W | 0h | Common-mode range for channels 1, 2, 3, and 4. <br/> 0 : CM range equal to ±RANGE / 2 for the respective channels <br/> 1 : CM range equal to ±6 V for channels 1, 2, 3, and 4 <br/> 2 : CM range equal to ±12 V for channels 1, 2, 3, and 4 |
+| 5-4 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 3 | CM_EN_ADC_B | R/W | 0h | Enable wide-common-mode range control for analog input channels 1 to 4. <br/> 0 : Wide-common-mode range control disabled <br/> 1 : Wide-common-mode range control enabled for channels 1, 2, 3, and 4 |
+| 2 | CM_EN_ADC_A | R/W | 0h | Enable wide-common-mode range control for analog input channels 5 to 8. <br/> 0 : Wide-common-mode range control disabled <br/> 1 : Wide-common-mode range control enabled for channels 5, 6, 7, and 8 |
+| 1 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 0 | PD_CHIP | R/W | 0h | Full chip power-down control. <br/> 0 : Normal device operation <br/> 1 : Full device powered-down |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 19 Register C5h (offset  C5h) [reset  0h] [desc]
+---table begin---
+Table tile: Register C5h Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-5 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 4 | CM_CTRL_EN | R/W | 0h | Enable wide-common-mode range control for all analog input channels. <br/> 0 : CM range for all analog input channels is ±12 V <br/> 1 : CM range is user-defined in the CM_EN_ADC_A, CM_EN_ADC_B, CM_RNG_ADC_A, and CM_RNG_ADC_B registers |
+| 3-0 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 20 Register F4h (offset = F4h) [reset = 0h] [desc]
+---table begin---
+Table tile: Register F4h Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-2 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 1 | INIT | R/W | 0h | INIT field for device initialization. Write 1b during the initialization sequence. Write 0b for normal operation. |
+| 0 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+---table end---"
+"[desc] ads9815 __ Register Section/Block Access Type Codes __ 21 Register F6h (offset  F6h) [reset  0h] [desc]
+---table begin---
+Table tile: Register F6h Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-2 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 1 | INIT_2 | R/W | 0h | INIT_2 field for device initialization. Write 1b during the initialization sequence. Write 0b for normal operation. |
+| 0 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+---table end---"
+"[desc] ads9815 __ 3 Register Bank 2 [desc]
+---table begin---
+Table title: Register Bank 2 Map
+| ADD | D15 | D14 | D13 | D12 | D11 | D10 | D9 | D8 | D7 | D6 | D5 | D4 | D3 | D2 | D1 | D0 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 12h | RESERVED | INIT_3 | RESERVED |
+| 13h | INIT_4 | RESERVED |
+| 0Ah | RESERVED | INIT_2 | RESERVED |
+---table end---"
+"[desc] ads9815 __ 3 Register Bank 2 __ 1 Register 12h (offset = 12h) [reset = 0h] [desc]
+---table begin---
+Table title: Register 12h Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-7 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 6-6 | INIT_3 | R/W | 0h | INIT_3 field for device initialization. Write 1b during the initialization sequence. Write 0b for normal operation. |
+| 5-0 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+---table end---"
+"[desc] ads9815 __ 3 Register Bank 2 __ 2 Register 13h (offset = 13h) [reset = 0h] [desc]
+---table begin---
+Table title: Register 13 Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-15 | INIT_4 | R/W | 0h | INIT_4 field for device initialization. Write 1b during initialization sequence. Write 0b for normal operation. |
+| 14-0 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+---table end---"
+"[desc] ads9815 __ 3 Register Bank 2 __ 3 Register 0Ah (offset = 0Ah) [reset = 0h] [desc]
+---table begin---
+Table title: Register 0A Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+| 14 | INIT_5 | R/W | 0h | INIT_5 field for device initialization. Write 1b during initialization sequence. Write 0b for normal operation. |
+| 13-0 | RESERVED | R/W | 0h | Reserved. Do not change from the default reset value. |
+---table end---"
+"[desc] ads9815 __ 3 Register Bank 2 __ 8 Application and Implementation [desc]
+Application Information: The following section gives an example circuit and recommendations for using the ADS9817 in a data acquisition (DAQ) system. The ADS9817 includes an integrated analog front-end for each input channel and an 
+integrated precision reference with a buffer. As such, this device family does not require any additional external 
+circuits for driving the reference or analog input pins of the ADC."
+"[desc] ads9815 __ 2 Typical Application [desc]
+8.2.1 Data Acquisition (DAQ) System:
+The following details are part of the mentioned system timing diagram."
+"[desc] ads9815 __ 2 Typical Application __ 2 Design Requirements [desc]
+The goal of this application is to design an 8-channel data acquisition system (DAQ) based on the ADS981x with 
+an internal reference. 
+---table begin---
+Table title: Design Parameters
+| PARAMETER | VALUE |
+|---|---|
+| Sampling rate | Up to 2 MSPS/channel |
+| ADC reference | Internal, 4.096 V |
+| ADC analog input type | Differential |
+| ADC analog input range | –5 V to +5 V |
+| Output impedance of the source driving the ADC analog inputs | Up to 200 Ω |
+---table end---"
+"[desc] ads9815 __ 2 Typical Application __ 3 Detailed Design Procedure __ 1 CMOS Data Interface [desc]
+The ADS981x features a high-speed CMOS serial interface for ADC data output. ADC data are launched on D[3:0] and the corresponding data clock is launched on DCLKOUT. The DCLKOUT frequency is 192 MHz for 2 MSPS/channel sampling rate (24 SMPL_CLK bits and an 8-MHz SMPL_CLK rate).
+High-speed CMOS switching can create ground bounce that adversely impacts the SNR of the ADC. Ground bounce increments with increases in PCB trace capacitance. Minimize the PCB trace length for D[3:0] and DCLKOUT. Place a CMOS buffer, with low input capacitance, close to the ADS981x to minimize the effect of CMOS switching noise."
+"[desc] ads9815 __ 3 Power Supply Recommendations [desc]
+The ADS981x has three separate power supplies: AVDD_5V, VDD_1V8, and IOVDD. There is no requirement for a specific power-up sequence. The data and configuration digital interfaces are powered by IOVDD. A common 1.8-V supply powers the VDD_1V8 and IOVDD pins."
+"[desc] ads9815 __ 4 Layout __ 1 Layout Guidelines [desc]
+Avoid crossing digital lines with the analog signal path and keep the analog input signals and the reference signals away from noise sources.
+Use 0.1-μF ceramic bypass capacitors in close proximity to the AVDD_5V, VDD_1V8, and IOVDD power-supply pins. Avoid placing vias between the power-supply pins and the bypass capacitors.
+Place the reference decoupling capacitor close to the device REFIO and REFM pins. Avoid placing vias between the REFIO pin and the bypass capacitors. Connect the GND, REFM, and IOGND pins to a ground plane using short, low-impedance paths."
+"[desc] ads9815 __ 4 Layout __ 9 Device and Documentation Support [desc]
+TI offers an extensive line of development tools. Tools and software to evaluate the performance of the device, generate code, and develop solutions are listed below."
+"[desc] ads9815 __ 3 Trademarks [desc]
+TI E2E™ is a trademark of Texas Instruments."
+"[desc] ads9815 __ 11 Mechanical, Packaging, and Orderable Information [desc]
+The following pages include mechanical, packaging, and orderable information. This information is the most current data available for the designated devices. This data is subject to change without notice and revision of this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+---table begin---
+Table title: Orderable Device Status
+| Orderable Device | Status | Package Type | Package Drawing | Pins | Package Qty | Eco Plan | Lead finish/Ball material | MSL Peak Temp | Op Temp (°C) | Device Marking |
+|---|---|---|---|---|---|---|---|---|---|---|
+| ADS9817RSHR | ACTIVE | VQFN | RSH | 56 | 2500 | RoHS & Green | NIPDAU | Level-3-260C-168 HR | -40 to 125 | ADS9817 |
+| ADS9817RSHT | ACTIVE | VQFN | RSH | 56 | 250 | RoHS & Green | NIPDAU | Level-3-260C-168 HR | -40 to 125 | ADS9817 |
+| PADS9815RSHT | ACTIVE | VQFN | RSH | 56 | 250 | TBD | Call TI | Call TI | -40 to 125 | Samples |
+---table end---"
+"[desc] ads9815 __ Introduction [desc]
+pt"" to mean products that contain lead but are compliant with EU RoHS pursuant to a specific EU RoHS exemption.
+Green: TI defines ""Green"" to mean the content of Chlorine (Cl) and Bromine (Br) based flame retardants meet JS709B low halogen requirements of <=1000ppm threshold. Antimony trioxide based
+flame retardants must also meet the <=1000ppm threshold requirement."
+"[desc] ads9815 __ Moisture Sensitivity Level [desc]
+(3) MSL, Peak Temp. - The Moisture Sensitivity Level rating according to the JEDEC industry standard classifications, and peak solder temperature."
+"[desc] ads9815 __ Device Markings [desc]
+(4) There may be additional marking, which relates to the logo, the lot trace code information, or the environmental category on the device.
+(5) Multiple Device Markings will be inside parentheses. Only one Device Marking contained in parentheses and separated by a ""~"" will appear on a device. If a line is indented then it is a continuation
+of the previous line and the two combined represent the entire Device Marking for that device."
+"[desc] ads9815 __ Material Finish [desc]
+(6) Lead finish/Ball material - Orderable Devices may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two
+lines if the finish value exceeds the maximum column width."

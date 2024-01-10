@@ -1,0 +1,3 @@
+title: 图  10- 1  推荐  PCB  电源部分走线
+电容靠近芯片引脚摆放，距离控制在  2mm  以内。 PCB  板上输入、输出电容和芯片必须放在芯片同一层，不要将电容和 芯片放在不同层且通过过孔相连。推荐  PCB  隔离电源部分走线如图  10- 1  所示。 VINP GNDP VISO GNDS 0.1 μ F 0.1 μ F 10 μ F 10 μ F <2mm <2mm
+base name:CA-IS3105W_datasheet_Version1

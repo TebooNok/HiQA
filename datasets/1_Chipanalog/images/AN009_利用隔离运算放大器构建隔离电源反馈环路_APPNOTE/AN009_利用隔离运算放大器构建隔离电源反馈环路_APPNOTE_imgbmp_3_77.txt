@@ -1,0 +1,3 @@
+title: 图  4. CA-IS310x  误差放大器环路补偿
+VREG1 IOUT VREG2 LDO REFOUT2 REFOUT1 EA OUT2 Current mirror FB  图  4. CA-IS310x  误差放大器环路补偿 当改变当  Z1  和  Z2  阻容网络时，可以构成不同的补偿电路，常见的补偿电路包括： Type I ( 图  5) 、 Type II ( 图  6) 、
+base name:AN009_利用隔离运算放大器构建隔离电源反馈环路_APPNOTE

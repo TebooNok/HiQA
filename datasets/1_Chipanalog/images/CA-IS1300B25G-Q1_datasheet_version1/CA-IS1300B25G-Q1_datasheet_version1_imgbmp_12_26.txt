@@ -1,0 +1,3 @@
+title: Not Found
+图  7-21  供电电流  vs  温度     图  7-22  供电电流  vs  供电电压  图  7-23  非线性度  vs  温度  图  7-24  非线性度  vs  供电电压
+base name:CA-IS1300B25G-Q1_datasheet_version1

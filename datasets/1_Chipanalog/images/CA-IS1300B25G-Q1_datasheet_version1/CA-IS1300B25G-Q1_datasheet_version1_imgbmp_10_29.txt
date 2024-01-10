@@ -1,0 +1,3 @@
+title: Not Found
+IN  = 10 kHz  图  7-11  输入共模抑制比  vs  频率  图  7-12  电源抑制比  vs  频率
+base name:CA-IS1300B25G-Q1_datasheet_version1

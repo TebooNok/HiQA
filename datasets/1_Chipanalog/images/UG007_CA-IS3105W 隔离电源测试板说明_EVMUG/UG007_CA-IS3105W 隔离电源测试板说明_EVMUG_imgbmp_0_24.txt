@@ -1,0 +1,3 @@
+图  1  CA-IS3105W PCB  的  3D  仿真图
+户不同的电压需求。 CA-IS3105W  器件采用  16  脚宽体  SOIC  封装，绝缘耐压高达  5kV RMS 。 测试板  3D  仿真图  图  1  CA-IS3105W PCB  的  3D  仿真图
+base name:UG007_CA-IS3105W 隔离电源测试板说明_EVMUG

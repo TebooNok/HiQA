@@ -1,0 +1,3 @@
+title: Not Found
+注： (1)  波形通道设置  CH1: Input, CH2: OUT. (2)  传输延时取输入沿  50%  至输出沿  50%.    tr≈4.9ns  tf≈4.7ns  tpLH≈76ns  tpHL≈62ns
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

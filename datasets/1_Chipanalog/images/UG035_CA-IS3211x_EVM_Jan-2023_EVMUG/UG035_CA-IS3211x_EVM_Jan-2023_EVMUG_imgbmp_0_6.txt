@@ -1,0 +1,3 @@
+title: Figure 1  CA-IS3211VxJ(SOIC6) PCB 3D  视图
+上海川土微电子有限公司 CA-IS3211x  光耦兼容型单通道栅极驱动器 EVM  使用说明  描述 本文档主要描述了  CA-IS3211x  评估板相关的使用说明 ,  其中包含产品介绍、原理图、 PCB  布线图、
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

@@ -1,0 +1,3 @@
+title: 图  1.  隔离开关电源简化框图
+GND1 GND2 REFOUT2 AnalogSignal  transmitter Power Stage PWM 功率模块 功率模块  图  1.  隔离开关电源简化框图
+base name:AN009_利用隔离运算放大器构建隔离电源反馈环路_APPNOTE

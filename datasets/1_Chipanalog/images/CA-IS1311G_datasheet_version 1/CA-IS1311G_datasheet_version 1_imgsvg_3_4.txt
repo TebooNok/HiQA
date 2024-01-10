@@ -1,0 +1,3 @@
+title: 图 6-1 CA-IS1311引脚配置引脚配置
+4                                                                                                                                                                                     Copyright © 2022, Chipanalog Incorporated 上海川土微电子有限公司上海川土微电子有限公司 6 引脚功能描述引脚功能描述 图 6-1 CA-IS1311引脚配置引脚配置 表 6-1 CA- IS1311引脚功能描述引脚功能描述
+base name:CA-IS1311G_datasheet_version 1

@@ -1,0 +1,3 @@
+图  1  CA-IF48xxHS PCB  的  3D  俯视图
+器件在自然通风环境下的工作温度范围为 –40°C  至   125°C 。 测试板  3D   俯视图 图  1  CA-IF48xxHS PCB  的  3D  俯视图
+base name:UG017_CA-IF48xxHS系列测试板说明_EVMUG

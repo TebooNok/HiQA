@@ -1,0 +1,3 @@
+title: 图  8- 58  在 “Choosing Analyses” 窗口中选择 “Component Parameter”
+” 按键，开始仿真， 仿真结果如图  8- 61  所示。  图  8- 58  在 “Choosing Analyses” 窗口中选择 “Component Parameter”
+base name:book

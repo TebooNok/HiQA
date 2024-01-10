@@ -1,0 +1,3 @@
+title: Figure 6  EVM  硬件连接方式二 ,  输入端增加  Buffer
+2. J3 only need to be connected when user  measures output peak current.  Figure 5  EVM  硬件连接方式一 PWM Generator #1 (f=50kHz, Duty=50% VOH=3.3V,VOL=0V)
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

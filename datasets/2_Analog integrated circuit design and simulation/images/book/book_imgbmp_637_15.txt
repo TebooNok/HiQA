@@ -1,0 +1,3 @@
+title: 图  F- 21  选择 “res” 设计变量
+7)   点击 “OK” 。此时，设计变量就被添加到 “Optimizer” 窗口中，如图  F- 23  所示。  图  F- 20“Editing Variables” 窗口  图  F- 21  选择 “res” 设计变量
+base name:book

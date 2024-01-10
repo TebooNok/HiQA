@@ -1,0 +1,3 @@
+title: A-IS3082功能框功能框图
+确传输。 CA-IS3082器件采用16引脚宽体SOIC封装， 支持绝缘耐压高达5 kVRMS。 件信息器件信息 A-IS3082功能框功能框图
+base name:CA-IS3082 datasheet_cn

@@ -1,0 +1,3 @@
+图  1  CA-IS3080W  SOIC16-WB EVM  图
+2    Copyright   © 2021, Chipanalog Incorporated 上海川土微电子有限公司 测试板  图  1  CA-IS3080W  SOIC16-WB EVM  图
+base name:UG020_CA-IS308xW 隔离式RS-422收发器测试板说明_EVMUG

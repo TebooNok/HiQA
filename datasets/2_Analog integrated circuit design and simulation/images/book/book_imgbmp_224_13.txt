@@ -1,0 +1,3 @@
+title: 图  6- 56  在 “Calculator” 建立时间测量函数
+可以认为该放大器完成建立。同样，我们利用 “Calculator“ 中的 “settlingTime” 函数来测量建 立时间，函数的选择和设置如图  6- 56  和图  6- 57  所示。  图  6- 56  在 “Calculator” 建立时间测量函数
+base name:book

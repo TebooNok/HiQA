@@ -1,0 +1,3 @@
+V CC =3.3V,V ISO =3.3V;
+V CC =5V,V ISO =3.3V 图  13   输出电压随负载电流的变化 V CC =3.3V,V ISO =3.3V; 5ms / div V ISO 2V/div V CC I ISO 2V/div 50mA/div 5us / div
+base name:UG004_CA-IS3092W_98W 带电源的数字隔离器测试板说明_EVMUG

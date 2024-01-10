@@ -1,0 +1,3 @@
+title: 下图  25  显示了  OUTA  和  OUTB  输出相位相同的波形。
+上海川土微电子有限公司 6 、死区时间控制 •   DT Pin  接  VCCI ： CA-IS322x  内置了死区时间控制，当  DT  接  VCC  时，输入与输出同相，允许两个通道之间输出交叠。如
+base name:UG037_CA-IS3221_2xx_EVM_Rev1

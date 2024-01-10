@@ -1,0 +1,3 @@
+title: 5.1. CA-IF4288简化芯片结构图简化芯片结构图
+© 2019, Chipanalog Incorporated 上海川土微电子有限公司 . 芯片内部结构图芯片内部结构图 5.1. CA-IF4288简化芯片结构图简化芯片结构图
+base name:CA-IF428x_datasheet_Version1

@@ -1,0 +1,3 @@
+title: 图  C- 14“Graph Attributes” 对话框
+图  C- 14“Graph Attributes” 对话框  图  C- 15  移动 “Legend” 的滚动条
+base name:book

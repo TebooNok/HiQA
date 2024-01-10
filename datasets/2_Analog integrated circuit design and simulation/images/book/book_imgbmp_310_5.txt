@@ -1,0 +1,3 @@
+title: 图  8- 50  调出 “Optimizer Options” 窗口
+图  8- 50  调出 “Optimizer Options” 窗口 在 “Optimization Options” 窗口中，将 “Algorithm Selection” 栏中的下拉菜单选为
+base name:book

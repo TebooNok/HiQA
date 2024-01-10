@@ -1,0 +1,3 @@
+title: 图  5.  Type I  补偿器及其频率响应
+f P1 =0Hz ， f Z1 = 1 2πR1∗C1 ；   Ga in_Comp(s) = 1+R1∗C1∗s s∗C1∗R2   + -   -IN COMP R1 R2 FB +IN VREF C1  Gain(dB) Phase(deg) f f P1
+base name:AN009_利用隔离运算放大器构建隔离电源反馈环路_APPNOTE

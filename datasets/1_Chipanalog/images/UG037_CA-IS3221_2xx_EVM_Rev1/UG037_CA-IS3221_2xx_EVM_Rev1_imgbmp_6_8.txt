@@ -1,0 +1,3 @@
+title: Figure 11   SOIC16-NB  封装  EVM  硬件连接方式
+上海川土微电子有限公司 Power Supply #1 (3.3V/0.1A) Power Supply #2 (15V/0.1A)
+base name:UG037_CA-IS3221_2xx_EVM_Rev1

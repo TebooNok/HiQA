@@ -1,0 +1,3 @@
+title: 图  10- 69  “ Calculator ”中“ dft ”函数的设置
+进行处理。  图  10- 69  “ Calculator ”中“ dft ”函数的设置 图  10- 69  给出了“ Calculator ”中“ dft ”函数的设置。处理得的信号为  D  触发器的
+base name:book

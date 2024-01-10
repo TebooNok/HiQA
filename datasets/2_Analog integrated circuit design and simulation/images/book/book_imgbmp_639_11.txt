@@ -1,0 +1,3 @@
+title: 图  F- 27  完成所有设置的 “Editing Variables” 窗口
+5)   在 “Minimum Value” 中填入设计变量新的下限，优化器永远不会给设计变量设置 小于下限的值。  图  F- 26  在 “Editing Variables” 窗口选择新的设计变量  图  F- 27  完成所有设置的 “Editing Variables” 窗口 6)   在 “Maximum Value” 中填入设计变量新的上限，优化器永远不会给设计变量设置
+base name:book

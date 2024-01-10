@@ -1,0 +1,3 @@
+title: 图11- 1 CA-IF4420S CAN总线典型应用图总线典型应用图
+图11- 1给出了CA-IF4420S版本的典型应用图，VIO电源与3.3V MCU的电源连接在一起； 图11- 1 CA-IF4420S CAN总线典型应用图总线典型应用图
+base name:CA-IF4420S_datasheet_cn_version 1

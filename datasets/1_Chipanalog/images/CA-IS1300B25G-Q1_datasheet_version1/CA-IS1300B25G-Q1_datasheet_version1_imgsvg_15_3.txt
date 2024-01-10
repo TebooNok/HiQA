@@ -1,0 +1,3 @@
+title: 图 9-2 隔离通道的框图隔离通道的框图
+16                                                                                                                                                                                     Copyright © 2021, Chipanalog Incorporated 上海川土微电子有限公司上海川土微电子有限公司 图 9-2 隔离通道的框图隔离通道的框图 image_6 图 9-3 OOK调制方案的工作波形示意图调制方案的工作波形示意图
+base name:CA-IS1300B25G-Q1_datasheet_version1

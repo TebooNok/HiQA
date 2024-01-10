@@ -1,0 +1,3 @@
+title: 图图 3-1 简化芯片结构图简化芯片结构图
+上海川土微电子有限公司上海川土微电子有限公司                                                     Preliminary,2023/07/10 opyright © 2022, Chipanalog Incorporated 上海川土微电子有限公司上海川土微电子有限公司 图图 3-1 简化芯片结构图简化芯片结构图 4. 订购指南订购指南
+base name:CA-IF1028-Q1_datasheet_preliminary_规格书

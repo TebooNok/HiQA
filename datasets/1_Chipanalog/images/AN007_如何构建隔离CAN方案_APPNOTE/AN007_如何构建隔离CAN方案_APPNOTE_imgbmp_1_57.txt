@@ -1,0 +1,3 @@
+title: 图  3 CA-IS3062W  隔离方案
+CA-IS3062W 解决方案的优点是无需隔离电源，可减少 PCB 板的尺寸，使应用更容易通过安全认证。 MCU VCC VISO RX TX CANL CANH 0 GNDA GNDB 10 Ω 10 Ω EP2 0.1 μ F 0.1 μ F
+base name:AN007_如何构建隔离CAN方案_APPNOTE

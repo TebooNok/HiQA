@@ -1,0 +1,3 @@
+title: 图  10  展示了  SOIC16-WB  和  SOIC14-WB  封装的  EVM  硬件连接方式。图  11  展示了  SOIC16-NB  封装的  EVM
+上海川土微电子有限公司 ➢   测试仪器 固纬电子  GPD-3303S  线性直流电源、 500MHz  带宽示波器安捷伦  DSO6054A 、 6 1/2  位多功能数字万用
+base name:UG037_CA-IS3221_2xx_EVM_Rev1

@@ -1,0 +1,3 @@
+50mA/div
+图  7- 5 VINP=5V ， VISO=5V ，输出短路恢复到  I ISO =130mA   图  7- 6  VINP=5V ， VISO=5.4V ，输出短路恢复到  I ISO =130mA 2ms / div VISO 2V/div VINP I ISO 2V/div 50mA/div 2ms / div VISO 2V/div VINP I ISO 2V/div 50mA/div 2ms / div
+base name:CA-IS3105W_datasheet_Version1

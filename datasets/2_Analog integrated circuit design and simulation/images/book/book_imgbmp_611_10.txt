@@ -1,0 +1,3 @@
+title: 图  E- 18  在 “Results Browser” 中选择仿真结果
+管的阈值电压。双击将其在 “Graph Window” 中显示，如图  E- 19  所示。我们可以看出当温 度上升时， MOS  管的阈值电压下降。  图  E- 17  仿真状态显示窗口  图  E- 18  在 “Results Browser” 中选择仿真结果
+base name:book

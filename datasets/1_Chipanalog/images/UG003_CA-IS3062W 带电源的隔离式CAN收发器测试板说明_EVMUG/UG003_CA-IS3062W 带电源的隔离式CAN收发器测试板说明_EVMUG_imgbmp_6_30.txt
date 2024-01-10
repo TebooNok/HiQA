@@ -1,0 +1,3 @@
+5V/div
+CH2( 绿色 ):V TXD  输入  100KHz  ;  CH3( 蓝色 ) ： VOD=V CANH   - V CANL   ; CH4( 粉色 ) ： V RXD  2μs / div V OD 2V/div V TXD V RXD 1V/div 5V/div 2μs / div V OD 2V/div V TXD V RXD 1V/div 5V/div
+base name:UG003_CA-IS3062W 带电源的隔离式CAN收发器测试板说明_EVMUG

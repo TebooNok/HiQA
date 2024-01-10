@@ -1,0 +1,3 @@
+title: Not Found
+输入电压（ V ）   输入电流（ A ）   输出电压（ V ）   输出电流（ A ）   效率（ % ） 400  0.25  46  2.04  93.84
+base name:AN012_基于CA-IS3211x的100W半桥降压转换器-Jan 2023_APPNOTE

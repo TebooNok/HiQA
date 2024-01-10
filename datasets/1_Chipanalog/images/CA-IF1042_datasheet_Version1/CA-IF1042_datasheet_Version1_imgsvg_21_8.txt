@@ -1,0 +1,3 @@
+title: 图 10-1  CA-IF1042S-Q1  CAN总线典型应用图总线典型应用图
+图10-2给出了CA-IF1042VS-Q1 版本的典型应用图，VIO电源与MCU的电源连接在一起。 图 10-1  CA-IF1042S-Q1  CAN总线典型应用图总线典型应用图 图 10-2  CA-IF1042VS-Q1  CAN总线典型应用图总线典型应用图
+base name:CA-IF1042_datasheet_Version1

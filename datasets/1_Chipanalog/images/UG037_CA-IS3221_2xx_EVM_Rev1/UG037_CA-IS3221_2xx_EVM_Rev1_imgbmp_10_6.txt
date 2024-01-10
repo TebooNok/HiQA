@@ -1,0 +1,3 @@
+title: 无负载电容条件。下图  22  展示了  100kHz  信号传输过程波形。
+上海川土微电子有限公司 4 、信号传输 测试条件： VCC=5V ， VDD-VSS=15V ， INA=INB=100kHz  方波， INA  与  INB  的相位差  180  度， RDT=20kΩ ，
+base name:UG037_CA-IS3221_2xx_EVM_Rev1

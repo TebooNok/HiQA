@@ -1,0 +1,1177 @@
+section
+"[desc] ldc3114 __ 特性 [desc]
+多种运行模式：
+– 原始数据模式：访问预处理的电感测量数据，从而在 MCU 上实现用于线性检测的先进算法
+– 按钮模式：通过基线跟踪和先进的片上后处理实现按钮按压检测
+– 触控按钮的受力形变测量
+引脚和寄存器与 LDC2114 兼容
+稳健的 EMI 性能支持 CISPR 22 和 CISPR 24 合规性
+四个通道独立运行
+可配置扫描速率：
+– 0.625SPS 至 160SPS
+– 连续扫描选项
+先进的按钮按压检测算法：
+– 可调节每个按钮的受力阈值
+– 环境变化补偿
+– 同步按钮按压检测
+低电流消耗：
+– 一个按钮：在 0.625SPS 下为 6µA
+– 两个按钮：在 20SPS 下为 72µA
+温度范围
+– TSSOP (16)：–40°C 至 +125°C
+接口：
+– 支持 1.8V 和 3.3V 电平的 I2C 和 INTB
+– 按钮每个通道输出 1.8V 逻辑电平"
+"[desc] ldc3114 __ 应用 [desc]
+消费类电子产品：
+– 可穿戴产品
+– 智能扬声器
+– 条形音箱
+工业应用：
+– HMI 面板和键盘
+– 家用电器"
+"[desc] ldc3114 __ 说明 [desc]
+LDC3114 是一款可在各种材料上实现人机界面 (HMI) 
+触控按钮设计的电感式检测器件，该器件在面板内小型
+印刷电路板 (PCB) 上安装有线圈，可测量导电目标的
+小幅偏移。这种技术允许访问表示电感值的原始数据，
+因此可用于对汽车、消费和工业应用中金属目标的精密
+线性位置检测。电感式传感解决方案不受湿度或油污和
+灰尘等非导电污染物的干扰。
+LDC3114 的按钮模式可自动更正导电目标出现的任何
+变形。LDC3114 提供完全匹配的通道，可实现差分和
+比例式测量，从而对温度和机械漂移等环境和老化条件
+提供补偿。LDC3114 还提供了超低功耗模式，适用于
+电池供电类应用中的开/关按钮或位置传感器。
+LDC3114 可通过 I2C 接口进行轻松配置。LDC3114 采
+用 16 引脚 TSSOP 封装。
+器件信息(1) 
+器件型号
+封装
+封装尺寸（标称值）
+LDC3114
+TSSOP (16)
+5.00mm × 4.40mm
+如需了解所有可用封装，请参阅数据表末尾的可订购产品附录。"
+"[desc] ldc3114 __ Pin Configuration and Functions [desc]
+---table begin---
+Table tile: Pin Functions
+| PIN | I/O(1) | DESCRIPTION |
+|---|---|---|
+| NAME | NO |  |
+| VDD | 4 | P | 
+| Power supply | | |
+| GND | 2 | G | 
+| Ground(2) | | |
+| INTB | 10 | O |
+| Interrupt output Polarity can be configured in Register 0x11. | | |
+| LPWRB | 3 | I |
+| Normal / Low Power Mode select Set LPWRB to VDD for Normal Power Mode or ground for Low Power Mode. | | |
+| COM | 1 | A |
+| Common return current path for all LC resonator sensors A capacitor should be connected from this pin to GND. Refer to Setting COM Pin Capacitor. | | |
+| IN0 | 9 | A |
+| Channel 0 LC sensor input | | |
+| IN1 | 8 | A |
+| Channel 1 LC sensor input | | |
+| IN2 | 7 | A |
+| Channel 2 LC sensor input | | |
+| IN3 | 6 | A |
+| Channel 3 LC sensor input | | |
+| OUT0 | 15 | O |
+| Channel 0 logic output Polarity can be configured in Register 0x1C. | | |
+| OUT1 | 13 | O |
+| Channel 1 logic output Polarity can be configured in Register 0x1C. | | |
+| OUT2 | 12 | O |
+| Channel 2 logic output Polarity can be configured in Register 0x1C. | | |
+| OUT3 | 11 | O |
+| Channel 3 logic output Polarity can be configured in Register 0x1C. | | |
+| SCL | 16 | I |
+| I2C clock | | |
+| SDA | 14 | I/O |
+| I2C data I2C address = 0x2A. | | |
+| (1) | I = Input, O = Output, P=Power, G=Ground, A=Analog | | |
+| (2) | Both pins should be connected to the system ground on the PCB. | | |
+---table end---"
+"[desc] ldc3114 __ Specifications [desc]
+Stresses beyond those listed under Absolute Maximum Ratings may cause permanent damage to the device. These are stress ratings only, which do not imply functional operation of the device at these or any other conditions beyond those indicated under Recommended Operating Conditions. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
+(2) Maximum voltage across any two pins (not including SCL or SDA) is VDD + 0.3 V.
+---table begin---
+Table tile: ESD Ratings
+| VALUE | UNIT |
+|---|---|
+| V(ESD) | Electrostatic discharge |
+| Human body model (HBM), per AN |  |
+---table end---"
+"[desc] ldc3114 __ Storage temperature [desc]
+Stresses beyond those listed under Absolute Maximum Ratings may cause permanent damage to the device. These are stress ratings 
+only, which do not imply functional operation of the device at these or any other conditions beyond those indicated under 
+Recommended Operating Conditions. Exposure to absolute-maximum-rated conditions for extended periods may affect device 
+reliability.
+Maximum voltage across any two pins (not including SCL or SDA) is VDD + 0.3 V."
+"[desc] ldc3114 __ 2 ESD Ratings [desc]
+---table begin---
+Table tile: ESD Ratings
+| VALUE | UNIT |
+|---|---|
+| V(ESD) | Electrostatic discharge |
+| Human body model (HBM), per ANSI/ESDA/JEDEC JS-001(1) | ±1000 V |
+| Charged device model (CDM), per ANSI/ESDA/JEDEC JS-002(2) | ±250 |
+---table end---
+JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process.
+JEDEC document JEP157 states that 250-V CDM allows safe manufacturing with a standard ESD control process."
+"[desc] ldc3114 __ 4 Maximum and Minimum Scan Rates [desc]
+---table begin---
+Table tile: Scan Rates
+| Parameter | Condition | Min | Normal | Max | Units |
+|---|---|---|---|---|---|
+| SRNP, MIN | Minimum normal power mode scan rate(5), LPWRB = VDD | 7 | 10 | 13 | SPS |
+| SRNP, MAX | Maximum normal power mode scan rate(5), LPWRB = VDD | 56 | 80 | 104 | SPS |
+| SRLP, MIN | Minimum low power mode scan rate(5), LPWRB = Ground | 0.438 | 0.625 | 0.813 | SPS |
+| SRLP, MAX | Maximum low power mode scan rate(5), LPWRB = Ground | 3.5 | 5 | 6.5 | SPS |
+| fREF_CLK | Internal Reference clock frequency, TA=25℃ | | 44 | | MHz |
+| fREF_CLK_TC | Internal Reference clock frequency variation from TA=25℃ to over temperature, -40℃ ≤ TA ≤ 125℃ | | 3 | | % |
+---table end---"
+"[desc] ldc3114 __ 3 Recommended Operating Conditions [desc]
+__Note:__
+1. Sensor configuration: LSENSOR = 0.85 µH, CSENSOR = 58 pF, QSENSOR = 11, RP = 0.7 kΩ.
+2. I2C communication and pull-up resistors current is not included.
+3. The italic n is the channel index, n = 0, 1, 2, or 3 for LDC3114.
+4. For optimal performance, configure the sensor frequency to be greater than 3 MHz
+5. For typical distribution of the scan rates, refer to Figure 6-9."
+"[desc] ldc3114 __ 5 Voltage Levels [desc]
+Over operating temperature range unless otherwise noted. Pins: LPWRB, INT_DR, OUT0, OUT1, OUT2, OUT3, and ADDR.
+---table begin---
+Table tile: Voltage Levels
+| Parameter | Test Conditions | Min | Typ | Max | Unit |
+|---|---|---|---|---|---|
+| VIH | Input high voltage, LPWRB pin | 0.8 × VDD | | | V |
+| VIL | Input low voltage, LPWRB pin | 0.2 × VDD | | | V |
+| VOH | Output high voltage, OUTx pins | ISOURCE = 400 µA | 0.8 × VDD | | V |
+| VOL | Output low voltage, OUTx pins | ISINK = 400 µA | 0.2 × VDD | | V |
+| IL | Digital input leakage current | –500 | | 500 | nA |
+| VOL_INTB | Output low voltage, INTB pin | 3 mA sink current | | 0.4 | V |
+---table end---"
+"[desc] ldc3114 __ 6 I2C Interface [desc]
+---table begin---
+Table tile: I2C Interface
+| Parameter | Test Conditions | Min | Typ | Max | Unit |
+|---|---|---|---|---|---|
+| VIH_I2C | Input high voltage | 0.7 × VDD | | | V |
+| VIL_I2C | Input low voltage | 0.3 × VDD | | | V |
+| VOL_I2C | Output low voltage | 3 mA sink current | 0.2 × VDD | | V |
+| HYSI2C | Hysteresis | 0.05 × VDD | | | V |
+| fSCL | Clock frequency | | 400 | | kHz |
+| tLOW | Clock low time | 1.3 | | | µs |
+| tHIGH | Clock high time | 0.6 | | | µs |
+| tHD;STA | Hold time repeated START condition - After this period, the first clock pulse is generated. | 0.6 | | | µs |
+| tSU;STA | Set-up time for a repeated START condition | 0.6 | | | µs |
+| tHD;DAT | Data hold time | 0 | | | µs |
+| tSU;DAT | Data set-up time | 100 | | | ns |
+| tSU;STO | Set-up time for STOP condition | 0.6 | | | µs |
+| tBUF | Bus free time between a STOP and START condition | 1.3 | | | µs |
+| tVD;DAT | Data valid time | 0.9 | | | µs |
+| tVD;ACK | Data valid acknowledge time | 0.9 | | | µs |
+| tSP | Pulse width of spikes that must be suppressed by the input filter(1) | 50 | | | ns |
+---table end---
+__Note:__
+1. This parameter is specified by design and/or characterization and is not tested in production."
+"[desc] ldc3114 __ 7 I2C Timing Diagram [desc]
+Marker: (See figure 6-1. I2C Timing Diagram)"
+"[desc] ldc3114 __ 8 Typical Characteristics [desc]
+Over recommended operating conditions unless specified otherwise. VDD = 1.8 V, TJ = 25°C. One channel enabled with a button sampling window of 1 ms unless specified otherwise.
+Marker: (Please refer to figures 6-2 to 6-5)"
+"[desc] ldc3114 __ 9 Typical Characteristics (continued) [desc]
+Over recommended operating conditions unless specified otherwise. VDD = 1.8 V, TJ = 25°C. One channel enabled with a button sampling window of 1 ms unless specified otherwise.
+Marker: (Please refer to figures 6-6 to 6-8)# 6. Sensor Characteristics
+Marker: (please refer to figure 6-5 and 6-9)
+---table begin---
+Table tile: 6.9 Typical Characteristics
+| Supply Current vs. VDD | Sensor RP = 720 Ω | Scan Rate = 40 SPS | Sensor Frequency = 20 MHz |
+|---|---|---|---|
+| Standby Current vs. Temperature | - | - | - |
+| Standby Current vs VDD | - | - | - |
+---table end---"
+"[desc] ldc3114 __ 1 Overview [desc]
+The LDC3114 is a hybrid multichannel, low-noise, high-resolution inductance-to-digital converter (LDC) optimized for inductive touch applications as well as linear position sensing. Button presses form micro-deflections in the conductive targets which cause frequency shifts in the resonant sensors. The LDC3114 can measure such frequency shifts and determine when button presses occur. With adjustable sensitivity per input channel, the LDC3114 can reliably operate with a wide range of physical button structures and materials. The high resolution measurement enables the implementation of force level buttons. The LDC3114 incorporates customizable post-processing algorithms for enhanced robustness.
+The LDC3114 additionally implements a raw data access mode. The MCU can read directly the data representing the effective inductance of the sensor and implement further post processing. In this mode, additional post processing features such as baseline tracking and algorithms for false button detection are ignored. This mode is useful for linear or rotary position sensing with inductive sensors while having excellent EMI performance across wide range of applications. This mode can also be used to measure the micro-deflection for button-like applications as well.
+The LDC3114 can operate in an ultra-low power mode for optimal battery life, or can be toggled into a higher scan rate for more responsive button press detection for game play or other low latency applications. The LDC3114 is operational from –40°C to +125°C with a 1.8 V ± 5% power supply voltage.
+The LDC3114 is configured through 400-kHz I2C. Button presses can be reported through the I2C interface or with configurable polarity dedicated push-pull outputs. Besides the LC resonant sensors, the only external components necessary for operation are supply bypassing capacitors and a COM pin capacitor to ground."
+"[desc] ldc3114 __ 2 Functional Block Diagram [desc]
+Marker: (please refer to figure 7-1)"
+"[desc] ldc3114 __ 3 Feature Description __ 1 Multimode Operation [desc]
+LDC3114 offers two main modes of operations: raw data access mode and button algorithm mode which is controlled by the BTN_ALG_EN field in Register INTPOL Address 0x11. 图 7-2 shows conceptually how these two modes are implemented.
+Raw data access mode allows an external MCU to extract data from the signal after the inductance-to-digital converter from registers through I2C (see Raw Data Output). There is no further processing on this raw data such as baseline tracking, integrated button algorithms and button thresholding. This mode gives MCU full control over the measured raw data to implement algorithms for linear p# 7.3. Modes of Operations
+Raw data access mode and button algorithm mode are the modes of operations. These are controlled by the BTN_ALG_EN field in Register INTPOL Address 0x11. 
+Raw data access mode allows an external MCU to extract data from the signal after the inductance-to-digital converter from registers through I2C. There is no further processing on this raw data such as baseline tracking, integrated button algorithms and button thresholding. This mode gives MCU full control over the measured raw data to implement algorithms for linear position sensing, rotational encoder applications, metal presence/deflection applications, smart button algorithms and for multimodal sensor fusion applications.
+The second mode is button algorithm mode. Here further processing with parameters defined by the user is done on the data and a button thresholding as defined by the user is applied. The processed data are available in separate registers to be read by I2C and any button press detection is indicated on the OUTx pins. This mode is used to implement button press functionality and can also be used to implement the measurement of force applied for button press along with detection to implement multilevel button press.
+For register settings that are applicable to button mode versus raw access data mode are clearly identified in the descriptions of the registers."
+"[desc] ldc3114 __ 3 Feature Description __ 2 Multichannel and Single-Channel Operation [desc]
+The LDC3114 provides four independent sensing channels. In the following sections, some parameters, such as DATAn and SENSORn_CONFIG, contain a channel index n.
+Any of the four channels available in the LDC3114 can be independently enabled by setting the ENn and LPENn (n = 0, 1, 2, or 3) bit fields in Register EN (Address 0x0C). The low-power-enable bit LPENn only takes effect if the corresponding ENn bit is also set. 
+If only one channel is set active, the LDC3114 periodically samples the single active channel at the configured scan rate. When several channels are set active, the LDC3114 operates in multichannel mode, and the device sequentially samples the active channels at the configured scan rate. 
+Each channel of the LDC3114 can be independently enabled in Low Power Mode and Normal Power Mode."
+"[desc] ldc3114 __ 3 Feature Description __ 3 Raw Data Output [desc]
+Raw data mode is enabled by setting BTN_ALG_EN=0x0 field in Register INTPOL Address 0x11. This operation will extract data directly from the output of the inductance-to-digital converter.
+The data is read from the I2C interface of the LDC3114. The DATA_RDY field in Register OUT (Address 0x01) indicates when new data is available for reading. 
+In the raw data mode, the INTB pin also assserted when new data is available and can be used by the MCU as an interrupt. The raw data can be extracted by reading, the output RAW_DATAn_x registers (n = 0, 1, 2, or 3, for each channel, x= 1, 2, or 3 splitting 24-bit data over 3 8-bit register fields). "
+"[desc] ldc3114 __ 3 Feature Description __ Equation [desc]
+math
+raw_data = \frac{f_{sensor}}{f_{REFCLK}}
+where:
+- `f_{sensor}` is the instantaneous frequency of the inductive sensor
+- `f_{REFCLK}` is the internal reference clock frequency# 7.3.3 Raw Data Output Interface
+New data is available for reading. In the raw data mode, the INTB pin also asserted when new data is available and can be used by the MCU as an interrupt. The raw data can be extracted by reading, the output RAW_DATAn_x registers (n = 0, 1, 2, or 3, for each channel, x= 1, 2, or 3 splitting 24-bit data over 3 8-bit register fields).
+---table begin---
+Table title: Equation 1
+| Variable | Meaning |
+|---|---|
+| raw_data | The decimal representation of 24-bit binary data read from the RAW_DATAn_x for a particular channel |
+| fsensor | The instantaneous frequency of the inductive sensor |
+| fREF_CLK | The internal reference clock frequency as specified in Electrical Characteristics |
+| W | Calculated in Equation 2 |
+---table end---"
+"[desc] ldc3114 __ 3 Feature Description __ 4 Button Output Interfaces [desc]
+Button events may be reported by using two methods. The first method is to monitor the OUTn pins (n = 0, 1, 2, or 3), which are push-pull outputs and can be used as interrupts to a microcontroller..."
+"[desc] ldc3114 __ 3 Feature Description __ 5 Programmable Button Sensitivity [desc]
+The GAINn registers (Addresses 0x0E, 0x10, 0x12, and 0x14) enable sensitivity enhancement of individual buttons to ensure consistent behavior of different mechanical structures..."
+"[desc] ldc3114 __ 3 Feature Description __ 6 Baseline Tracking [desc]
+The LDC3114 incorporates a baseline tracking algorithm to automatically compensate for any slow change in the sensor output caused by environmental variations, such as temperature drift..."
+"[desc] ldc3114 __ 3 Feature Description __ 7 Integrated Button Algorithms [desc]
+The LDC3114 features several algorithms that can mitigate false button detections due to mechanical non-idealities. The algorithms look for correlated button responses, such as similar o# 7.3.7 Integrated Button Algorithms
+The LDC3114 features several algorithms that can mitigate false button detections due to mechanical non-idealities. The algorithms look for correlated button responses, such as similar or opposite responses between two neighboring buttons, to determine if there is any undesirable mechanical crosstalk. For more information, 
+refer to Mitigating False Button Detections."
+"[desc] ldc3114 __ 3 Feature Description __ 8 I2C Interface [desc]
+The LDC3114 features an I2C Interface that can be used to program the internal registers and read channel data. Before reading the OUT (Address 0x01) or channel DATAn (n = 0, 1, 2 or 3, Addresses 0x02 through 0x09) registers for button press data or raw channel data, RAW_DATAn_x (n = 0, 1, 2, or 3, for each channel, x= 1, 2, or 3 splitting 24-bit data over 3 8-bit register fields), the user should always read Register STATUS (Address 0x00) first to lock the data. The LDC3114 supports burst mode with auto-incrementing register addresses. The LDC3114 has a fixed I2C address of 0x2A."
+"[desc] ldc3114 __ 3 Feature Description __ 8 I2C Interface __ 1 I2C Interface Specifications [desc]
+The maximum speed of the I2C interface is 400 kHz. This sequence uses the standard I2C 7-bit target address followed by an 8-bit pointer to set the register address. For both write and read, the address pointer will auto-increment as long as the controller acknowledges."
+"[desc] ldc3114 __ 3 Feature Description __ 8 I2C Interface __ I2C Sequence of Writing a Single Register [desc]
+---table begin---
+Table tile: Sequence of Writing a Single Register
+| Frame     | Content                          |
+| ---       | ---                              |
+| Frame 1   | Serial Bus Address Byte from Master |
+| Frame 2   | Slave Register Address (ADDR) from Master|
+| Frame 3   | Data Byte to Register ADDR      |
+---table end---"
+"[desc] ldc3114 __ 3 Feature Description __ 8 I2C Interface __ I2C Sequence of Writing Consecutive Registers [desc]
+---table begin---
+Table tile: Sequence of Writing Consecutive Registers
+| Frame     | Content                          |
+| ---       | ---                              |
+| Frame 1   | Serial Bus Address Byte from Master |
+| Frame 2   | Slave Register Address from Master |
+| Frame 3   | Data Byte to Register ADDR |
+| Frame 4   | Data Byte to Register ADDR+1 |
+| Frame N+3 | Data Byte to Register ADDR+N |
+---table end---"
+"[desc] ldc3114 __ 3 Feature Description __ 8 I2C Interface __ I2C Sequence of Reading a Single Register [desc]
+---table begin---
+Table tile: Sequence of Reading a Single Register
+| Frame     | Content                          |
+| ---       | ---                              |
+| Frame 1   | Serial Bus Address Byte from Master |
+| Frame 2   | Slave Register Address (ADDR) from Master |
+| Frame 3   | Serial Bus Address Byte from Master |
+| Frame 4   | Data Byte from Slave |
+---table end---"
+"[desc] ldc3114 __ 3 Feature Description __ 8 I2C Interface __ I2C Sequence of Reading Consecutive Registers [desc]
+---table begin---
+Table title: Sequence of Reading Consecutive Registers
+| Frame     | Content                          |
+| ---       | ---                              |
+| Frame 1   | Serial Bus Address Byte from Master |
+| Frame 2   | Slave Register Address (ADDR) from Master |
+| Frame 3   | Serial Bus Address Byte from Master |
+| Frame 4   | Data Byte from Slave Register ADDR |
+| Frame 5   | Data Byte from Slave Register ADDR+1 |
+| Frame N+4 | Data Byte from Slave Register ADDR+N |
+---table end---"
+"[desc] ldc3114 __ 3 Feature Description __ 8 I2C Interface __ 2 I2C Bus Control [desc]
+The LDC3114 cannot drive the I2C clock (SCL), that is the device does not support clock stretching. In the unlikely event where the SCL is stuck LOW, power cycle any device that is holding the SCL to activate its internal Power-On Reset (POR) circuit. If the LDC is connected to the same power supply as that device, there will be about 66-ms setup time before the LDC becomes active again. For more information, refer to Defining Power-On Timing. If the data line (SDA) is stuck LOW, the I2C controller should send nine clock pulses. The device that is holding the bus LOW should release the bus sometime within those nine clocks. If not, then power cycle to clear the bus. The LDC3114 has built-in monitors to check that the device is currently working. In the unlikely event of a device fault, the device state will be reset internally, and all the registers will be reset with default settings. For system robustness, TI recommends to check the value of a modified register periodically to monitor the device status and reload the register settings, if needed."
+"[desc] ldc3114 __ 4 Device Functional Modes [desc]
+The LDC3114 supports two power modes of operation: a Normal Power Mode for active sampling at 10, 20, 40, or 80 SPS, and a Low Power Mode for reduced current consumption at 0.625, 1.25, 2.5, or 5 SPS. The device can also be configured in Normal Power Mode for additional faster sampling rate of 160 SPS or for a continuous sampling rate. Refer to Configuring Button or Raw Data Scan Rate for details."
+"[desc] ldc3114 __ 4 Device Functional Modes __ 1 Normal Power Mode [desc]
+When the LPWRB input pin is set to VDD, all enabled channels operate in Normal Power Mode. Each channel 
+can be enabled independently through Register EN (Address 0x0C). For the electrical specification of Normal 
+Power Mode Scan Rate, refer to the Electrical Characteristics table."
+"[desc] ldc3114 __ 4 Device Functional Modes __ 2 Low Power Mode [desc]
+When the LPWRB input pin is set to ground, only the low-power-enabled channels are active. Each channel can 
+be enabled independently to operate in Low Power Mode through Register EN (Address 0x0C). For a channel to 
+operate in the Low Power Mode, both the LPENn and ENn bits (n is the channel index) must be set to 1. The 
+Low Power Mode allows for energy-saving monitoring of button activity. In this mode, the device is in an inactive 
+power-saving state for the majority of the time. Lower scan rates correspond to lower current consumption. In 
+addition, the individual button sampling window should be set to the lowest effective setting (this is system 
+dependent, but typically 0.8 ms to 1 ms). For the electrical specification of the configurable Low Power Mode 
+Scan Rate, refer to the Electrical Characteristics table."
+"[desc] ldc3114 __ 4 Device Functional Modes __ 3 Configuration Mode [desc]
+Before configuring any register settings, the device must be put into the configuration mode first. Setting 
+CONFIG_MODE = 1 through Register RESET (Address 0x0A) stops data conversion and holds the device in 
+configuration mode. Any device configuration changes can then be made. The current consumption in this mode 
+is typically 0.3 mA. After all changes have been written, set CONFIG_MODE = 0 for normal operation. Refer to 
+I2C Interface for more information."
+"[desc] ldc3114 __ 5 Register Maps [desc]
+7.5.1 LDC3114 Registers
+LDC3114 Registers lists the memory-mapped registers for the LDC3114 registers. All register offset addresses 
+not listed in LDC3114 Registers should be considered as reserved locations and the register contents should not 
+be modified.
+---table begin---
+Table title: LDC3114 Registers
+| Offset | Acronym | Register Name | Section |
+|---|---|---|---|
+| 0h | STATUS | Device status | 节 7.5.1.1 |
+| 1h | OUT | Channel output logic states | 节 7.5.1.2 |
+| 2h | DATA0_LSB | The lower 8 bits of the Button 0 data (Two's complement | 节 7.5.1.3 |
+| 3h | DATA0_MSB | The upper 4 bits of the Button 0 data (Two's complement | 节 7.5.1.4 |
+| 4h | DATA1_LSB | The lower 8 bits of the Button 1 data (Two's complement | 节 7.5.1.5 |
+| 5h | DATA1_MSB | The upper 4 bits of the Button 1 data (Two's complement | 节 7.5.1.6 |
+| 6h | DATA2_LSB | The lower 8 bits of the Button 2 data (Two's complement | 节 7.5.1.7 |
+| 7h | DATA2_MSB | The upper 4 bits of the Button 2 data (Two's complement | 节 7.5.1.8 |
+| 8h | DATA3_LSB | The lower 8 bits of the Button 3 data (Two's complement | 节 7.5.1.9 |
+| 9h | DATA3_MSB | The upper 4 bits of the Button 3 data (Two's complement | 节 7.5.1.10 |
+| Ah | RESET | Reset device and register configurations | 节 7.5.1.11 |
+| Ch | EN | Enable channels and low power modes | 节 7.5.1.12 |
+| Dh | NP_SCAN_RATE | Normal Power Mode scan rate | 节 7.5.1.13 |
+---table end---# 7.5.1.14
+GAIN0 Gain for Channel 0 sensitivity adjustment for button algorithm"
+"[desc] ldc3114 __ 5 Register Maps __ 15 [desc]
+LP_SCAN_RATE Low Power Mode scan rate
+---table begin---
+Table tile: Table 7 1. LDC3114 Registers (continued)
+| Offset | Acronym | Register Name | Section |
+|---|---|---|---|
+| 10h | GAIN1 | Gain for Channel 1 sensitivity adjustment for button algorithm | 节 7.5.1.16 |
+| 11h | INTPOL | Interrupt polarity | 节 7.5.1.17 |
+| 12h | GAIN2 | Gain for Channel 2 sensitivity adjustment for button algorithm | 节 7.5.1.18 |
+| 13h | LP_BASE_INC | Low power base increment for button algorithm | 节 7.5.1.19 |
+| 14h | GAIN3 | Gain for Channel 3 sensitivity adjustment for button algorithm | 节 7.5.1.20 |
+| 15h | NP_BASE_INC | Normal power base increment for button algorithm | 节 7.5.1.21 |
+| 16h | BTPAUSE_MAXWIN | Baseline tracking pause and Max-win for button algorithm | 节 7.5.1.22 |
+| 17h | LC_DIVIDER | LC oscillation frequency divider | 节 7.5.1.23 |
+| 18h | HYST | Hysteresis for threshold for button algorithm | 节 7.5.1.24 |
+| 19h | TWIST | Anti-twist for button algorithm | 节 7.5.1.25 |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 26 [desc]
+COMMON_DEFORM Anti-common and anti-deformation for button algorithm"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 27 [desc]
+OPOL_DPOL Output polarity for button data and output
+---table begin---
+Table tile: Table 7-2. LDC3114 Access Type Codes
+| Access Type | Code | Description |
+|---|---|---|
+| Read Type | R | Read |
+| Write Type | W | Write |
+| Reset or Default Value | -n | Value after reset or the default value |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 1 [desc]
+---table begin---
+Table tile: Table 7.1. LDC3114 Registers
+| Offset | Acronym | Register Name | Section |
+|---|---|---|---|
+| FEh | DEVICE_ID_LSB | Device ID lower byte | 节 7.5.1.50 |
+| FFh | DEVICE_ID_MSB | Device ID upper byte | 节 7.5.1.51 |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ Note [desc]
+Complex bit access types are encoded to fit into small table cells. LDC3114 Access Type Codes shows the codes that are used for access types in this section.# 7.5.1.48 
+FDh
+MANUFACTURER_ID_MSB
+Manufacturer ID upper byte
+节 7.5.1.49 
+---table begin---
+Table tile: Table 7.5.1.48
+| Offset | Acronym | Register Name | Section |
+|---|---|---|---|
+| FDh | MANUFACTURER_ID_MSB | Manufacturer ID upper byte | 节 7.5.1.49 |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 50 [desc]
+FEh
+DEVICE_ID_LSB
+Device ID lower byte
+节 7.5.1.51 
+---table begin---
+Table tile: Table 7.5.1.50
+| Offset | Acronym | Register Name | Section |
+|---|---|---|---|
+| FEh | DEVICE_ID_LSB | Device ID lower byte | 节 7.5.1.51 |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 51 [desc]
+FFh
+DEVICE_ID_MSB
+Device ID upper byte
+节 
+---table begin---
+Table tile: Table 7.5.1.51
+| Offset | Acronym | Register Name | Section |
+|---|---|---|---|
+| FFh | DEVICE_ID_MSB | Device ID upper byte | 节 |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 1 [desc]
+Complex bit access types are encoded to fit into small table cells. LDC3114 Access Type Codes shows the codes that are used for access types in this section.
+---table begin---
+Table tile: Table 7.5.1.1
+| Access Type | Code | Description |
+|---|---|---|
+| Read Type | R | Read |
+| Write Type | W | Write |
+| Reset or Default Value | -n | Value after reset or the default value |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 2 [desc]
+---table begin---
+Table tile: Table 7 3. STATUS Register Field Descriptions (continued)
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 0 | REGISTER_FLAG | R | 0h | Register Integrity Flag Reports if any register's value has an unexpected change. Cleared by a read of the status register. 0h = No unexpected register change 1h = Unexpected register change |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 3 DATA0_LSB Register (Offset = 2h) [Reset = 00h] [desc]
+DATA0_LSB is shown in DATA0_LSB Register Field Descriptions.
+Return to the LDC3114 Registers.
+The lower 8 bits of the Button 0 data (Two's complement)
+---table begin---
+Table tile: Table 7-5. DATA0_LSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | DATA0[7:0] | R | 0h | The lower 8 bits of Channel 0 button data (Two's complement) |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 4 DATA0_MSB Register (Offset = 3h) [Reset = 00h] [desc]
+DATA0_MSB is shown in DATA0_MSB Register Field Descriptions.
+Return to the LDC3114 Registers.
+The upper 4 bits of the Button 0 data (Two's complement)
+---table begin---
+Table tile: Table 7-6. DATA0_MSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-4 | RESERVED | R | 0h | Reserved |
+| 3-0 | DATA0[11:8] | R | 0h | The upper 4 bits of Channel 0 button data (Two's complement) |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 5 DATA1_LSB Register (Offset = 4h) [Reset = 00h] [desc]
+DATA1_LSB is shown in DATA1_LSB Register Field Descriptions.
+Return to the LDC3114 Registers.
+The lower 8 bits of the Button 1 data (Two's complement)
+---table begin---
+Table tile: Table 7-7. DATA1_LSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | DATA1[7:0] | R | 0h | The lower 8 bits of Channel 1 button data (Two's complement) |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 6 DATA1_MSB Register (Offset = 5h) [Reset = 00h] [desc]
+DATA1_MSB is shown in DATA1_MSB Register Field Descriptions.
+Return to the LDC3114 Registers.
+The upper 4 bits of the Button 1 data (Two's complement)
+---table begin---
+Table tile: Table 7-8. DATA1_MSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-4 | RESERVED | R | 0h | Reserved |
+| 3-0 | DATA1[11:8] | R | 0h | The upper 4 bits of Channel 1 button data (Two's complement) |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 7 DATA2_LSB Register (Offset = 6h) [Reset = 00h] [desc]
+DATA2_LSB is shown in DATA2_LSB Register Field Descriptions.
+Return to the LDC3114 Registers.
+The lower 8 bits of the Button 2 data (Two's complement)
+---table begin---
+Table tile: Table 7-9. DATA2_LSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | DATA2[7:0] | R | 0h | The lower 8 bits of Channel 2 button data (Two's complement) |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 8 DATA2_MSB Register (Offset = 7h) [Reset = 00h] [desc]
+DATA2_MSB is shown in DATA2_MSB Register Field Descriptions.
+Return to the LDC3114 Registers.
+The upper 4 bits of the Button 2 data (Two's complement)
+---table begin---
+Table tile: Table 7-10. DATA2_MSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-4 | RESERVED | R | 0h | Reserved |
+| 3-0 | DATA2[11:8] | R | 0h | The upper 4 bits of Channel 2 button data (Two's complement) |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 9 DATA3_LSB Register (Offset  8h) [Reset  00h] [desc]
+DATA3_LSB is shown in DATA3_LSB Register Field Descriptions.
+Return to the LDC3114 Registers.
+The lower 8 bits of the Button 3 data (Two's complement)
+---table begin---
+Table tile: Table 7-11. DATA3_LSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | DATA3[7:0] | R | 0h | The lower 8 bits of Channel 3 button data (Two's complement) |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 10 DATA3_MSB Register (Offset = 9h) [Reset = 00h] [desc]
+DATA3_MSB is shown in DATA3_MSB Register Field Descriptions.
+Return to the LDC3114 Registers.
+The upper 4 bits of the Button 3 data (Two's complement)
+---table begin---
+Table tile: Table 7-12. DATA3_MSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-4 | RESERVED | R | 0h | Reserved |
+| 3-0 | DATA3[11:8] | R | 0h | The upper 4 bits of Channel 3 button data (Two's complement) |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 11 RESET Register (Offset = Ah) [Reset = 00h] [desc]
+RESET is shown in RESET Register Field Descriptions.
+Return to the LDC3114 Registers.
+Reset device and register configurations
+---table begin---
+Table tile: Table 7-13. RESET Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-5 | RESERVED | R/W | 0h | Reserved |
+| 4 | FULL_RESET | R/W | 0h | Device Reset 0h = Normal operation 1h = Resets the device and register configurations. All registers will be returned to default values. Normal operation will not resume until STATUS:CHIP_READY = 1. |
+| 3-1 | RESERVED | R/W | 0h | Reserved |
+| 0 | CONFIG_MODE | R/W | 0h | Configuration Mode Any device configuration changes should be made with this bit set to 1. After all configuration changes have been written, set this bit to 0 for normal operation. 0h = Normal operation 1h = Holds the device in configuration mode (no data conversion), but maintains current register configurations. |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 12 EN Register (Offset = Ch) [Reset = 1Fh] [desc]
+EN is shown in EN Register Field Descriptions.
+Return to the LDC3114 Registers.
+Enable channels and low power modes
+---table begin---
+Table tile: Table 7-14. EN Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7 | LPEN3 | R/W | 0h | Channel 3 Low-Power-Enable 0h = Disable Channel 3 in Low Power Mode 1h = Enable Channel 3 in Low Power Mode. EN3 must also be set to 1. |
+| 6 | LPEN2 | R/W | 0h | Channel 2 Low-Power-Enable 0h = Disable Channel 2 in Low Power Mode 1h = Enable Channel 2 in Low Power Mode. EN2 must also be set to 1. |
+| 5 | LPEN1 | R/W | 0h | Channel 1 Low-Power-Enable 0h = Disable Channel 1 in Low Power Mode 1h = Enable Channel 1 in Low Power Mode. EN1 must also be set to 1. |
+| 4 | LPEN0 | R/W | 1h | Channel 0 Low-Power-Enable 0h = Disable Channel 0 in Low Power Mode 1h = Enable Channel 0 in Low Power Mode. EN0 must also be set to 1. |
+| 3 | EN3 | R/W | 1h | Channel 3 Enable 0h = Disable Channel 2 1h = Enable Channel 2 |
+| 2 | EN2 | R/W | 1h | Channel 2 Enable 0h = Disable Channel 2 1h = Enable Channel 2 |
+| 1 | EN1 | R/W | 1h | Channel 1 Enable 0h = Disable Channel 1 1h = Enable Channel 1 |
+| 0 | EN0 | R/W | 1h | Channel 0 Enable 0h = Disable Channel 0 1h = Enable Channel 0 |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 13 NP_SCAN_RATE Register (Offset = Dh) [Reset = 01h] [desc]
+NP_SCAN_RATE is shown in NP_SCAN_RATE Register Field Descriptions.
+Return to the LDC3114 Registers.
+Normal Power Mode scan rate
+---table begin---
+Table tile: Table 7-15. NP_SCAN_RATE Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-4 | RESERVED | R/W | 0h | Reserved |
+| 3 | NPFSR | R/W | 0h | Normal Power Mode Fast Scan Rate of 160SPS. When set, this bit will override setting in NPSR only and not NPCS. |
+| 2 | NPCS | R/W | 0h | Continuous key scan in Normal Power mode When set, the scan cycle is continuous without delay in the Normal Power mode. The base increment value is fixed. This bit has no effect if the chip is in Low Power mode. This bit will override the setting in NPSR and NPFSR registers. |
+| 1-0 | NPSR | R/W | 1h | Normal Power Mode Scan Rate Refer to Configuring Button Scan Rate section for more information. 0h = 80 SPS 1h = 40 SPS (Default) 2h = 20 SPS 3h = 10 SPS |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 14 GAIN0 Register (Offset = Eh) [Reset = 28h] [desc]
+GAIN0 is shown in GAIN0 Register Field Descriptions.
+Return to the LDC3114 Registers.
+Gain for Channel 0 sensitivity adjustment for button algorithm# 7.5.1.15 LP_SCAN_RATE Register (Offset = Fh) [Reset = 10h]
+LP_SCAN_RATE is shown in LP_SCAN_RATE Register Field Descriptions.
+Return to the LDC3114 Registers.
+Low Power Mode scan rate
+---table begin---
+Table title: LP_SCAN_RATE Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-2 | RESERVED | R/W | 4h | Reserved |
+| 1-0 | LPSR | R/W | 0h | Low Power Mode Scan Rate Refer to Configuring Button Scan Rate section for more information. 0h = 5 SPS 1h = 2.5 SPS 2h = 1.25 SPS (Default) 3h = 0.625 SPS |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 16 GAIN1 Register (Offset = 10h) [Reset = 28h] [desc]
+GAIN1 is shown in GAIN1 Register Field Descriptions.
+Return to the LDC3114 Registers.
+Gain for Channel 1 sensitivity adjustment for button algorithm
+---table begin---
+Table title: GAIN1 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-6 | RESERVED | R/W | 0h | Reserved |
+| 5-0 | GAIN1 | R/W | 28h | Gain for Button Data for Channel 1 Refer to the Gain Table for detailed configuration. |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 17 INTPOL Register (Offset  11h) [Reset  18h] [desc]
+INTPOL is shown in INTPOL Register Field Descriptions.
+Return to the LDC3114 Registers.
+Interrupt polarity
+---table begin---
+Table title: INTPOL Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-5 | RESERVED | R/W | 0h | Reserved |
+| 4 | BTSRT_EN | R/W | 1h | Enable reset of button algorithm baseline tracking value When this bit is not set, during transition between normal power mode to low power mode and back to normal power mode only baseline tracking value for enabled channels not reset. Other values in the button algorithm for calculating button press are reset even if this bit is not set. 0h = Disable Button Algorithm Restart 1h = Enable Button Algorithm Restart |
+| 3 | BTN_ALG_EN | R/W | 1h | Enable button press detection algorithm to assert events on OUT_x pins When disabled, raw pre-processed data can be accessed via RAW_DATAx registers. When disabled, interrupt on INTB pin is asserted when pre-processed data capture is complete after active window period completion for any of the enabled channels or for error events. When disabled, events on OUT_x pins pins are ignored to assert interrupt on INTB pin 0h = Disable Button Algorithm 1h = Enable Button Algorithm |
+| 2 | INTPOL | R/W | 0h | Interrupt Polarity 0h = Set INTB pin polarity to active low 1h = Set INTB pin polarity to active high. |
+| 1 | DIS_BTN_TO | R/W | 0h | Disable Button time-out if if button pressed for more than 50s. 0h = Enable Button Timeout 1h = Disable Button Timeout |
+| 0 | DIS_BTB_MO | R/W | 0h | Disable setting MAXOUT bit if button algorithm generates codes outside maximum range. 0h = Enable MAXOUT check 1h = Disable MAXOUT check |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 19 LP_BASE_INC Register (Offset = 13h) [Reset = 05h] [desc]
+LP_BASE_INC is shown in LP_BASE_INC Register Field Descriptions.
+Return to the LDC3114 Registers.
+Low power base increment for button algorithm
+---table begin---
+Table title: LP_BASE_INC Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-3 | RESERVED | R/W | 0h | Reserved |
+| 2-0 | LPBI | R/W | 5h | Baseline Tracking Increment for button algorithm in Low Power Mode |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 20 GAIN3 Register (Offset = 14h) [Reset = 28h] [desc]
+GAIN3 is shown in GAIN3 Register Field Descriptions.
+Return to the LDC3114 Registers.
+Gain for Channel 3 sensitivity adjustment for button algorithm
+---table begin---
+Table title: GAIN3 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-6 | RESERVED | R/W | 0h | Reserved |
+| 5-0 | GAIN3 | R/W | 28h | Gain for Button Data for Channel 3 Refer to the Gain Table for detailed configuration. |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 21 NP_BASE_INC Register (Offset = 15h) [Reset = 03h] [desc]
+NP_BASE_INC is shown in NP_BASE_INC Register Field Descriptions.
+Return to the LDC3114 Registers.
+Normal power base increment for button algorithm
+---table begin---
+Table title: NP_BASE_INC Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-3 | RESERVED | R/W | 0h | Reserved |
+| 2-0 | NPBI | R/W | 3h | Baseline Tracking Increment in Normal Power Mode for button algorithm Refer to Tracking Baseline section for more information. |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 22 BTPAUSE_MAXWIN Register (Offset = 16h) [Reset = 00h] [desc]
+---table begin---
+Table title: LC_DIVIDER Register Field Descriptions (continued)
+| Bit | Field | Type | Reset | Description |
+| --- | --- | --- | --- | --- |
+| 2-0 | LCDIV | R/W | 3h | LC Oscillation Frequency Divider The frequency divider sets the button sampling window in conjunction with SENCYCn |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 24 HYST Register [desc]
+HYST is shown in HYST Register Field Descriptions. Return to the LDC3114 Registers. Hysteresis for threshold for button algorithm
+---table begin---
+Table title: HYST Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+| --- | --- | --- | --- | --- |
+| 7-4 | RESERVED | R/W | 0h | Reserved |
+| 3-0 | HYST | R/W | 8h | Hysteresis Defines the hysteresis for button triggering threshold. Hysteresis = HYST ´ 4 Refer to Setting Button Triggering Threshold section for more information. |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 25 TWIST Register [desc]
+TWIST is shown in TWIST Register Field Descriptions. Return to the LDC3114 Registers. Anti-twist for button algorithm
+---table begin---
+Table title: TWIST Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+| --- | --- | --- | --- | --- |
+| 7-3 | RESERVED | R/W | 0h | Reserved |
+| 2-0 | ANTITWIST | R/W | 0h | Anti-Twist When set to 0, the anti-twist for button algorithm is not enabled. When greater than 0, all buttons are enabled for the anti-twist button algorithm. The validation of all buttons is void if any button 's BTN_DATA is negative by a threshold. Anti-twist Threshold = ANTITWIST × 4. Refer to Overcoming Case Twisting (Anti-Twist) section for more information. |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ 15 __ 26 COMMON_DEFORM Register [desc]
+COMMON_DEFORM is shown in COMMON_DEFORM Register Field Descriptions. Return to the LDC3114 Registers. Anti-common and anti-deformation for button algorithm.
+---table begin---
+Table title: COMMON_DEFORM Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+| --- | --- | --- | --- | --- |
+| 7 | ANTICOM3 | R/W | 0h | Anti-Common Button Algorithm Setting for Channel 3. Refer to Eliminating Common-Mode Change (Anti-Common) section for more information. |
+| 6 | ANTICOM2 | R/W | 0h | Anti-Common Button Algorithm Setting for Channel 2. Refer to Eliminating Common-Mode Change (Anti-Common) section for more information. |
+| 5 | ANTICOM1 | R/W | 0h | Anti-Common Button Algorithm Setting for Channel 1. Refer to Eliminating Common-Mode Change (Anti-Common) section for more information. |
+| 4 | ANTICOM0 | R/W | 0h | Anti-Common Button Algorithm Setting for Channel 0. Refer to Eliminating Common-Mode Change (Anti-Common) section for more information. |
+| 3 | ANTIDFORM3 | R/W | 0h | Anti-Deform Button Algorithm Setting for Channel 3. Refer to Mitigating Metal Deformation (Anti-Deform) section for more information. |
+| 2 | ANTIDFORM2 | R/W | 0h | Anti-Deform Button Algorithm Setting for Channel 2. Refer to Mitigating Metal Deformation (Anti-Deform) section for more information. |
+| 1 | ANTIDFORM1 | R/W | 0h | Anti-Deform Button Algorithm Setting for Channel 1. Refer to Mitigating Metal Deformation (Anti-Deform) section for more information. |
+| 0 | ANTIDFORM0 | R/W | 0h | Anti-Deform Button Algorithm Setting for Channel 0. Refer to Mitigating Metal Deformation (Anti-Deform) section for more information. |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ OPOL_DPOL Register Field Descriptions [desc]
+---table begin---
+Table title: OPOL_DPOL Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+| --- | --- | --- | --- | --- |
+| 7 | OPOL3 | R/W | 0h | Button Output Polarity for OUT3 Pin. 0h = Active low (Default), 1h = Active high |
+| 6 | OPOL2 | R/W | 0h | Button Output Polarity for OUT2 Pin. 0h = Active low (Default), 1h = Active high |
+| 5 | OPOL1 | R/W | 0h | Button Output Polarity for OUT1 Pin. 0h = Active low (Default), 1h = Active high |
+| 4 | OPOL0 | R/W | 0h | Button Output Polarity for OUT0 Pin. 0h = Active low (Default), 1h = Active high |
+| 3 | DPOL3 | R/W | 1h | Processed Button Algorithm Data Polarity for Channel 3. 0h = BTN_DATA3 decreases as fSENSOR3 increases. 1h = DATA3 increases as fSENSOR3 increases. |
+| 2 | DPOL2 | R/W | 1h | Processed Button Algorithm Data Polarity for Channel 2. 0h = BTN_DATA2 decreases as fSENSOR2 increases. 1h = DATA2 increases as fSENSOR2 increases. |
+| 1 | DPOL1 | R/W | 1h | Processed Button Algorithm Data Polarity for Channel 1. 0h = BTN_DATA1 decreases as fSENSOR1 increases. 1h = DATA1 increases as fSENSOR1 increases. |
+| 0 | DPOL0 | R/W | 1h | Processed Button Algorithm Data Polarity for Channel 0. 0h = BTN_DATA0 decreases as fSENSOR0 increases. 1h = DATA0 increases as fSENSOR0 increases. |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ OPOL_DPOL Register Field Descriptions __ 28 CNTSC Register [desc]
+CNTSC is shown in CNTSC Register Field Descriptions. Return to the LDC3114 Registers. Counter scale"
+"[desc] ldc3114 __ 5 Register Maps __ CNTSC Register Field Descriptions [desc]
+---table begin---
+Table title: CNTSC Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+| --- | --- | --- | --- | --- |
+| 7-6 | CNTSC3 | R/W | 1h | Counter Scale for Channel 3. Refer to Scaling Frequency Counter Output section for more information. 0h = CNTSC3 is 0. 1h = CNTSC3 is 1. 2h = CNTSC3 is 2. 3h = CNTSC3 is 3 |
+| 5-4 | CNTSC2 | R/W | 1h | Counter Scale for Channel 2. Refer to Scaling Frequency Counter Output section for more information. 0h = CNTSC2 is 0. 1h = CNTSC2 is 1. 2h = CNTSC2 is 2. 3h = CNTSC2 is 3 |
+| 3-2 | CNTSC1 | R/W | 1h | Counter Scale for Channel 1. Refer to Scaling Frequency Counter Output section for more information. 0h = CNTSC1 is 0. 1h = CNTSC1 is 1. 2h = CNTSC1 is 2. 3h = CNTSC1 is 3 |
+| 1-0 | CNTSC0 | R/W | 1h | Counter Scale for Channel 0. Refer to Scaling Frequency Counter Output section for more information. 0h = CNTSC0 is 0. 1h = CNTSC0 is 1. 2h = CNTSC0 is 2. 3h = CNTSC0 is 3 |
+---table end---"
+"[desc] ldc3114 __ 5 Register Maps __ CNTSC Register Field Descriptions __ 29 SENSOR0_CONFIG Register [desc]
+SENSOR0_CONFIG is shown in SENSOR0_CONFIG Register Field Descriptions. Return to the LDC3114 Registers. Sensor 0 cycle count, frequency, RP range"
+"[desc] ldc3114 __ SENSOR0_CONFIG Register Field Descriptions [desc]
+---table begin---
+Table title: SENSOR0_CONFIG Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+| --- | --- | --- | --- | --- |
+| 7 | RP0 | R/W | 0h | Channel 0 Sensor Rp Range Select. Set based on the actual sensor Rp physical parameter. Refer to Designing Sensor Parameters section for more information. 0h = 50 Ω ≤ Rp ≤ 4 kΩ (Default). 1h = 800 Ω ≤ Rp ≤ 10 kΩ |
+| 6-5 | FREQ0 | R/W | 0h | Channel 0 Sensor Frequency Range Select. Refer to Designing Sensor Parameterssection for more information. 0h = 1 MHz to 3.3 MHz. 1h = 3.3 MHz to 10 MHz. 2h = 10 MHz to 30 MHz. 3h = Reserved |
+| 4-0 | SENCYC0 | R/W | 4h | Channel 0 Sensor Cycle Count. SENCYC0 sets the Channel 0 button sampling window in conjunction with LCDIV. Refer to Programming Button Sampling Window section for more information. |
+---table end---"
+"[desc] ldc3114 __ SENSOR0_CONFIG Register Field Descriptions __ 30 SENSOR1_CONFIG Register [desc]
+SENSOR1_CONFIG is shown in SENSOR1_CONFIG Register Field Descriptions. Return to the LDC3114 Registers. Sensor 1 cycle count, frequency, RP range"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 30 SENSOR1_CONFIG Register [desc]
+SENSOR1_CONFIG is shown in SENSOR1_CONFIG Register Field Descriptions. Return to the LDC3114 Registers. Sensor 1 cycle count, frequency, RP range
+---table begin---
+Table title: SENSOR1_CONFIG Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+| --- | --- | --- | --- | --- |
+| 7 | RP1 | R/W | 0h | Channel 1 Sensor Rp Range Select. Set based on the actual sensor Rp physical parameter. Refer to Designing Sensor Parameters section for more information |
+| 6-5 | FREQ1 | R/W | 0h | Channel 1 Sensor Frequency Range Select. Refer to Designing Sensor Parameters section for more information |
+| 4-0 | SENCYC1 | R/W | 4h | Channel 1 Sensor Cycle Count. SENCYC1 sets the Channel 1 button sampling window in  conjunction with LCDIV. Refer to Programming Button Sampling Window section for more information |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register [desc]
+SENSOR2_CONFIG is shown in SENSOR2_CONFIG Register Field Descriptions. Return to the LDC3114 Registers. Sensor 2 cycle count, frequency, RP range
+---table begin---
+Table title: SENSOR2_CONFIG Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+| --- | --- | --- | --- | --- |
+| 7 | RP2 | R/W | 0h | Channel 2 Sensor Rp Range Select. Set based on the actual sensor Rp physical parameter. Refer to Designing Sensor Parameters section for more information |
+| 6-5 | FREQ2 | R/W | 0h | Channel 2 Sensor Frequency Range Select. Refer to Designing Sensor Parameters section for more information |
+| 4-0 | SENCYC2 | R/W | 4h | Channel 2 Sensor Cycle Count. SENCYC2 sets the Channel 2 button sampling window in  conjunction with LCDIV. Refer to Programming Button Sampling Window section for more information |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 32 FTF0 Register [desc]
+FTF0 is shown in FTF0 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 0 fast tracking factor for button algorithm
+---table begin---
+Table title: FTF0 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+| --- | --- | --- | --- | --- |
+| 7-3 | RESERVED | R/W | 1Bh | Reserved |
+| 2-1 | FTF0 | R/W | 1h | Fast Tracking Factor for Channel 0. Defines baseline tracking for button algorithm speed for negative values of DATA0. Refer to Tracking Baseline section for more information |
+| 0 | RESERVED | R/W | 0h | Reserved |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 33 SENSOR3_CONFIG Register [desc]
+SENSOR3_CONFIG is shown in SENSOR3_CONFIG Register Field Descriptions. Return to the LDC3114 Registers. Sensor 3 cycle count, frequency, RP range
+---table begin---
+Table title: SENSOR3_CONFIG Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+| --- | --- | --- | --- | --- |
+| 7 | RP3 | R/W | 0h | Channel 3 Sensor Rp Range Select. Set based on the actual sensor Rp physical parameter. Refer to Designing Sensor Parameters section for more information |
+| 6-5 | FREQ3 | R/W | 0h | Channel 3 Sensor Frequency Range Select. Refer to Designing Sensor Parameters section for more information |
+| 4-0 | SENCYC3 | R/W | 4h | Channel 3 Sensor Cycle Count. SENCYC3 sets the Channel 3 button sampling window in  conjunction with LCDIV. Refer to Programming Button Sampling Window section for more information |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 34 FTF1_2 Register [desc]
+TBA (No information was given about FTF1_2 Register in the provided text.)# 7.5.1.34 FTF1_2 Register
+FTF1_2 is shown in FTF1_2 Register Field Descriptions. Return to the LDC3114 Registers. Sensors 1 and 2 fast tracking factors for button algorithm.
+---table begin---
+Table tile: FTF1_2 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-6 | FTF2 | R/W | 1h | Fast Tracking Factor for Channel 2 Defines baseline tracking for button algorithm speed for negative values of DATA2. Refer to Tracking Baseline section for more information. 0h = FTF2 is 0 1h = FTF2 is 1 2h = FTF2 is 2 3h = FTF2 is 3 |
+| 5-4 | FTF1 | R/W | 1h | Fast Tracking Factor for Channel 0 Defines baseline tracking for button algorithm speed for negative values of DATA1. Refer to Tracking Baseline section for more information. 0h = FTF1 is 0 1h = FTF1 is 1 2h = FTF1 is 2 3h = FTF1 is 3 |
+| 3-0 | RESERVED | R/W | 0h | Reserved |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 35 FTF3 Register [desc]
+FTF3 is shown in FTF3 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 3 fast tracking factor for button algorithm.
+---table begin---
+Table tile: FTF3 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-2 | RESERVED | R/W | 0h | Reserved |
+| 1-0 | FTF3 | R/W | 1h | Fast Tracking Factor for Channel 3 Defines baseline tracking for button algorithm speed for negative values of DATA3. Refer to Tracking Baseline section for more information. 0h = FTF3 is 0 1h = FTF3 is 1 2h = FTF3 is 2 3h = FTF3 is 3 |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 36 RAW_DATA0_3 Register [desc]
+RAW_DATA0_3 is shown in RAW_DATA0_3 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 0 pre-processed raw data
+---table begin---
+Table tile: RAW_DATA0_3 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | RAW_DATA0[7:0] | R | 0h | Sensor 0 pre-processed raw data |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 37 RAW_DATA0_2 Register [desc]
+RAW_DATA0_2 is shown in RAW_DATA0_2 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 0 pre-processed raw data
+---table begin---
+Table tile: RAW_DATA0_2 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | RAW_DATA0[15:8] | R | 0h| Sensor 0 pre-processed raw data |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 38 RAW_DATA0_1 Register [desc]
+RAW_DATA0_1 is shown in RAW_DATA0_1 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 0 pre-processed raw data
+---table begin---
+Table tile: RAW_DATA0_1 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | RAW_DATA0[23:16] | R | 0h | Sensor 0 pre-processed raw data |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 39 RAW_DATA1_3 Register [desc]
+RAW_DATA1_3 is shown in RAW_DATA1_3 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 1 pre-processed raw data
+---table begin---
+Table tile: RAW_DATA1_3 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | RAW_DATA1[7:0] | R | 0h | Sensor 1 pre-processed raw data |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 40 RAW_DATA1_2 Register [desc]
+RAW_DATA1_2 is shown in RAW_DATA1_2 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 1 pre-processed raw data
+---table begin---
+Table tile: RAW_DATA1_2 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | RAW_DATA1[15:8] | R | 0h | Sensor 1 pre-processed raw data |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 41 RAW_DATA1_1 Register [desc]
+RAW_DATA1_1 is shown in RAW_DATA1_1 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 1 pre-processed raw data
+---table begin---
+Table tile: RAW_DATA1_1 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | RAW_DATA1[23:16] | R | 0h | Sensor 1 pre-processed raw data |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 42 RAW_DATA2_3 Register [desc]
+RAW_DATA2_3 is shown in RAW_DATA2_3 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 2 pre-processed raw data
+---table begin---
+Table tile: RAW_DATA2_3 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | RAW_DATA2[7:0] | R | 0h | Sensor 2 pre-processed raw data |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 43 RAW_DATA2_2 Register [desc]
+RAW_DATA2_2 is shown in RAW_DATA2_2 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 2 pre-processed raw data
+---table begin---
+Table tile: RAW_DATA2_2 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | RAW_DATA2[15:8] | R | 0h | Sensor 2 pre-processed raw data |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 44 RAW_DATA2_1 Register [desc]
+RAW_DATA2_1 is shown in RAW_DATA2_1 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 2 pre processed raw data
+---table begin---
+Table tile: RAW_DATA2_1 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | RAW_DATA2[23:16] | R | 0h | Sensor 2 pre-processed raw data |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 45 RAW_DATA3_3 Register [desc]
+RAW_DATA3_3 is shown in RAW_DATA3_3 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 3 pre-processed raw data
+---table begin---
+Table tile: RAW_DATA3_3 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | RAW_DATA3[7:0] | R | 0h | Sensor 3 pre-processed raw data |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 46 RAW_DATA3_2 Register [desc]
+RAW_DATA3_2 is shown in RAW_DATA3_2 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 3 pre-processed raw data
+---table begin---
+Table tile: RAW_DATA3_2 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | RAW_DATA3[15:8] | R | 0h | Sensor 3 pre-processed raw data |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 47 RAW_DATA3_1 Register [desc]
+RAW_DATA3_1 is shown in RAW_DATA3_1 Register Field Descriptions. Return to the LDC3114 Registers. Sensor 3 pre-processed raw data
+---table begin---
+Table tile: RAW_DATA3_1 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | RAW_DATA3[23:16] | R | 0h | Sensor 3 pre-processed raw data |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 48 MANUFACTURER_ID_LSB Register [desc]
+MANUFACTURER_ID_LSB is shown in MANUFACTURER_ID_LSB Register Field Descriptions. Return to the LDC3114 Registers. Manufacturer ID lower byte
+---table begin---
+Table tile: MANUFACTURER_ID_LSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | MANUFACTURER_ID_[7:| R | 49h | Manufacturer ID [7:0] |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 49 MANUFACTURER_ID_MSB Register [desc]
+MANUFACTURER_ID_MSB is shown in MANUFACTURER_ID_MSB Register Field Descriptions. Return to the LDC3114 Registers. Manufacturer ID upper byte
+---table begin---
+Table tile: MANUFACTURER_ID_MSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | MANUFACTURER_ID_[15:8] | R | 54h | Manufacturer ID [15:8] |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 50 DEVICE_ID_LSB Register [desc]
+DEVICE_ID_LSB is shown in DEVICE_ID_LSB Register Field Descriptions. Return to the LDC3114 Registers. Device ID lower byte
+---table begin---
+Table tile: DEVICE_ID_LSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | DEVICE_ID_[7:0] | R | 0h | Device ID [7:0] |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 31 SENSOR2_CONFIG Register __ 51 DEVICE_ID_MSB Register [desc]
+DEVICE_ID_MSB is shown in DEVICE_ID_MSB Register Field Descriptions. Return to the LDC3114 Registers. Device ID upper byte
+---table begin---
+Table tile: DEVICE_ID_MSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | DEVICE_ID_[15:8] | R | 40h | Device ID [15:8] |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 2 Gain Table for Registers GAIN0, GAIN1, GAIN2, and GAIN3 [desc]
+---table begin---
+Table tile: GAINn Bit Values in Decimal and Corresponding Normalized Gain Factors
+| BIT VALUE IN DECIMAL | NORMALIZED GAIN FACTOR |
+|---|---|
+| 0 | 1.0 |
+| ... | ... |
+| 63 | 232 |
+---table end---"
+"[desc] ldc3114 __ SENSOR1_CONFIG Register Field Descriptions __ 8 Application and Implementation [desc]
+Remark: The information in the following application section does not belong to the scope of TI device specifications, and TI does not guarantee its accuracy and completeness. TI's customers should be responsible for determining whether the device is suitable for their applications. Customers should verify and test their designs to ensure system functionality."
+"[desc] ldc3114 __ 1 Application Information [desc]
+The LDC3114 supports multiple buttons. Each button can be configured in various ways for optimal operation."
+"[desc] ldc3114 __ 1 Application Information __ 1 Theory of Operation [desc]
+An AC current flowing through an inductor will generate an AC magnetic field. If a conductive material, such as a metal object, is in close proximity to the inductor, the magnetic field will induce circulating eddy currents on the surface of the conductor. The eddy currents are a function of the distance, size, and composition of the conductor. If the conductor is deflected toward the inductor as shown in 图 8-1, more eddy currents will be generated.
+The eddy currents create their own magnetic field, which opposes the original field generated by the inductor. This effect reduces the effective inductance of the system, resulting in an increase in sensor frequency. 图 8-2 shows the inductance and frequency response of an example sensor with a diameter of 14 mm. As the sensitivity of an inductive sensor increases with closer targets, the conductive plate should be placed quite close to the sensor—typically 10% of the sensor diameter for circular coils. For rectangular or race-track-shaped coils, the target to sensor distance should typically be less than 10% of the shorter side of the coil.# 8.1.2. Designing Sensor Parameters
+图 8-2 shows that each inductive touch button uses an LC resonator sensor, where L is the inductor, C is the capacitor, and RS is the AC series resistance of the sensor at the frequency of operation. The key parameters of the LC sensor include frequency, effective parallel resistance RP, and quality factor Q. These parameters must be within the ranges as specified in the Sensor section of the Electrical Characteristics table. Note that the effective RP and Q changes when the conductive target is in place.
+---table begin---
+Table tile: Sensor Inductance and Frequency vs. Target Distance.
+| Distance between Sensor and Target (mm) | Sensor Inductance (μH) | Sensor Frequency (MHz) |
+|---|---|---|
+| 0 | 3 | 3.5 |
+| 1 | 3.25 | 4 |
+| 2 | 3.5 | 4.5 |
+| 3 | 3.75 | 5 |
+| 4 | 4 | 5.5 |
+| 5 | 4.25 | 6 |
+| 6 | 4.5 | 6.5 |
+| 7 | 4.75 | 7 |
+---table end---"
+"[desc] ldc3114 __ 1 Application Information __ 1 Theory of Operation __ Setting COM Pin Capacitor [desc]
+The COM pin requires a bypass capacitor to ground. The capacitor should be a low-ESL, low-ESR type. CCOM must be sized so that the following relationship is valid for all channels.
+`100 × CSENSORn / QSENSORn < CCOM < 1250 × CSENSORn / QSENSORn`
+The value of QSENSORn when the sensor is at the minimum target distance should be used. The maximum acceptable value for CCOM is 20 nF. The CCOM range for a particular sensor configuration can be obtained with the Spiral_Inductor_Designer tab of the LDC Calculations Tool."
+"[desc] ldc3114 __ 1 Application Information __ 1 Theory of Operation __ Defining Power-On Timing [desc]
+The low power architecture of the LDC3114 makes it possible for the device to be active all the time. When not being used, the LDC3114 can operate in Low Power Mode with a single standby power button, which typically consumes less than 10 µA. If additional power-saving is desired, or in the rare event where a power-on reset becomes necessary (see I2C Interface), the output data will become ready after 50-ms start-up time, about 1-ms optional register loading time, and two sampling windows for all active channels. 图 8-5 shows the power-on timing of the LDC3114."
+"[desc] ldc3114 __ 1 Application Information __ 1 Theory of Operation __ Configuring Button [desc]
+The output DATAn registers (Addresses 0x02 through 0x09) of the LDC3114 contain the processed values of the changes in sensor frequencies. The LC sensor frequency defined in 方程式 3 must be between 1 MHz and 30 MHz. For optimal performance, configure the sensor frequency to be greater than 3 MHz.
+The sensor quality factor defined in 方程式 4 must be between 5 and 30. The series resistance defined in 方程式 5 can be represented as an equivalent parallel resistance, RP. RP can be viewed as the load on the sensor driver. This load corresponds to the current drive required to maintain the oscillation amplitude. RP must be between 350 Ω and 10 kΩ.
+In summary, the LDC3114 requires that the sensor parameters are within the following ranges when the conductive target is present:
+• 1 MHz ≤ f SENSOR ≤ 30 MHz
+• 5 ≤ Q ≤ 30
+• 350 Ω ≤ RP ≤ 10 kΩ# 8.1.4 Power-On Timing
+In the rare event where a power-on reset becomes necessary (see I2C Interface), the output data will become ready after 50-ms start-up time, about 1-ms optional register loading time, and two sampling windows for all active channels. Figure 8-5 shows the power-on timing of the LDC3114."
+"[desc] ldc3114 __ 1 Application Information __ 5 Configuring Button or Raw Data Scan Rate [desc]
+The LDC3114 periodically samples all active channels at the selected scan rate. The device can operate at eight different scan rates to meet various power consumption requirements, where a lower scan rate achieves lower power consumption.
+In Normal Power Mode, the scan rate can be programmed to 80, 40, 20, or 10 SPS through Register NP_SCAN_RATE (Address 0x0D). Additionally through NPFSR bit field in the same register 160 SPS rate can be enabled which overrides the setting of NPSR but not the NPCS bit fields. The NPCS bit field allows to set the part in continuous sampling mode in Normal Power Mode only. When NPCS is set then the settings for NPSR and NPFSR are ignored.
+In Low Power Mode, the scan rate can be programmed to 5, 2.5, 1.25, or 0.625 SPS through Register LP_SCAN_RATE (Address 0x0F). The mode is selected by setting the LPWRB pin to VDD (Normal Power) or ground (Low Power). In either mode, each button can be independently enabled through a bit in Register EN (Address 0x0C). 
+---table begin---
+Table tile: Scan Rates
+| SCAN RATE (SPS) | LPSR (0x0F) SETTING | NPSR (0x0D) SETTING | NPCS (0x0D) SETTING | NPFSR (0x0D) SETTING | LPWRB PIN SETTING |
+|---|---|---|---|---|---|
+| 0.625 | b11 | Not Applicable | Not Applicable | Not Applicable | Ground |
+| 1.25 | b10 | Not Applicable | Not Applicable | Not Applicable | Ground |
+| 2.5 | b01 | Not Applicable | Not Applicable | Not Applicable | Ground |
+| 5 | b00 | Not Applicable | Not Applicable | Not Applicable | Ground |
+| 10 | Not Applicable | b11 | b0 | b0 | VDD |
+| 20 | Not Applicable | b10 | b0 | b0 | VDD |
+| 40 | Not Applicable | b01 | b0 | b0 | VDD |
+| 80 | Not Applicable | b00 | b0 | b0 | VDD |
+| 160 | Not Applicable | Not Applicable | b0 | b1 | VDD |
+| Continuous | Not Applicable | Not Applicable | b1 | Not Applicable | VDD |
+---table end---"
+"[desc] ldc3114 __ 1 Application Information __ 6 Programming Button or Raw Data Sampling Window [desc]
+The sampling window is the actual duration per scan cycle for active data sampling of the sensor frequency. It is programmed with the exponential parameter, LCDIV, in Register LC_DIVIDER (Address 0x17), and the individual linear sensor cycle counter SENCYCn (n = 0, 1, 2, or 3) in Registers SENSORn_CONFIG (n = 0, 1, 2, or 3, Addresses 0x20, 0x22, 0x24, 0x26). For most touch button applications, the button sampling window should be set to between 1 ms and 8 ms. For sampling rate of 160 SPS, the window has to be less than 6.25 ms. For continuous sampling, the data becomes available at the configured sampling window period rate. The recommended minimum sensor conversion time is 1 ms. Longer conversion time can be used to achieve better signal-to-noise ratio, if needed. The active channels in figure 8-6 will sample sequentially if multiple channels are enabled.# 8.1.7 Scaling Frequency Counter Output
+The LDC3114 requires this internal frequency counter scaler to be set based on the button sampling window to avoid data overflow. Use 方程式 8 to set the scaler in Register CNTSC (Address 0x1E):
+n
+n
+n
+n
+f
+2
+SENSOR
+0.0861
+SENCYC
+1
+CNTSC
+LCDIV
+ceiling log
+,
+0,1, 2, or 3
+§
+·
+u 
+�
+�
+¨
+¸
+¨
+¸
+©
+¹
+(8)
+where:
+- CNTSCn is the internal frequency counter scaler
+- SENCYCn and LCDIV are the linear and exponential scalers that set the number of sensor oscillation cycles
+- f SENSORn is the sensor frequency in MHz"
+"[desc] ldc3114 __ 1 Application Information __ 8 Setting Button Triggering Threshold [desc]
+Every material shows some hysteresis when the material deforms then returns to the original state. The amount of hysteresis is a function of material properties and physical parameters, such as size and thickness. This feature modifies the hysteresis of the button signal threshold according to different materials and various button shapes and sizes. Hysteresis can be programmed in Register HYST (Address 0x18). By default, the button triggering hysteresis is set to 32. The nominal button triggering threshold is 128. With hysteresis, the effective on-threshold is 128 + 32 = 160. This means if the DATAn (n = 0, 1, 2, or 3) reaches 160, the LDC3114 considers that as a button press. When the DATAn decreases to 128 – 32 = 96, the LDC considers the button to be released.
+ThresholdON
+128
+Hysteresis 
+�
+(9)
+ThresholdOFF
+128
+Hysteresis 
+�
+(10)
+DATAn
+128
+ThresholdON
+ThresholdOFF
+High=Button 
+Press Detected
+Low=No Button 
+Press Detected
+(10)"
+"[desc] ldc3114 __ 1 Application Information __ 8 Button Triggering Threshold [desc]
+By default, the button triggering hysteresis is set to 32. The nominal button triggering threshold is 128. With hysteresis, the effective on-threshold is 128 + 32 = 160. This means if the DATAn (n = 0, 1, 2, or 3) reaches 160, the LDC3114 considers that as a button press. When the DATAn decreases to 128 – 32 = 96, the LDC considers the button to be released.
+---table begin---
+Table title: Button Triggering Threshold
+|       |      |
+|-------|------|
+| ThresholdON | 128 |
+| Hysteresis  | �   |
+|ThresholdOFF | 128 |
+| Hysteresis  | �   |
+| DATAn   | 128 |
+| ThresholdON | ThresholdOFF |
+| High | Button Press Detected |
+| Low  | No Button Press Detected |
+---table end---"
+"[desc] ldc3114 __ 1 Application Information __ 9 Tracking Baseline [desc]
+The LDC3114 automatically tracks slow changes in the baseline signal and compensates for environmental drifts and variations. The baseline tracking is only applicable for the button algorithm mode and not for raw data access mode.
+---table begin---
+Table title: Fast Tracking Factor Settings
+| FTFn Setting | Fast Tracking Factor |
+|---|---|
+| b00 | 1 |
+| b01 | 4 |
+| b10 | 8 |
+| b11 | 16 |
+---table end---"
+"[desc] ldc3114 __ 1 Application Information __ 10 Mitigating False Button Detections [desc]
+The LDC3114 offers several algorithms that can mitigate false button detections due to mechanical non-idealities associated with groups of buttons. These are listed below."
+"[desc] ldc3114 __ 1 Application Information __ 10 Mitigating False Button Detections __ 1 Eliminating Common-Mode Change (Anti-Common) [desc]
+This algorithm eliminates false detection when a user presses the middle of two or more buttons, which could lead to a common-mode response on multiple buttons. All the buttons can be individually enabled to have this feature by programming Register COMMON_DEFORM (Address 0x1A)."
+"[desc] ldc3114 __ 1 Application Information __ 10 Mitigating False Button Detections __ 2 Resolving Simultaneous Button Presses (Max-Win) [desc]
+This algorithm enables the system to select the button pressed with maximum force when multiple buttons are pressed at the same time. This could happen when two buttons are physically very close to each other, and pressing one causes a residual reaction on the other. Buttons can be individually enabled to join the “max-win” group by configuring Register BTPAUSE_MAXWIN (Address 0x16)."
+"[desc] ldc3114 __ 1 Application Information __ 10 Mitigating False Button Detections __ 3 Overcoming Case Twisting (Anti-Twist) [desc]
+The anti-twist algorithm reduces the likelihood of false detection when the case is twisted, which could cause unintended mechanical activation of the buttons, or an opposite reaction in two adjacent buttons. When this algorithm is enabled, detection of button presses is suppressed if any button’s output data is negative by a configurable threshold. The anti-twist algorithm can be enabled by configuring Register TWIST (Address 0x19)."
+"[desc] ldc3114 __ 1 Application Information __ 10 Mitigating False Button Detections __ 4 Mitigating Metal Deformation (Anti-Deform) [desc]
+This function filters changes due to metal deformation in the vicinity of one or more buttons. Such metal deformation can be accidentally caused by pressing a neighboring button that does not have sufficient mechanical isolation. The user can specify which buttons to join the anti-deform group by configuring Register COMMON_DEFORM (Address 0x1A)."
+"[desc] ldc3114 __ 1 Application Information __ 11 Reporting Interrupts for Button Presses, Raw Data Ready and Error Conditions [desc]
+INTB, the LDC3114 interrupt pin, is asserted when a button press or an error condition occurs. The default polarity is active low and can be configured through Register INTPOL (Address 0x11).
+Illustration of the LDC3114 response to a single button press on Channel 0. At the end of the button sampling window following a press of Button 0, the OUT0 pin and INTB pin are asserted. The OUT_STATUS bit changes from 0 to 1, and remains so until a read of the STATUS register clears it. The OUTn (n = 0, 1, 2, or 3) and INTB pins are asserted until the end of the button sampling window following the release of the button.# 8.1.12 Estimating Supply Current
+When the LDC3114 is active (in either Normal Power Mode or Low Power Mode), use Equation 15 to determine the current: 
+math
+n n n f ACTIVE SENSOR 1.21 P 12 I 1.6 0.011 1 16 R
+where 
+- IACTIVEn is the supply current in mA during active sampling 
+- RPn is the sensor parallel resonant impedance in kΩ 
+- f SENSORn is the sensor frequency in MHz 
+- n is the channel index, that is, n = 0, 1, 2, or 3 for LDC3114
+The LDC3114 is only actively sampling the enabled channels during a fraction of the scan window. Equation 16 determines the average supply current: 
+math
+n n n t t DD ACTIVE SAMPLE SCAN 1 I I 0.005
+where 
+- IDD is the average supply current in mA 
+- t SCAN is the scan window (set by the scan rate) in ms 
+- IACTIVEn is the supply current when the device is active as defined by Equation 15 
+- t SAMPLE is the button sampling window in ms"
+"[desc] ldc3114 __ 2 Typical Application __ 1 Touch Button Design [desc]
+The low power architecture of LDC3114 makes them suitable for driving button sensors in consumer electronics, such as mobile phones. Most mobile phones today have three buttons along the edges, namely the power button, volume up, and volume down.
+On a typical smartphone, the two volume buttons are next to each other, so they may be susceptible to false detections such as simultaneous button presses. To prevent such mis-triggers, they can be grouped together to take advantage of the various features that mitigate false detections as explained in Mitigating False Button Detections. For example, if Max-win is applied to the two volume buttons...# 8.2.1 Design Requirements
+The sensor parameters, including frequency, RP, and Q factor have to be within the design space of the LDC3114 as specified in the Electrical Characteristics table."
+"[desc] ldc3114 __ 2 Typical Application __ 1 Touch Button Design __ 2 Detailed Design Procedure [desc]
+The LDC3114 is a multichannel device. The italic n in the parameters below refers to the channel index:
+1. Select system-based options:
+   * Select Normal or Low Power Mode of operation by setting the LPWRB pin to VDD or ground, respectively. Configure the enable bits for all channels in Register EN (Address 0x0C).
+   * Select the polarities of OUTn and INTB pins by configuring Register OPOL_DPOL (Address 0x1C) and Register INTPOL (Address 0x11).
+   * Configure the sensor frequency setting in Registers SENSORn_CONFIG (Addresses 0x20, 0x22, 0x24, 0x26).
+2. Choose the sampling rate (80, 40, 20, 10, 5, 2.5, 1.25, or 0.625 SPS) based on system power consumption requirement, and configure Register NP_SCAN_RATE (Address 0x0D) or Register LP_SCAN_RATE (Address 0x0F).
+3. Choose the button sampling window based on power consumption and noise requirements (recommended: 1 ms to 8 ms). While a longer button sampling window provides better noise performance, 1 ms is typically sufficient for most applications. Set SENCYCn and LCDIV in Registers SENSORn_CONFIG (Addresses 0x20, 0x22, 0x24, 0x26) and Register LC_DIVIDER (Address 0x17) in the following steps:
+   * Calculate LCDIV = ceiling (log2 (f SENSORn × t SAMPLEn) – 12), where f SENSORn is the sensor frequency in MHz, t SAMPLEn is the button sampling window in µs.
+   * If LCDIV < 0, set it to 0.
+   * Adjust SENCYCn to get desired t SAMPLEn according to t SAMPLEn = 128 × (SENCYCn + 1) × 2LCDIV / f SENSORn.
+4. Calibrate gain in the appropriate Registers GAINn (Addresses 0x0E, 0x10, 0x12, 0x14). The gain setting can be used to tune the sensitivity of the touch button. GAINn is a 6-bit field with 64 different gain levels corresponding to normalized gains between 1 and 232. A good mechanical and sensor design typically requires a gain level of around 32 to 50, corresponding to relative gains of 16 to 76 (normalized to gain level of 0). Use the following sequence to determine the appropriate gain for each button:
+   * Apply minimum desired force to the button.
+   * Read initial DATAn value after the button press. Note that the baseline tracking will affect this value.
+   * Calculate gain factor required to increase DATAn to the programmed threshold (default is 160).
+   * Look up the Gain Table to find the required gain setting.
+5. Enable special features to mitigate button interferen# 8.2.1.3 Application Curves
+图 8-16 shows a sequence of button presses of 150 grams force, two presses to Channel 0, then two presses to Channel 1. Each button press response is greater than the threshold."
+"[desc] ldc3114 __ 2 Typical Application __ 1 Touch Button Design __ 9 Power Supply Recommendations [desc]
+The LDC3114 power supply should be bypassed with a 1-µF and a 0.1-µF pair of capacitors in parallel to ground. The capacitors should be placed as close to the LDC as possible. The smaller value 0.1-µF capacitor should be placed closer to the VDD pin than the 1-µF capacitor. The capacitors should be a low-ESL, low-ESR type.
+Refer to Recommended Operating Conditions for more details."
+"[desc] ldc3114 __ 1 Layout Guidelines [desc]
+The COM pin must be bypassed to ground with an appropriate value capacitor. For details of how to choose the capacitor value, refer to Setting COM Pin Capacitor. CCOM should be placed as close as possible to the COM pin. The COM signal should be tied to a small copper fill placed underneath the INn signals. The INn signals should stay clear of other high frequency traces.
+Each active channel needs to have an LC resonator connected to the corresponding INn pins. The sensor capacitor should be placed within 10 mm of the corresponding INn pin, and the inductor should be placed at the appropriate location next to (but not touching) the metal target. The INn traces should be at least 6 mil (0.15 mm) wide to minimize parasitic inductances."
+"[desc] ldc3114 __ 2 Layout Example [desc]
+图 10-1. Layout of LDC3114 (TSSOP-16) With Decoupling Capacitors and Sensor Capacitors"
+"[desc] ldc3114 __ 1 Documentation Support __ 1 Related Documentation [desc]
+For related documentation see the following:
+- LDC Calculations Tool
+- Inductive Touch System Design Guide"
+"[desc] ldc3114 __ 2 接收文档更新通知 [desc]
+要接收文档更新通知，请导航至 ti.com 上的器件产品文件夹。点击订阅更新 进行注册，即可每周接收产品信息更改摘要。有关更改的详细信息，请查看任何已修订文档中包含的修订历史记录。"
+"[desc] ldc3114 __ 3 支持资源 [desc]
+TI E2E™ 支持论坛是工程师的重要参考资料，可直接从专家获得快速、经过验证的解答和设计帮助。搜索现有解答或提出自己的问题可获得所需的快速设计帮助。"
+"[desc] ldc3114 __ 4 Trademarks [desc]
+TI E2E™ is a trademark of Texas Instruments.
+所有商标均为其各自所有者的财产。"
+"[desc] ldc3114 __ 5 Electrostatic Discharge Caution [desc]
+This integrated circuit can be damaged by ESD. Texas Instruments recommends that all integrated circuits be handled with appropriate precautions. Failure to observe proper handling and installation procedures can cause damage.
+ESD damage can range from subtle performance degradation to complete device failure. Precision integrated circuits may be more susceptible to damage because very small parametric changes could cause the device not to meet its published specifications."
+"[desc] ldc3114 __ 5 Electrostatic Discharge Caution __ Trademarks [desc]
+TI E2E™ is a trademark of Texas Instruments.
+所有商标均为其各自所有者的财产。"
+"[desc] ldc3114 __ 6 术语表 [desc]
+TI 术语表 
+本术语表列出并解释了术语、首字母缩略词和定义。"
+"[desc] ldc3114 __ 12 Mechanical, Packaging, and Orderable Information [desc]
+The following pages include mechanical, packaging, and orderable information. This information is the most current data available for the designated devices. This data is subject to change without notice and revision of this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+---table begin---
+Table title: PACKAGING INFORMATION
+| Orderable Device | Status (1) | Package Type | Package Drawing | Pins | Package Qty | Eco Plan (2) | Lead finish/Ball material (6) | MSL Peak Temp (3) | Op Temp (°C) | Device Marking (4/5) | Samples |
+|---                |---         |---           |---              |---   |---           |---           |---                            |---                |---           |---                     |---     |
+| LDC3114QPWR       | ACTIVE     | TSSOP        | PW              | 16   | 3000         | RoHS & Green | NIPDAU                        | Level-2-260C-1 YEAR|-40 to 125   | LDC3114                |        |
+---table end---
+(1) The marketing status values are defined as follows:
+ACTIVE: Product device recommended for new designs.
+LIFEBUY: TI has announced that the device will be discontinued, and a lifetime-buy period is in effect.
+NRND: Not recommended for new designs. Device is in production to support existing customers, but TI does not recommend using this part in a new design.
+PREVIEW: Device has been announced but is not in production. Samples may or may not be available.
+OBSOLETE: TI has discontinued the production of the device.
+(2) RoHS:  TI defines ""RoHS"" to mean semiconductor products that are compliant with the current EU RoHS requirements for all 10 RoHS substances, including the requirement that RoHS substance
+do not exceed 0.1% by weight in homogeneous materials. Where designed to be soldered at high temperatures, ""RoHS"" products are suitable for use in specified lead-free processes. TI may
+reference these types of products as ""Pb-Free"".
+RoHS Exempt: TI defines ""RoHS Exempt"" to mean products that contain lead but are compliant with EU RoHS pursuant to a specific EU RoHS exemption.
+Green: TI defines ""Green"" to mean the content of Chlorine (Cl) and Bromine (Br) based flame retardants meet JS709B low halogen requirements of <=1000ppm threshold. Antimony trioxide based
+flame retardants must also meet the <=1000ppm threshold requirement.
+(3) MSL, Peak Temp. - The Moisture Sensitivity Level rating according to the JEDEC industry standard classifications, and peak solder temperature.
+(4) There may be additional marking, which relates to the logo, the lot trace code information, or the environmental category on the device.
+(5) Multiple Device Markings will be inside parentheses. Only one Device Marking contained in parentheses and separated by a ""~"" will appear on a device. If a line is indented then it is a continuation
+of the previous line and the two combined represent the entire Device Marking for that device.
+(6) Lead finish/Ball material - Orderable Devices may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two
+lines if the finish value exceeds the maximum column width.
+Important Information and Disclaimer:The information provided on this page represents TI's knowl# 1. Device Marking
+s. Only one Device Marking contained in parentheses and separated by a ""~"" will appear on a device. If a line is indented then it is a continuation of the previous line and the two combined represent the entire Device Marking for that device."
+"[desc] ldc3114 __ Lead finish/Ball Material [desc]
+(6) Lead finish/Ball material - Orderable Devices may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum column width."
+"[desc] ldc3114 __ Important Information and Disclaimer [desc]
+The information provided on this page represents TI's knowledge and belief as of the date that it is provided. TI bases its knowledge and belief on information provided by third parties, and makes no representation or warranty as to the accuracy of such information. Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals.
+TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers and other limited information may not be available for release.
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer on an annual basis."
+"[desc] ldc3114 __ OTHER QUALIFIED VERSIONS OF LDC3114 [desc]
+Automotive : LDC3114-Q1
+NOTE: Qualified Version Definitions:
+Automotive - Q100 devices qualified for high-reliability automotive applications targeting zero defects"
+"[desc] ldc3114 __ Notes on Product [desc]
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing per ASME Y14.5M. 
+2. This drawing is subject to change without notice. 
+---table begin---
+Table title: NOTES ON PRODUCT
+| S.no | Note |
+|---|---|
+|3. | This dimension does not include mold flash, protrusions, or gate burrs. Mold flash, protrusions, or gate burrs shall not exceed 0.15 mm per side. |
+|4. | This dimension does not include interlead flash. Interlead flash shall not exceed 0.25 mm per side.|
+|5. | Reference JEDEC registration MO-153.|
+---table end--- "
+"[desc] ldc3114 __ Additional Notes [desc]
+6. Publication IPC-7351 may have alternate designs. 
+7. Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+---table begin---
+Table title: Additional Notes
+| S.no | Note |
+|---|---|
+|8. | Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate design recommendations. | 
+|9. | Board assembly site may have different recommendations for stencil design.|
+---table end--- "
+"[desc] ldc3114 __ Additional Notes __ Small Outline Package [desc]
+4220204/A 02/2017"
+"[desc] ldc3114 __ Additional Notes __ Small Outline Package __ Notes Continued [desc]
+8. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate design recommendations.
+9. Board assembly site may have different recommendations for stencil design."

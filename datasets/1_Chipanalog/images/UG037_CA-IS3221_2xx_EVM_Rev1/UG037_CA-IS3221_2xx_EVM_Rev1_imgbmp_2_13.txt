@@ -1,0 +1,3 @@
+Figure 4   EVM  的  3D  视图（适用于  SOIC16-NB  封装的产品）
+Figure 3   EVM  的  3D  视图（适用于  SOIC16-WB  和  SOIC14-WB  封装的产品）  Figure 4   EVM  的  3D  视图（适用于  SOIC16-NB  封装的产品）
+base name:UG037_CA-IS3221_2xx_EVM_Rev1

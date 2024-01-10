@@ -1,0 +1,3 @@
+title: 图  2 CA-IS3082/CA-IS2082+CA-IS3105W  方案
+围电路需要的更少。图 2  为 RS-485 集成隔离方案 CA-IS3082W/WX 和 CA-IS2082B 的应用电路。更多信息见规格书。 MCU VDDA VDDB RO /RE DE DI B A 1 μ F 1 μ F 0 CA-IS3082W/WX GNDA GNDB
+base name:AN006_如何构建隔离RS485RS422方案_APPNOTE

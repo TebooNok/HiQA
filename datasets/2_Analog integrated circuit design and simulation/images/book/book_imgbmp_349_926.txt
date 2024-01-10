@@ -1,0 +1,3 @@
+title: 图  8- 116   标注子菜单
+最终时刻的状态标注工作点 (Transient Operating Points) 或节点电压 (Transient Node Voltages) 。  图  8- 116   标注子菜单 这时再看电路图中标注出了各器件上的重要参数，例如  MOS  管就标注了  I DS 、 V GS 、
+base name:book

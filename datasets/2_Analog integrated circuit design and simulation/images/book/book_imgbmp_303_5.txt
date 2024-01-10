@@ -1,0 +1,3 @@
+title: 图  8- 33  对 “VS(“/VREF”)” 求平均值
+图  8- 33  对 “VS(“/VREF”)” 求平均值 在 “Calculator” 的缓存中，紧接着表达式 “average(VS(“/VREF”))” 直接键入
+base name:book

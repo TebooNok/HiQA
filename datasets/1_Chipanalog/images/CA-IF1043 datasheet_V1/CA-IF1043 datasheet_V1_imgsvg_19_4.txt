@@ -1,0 +1,3 @@
+title: 图 9-3 模式状态图模式状态图
+0  Copyright © 2021, Chipanalog Incorporated 上海川土微电子有限公司上海川土微电子有限公司 图 9-3 模式状态图模式状态图 注： 1.进入休眠模式后，EN管脚可以被置高或者置低，由于EN管脚内部有一个下拉电阻，将EN管脚置地或者悬空可以节省功耗;
+base name:CA-IF1043 datasheet_V1

@@ -1,0 +1,3 @@
+title: 图  9- 14  查看直流工作点的操作
+如图  9-  14  所示，在  ADE  中选中 “Results”→“Annotate”→“DC Operating Points” ， 在电路图上将会出现各个管子的直流工作点，如图  9-15  所示。  图  9- 14  查看直流工作点的操作
+base name:book

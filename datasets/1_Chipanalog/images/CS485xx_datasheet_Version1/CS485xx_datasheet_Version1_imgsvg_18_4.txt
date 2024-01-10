@@ -1,0 +1,3 @@
+title: 1. 图中所有数值单位为毫米。
+opyright © 2021, Chipanalog Incorporated                                                                                                                                                                  19 上海川土微电子有限公司上海川土微电子有限公司 11.3. DFN8外形尺寸外形尺寸 备注备注: 1. 图中所有数值单位为毫米。 图图11-3 DFN8封装尺寸图封装尺寸图
+base name:CS485xx_datasheet_Version1

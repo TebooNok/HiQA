@@ -1,0 +1,1878 @@
+section
+"[desc] afe88201 __ Title [desc]
+AFEx8201 16-Bit and 14-Bit Digital-to-Analog Converters (DACs) With Voltage Reference and Diagnostic ADC for Low-Power Applications"
+"[desc] afe88201 __ Title __ Features [desc]
+Functional Safety-Capable – Documentation available to aid functional safety system design
+Low quiescent current: 170 µA (typical), 210 µA (maximum)
+16-bit or 14-bit monotonic high-performance DAC
+DAC output range: 0 V to 2.5 V
+Digital DAC slew-rate control
+4-LSB INL at 16 bits
+0.07% FSR (max) TUE from –40°C to +125°C
+12-bit 3.84-kSPS ADC for advanced diagnostics
+Integrated 1.25-V reference at 10 ppm/°C (max)
+Internal 1.2288-MHz oscillator with clock output
+Digital interfaces:
+Serial peripheral interface (SPI)
+Universal asynchronous receiver-transmitter (UART)
+Fault detection: CRC bit error checking, windowed watchdog timer, diagnostic ADC
+Wide operating temperature: –55°C to +125°C"
+"[desc] afe88201 __ Title __ Applications [desc]
+Process control and industrial automation
+PLC or DCS I/O modules
+3-wire and 4-wire transmitters
+4-mA to 20-mA loop-powered applications"
+"[desc] afe88201 __ Title __ Description [desc]
+The 16-bit AFE88201 and 14-bit AFE78201 (AFEx8201) are highly-integrated, high-accuracy, extremely low-power digital-to-analog converters (DACs) with voltage outputs designed for process-control and industrial-automation applications.
+The AFEx8201 devices include most of the components required to design a 4‑mA to 20‑mA, 3‑wire or 4-wire sensor transmitter or analog output module. In addition to the highly accurate DAC, the AFEx8201 incorporate a 10-ppm/°C voltage reference and diagnostic analog-to-digital converter (ADC). 
+To accommodate intrinsic and functional-safety concerns, external voltage-to-current conversion and power-regulation are required.
+The internal diagnostic ADC is multiplexed to several internal nodes that enable an automatic self-health check. This check is capable of detecting errors or malfunctions of the internal bias sources, power regulator, voltage reference, DAC output, die temperature, and optional external voltage source. If any fault is detected from the diagnostic ADC, CRC frame-error checking, or windowed watchdog timer, the devices can optionally issue an interrupt, enter a user-specified fail-safe state, or both."
+"[desc] afe88201 __ Introduction [desc]
+configured as an SPI data input at power up. Data are clocked into the 24-bit input shift register on the falling edge of the serial clock input. SDI is a Schmitt-Trigger logic input. If a GPIO pin is not driven, an external pullup or pulldown resistor is required.
+---table begin---
+Table Title: Pin Functions (continued)
+| PIN NAME | TYPE(1) | DESCRIPTION |
+|---|---|---|
+| GPIO6/ CS | 10 DI/DO | General-purpose input/output (GPIO) pin. Configured as an SPI chip-select input at power up. Data bits are clocked into the serial shift register when CS is low. When CS is high, SDO is in Hi-Z and data on SDI are ignored. If a GPIO pin is not driven, an external pullup or pulldown resistor is required. |
+| IOVDD | 12 P | Interface supply. Supply voltage for digital input and output circuitry. This voltage sets the logical thresholds for the digital interfaces. |
+| NC | 23 — | Must be left unconnected. |
+---table end---"
+"[desc] afe88201 __ 1 Absolute Maximum Ratings [desc]
+Over operating free-air temperature range (unless otherwise noted)(1)
+---table begin---
+Table Title: Absolute Maximum Ratings
+| MIN | MAX | UNIT |
+|---|---|---|
+| Voltage PVDD, IOVDD to GND | –0.3 | 5.5 | V |
+| AIN0, POL_SEL/AIN1, VOUT to GND | –0.3 | PVDD + 0.3 | V |
+| Digital Input/Output to GND | –0.3 | IOVDD + 0.3 | V |
+---table end---
+Note: Operation outside the Absolute Maximum Ratings may cause permanent device damage. Absolute Maximum Ratings do not imply functional operation of the device at these or any other conditions beyond those listed under Recommended Operating Conditions. If used outside the Recommended Operating Conditions but within the Absolute Maximum Ratings, the device may not be fully functional, and this may affect device reliability, functionality, performance, and shorten the device lifetime."
+"[desc] afe88201 __ 2 ESD Ratings [desc]
+Operation outside the Absolute Maximum Ratings may cause permanent device damage. Absolute Maximum Ratings do not imply functional operation of the device at these or any other conditions beyond those listed under Recommended Operating Conditions. If used outside the Recommended Operating Conditions but within the Absolute Maximum Ratings, the device may not be fully functional, and this may affect device reliability, functionality, performance, and shorten the device lifetime.
+---table begin---
+Table Title: ESD Ratings
+| VALUE | UNIT |
+|---|---|
+| V(ESD) | Electrostatic discharge Human body model (HBM), per ANSI |
+---table end---"
+"[desc] afe88201 __ 3 Recommended Operating Conditions [desc]
+Over operating free-air temperature range (unless otherwise noted)
+---table begin---
+Table Title: Operating Free Air Temperature Range
+| MIN | NOM | MAX | UNIT |
+|---|---|---|---|
+|PVDD to GND| 2.7 | 5.5 | V |
+|VDD to GND| 1.71 | 1.89 | V |
+|IOVDD to GND| 1.71 | 5.5 | V |
+|VREFIO to GND, external VREF| 1.2 | 1.25 | 1.3 | V |
+|TA Ambient temperature Specified| -40 | 125 | °C |
+---table end---"
+"[desc] afe88201 __ 4 Thermal Information [desc]
+Thermal Metric(1) AFEx8201 UNIT RRU (UQFN) 24 PINS
+---table begin---
+Table Title: Thermal Information
+| THERMAL METRIC(1) | AFEx8201 UNIT RRU (UQFN) 24 PINS |
+|---|---|
+|RθJA Junction-to-ambient thermal resistance|103.1°C/W|
+|RθJC(top) Junction-to-case (top) thermal resistance|84.4°C/W|
+|RθJC(bottom) Junction-to-case (bottom) thermal resistance|N/A°C/W|
+|RθJB Junction-to-board thermal resistance|69.5°C/W|
+|ΨJT Junction-to-top characterization parameter|0.4°C/W|
+|ΨJB Junction-to-board characterization parameter|68.4°C/W|
+---table end---
+For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application report."
+"[desc] afe88201 __ 5 Electrical Characteristics [desc]
+All minimum and maximum values at TA = –40°C to +125°C and all typical values at TA = 25°C, PVDD = IOVDD = 3.3 V, external or internal VREFIO = 1.25 V, RLOAD = 50 kΩ to GND, CLOAD = 100 pF to GND, and digital inputs at IOVDD or GND (unless otherwise noted)
+---table begin---
+Table Title: Electrical Characteristics
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+|Resolution AFE88201|16|Bits||||
+|Resolution AFE78201|14|Bits||||
+|Integral nonlinearity(1) AFE88201, TA = –40°C to +125°C|-12|12|LSB|||
+|Differential nonlinearity(1)|-1|1|LSB|||
+---table end---
+Please note: 
+1. JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process.
+2. JEDEC document JEP157 states that 250-V CDM allows safe manufacturing with a standard ESD control process.# 1. VOUT DAC Dynamic Performance
+Output voltage settling time ¼ to ¾ scale and ¾ to ¼ scale settling to ±2 LSB: 65 µs
+10-mV step settling to ±2 LSB: 30
+Slew rate (Fullscale transition measured from 10% to 90%): 30 mV/µs
+Output noise (0.1 Hz to 10 Hz, DAC at midscale): 0.25 LSBpp
+100-kHz bandwidth, DAC at midscale: 32 µVrms
+Output noise density (Measured at 1 kHz, DAC at midscale, PVDD = 3 V): 180 nV/√Hz
+Measured at 1 kHz, DAC at midscale, PVDD = 5 V: 260
+Power supply rejection ratio (ac) 200-mV 50-Hz to 60-Hz sine wave superimposed on power supply voltage, DAC at midscale: 85 dB
+Code change glitch impulse Midcode ±1 LSB (including feedthrough): 4.5 nV-s
+Code change glitch magnitude Midcode ±1 LSB (including feedthrough), PVDD = 5 V: 1.5 mV
+Digital feedthrough At SCLK = 1 MHz, DAC output at midscale: 1 nV-s"
+"[desc] afe88201 __ VOUT DAC Output Characteristics [desc]
+---table begin---
+Table Title: Electrical Characteristics
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+|Output voltage|-|0|2.5|V|V|
+|VOUT alarm output high|-|2.35|2.5|2.65|V|
+|VOUT alarm output low|-|0.285|0.3|0.315|V|
+|Resistive load(2)|RLOAD|10|kΩ||
+|Capacitive load(2)|CLOAD|100|pF||
+|Load regulation|DAC at midscale, –1 mA ≤ IOUT ≤ +1 mA|10|µV/mA||
+|Short-circuit current|Full scale output shorted to GND|5|mA||
+|Zero output shorted to VDD|5||||
+|Output voltage headroom to PVDD|DAC at full code, IOUT = 1 mA (sourcing)|200|mV||
+|Large signal dc output impedance|To GND, DAC at code 0|60|Ω||
+|DAC at midscale|10|mΩ||
+|DAC at code 65535|10||||
+|Output Hi-Z|500|kΩ||
+|Power supply rejection ratio (dc)|DAC at midscale|0.1|mV/V||
+|Output voltage drift vs time, ideal VREF|TA = 35°C, VOUT = midscale, 1000 hours|±5|ppmFSR||
+|Input voltage|Diagnostic ADC|0|2.5|V|V|
+|Resolution|Diagnostic ADC|12|Bits|||
+|Differential nonlinearity|Diagnostic ADC|–1|±0.2|1|LSB|
+|Integral nonlinearity|Diagnostic ADC|–4|±1|4|LSB|
+---table end---"
+"[desc] afe88201 __ Electrical Characteristics Continued [desc]
+All minimum and maximum values at TA = –40°C to +125°C and all typical values at TA = 25°C, PVDD = IOVDD = 3.3 V, external or internal VREFIO = 1.25 V, RLOAD = 50 kΩ to GND, CLOAD = 100 pF to GND, and digital inputs at IOVDD or GND (unless otherwise noted)"
+"[desc] afe88201 __ Electrical Characteristics Continued [desc]
+All minimum and maximum values at TA = –40°C to +125°C and all typical values at TA = 25°C, PVDD = IOVDD = 3.3 V, external or internal VREFIO = 1.25 V, RLOAD = 50 kΩ to GND, CLOAD = 100 pF to GND, and digital inputs at IOVDD or GND (unless otherwise noted)
+---table begin---
+Table Title: Electrical Characteristics
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+|Voltage reference input impedance (VREFIO)|ZVREFIO|125|kΩ||
+|Voltage reference input capacitance (VREFIO)|CVREFIO|100|pF||
+|Voltage reference output (initial accuracy)(3)|Output (initial accuracy)(3)|1.248|1.25|1.252|V|
+|Output drift(3)|Output drift(3)|10|ppm/℃||
+|Output impedance(3)|Output impedance(3)|0.1|||Ω|
+|Output noise(3)|Output noise(3)|7.5|µVPP||
+|Output noise density(3)|Measured at 10 kHz, reference load = 100 nF|200|nV/√Hz||
+|Load current(3)|Sourcing, 0.1% VREF change from nominal|2.5|mA||
+|Sinking, 0.1% VREF change from nominal|0.3||||
+|Load regulation(3)|Sourcing, 0 mA to 2.5 mA|4|µV/mA||
+|Stable output capacitance|TA = –40°C to +125°C, ESR from 10 mΩ to 400 mΩ|70|100|130|nF|
+|Line regulation(3)|Line regulation(3)|100|µV/V||
+|Output voltage drift vs time(3)|TA = 35°C, 1000 hours|±100|ppm||
+|Thermal hysteresis(3)|1st cycle|500|µV||
+|Additional cycles|25||||
+---table end---# 252
+Output drift(3)|TA = –40°C to +125°C|10|ppm/℃|
+|---|---|---|---|
+|Output impedance(3)|0.1|Ω|
+|Output noise(3)|0.1 Hz to 10 Hz|7.5|µVPP|
+|Output noise density(3)|Measured at 10 kHz, reference load = 100 nF|200|nV/√Hz|
+|Load current(3)|Sourcing, 0.1% VREF change from nominal|2.5|mA|
+|Sinking, 0.1% VREF change from nominal|0.3|
+|Load regulation(3)|Sourcing, 0 mA to 2.5 mA|4|µV/mA|
+|COUT Stable output capacitance|TA = –40°C to +125°C, ESR from 10 mΩ to 400 mΩ|70|100|130|nF|
+|Line regulation(3)|100|µV/V|
+|Output voltage drift vs time(3)|TA = 35°C, 1000 hours|±100|ppm|
+|Thermal hysteresis(3)|1st cycle|500|µV|
+|Additional cycles|25|µV|
+|---|---|---|---|"
+"[desc] afe88201 __ VDD Voltage regulator output [desc]
+Output voltage|1.71|1.8|1.89|V|
+|---|---|---|---|
+|Output impedance(3)|Sourcing, 0.5 mA to 2.5 mA|3|Ω|
+|Load current(3)|Sourcing, 1% VDD change from nominal|4|mA|
+|THERMAL ALARM|Alarm trip point|130|°C|
+|Warning trip point|85|°C|
+|Hysteresis|12|°C|
+|Trip point absolute accuracy|5|°C|
+|Trip point relative accuracy|2|°C|
+|DIGITAL INPUT CHARACTERISTICS|VIH High-level input voltage|0.7|V/IOVDD|
+|VIL Low-level input voltage|0.3|V/IOVDD|
+|Hysteresis voltage|0.05|V/IOVDD|
+|Input current|–1.56|1.56|µA|
+|Pin capacitance|Per pin|10|pF|
+|---|---|---|---|"
+"[desc] afe88201 __ DIGITAL OUTPUT CHARACTERISTICS [desc]
+VOH High-level output voltage|ISOURCE = 1 mA|0.8|V/IOVDD|
+|---|---|---|---|
+|VOL Low-level output voltage|ISINK = 1 mA|0.2|V/IOVDD|
+|VOL Open-drain low-level output voltage|ISINK = 2 mA|0.3|V|
+|Output pin capacitance|10|pF|
+|6.5 Electrical Characteristics (continued)|all minimum and maximum values at TA = –40°C to +125°C|
+|and all typical values at TA = 25°C, PVDD = IOVDD = 3.3 V|external or internal VREFIO = 1.25 V, RLOAD = 50 kΩ to GND, CLOAD = 100 pF to GND, and digital inputs at IOVDD or GND (unless otherwise noted)|PARAMETER
+|TEST CONDITIONS
+|MIN
+|TYP
+|MAX
+|UNIT
+|---|---|---|---|"
+"[desc] afe88201 __ POWER REQUIREMENTS [desc]
+IPVDD Current flowing into PVDD|DAC at zero-scale, SPI static|170|210|µA|
+|---|---|---|---|
+|IREFIO Internal reference current consumption|52|70|µA|
+|IADC ADC current consumption|ADC converting at 3.84 kSPS|10|µA|
+|CVDD Recommended VDD decoupling capacitance|1|10|µF|
+|IIOVDD Current flowing into IOVDD|SPI static|10|25|µA|
+|IVREFIO Current flowing into VREFIO|DAC at midscale code|10|µA|
+|(1) End point fit between code 512 to code 65,535 for 16-bit, code 128 to code 16,383 for 14-bit, DAC output unloaded, performance under resistive and capacitive load conditions are specified by design and characterization.|
+|(2) Not production tested. Design target.|
+|(3) Not production tested. Derived from the characterization data.|
+|---|---|---|---|"
+"[desc] afe88201 __ 6 Timing Requirements [desc]
+all input signals are specified with tR = tF = 1 ns/V and timed from a voltage level of (VIL + VIH) / 2, 2.7 V PVDD ≤ 5.5 V,
+VIH = 1.62 V, VIL = 0.15 V, VREFIO = 1.25 V and TA = –40°C to +125°C (unless otherwise noted)
+|PARAMETER|MIN|NOM|MAX|UNIT|
+|---|---|---|---|---|
+|SERIAL INTERFACE - WRITE AND READ OPERATION|
+|fSCLK Serial clock frequency|12.5|MHz|
+|tSCLKHIGH SCLK high time|36|ns|
+|tSCLKLOW SCLK low time|36|ns|
+|tCSHIGH CS high time|80|ns|
+|tCSS CS to SCLK falling edge setup time|30|ns|
+|tCSH SCLK falling edge to CS rising edge|30|ns|
+|tCSRI CS rising edge to SCLK falling edge ignore|30|ns|
+|tCSFI SCLK falling edge ignore to CS falling edge|5|ns|
+|tSDIS SDI setup time|5|ns|
+|tSDIH SDI hold time|5|ns|
+|tSDOZD CS falling edge to SDO tri-state condition to driven|40|ns|
+|tSDODZ CS rising edge to SDO driven to tri-state condition|40|ns|
+|tSDODLY SCLK to SDO output delay|40|ns|
+|UART|
+|tBAUDUART Baud rate = 9600 ±1%|104|µs|
+|DIGITAL LOGIC|
+|tDACWAIT Sequential DAC update wait time|2.1|µs|
+|tPOR POR reset delay|100|µs|
+|tRESET RESET pulse duration|100|ns|
+|tRESETWAIT Wait time after RESET pulse|10|µs|
+|tPULSE_GPIO GPIO input pulse duration|10|ns|
+|6.7 Timing Diagrams|
+This is the end of the text.# 1. SFI
+---table begin---
+Table title: SFI
+|         |      |    |
+|---------|------|----|
+|SCLK falling edge ignore to CS falling edge|5|ns|
+|tSDIS|SDI setup time|5|ns|
+|tSDIH|SDI hold time|5|ns|
+|tSDOZD|CS falling edge to SDO tri-state condition to driven|40|ns|
+|tSDODZ|CS rising edge to SDO driven to tri-state condition|40|ns|
+|tSDODLY|SCLK to SDO output delay|40|ns|
+---table end---"
+"[desc] afe88201 __ UART [desc]
+---table begin---
+Table title: UART
+|          |       |      |
+|----------|-------|------|
+|tBAUDUART|Baud rate = 9600 ±1%|104|µs|
+---table end---"
+"[desc] afe88201 __ DIGITAL LOGIC [desc]
+---table begin---
+Table title: DIGITAL LOGIC
+|          |                           |     |
+|----------|---------------------------|-----|
+|tDACWAIT|Sequential DAC update wait time|2.1|µs|
+|tPOR|POR reset delay|100|µs|
+|tRESET|RESET pulse duration|100|ns|
+|tRESETWAIT|Wait time after RESET pulse|10|µs|
+|tPULSE_GPIO|GPIO input pulse duration|10|ns|
+---table end---"
+"[desc] afe88201 __ DIGITAL LOGIC __ 8 Typical Characteristics: VOUT DAC [desc]
+at TA = 25°C, PVDD = 2.7 V, IOVDD = 1.8 V, external or internal VREFIO = 1.25 V, RLOAD = 50 kΩ to GND, CLOAD = 100 pF 
+to GND, and digital inputs at IOVDD or GND (unless otherwise noted)."
+"[desc] afe88201 __ DIGITAL LOGIC __ 8 Typical Characteristics: VOUT DAC (continued) [desc]
+at TA = 25°C, PVDD = 2.7 V, IOVDD = 1.8 V, external or internal VREFIO = 1.25 V, RLOAD = 50 kΩ to GND, CLOAD = 100 pF 
+to GND, and digital inputs at IOVDD or GND (unless otherwise noted)."
+"[desc] afe88201 __ DIGITAL LOGIC __ 8 Typical Characteristics: VOUT DAC (continued) [desc]
+at TA = 25°C, PVDD = 2.7 V, IOVDD = 1.8 V, external or internal VREFIO = 1.25 V, RLOAD = 50 kΩ to GND, CLOAD = 100 pF 
+to GND, and digital inputs at IOVDD or GND (unless otherwise noted)."
+"[desc] afe88201 __ DIGITAL LOGIC __ 8 Typical Characteristics: VOUT DAC (continued) [desc]
+at TA = 25°C, PVDD = 2.7 V, IOVDD = 1.8 V, external or internal VREFIO = 1.25 V, RLOAD = 50 kΩ to GND, CLOAD = 100 pF 
+to GND, and digital inputs at IOVDD or GND (unless otherwise noted)."
+"[desc] afe88201 __ DIGITAL LOGIC __ 8 Typical Characteristics: VOUT DAC (continued) [desc]
+at TA = 25°C, PVDD = 2.7 V, IOVDD = 1.8 V, external or internal VREFIO = 1.25 V, RLOAD = 50 kΩ to GND, CLOAD = 100 pF 
+to GND, and digital inputs at IOVDD or GND (unless otherwise noted)."
+"[desc] afe88201 __ Internal Reference [desc]
+Figure 6-27. DAC AC"
+"[desc] afe88201 __ 10 Typical Characteristics: Reference [desc]
+at TA = 25°C, PVDD = IOVDD = 3.3 V, external or internal VREFIO = 1.25 V, RLOAD = 50 kΩ to GND, CLOAD = 100 pF to 
+GND, and digital inputs at IOVDD or GND (unless otherwise noted). Pre-soldered 30 units."
+"[desc] afe88201 __ 11 Typical Characteristics: Power Supply [desc]
+at TA = 25°C, PVDD = IOVDD = 3.3 V, internal VREFIO, RLOAD = 50 kΩ to GND, CLOAD = 100 pF to GND, and digital inputs 
+at IOVDD or GND (unless otherwise noted)."
+"[desc] afe88201 __ 1 Overview [desc]
+The AFEx8201 feature a 16-bit (AFE88201) or 14‑bit (AFE78201) string DAC with voltage output buffer. Both 
+devices have a buffered voltage output and are designed for use in three‑wire or four-wire sensor transmitters 
+or analog output modules. The DAC has calibration registers for setting gain and offset values for adjusting the 
+DAC outputs. The DAC also has different output slewing modes that allow for a programmable linear slew and a 
+sinusoidal shaped output slew.
+The AFEx8201 also feature a 12‑bit SAR ADC that can be multiplexed to measure different inputs, including 
+external nodes and internal nodes for diagnostic measurements on the device. The ADC is capable of making 
+direct-mode measurements with on-demand conversions or auto-mode measurements through continuous 
+conversions using a channel sequencer with a multiplexer. The devices have optional alarm configurations with 
+fault detection and alarm actions.
+Device co.# 1. DAC
+The DAC also has different output slewing modes that allow for a programmable linear slew and a sinusoidal shaped output slew."
+"[desc] afe88201 __ AFEx8201 [desc]
+The AFEx8201 also feature a 12‑bit SAR ADC that can be multiplexed to measure different inputs, including external nodes and internal nodes for diagnostic measurements on the device. The ADC is capable of making direct-mode measurements with on-demand conversions or auto-mode measurements through continuous conversions using a channel sequencer with a multiplexer. The devices have optional alarm configurations with fault detection and alarm actions."
+"[desc] afe88201 __ Device Communication [desc]
+Device communication and programming are done through an SPI or through the UART break mode (UBM). With the SPI, a cyclic redundancy check (CRC) is implemented by default, which can be disabled. Additionally, communications can be monitored with a watchdog timer (WDT) that alerts the user if the device becomes unresponsive to periodic communication."
+"[desc] afe88201 __ Other Features [desc]
+The AFEx8201 feature a 1.25-V, onboard precision voltage reference, and an integrated precision oscillator. Throughout this data sheet, register and bit names are combined with a period to use the following format: <register_name>.<bit_name>. For example, the CLR bit in the DAC_CFG register is labeled DAC_CFG.CLR."
+"[desc] afe88201 __ Other Features __ Feature Description __ Digital-to-Analog Converter (DAC) Overview [desc]
+The AFEx8201 feature a 16-bit (AFE88201) or 14‑bit (AFE78201) string DAC followed by an output voltage buffer. Using an external circuit, the device output voltage can be translated to different output voltages and output currents for use in 3‑wire or 4-wire sensor transmitters or analog output modules. The DAC is configured to support a 0‑V to 2.5‑V range of operation. The alarm function is triggered when PVDD exceeds the valid configuration range of 2.7 V to 5.5 V; see also Table 7-5.
+---table begin---
+Table title: DAC Settings
+| DAC | Configuration | Voltage |
+|---|---|---|
+| 16-bit | 3-wire | 0V to 2.5V |
+| 14-bit | 4-wire | 0V to 2.5V |
+---table end---"
+"[desc] afe88201 __ Other Features __ Feature Description __ Digital-to-Analog Converter (DAC) Overview __ DAC Resistor String [desc]
+Figure 7-1 shows that the resistor string structure consists of a series of resistors, each of value R. The code loaded to the DAC determines the node on the string at which the voltage is tapped off to be fed into the output amplifier. The voltage is tapped off by closing one of the switches connecting the string to the amplifier. The resistor string architecture has inherent monotonicity, voltage output, and low glitch."
+"[desc] afe88201 __ Other Features __ Feature Description __ Digital-to-Analog Converter (DAC) Overview __ DAC Buffer Amplifier [desc]
+The VOUT output pin is driven by the DAC output buffer amplifier. The output amplifier default settings are designed to drive capacitive loads as high as 100 pF without oscillation. The output buffer is able to source and sink 1 mA. The device implements short-circuit protection for momentary output shorts to ground and VDD supply. The source and sink short-circuit current thresholds are set to 5 mA."
+"[desc] afe88201 __ Other Features __ Feature Description __ Digital-to-Analog Converter (DAC) Overview __ DAC Transfer Function [desc]
+The following equation describes the DAC transfer function, which is the relationship between internal signal DAC_CODE and output voltage VOUT:
+VOUT = DAC_CODE
+2N × FSR
+where
+- DAC_CODE is an internal signal and the decimal equivalent of the gain and offset calibrated binary code loaded into the DAC_DATA register. DAC_CODE range = 0 to 2N – 1.
+- N = DAC_CODE resolution in bits (16 for the AFE88201 and 14 for the AFE78201).
+- FSR = VOUT full-scale range = 2.5 V."
+"[desc] afe88201 __ Other Features __ Feature Description __ Digital-to-Analog Converter (DAC) Overview __ DAC Gain and Offset Calibration [desc]
+The AFEx8201 provide DAC gain and offset calibration capability to correct for end-point errors present in the system. Implement the gain and offset calibration using two registers, DAC_GAIN.GAIN and DAC_OFFSET.OFFSET. Update DAC_DATA register after gain or offset codes are changed for the new values to take effect. The DAC_GAIN can be programmed from 0.5 to 1.499985 using Equation 2.
+DAC_GAIN = 1 
+2 + GAIN 
+2N
+where 
+- N = DAC_GAIN resolution in bits: 16 for the AFE88201 and 14 for the AFE78201.
+- GAIN is the decimal value of the DAC_GAIN register setting.
+- GAIN data are left justified; the last two LSBs in the DAC_GAIN register are ignored for the AFE78201."
+"[desc] afe88201 __ Other Features __ Feature Description __ Digital-to-Analog Converter (DAC) Overview __ DAC_GAIN Setting vs GAIN Code [desc]
+---table begin---
+Table tile: DAC_GAIN Setting vs GAIN Code
+| DAC_GAIN | GAIN (HEX) |
+|---|---|
+|0.5|0x0000|
+|1.0|0x8000|
+|1.499985|0xFFFF|
+---table end---
+The DAC_OFFSET is stored in the DAC_OFFSET register using 2 s complement encoding. The DAC_OFFSET value can be programmed from –2(N–1) to 2(N–1) – 1 using Equation 3. DAC_OFFSET = − OFFSETMSB × 2 N − 1 + ∑i = 0 N − 2 OFFSETi × 2i where
+- N = DAC_OFFSET resolution in bits: 16 for the AFE88201 and 14 for the AFE78201.
+- OFFSETMSB = MSB bit of the DAC_OFFSET register.
+- OFFSETi = The rest of the bits of the DAC_OFFSET register.
+- i = Position of the bit in the DAC_OFFSET register.
+- OFFSET data are left justified; the last two LSBs in the DAC_OFFSET register are ignored for the device."
+"[desc] afe88201 __ Other Features __ Feature Description __ Digital-to-Analog Converter (DAC) Overview __ DAC_OFFSET Setting vs OFFSET Code [desc]
+---table begin---
+Table tile: DAC_OFFSET Setting vs OFFSET Code
+| DAC_OFFSET | OFFSET (HEX) |
+|---|---|
+|32767|0x7FFF|
+|1|0x0001|
+|0|0x0000|
+|-1|0xFFFF|
+|-2|0xFFFE|
+|-32768|0x8000|
+---table end---
+The following transfer function is applied to the DAC_DATA.DATA based on the DAC_GAIN and DAC_OFFSET values: DAC_CODE = DATA × DAC_GAIN + DAC_OFFSET where
+ - DAC_CODE is the internal signal applied to the DAC.
+ - DATA is the decimal value of the DAC_DATA register.
+ - DAC_GAIN and DAC_OFFSET are the user calibration settings.
+ - DATA data are left justified; the last two LSBs in the DAC_DATA register are ignored for the AFE78201.
+Substituting DAC_GAIN and DAC_OFFSET in Equation 4 with Equation 2 and Equation 3 results in: DAC_CODE = DATA × 1 2 + GAIN 2N − OFFSETMSB × 2 N − 1 + ∑i = 0 N − 2 OFFSETi × 2i The multiplier is implemented using truncation instead of rounding. This truncation can cause a difference of one LSB if rounding is expected.# 1. DAC Calculation
+The decimal value of the DAC_DATA register. DAC_GAIN and DAC_OFFSET are the user calibration settings. DATA data are left justified; the last two LSBs in the DAC_DATA register are ignored for the AFE78201. Substituting DAC_GAIN and DAC_OFFSET in Equation 4 with Equation 2 and Equation 3 results in: DAC_CODE = DATA × 1 2 + GAIN 2N − OFFSETMSB × 2 N − 1 + ∑i = 0 N − 2 OFFSETi × 2i (5) The multiplier is implemented using truncation instead of rounding. This truncation can cause a difference of one LSB if rounding is expected."
+"[desc] afe88201 __ Other Features __ DAC Calibration Path [desc]
+DAC_DATA Register 01h DAC_GAIN Register 04h DAC_OFFSET Register 05h DAC_CODE Gain = ½ + DAC_GAIN / 216 < 8000h: Gain < 1 = 8000h: Gain = 1 > 8000h: Gain > 1 + +"
+"[desc] afe88201 __ Other Features __ Programmable Slew Rate [desc]
+The slew rate feature controls the rate at which the output voltage or current changes. This feature is disabled by default and is enabled by writing a logic 1 to the DAC_CFG.SR_EN bit. With the slew rate control feature disabled, the output changes smoothly at a rate limited by the output drive circuitry and the attached load."
+"[desc] afe88201 __ Other Features __ 1 Slew Rate Calculation [desc]
+The time required for the output to slew is expressed as Equation 6:
+Slew Time =
+Delta Code Change
+Slew Step × Slew Clock Rate
+(6)
+where Slew Time is expressed in seconds, Slew Step is controlled by DAC_CFG.SR_STEP and Slew Clock Rate is controlled by DAC_CFG.SR_CLK. When the slew-rate control feature is enabled, the output changes at the programmed slew rate."
+"[desc] afe88201 __ Other Features __ DAC Register Structure and CLEAR State [desc]
+The AFE88201 DAC has a 16-bit voltage output, and the AFE78201 DAC has a 14-bit voltage output. The output range is 0 V to 2.5 V. "
+"[desc] afe88201 __ Other Features __ 1 DAC Settings [desc]
+The AFEx8201 provide the option to quickly set the DAC output to the value se.# 7.5. Sinusoidal Slew Rate: Rising
+24 mA (0xF45D) to 4 mA (0x0BA3) measured on a 40-Ω shunt"
+"[desc] afe88201 __ Other Features __ Sinusoidal Slew Rate: Falling [desc]
+If the slew-rate feature is disabled while the DAC is executing the slew-rate command, the slew-rate operation is aborted, and the DAC output goes to the target code."
+"[desc] afe88201 __ Other Features __ Sinusoidal Slew Rate: Falling __ 6 DAC Register Structure and CLEAR State [desc]
+The AFE88201 DAC has a 16-bit voltage output, and the AFE78201 DAC has a 14-bit voltage output. The output range is 0 V to 2.5 V.
+The AFEx8201 provide the option to quickly set the DAC output to the value set in the DAC_CLR_CODE register without writing to the DAC_DATA register, referred to as the CLEAR state. For register details, see Table 7-16.
+Transitioning from the DAC_DATA to the DAC_CLR_CODE is synchronous to the clock. If slew mode is enabled, the output slews during the transition. Figure 7-7 shows the full AFEx8201 DAC_DATA signal path. The devices synchronize the DAC_DATA code to the internal clock, causing up to 2.5 internal clock cycles of latency (2 μs) with respect to the rising edge of CS or the end of a UBM command. Update DAC_GAIN and DAC_OFFSET values when DAC_CFG.SR_EN = 0 to avoid an IRQ pulse generated by SR_BUSY.
+Set the DAC to CLEAR state either by:
+1. Setting DAC_CFG.CLR.
+2. Configuring the DAC to transition to the CLEAR state in response to an alarm condition.
+3. Using the SDI pin in UBM or the SCLR pin in SPI mode as the CLEAR state input pin.
+Method 1 is a direct command to the AFEx8201 to set the DAC to CLEAR state. Set the DAC_CFG.CLR bit to 1h to set the DAC to CLEAR state.
+Method 2 is controlled by settings of ALARM_ACT register. For details of conditions and other masks required to use this method, see Table 7-25 and Section 7.3.3.2.
+Method 3 supports setting the DAC to CLEAR state without writing to the AFEx8201. This pin-based DAC CLEAR state function is available in SPI mode on the SCLR pin, or in UBM on the SDI pin. The SCLR pin must be tied to GND in UBM. For details of connection options based on communication modes and pins used in each mode, see Section 7.5.1. Set the appropriate pin high to drive the DAC to CLEAR state."
+"[desc] afe88201 __ Other Features __ 2 Analog-to-Digital Converter (ADC) Overview [desc]
+The AFEx8201 feature a monitoring system centered on a 12-bit successive approximation register (SAR) ADC and a highly flexible analog multiplexer. The monitoring system is capable of sensing up to two external inputs, as well as several internal device signals.
+The ADC uses the VREFIO pin voltage as a reference. The ADC timing signals are derived from an on-chip oscillator. The conversion results are accessed through the device serial interface."
+"[desc] afe88201 __ Other Features __ 2 Analog-to-Digital Converter (ADC) Overview __ 1 ADC Operation [desc]
+The device ADC supports direct-mode and auto-mode conversions. Both conversion modes use a custom channel sequencer to determine which of the input channels are converted by the ADC. The sequence order is fixed. The user selects the start channel and stop channel of the conversion sequence. The conversion method and channel sequence are specified in the ADC Configuration registers. The default conversion method is auto-mode.
+---table begin---
+Table title: ADC Conversion Sequence
+|  |  |
+|---|---|
+|START|Set ADC_CFG.BUF_PD = 0, ADC_CFG.DIRECT_MODE = 0 or 1|
+|TRIGGER.ADC =1?|Yes or No|
+|Set ADC mux to ADC_INDEX_CFG.|START|
+|Convert ADC|ADC idle state|
+|Increment ADC custom channel sequencer|ADC_CFG.DIRECT_MODE =1?|
+|TRIGGER_ADC = 0?|Yes or No|
+|No|No|
+|Yes|ADC_INDEX.STOP (last conversion Completed)?|
+|Yes||
+---table end---
+To use the ADC, first enable the ADC buffer by setting ADC_CFG.BUF_PD  0. Then they should wait at least 210 μs before setting the trigger using the TRIGGER.ADC bit. An internal delay is forced if the trigger signal is sent before the timer has expired. Make sure the ADC is not converting before setting the ADC_CFG.BUF_PD = 1."
+"[desc] afe88201 __ Other Features __ 2 Analog-to-Digital Converter (ADC) Overview __ 2 ADC Custom Channel Sequencer [desc]
+Auto mode is set by writing ADC_CFG.DIRECT_MODE = 0. Regardless of the selected conversion method, update the ADC configuration register only while the ADC is in the idle state. Do not change the ADC configuration bits while the ADC is converting channels. Before changing configuration bits, disable the ADC and verify that GEN_STATUS.ADC_BUSY = 0.
+The device uses a custom channel sequencer to control the multiplexer of the ADC. The ADC sequencer allows the user to specify which channels are converted. The sequencer consists of 16 indexed slots with programmable start and stop index fields to configure the start and stop conversion points.
+In direct-mode conversion, the ADC converts from the start index to the stop index once and then stops. In auto-mode conversion, the ADC converts from the start to stop index repeatedly until the ADC is stopped. Figure 7-9 shows the indexed custom channel sequence slots available in the device.
+---table begin---
+Table title: Indexed Custom Channel Sequence
+| CCS POINTER | CHANNEL | CONV_RATE | RANGE |
+|---|---|---|---|
+| 0 | OFFSET | 2560 Hz | VREF |
+| 1 | AIN0 | Programmable | Programmable |
+| 2 | AIN1 | Programmable | Programmable |
+| 3 | TEMP | 2560 Hz | VREF |
+| 4 | SD0 (VREF) | 2560 Hz | VREF |
+| 5 | SD1 (PVDD) | 2560 Hz | VREF |
+| 6 | SD2 (VDD) | 2560 Hz | VREF |
+| 7 | SD3 (ZTAT) | 2560 Hz | VREF |
+| 8 | SD4 (VOUT) | 2560 Hz | 2 × VREF |
+| 9-15 | GND | 2560 Hz | VREF |
+---table end---
+Use the ADC_INDEX_CFG register to select the channels. The order of the channels is fixed and shown in Table 7-3. Then, use ADC_INDEX_CFG.START and ADC_INDEX_CFG.STOP to select the range of indices to convert. If these two values are the same, then the ADC only converts a single channel. If the START and STOP values are different, then the ADC cycles through the corresponding indices. By default, all channels are configured to be converted; START = 0 and STOP = 8. If the AIN1 channel is not configured as an ADC input, then the result for this channel is 0x000. The minimum time for a conversion is still allotted to AIN1 if the channel is within the START and STOP range. If START is configured to be greater than STOP, then the device interprets the conversion sequence as if START = STOP.
+In direct mode, each selected channel in the ADC_INDEX_CFG register is converted once per TRIGGER.ADC command. In auto mode, each channel selected in the ADC_INDEX_CFG register is converted once; after the last channel, the loop is repeated as long as the ADC is enabled. In auto mode, writing to TRIGGER.ADC = 1 starts the conversions. Writing TRIGGER.ADC = 0 disables the ADC after the current channel being converted finishes. In direct mode, writing TRIGGER.ADC = 1 starts the sequence. When the sequence ends, then TRIGGER.ADC is self-cleared.
+A minimum of 20 clock cycles is required to perform one conversion. The ADC clock is derived from the internal oscillator and divided by 16, which gives an ADC clock frequency of 1.2288 MHz / 16 = 76.8 kHz, for a clock period = 13.02 μs.
+Each of the internal nodes has a fixed conversion rate. Pins AIN0 and AIN1 have programmable conversion rates (see also the ADC_CFG register). Pins AIN0 and AIN1 also have a configurable range. The input range can be either 0 V to 1.25 V or 0 V to 2.5 V, depending on the ADC_CFG.RANGE bit.
+If any ADC configuration bits are changed, the following procedure must be followed: The ADC must be disabled by-# 7.3.2.3 ADC Synchronization
+The trigger signal must be generated for the ADC to exit the idle state and start conversions. The ADC trigger is generated through the TRIGGER.ADC bit. The ADC data registers have the latest available data. Accessing the data registers does not interfere with the conversion process, and thus provides continuous ADC operation.
+In direct-mode, use the GEN_STATUS.ADC_BUSY bit to determine when a direct-mode conversion is complete, and the ADC has returned to the idle state. Similarly, monitor the TRIGGER.ADC bit to see if the ADC has returned to the idle state."
+"[desc] afe88201 __ Other Features __ 2 Analog-to-Digital Converter (ADC) Overview __ 4 ADC Offset Calibration [desc]
+Channel 0 of the CCS pointer is named OFFSET. The OFFSET channel is used to calibrate and improve the ADC offset performance. Convert the OFFSET channel, and use the result as a calibration for the ADC offset in subsequent measurements.
+This ADC channel samples VREF / 2 and compares this result against 7FFh as a measure of the ADC offset. The data rate for the ADC measuring this channel is 2560 Hz. The ADC conversion for the OFFSET channel is subtracted from 7FFh and the resulting value is stored in ADC_OFFSET (28h). The offset can be positive or negative; therefore, the value is stored in 2’s complement notation.
+With the subtraction from 7FFh, ADC_OFFSET is the negative of the offset. This value is subtracted from conversions of the ADC by default. For direct measurements of the ADC, set ADC_BYP.OFST_BYP_EN to 1 to enable the offset bypass; see Section 7.3.2.8."
+"[desc] afe88201 __ Other Features __ 2 Analog-to-Digital Converter (ADC) Overview __ 5 ADC Transfer Characteristics [desc]
+ersion values are stored in straight binary format in the ADC registers. The ADC resolution can be computed by Equation 7:
+1 LSB = VRANGE / 212 (7) where VRANGE = 2.5 V for the 0‑V to 2.5‑V input range or 1.25 V for the 0‑V to 1.25‑V input range. Figure 7-10 and Table 7-4 detail the transfer characteristics.
+NFSC+1 PFSC MC + 1 MC ADC Code (Hex) VIN NFSC 1 LSB (VRANGE ±�1 LSB) (VRANGE/2 + 1 LSB) VRANGE/2 Figure 7-10. 
+---table begin---
+Table tile: ADC Transfer Characteristics 
+| INPUT VOLTAGE    | CODE     | DESCRIPTION                | IDEAL OUTPUT CODE |
+|------------------|----------|----------------------------|-------------------|
+| ≤1 LSB           | NFSC     |  Negative full-scale code  | 000               |
+| 1 LSB to 2 LSB   | NFSC + 1 | Negative full-scale code plus 1 | 001       |
+---table end---"
+"[desc] afe88201 __ Other Features __ 2 Analog-to-Digital Converter (ADC) Overview __ 6 Temperature Sensor [desc]
+Channel 3 of the CCS is used to measure the die temperature of the device. The ADC measures an internal temperature sensor that measures a voltage complementary to the absolute temperature (CTAT). This CTAT voltage has a negative temperature coefficient. The ADC converts this voltage at a data rate of 2560 Hz. When the ADC conversion is completed, the data are found in the ADC_TEMP.DATA bits (address 26h).
+The relationship between the ambient temperature and the ADC code is shown in Equation 8: ADC Code = 2681 − 11 × TA °C (8)"
+"[desc] afe88201 __ Other Features __ 2 Analog-to-Digital Converter (ADC) Overview __ 7 Self-Diagnostic Multiplexer [desc]
+In addition to the ADC offset, the two external monitoring inputs, and the temperature sensor, the ADC of the AFEx8201 has five other internal inputs to monitor the reference voltage, the power supplies, a static voltage, and the DAC output. These five voltages measurements are part of the self-diagnostic multiplexer (SD0 to SD4) measurements of the ADC, and are reported in the ADC_SD_MUX register at 27h; see also Section 7.6.
+Channel 4 (SD0) measures the reference voltage of the device. The ADC measures the reference voltage through a resistor divider (divide by two). Be aware that all ADC measurements are a function of the reference; using SD0 to measure the reference is not revealing as a diagnostic measurement. The data rate for this conversion is 2560 Hz and the range of the ADC is set to VREF.
+Channel 5 (SD1) measures the PVDD power supply of the device. The ADC measures the PVDD voltage through a resistor divider (divide by six). The data rate for this conversion is 2560 Hz and the range of the ADC is set to VREF.
+Channel 6 (SD2) measures the VDD power supply of the device. When channel 6 is selected, the ADC measures the VDD voltage through a resistor divider (divide by 2). The data rate for this conversion is 2560 Hz and the range of the ADC is set to VREF.
+Channel 7 (SD3) is a ZTAT (zero temperature coefficient) voltage. This internal voltage is nominally 0.6 V with a low temperature drift and does not depend on the reference voltage. An ADC measurement of ZTAT voltage can be useful to determine the s# 7.3.2.8 ADC Bypass
+To test the offset, modify the ADC data path by programming the bypass data register, ADC_BYP.DATA (2Eh). 
+This read/write register is used in two different ways.
+First, by setting the ADC_BYP.OFST_BYP_EN to 1, this bypass data register is used as a substitute for the 
+ADC_OFFSET. However, if the ADC_BYP.DATA data must be stored in the ADC_OFFSET register, use the 
+second method.
+Second, the ADC_BYP.DATA is used to set a known value into the ADC readback register of the channel being 
+converted. Write the desired data into ADC_BYP.DATA, set the ADC_BYP.DATA_BYP_EN bit, and convert the 
+selected channel. When ADC_BYP.DATA_BYP_EN bit is set to 1, the ADC conversion is bypassed, and the 
+value of ADC_BYP.DATA is written into the selected ADC channel readback register. This setting is used to test 
+the alarm settings of the ADC.
+When the ADC bypass is unused, set the ADC_BYP.DATA to 000h.
+---table begin---
+Table tile: Figure 7-11. ADC Bypass Data Flow
+| ADC_BYP.DATA Register 2Eh | 0 | 1 | 0 | 1 |
+|---|---|---|---|---|
+| ADC_OFFSET Register 28h | ADC_AIN0 Register 24h | ADC_AIN1 Register 25h | ADC_TEMP Register 26h | ADC_SD_MUX Register 27h |
+| � + | + | ADC_BYP. OFST_BYP_EN Register 2Eh | ADC_BYP. DATA_BYP_EN Register 2Eh | ADC Data From ADC MUX |
+| ADC. ADC_OUT Register 2Dh | ADC | MUX | 07FFh – OFFSET | Stored as 2’s Complement |
+| CCS Pointer | Read and Writeable for Testing |
+---table end---"
+"[desc] afe88201 __ Other Features __ 3 Programmable Out-of-Range Alarms [desc]
+The AFEx8201 are capable of continuously analyzing the supplies, external ADC inputs, DAC output voltage, 
+reference, internal temperature, and other internal signals for normal operation.
+Normal operation for the conversion results is established through the lower- and upper-threshold registers. 
+When any of the monitored inputs are out of the specified range, the corresponding alarm bit in the alarm status 
+registers is set.
+The alarm bits in the alarm status registers are latched. The alarm bits are referred to as being latched because 
+the alarm bits remain set until read by software. This design makes sure that out-of-limit events cannot be 
+missed if the software is polling the device periodically. All bits are cleared when reading the alarm status 
+registers, and all bits are reasserted if the out-of limit condition still exists on the next monitoring cycle. When the 
+alarm event is cleared, the DAC is reloaded with the contents of the DAC active registers, which allows the DAC 
+outputs to return to the previous operating point without any additional commands
+All alarms can be used to generate a hardware interrupt signal on the ALARM pin; see also Section 7.3.3.1. In 
+addition, Section 7.3.3.2 describes how the alarm action can b# 7.3. Alarm Status
+Missed if the software is polling the device periodically. All bits are cleared when reading the alarm status registers, and all bits are reasserted if the out-of limit condition still exists on the next monitoring cycle. When the alarm event is cleared, the DAC is reloaded with the contents of the DAC active registers, which allows the DAC outputs to return to the previous operating point without any additional commands. All alarms can be used to generate a hardware interrupt signal on the ALARM pin; see also "
+"[desc] afe88201 __ Other Features __ 3 Programmable Out-of-Range Alarms __ Alarm-Based Interrupts [desc]
+One or more of the available alarms can be set to activate the ALARM pin. Connect the ALARM pin as an optional hardware interrupt to the host. The host can query the alarm status registers to determine the alarm source upon assertion of the interrupt. Any alarm event activates the pin, as long as the alarm is not masked in the ALARM_STATUS_MASK register. When an alarm event is masked, the occurrence of the event sets the corresponding status bit in the alarm status registers, but does not activate the ALARM pin.
+Note: The ALARM pin output depends on ALARM_STATUS and ALARM_STATUS_MASK register settings, independent of ALARM_ACT register settings."
+"[desc] afe88201 __ Other Features __ 3 Programmable Out-of-Range Alarms __ Alarm-Based Interrupts __ Alarm Action Configuration Register [desc]
+The AFEx8201 provides an alarm action configuration register: ALARM_ACT, Table 7-25. 
+---table begin---
+Table title: Alarm Action Configuration Register
+| Writing to this register | selects the device action that automatically occurs for a specific alarm condition. |
+|---|---|
+| The ALARM_ACT register | determines how the main DAC responds to an alarm event from either an ADC conversion on the self-diagnostics channels (AIN0, AIN1, and TEMP), or from a CRC, WDT, VREF, TEMP_HI, or TEMP_LO fault. |
+---table end---
+Only these faults cause a response by the DAC. Any other alarm status events trigger the ALARM pin. There are four options for alarm action. In case different settings are selected for different alarm conditions, the following low-to-high priority is considered when taking action:
+- 0. → No action
+- 1. → DAC CLEAR state
+- 2. → VOUT alarm voltage
+- 3. → VOUT Hi-Z"
+"[desc] afe88201 __ Other Features __ 3 Programmable Out-of-Range Alarms __ Alarm-Based Interrupts __ Alarm Voltage Generator [desc]
+Figure 7-12 shows that the alarm voltage is generated independently."
+"[desc] afe88201 __ Other Features __ 3 Programmable Out-of-Range Alarms __ 3 Alarm Voltage Generator [desc]
+Figure 7-12 shows that the alarm voltage is generated independently from the DAC output voltage. The alarm polarity control logic selects the output level of the alarm voltage generator. The alarm action control logic selects between the DAC output and alarm voltage generator output voltages. The alarm action control logic also controls the output buffer Hi-Z switch.
+During normal operation, the expected VOUT voltage depends on the DAC_CODE. The ADC thresholds for the SD4 (VOUT) diagnostic channel are set around the programmed DAC_CODE. During the alarm condition, if the alarm action changes the VOUT voltage to the alarm voltage, or switches the VOUT buffer into Hi-Z mode, the VOUT voltage no longer depends on the DAC_CODE. In this case, the SD4 (VOUT) diagnostic channel also reports the alarm. To clear this alarm, as long as all other alarm conditions are cleared, set the alarm action to either no action or to the DAC clear code. Applying either alarm action sets the VOUT voltage within the expected ADC thresholds and clears the alarm after the next ADC measurement of the SD4 (VOUT) channel.
+Give special consideration to the alarm logic during the transient events. When the new DAC_CODE goes beyond the SD4 (VOUT) alarm thresholds with the ADC monitoring the SD4 (VOUT) input in auto mode, the ADC conversion can occur while VOUT settles to a new value. This conversion can trigger a false alarm. There are two ways to prevent this false alarm:
+- Use direct mode and allow VOUT to settle before triggering the next ADC conversion.
+- Set ADC_CFG.FLT_CNT > 0. With this configuration, a single error in SD4 or any other measurement does not cause an alarm condition to be asserted."
+"[desc] afe88201 __ Other Features __ 3 Programmable Out-of-Range Alarms __ 4 Temperature Sensor Alarm Function [desc]
+The AFEx8201 continuously monitor the internal die temperature. In addition to the ADC measurement, the temperature sensor triggers a comparator to show a thermal warning and a thermal error. A thermal warning alarm is set when the temperature exceeds 85°C. Additionally, a thermal error alarm is set when the die temperature exceeds 130°C.
+The thermal warning and thermal error alarms can be configured to set the ALARM pin and are indicated in the ALARM_STATUS register. These alarms can be masked with the ALARM_MASK register and also be configured to control the DAC output with the ALARM_ACT register."
+"[desc] afe88201 __ Other Features __ 3 Programmable Out-of-Range Alarms __ 5 Internal Reference Alarm Function [desc]
+The devices provide out-of-range detection for the reference voltage. When the reference voltage exceeds ±5% of the nominal value, the reference alarm flag (VREF_FLT bit) is set. Make sure that a reference alarm condition has not been issued by the device before powering up the DAC output."
+"[desc] afe88201 __ Other Features __ 3 Programmable Out-of-Range Alarms __ 6 ADC Alarm Function [desc]
+The AFEx8201 provide independent out-of-range detection for each of the ADC inputs. 
+---table begin---
+Table title: Out-of-Range Alarm
+| Description | Threshold | Register |
+|---|---|---|
+| AIN0 | [15:8] | 12h |
+| AIN1 | [15:8] | 13h |
+| TEMP | [15:8] | 14h |
+| AIN0 | [7:0] | 12h |
+| AIN1 | [7:0] | 13h |
+| TEMP | [7:0] | 14h |
+| ALARM_STATUS | N/A | 20h |
+---table end---
+When the measurement is out of range, the corresponding alarm bit is set to flag the out-of-range condition. An alarm event is only registered when the monitored signal is out of range for N number of consecutive conversions, where N is configured in the ADC_CFG.FLT_CNT false alarm register settings."
+"[desc] afe88201 __ Other Features __ 3 Programmable Out-of-Range Alarms __ 7 Fault Detection [desc]
+ADC_CFG.FLT_CNT determines the maximum number of accepted consecutive failures before an alarm condition is reported. ADC_CFG.HYST sets the hysteresis used by the alarm-detection circuit. The alarms are disabled by default. The configuration fields for the thresholds are only eight bits wide, the four LSBs are hardcoded for each threshold. The high thresholds four LSBs are hardcoded to 0xF, and the low thresholds four LSBs are hardcoded to 0x0. All the self diagnostic (SD) channels have fixed threshold.# 7.3.2 Thresholds 
+If a conversion value falls outside of these limits (that is, if TEMP < low threshold or TEMP > high threshold), an alarm condition for that channel is set. The alarms are disabled by setting 0x000 for the low threshold and 0xFFF for the high threshold, respectively. These alarms are disabled by default. Because the configuration fields for the thresholds are only eight bits wide, the four LSBs are hardcoded for each threshold. The high thresholds four LSBs are hardcoded to 0xF, and the low thresholds four LSBs are hardcoded to 0x0. All the self diagnostic (SD) channels have fixed thresholds, except SD4, which measures the VOUT of the main DAC. The threshold for SD4 tracks the VOUT with respect to the DAC code. 
+---table begin---
+Table 7-5. Self Diagnostic (SD) Alarm ADC Thresholds
+| SD | ADC INPUT | ACCEPTED LOW VALUE | ACCEPTED HIGH VALUE | LOW THRESHOLD | HIGH THRESHOLD | ADC LOW (HEX) | ADC HIGH (HEX) |
+|---|---|---|---|---|---|---|---|
+| SD0 | VREF/2 | VREF/2 – 9% – 25 mV | VREF/2 + 9% + 25 mV | 0.54375 V | 0.70625 V | 0x6D0 | 0x92F |
+| SD1 | PVDD/6 | 1.65/6 – 25 mV | 6/6 + 25 mV | 0.25 V | 1.025 V | 0x310 | 0xD3F |
+| SD2 | VDD/2 | 1.6/2 – 25 mV | 2/2 + 25 mV | 0.775 V | 1.025 V | 0x9C0 | 0xD3F |
+| SD3 | 0.6 V | 0.6 V – 9% – 25 mV | 0.6 V + 9% + 25 mV | 0.521 V | 0.679 V | 0x690 | 0x8CF |
+| SD4 | VOUT/2 | VOUT/2 – 6 mV | VOUT/2 + 6 mV | VOUT – 12 mV | VOUT + 12 mV | Expected – 0x040 | Expected + 0x040 |
+---table end---"
+"[desc] afe88201 __ Other Features __ 3 Programmable Out-of-Range Alarms __ 7 Fault Detection [desc]
+The alarm threshold for the SD4 input depends on the expected ADC measurement based on the DAC code. Equation 9 shows the expected ADC code for SD4.
+ADC Expected Code = DAC_CODE[MSB:MSB-11]"
+"[desc] afe88201 __ Other Features __ 4 IRQ [desc]
+The devices include an interrupt request (IRQ) to communicate the occurrence of a variety of events to the host controller. The IRQ block initiates interrupts that are reported internally in a status register, externally on the IRQ pin if the function is enabled, or on the ALARM pin if the condition is from the ALARM_STATUS register. Figure 7-15 shows the IRQ block diagram.
+There are two registers that can generate interrupts: GEN_STATUS and ALARM_STATUS. Each of these registers has a corresponding STATUS_MASK register. The mask register controls which of the events trigger an interrupt. Writing a 1 in the mask register masks, or disables, the event from triggering an interrupt. Writing a 0 in the mask register allows the event to trigger an IRQ. All bits are masked by default. Some status bits are sticky. Reading the corresponding register clears a sticky bit, unless the condition still exists.
+The IRQ is configured through CONFIG.IRQ_LVL to be edge- or level-sensitive. Set this bit to logic 1 to enable level-sensitive functionality (default). In edge-sensitive mode, the IRQ signal is a synchronous pulse, one internal clock period wide (813 ns). In level-sensitive mode, the IRQ is set and remains set as long as the condition exists. After the IRQ condition is removed, the condition is cleared by reading the corresponding status register. Trying to clear the bit while the condition still exists does not allow the bit to be cleared if the bit is sticky.
+CONFIG.IRQ_POL determines# 7.3.4 IRQ Conditionals 
+The IRQ is configured through CONFIG.IRQ_LVL to be edge- or level-sensitive. Set this bit to logic 1 to enable 
+level-sensitive functionality (default). In edge-sensitive mode, the IRQ signal is a synchronous pulse, one internal 
+clock period wide (813 ns). In level-sensitive mode, the IRQ is set and remains set as long as the condition 
+exists. After the IRQ condition is removed, the condition is cleared by reading the corresponding status register. 
+Trying to clear the bit while the condition still exists does not allow the bit to be cleared if the bit is sticky.
+CONFIG.IRQ_POL determines the active level of the IRQ. A logic 1 configures IRQ to be active high.
+When using edge-sensitive IRQ signals, there is a clock cycle delay for synchronization and edge detection. 
+With a 307.2-kHz clock, this delay is up to 3.26 μs. For level-sensitive mode, the delay is approximately 10 ns to 
+20 ns.
+Most status bits have two versions within the design. The first version is an edge event that is created when the 
+status is asserted. This signal is used to generate edge-sensitive IRQs. This edge detection prevents multiple 
+status events from blocking one another. The second version is the sticky version of the status bit. This signal is 
+set upon assertion of the status bit and cleared when the corresponding status register is read, as long as the 
+status condition does not still persist. Signals GEN_IRQ and ALARM_IRQ are driven by the logical OR of the of 
+the status bits within the corresponding register.
+If a status bit is unmasked and the sticky version of that bit has been asserted, and the IRQ is level-sensitive, 
+then an interrupt is triggered as soon as the bit is unmasked. If the IRQ is edge-sensitive then a status event 
+must occur after the bit has been unmasked to assert an interrupt."
+"[desc] afe88201 __ Other Features __ 5 Internal Reference [desc]
+The AFEx8201 family of devices includes a 1.25-V precision band-gap reference. The internal reference is 
+externally available at the VREFIO pin and sources up to 2.5 mA. For noise filtering, use a 100-nF capacitor 
+between the reference output and GND.
+The internal reference circuit is enabled or disabled by using the REF_EN pin. A logic high on this pin enables 
+the internal reference, and the VREFIO pin outputs 1.25 V. A logic low on this pin disables the internal reference, 
+and the device expects to have 1.25 V from external VREF at the VREFIO pin.
+An invalid reference voltage asserts an alarm condition. The DAC response depends on the VREF_FLT setting 
+in the ALARM_ACT register (10h)."
+"[desc] afe88201 __ Other Features __ 6 Integrated Precision Oscillator [desc]
+The internal time base of the device is provided by an internal oscillator that is trimmed to less than 0.5% 
+tolerance at room temperature. The precision oscillator is the timing source for ADC conversions. At power up, 
+the internal oscillator and ADC take roughly 300 µs to reach < 1% error stability. After the clock stabilizes, the 
+ADC data output is accurate to the electrical specifications provided in Section 6."
+"[desc] afe88201 __ Other Features __ 7 Precision Oscillator Diagnostics [desc]
+The AFEx8201 features two methods to continuously detect the functional status of the internal precision oscillator.
+The first method requires a connection from the AFEx8201 to the system controller. To use the first method, program the AFEx8201 to output a subdivided internal oscillator clock signal on the CLK_OUT pin. Write to the CONFIG.CLKO register field (see Table 7-15) to enable the output with the chosen divider or to disable the output. The output digital signal is compliant to the Section 6.5. The CLK_OUT pin is also a shared GPIO pin. For details on connecting CLK_OUT and CLK_OUT interoperability as a GPIO pin , see Section 7.5.1.
+The second method does not require a connection from the AFEx8201 and is a polled-communication-based method to determine the functionality of the internal oscillator using SPI communication. See Section 7.5.3.1 and Section 7.5.5 for SPI communication details and SDO status bits details, respectively. The OSC_DIV_2 bit reports the logical value of a subdivided internal oscillator signal (divided by 2) sampled at the CS falling edge. Use an appropriate SCLK frequency and interval between SPI frames to capture bit changes from frame to frame as a method of verifying the continued proper operation of the clock. Similar status reports of the logical value of a subdivided internal oscillator signal (divided by 1024) are available in UBM as the OSC_DIV_1024 bit. For details on UBM frames and timing, see Section 7.5.4.1."
+"[desc] afe88201 __ Other Features __ 8 One-Time Programmable (OTP) Memory [desc]
+One-time programmable (OTP) memory in the device is used to store the device trim settings and is not accessible to users. The OTP memory data are loaded to the memory (OTP shadow load) at power up. The OTP memory CRC is performed to verify the correct data are loaded. The TRIGGER.SHADOWLOAD bit is available to initiate a reload of the OTP memory data if a CRC error is detected. The SPECIAL_CFG.OTP_LOAD_SW_RST bit controls whether the OTP memory data are reloaded with a software reset."
+"[desc] afe88201 __ Other Features __ 9 GPIO [desc]
+AFEx8201 feature multiple GPIO pins, each independently configurable in either input only or output only or input-ouput mode through GPIO_CFG and GPIO registers. Select either push-pull or pseudo open drain sub modes supported when the GPIO is in output mode. No dedicated GPIO pins are present since the same pins are also configurable for communication interfaces. Based on the selection of the interface protocol and how many pins are used for communication purposes, the AFEx8201 have up to four available GPIOs. Refer to Section 7.5.1 for detailed diagrams of available GPIOs in each communication mode. If a GPIO pin is unused or undriven, the pin must be tied resistively to either IOVDD or GND according to the connection diagrams in Section 7.5.1. Unconnected floating input pins lead to unknown states for the communication interfaces and varying supply currents for the AFEx8201. When functioning as an output, each GPIO pin is capable of sourcing and sinking current and when functioning as an input the register address 0x1C reflects the digital state of the GPIO pins (for details of source and sink capabilities and input thresholds, see Section 6.5). The minimum pulse width for transition detection is tPULSE_GPIO. When a state transition occurs on a GPIO input, the new state must be held for a minimum of tPULSE_GPIO for detection by the AFEx8201."
+"[desc] afe88201 __ Other Features __ 10 Timer [desc]
+The AFEx8201 have an integrated timer for generating accurate time delays, pulse width modulation or oscillation. The devices have the ability to have timing parameters from the microseconds range to hours. The timer is brought out on the CLK_OUT pin by setting CONFIG.CLKO = Fh. The timer is controlled with three registers; TIMER_CFG_0, TIMER_CFG_1, and TIMER_CFG_2.
+In the first of the three registers, TIMER_CFG_0.ENABLE turns the timer function on and off. If the timer is off, then the output defaults to 0. TIMER_CFG_0.INVERT inverts the output of the timer. If the INVERT bit is set, the output defaults to 1. TIMER_CFG_0.CLK_SEL selects the clock frequency according to Table 7-6. If 2'b00 is selected, and no clock is applied, then the timer pauses if the timer has previously been enabled and counting.
+---table begin---
+Table tile: Timer Select Range
+| CLK_SEL | Clock Frequency | Resolution | Range |
+|---|---|---|---|
+| 00 | No clock | - | - |
+| 01 | 1.2288 MHz | 814 ns | 53.3 ms |
+| 10 | 1.200 kHz | 833 μs | 54.6 s |
+| 11 | 1.171 Hz | 853 ms | 55,923 s |
+---table end---
+The second timer register, TIMER_CFG_1.PERIOD sets the period of the timer. The period of the timer is PERIOD + 1 cycles of the clock period.
+The last timer register, TIMER_CFG_2.SET_TIME determines when the timer output goes to 1 (INVERT = 0). This effectively defines the duty cycle of the timer. The duty cycle can be calculated as (PERIOD – SET_TIME) × clock period."
+"[desc] afe88201 __ Other Features __ 11 Unique Chip Identifier (ID) [desc]
+AFEx8201 include two read only registers: CHIP_ID_MSB (1Ah) and CHIP_ID_LSB (19h) where unique chip ID is stored. The 16-bit CHIP_ID_MSB register stores the encoded lot identification number while the CHIP_ID_LSB register stores the unique part number within each lot."
+"[desc] afe88201 __ Other Features __ 12 Scratch Pad Register [desc]
+AFEx8201 feature a 16-bit Scratch Pad register to enable interface debug and verification without affecting the part functionality. This register is located at the address 18h. The readback value of the Scratch Pad register is the inverted code of the value stored in the register (for example, writing 0xAAAA results in 0x5555 while reading back)."
+"[desc] afe88201 __ 4 Device Functional Modes __ 1 Register Built-In Self-Test (RBIST) [desc]
+The AFEx8201 feature a register built-in self-test (RBIST) that runs on all the registers listed in Table 7-7 through a CRC calculation in the order the registers are listed in Table 7-7. If the final CRC value is zero, then no error is present in the configuration of the registers. If a non-zero value is present at the end of the calculation, then there is a configuration error. The polynomial used has a Hamming distance (HD) of 4 for data packets up to 2048 bits. With HD = 4, the CRC detects any combination of 4-bit errors within the stored data. Independently calculate the expected CRC polynomial and store the output in the RBIST_CRC register at 3Fh.
+The final value of the CRC is read in the CRC_RD register at address 3Eh. This value is updated while either an RBIST or shadow load is running. Both the RBIST and OTP memory use the same CRC calculation engine and polynomial. The value in the CRC_RD register remains constant until another RBIST or SHADOWLOAD in TRIGGER register (0Ah)# 1. Hamming distance 
+as a Hamming distance (HD) of 4 for data packets up to 2048 bits. With HD = 4, the CRC detects any combination of 4-bit errors within the stored data. Independently calculate the expected CRC polynomial and store the output in the RBIST_CRC register at 3Fh. The final value of the CRC is read in the CRC_RD register at address 3Eh. This value is updated while either an RBIST or shadow load is running. Both the RBIST and OTP memory use the same CRC calculation engine and polynomial. The value in the CRC_RD register remains constant until another RBIST or SHADOWLOAD in TRIGGER register (0Ah) is triggered."
+"[desc] afe88201 __ RBIST [desc]
+Set TRIGGER.RBIST to 1 to initiate an RBIST. The TRIGGER.RBIST bit stays high as long as the RBIST is running and clears when the self-test is complete. While the RBIST is running, the registers cannot be written to or read. Send NOP commands and monitor the RBIST SDO status bit to determine if the RBIST has completed. In UBM, the RBIST does not interfere with register communication. UBM communication is slow enough that the RBIST completes before any following read or write command. Set the GEN_STATUS.RBIST_MODE bit to 1 to enable the RBIST. This bit is sticky until the GEN_STATUS register is read."
+"[desc] afe88201 __ CRC used to generate the RBIST [desc]
+The 16-bit CRC used to generate the RBIST is the openSAFETY (0x755B) with the following polynomial:
+x16 + x14 + x13 + x12 + x10 + x8 + x6 + x4 + x3 + x1 + 1.
+---table begin---
+Table tile: List of Registers Covered by RBIST
+| ADDR(HEX) | REGISTER | RESET(HEX) |
+|---|---|---|
+| 01h | DAC_DATA | 0000h |
+| 02h | CONFIG | 0036h |
+| 03h | DAC_CFG | 0B00h |
+| 04h | DAC_GAIN | 8000h |
+| 05h | DAC_OFFSET | 0000h |
+| 06h | DAC_CLR_CODE | 0000h |
+| 08h | ADC_CFG | 8810h |
+| 09h | ADC_INDEX_CFG | 0080h |
+| 0Bh | SPECIAL_CFG | 0000h |
+| 0Dh | RESERVED | 0100h |
+| 10h | ALARM_ACT | 8020h |
+| 11h | WDT | 0018h |
+| 12h | AIN0_THRESHOLD | FF00h |
+| 13h | AIN1_THRESHOLD | FF00h |
+| 14h | TEMP_THRESHOLD | FF00h |
+| 1Bh | GPIO_CFG | 00FFh |
+| 1Dh | ALARM_STATUS_MASK | EFDFh |
+| 1Eh | GEN_STATUS_MASK | FFFFh |
+| 3Fh | RBIST_CRC | 0000h |
+---table end---"
+"[desc] afe88201 __ DAC Power-Down Mode [desc]
+Power-down mode facilitates rapid turn-off of the voltage at the DAC output. The DAC can be set to enter and exit power-down mode through hardware, software, or automatically in response to an alarm event. The DAC output is specified for glitch-free performance when going into and out of power-down mode. Power-down mode is also be enabled by setting DAC_CFG.PD to 1. In power-down mode, the DAC output amplifier powers down and the DAC output pin is put into the Hi-Z configuration. The DAC output remains in power-down mode until the DAC output is re-enabled. Alarm control of the power-down mode is enabled by setting the alarm events as DAC power-down sources. The alarm events that trigger the DAC output power-down state must be specified in the ALARM_ACT register. After the alarm bit is cleared, the DAC returns to normal operation, as long as no other power-down controlling alarm event has been triggered. The DAC register does not change when the DAC enters power-down mode, which enables the device to return to the original operating point after return from the power-down mode. Additionally, the DAC register can be updated while the DAC is in power-down mode, thus allowing the DAC to output a new value upon return to normal operation."
+"[desc] afe88201 __ Reset [desc]
+There are three reset mechanisms in the device: a power-on reset (POR), a RESET pin, and the SW_RST command that can be sent through the either the SPI or by UBM. When power is first applied to the device, a POR circuit holds the device in reset until all supplies reach the specified operating voltages. The power-on reset retu"
+"[desc] afe88201 __ Reset __ 3 Reset [desc]
+There are three reset mechanisms in the device: a power-on reset (POR), a RESET pin, and the SW_RST 
+command that can be sent through the either the SPI or by UBM. When power is first applied to the device, a POR circuit holds the device in reset until all supplies reach the specified operating voltages. The power-on reset returns the device to a known operating state in case a brownout event occurs (when the supplies have dipped below the minimum operating voltages). The POR starts all digital circuits in reset as the supply settles, and releases them to make sure that the device starts in the default condition and loads the OTP memory. After the OTP memory has been loaded, the ALARM pin is released. At this time, communication with the device is safe. This tPOR time is less than 100 µs.
+The devices also have a RESET pin that is used as a hardware reset to the device. Send the RESET pin low for a minimum of 100 ns (tRESET) to reset the device. A delay time of 10 μs (tRESETWAIT) is required before sending the first serial interface command as the device latches and releases the reset. The release of the internal reset state is synchronized to the internal clock. The RESET pin resets the SPI and the UART interfaces, the watchdog timer, the internal oscillator, and the device registers. RESET does not reload the OTP memory.
+The command to RESET.SW_RST = 0xAD resets the device as a software reset. The command is decoded at the rising edge of CS with an SPI command or during the stop bit of the last character of a UBM frame. Set UBM.REG_MODE again to put the device back into UBM when resetting the device in UBM. After sending the RESET command, no delay time is required before sending the first serial interface command as the device latches and releases the reset. The reset is synchronized to the falling edge of the internal clock and is released well before the next rising edge. The ALARM pin pulses low for the width of the internal reset. This pulse duration is less than 20 ns. This command resets the SPI and the UART interface, and the watchdog timer, but does not reset the internal oscillator. The software reset also reloads internal factory trim registers if properly configured in the SPECIAL_CFG register. The SPECIAL_CFG register is only reset with a POR.
+The POR and hardware reset place the internal oscillator into a reset condition, which holds the clock low. When these two signals are released, there is a delay of a few microseconds before the first rising edge of the clock. The hardware reset, RESET, pulse width must be at least 100 ns to allow the oscillator to properly reset. The SW_RST command is a short pulse. This pulse is not long enough to adequately reset the oscillator. The SW_RST is asserted with a falling edge of the clock. As a result of the long oscillator period, the design architecture provides that all devices are out of reset by the next rising edge."
+"[desc] afe88201 __ Reset __ Table [desc]
+---table begin--- 
+Table tile: Reset Tree 
+| Factory Trim | SPI Communication | Watchdog Timer | UART Communication | Oscillator | ALARM_STATUS | GEN_STATUS | SPECIAL_CFG| 
+|---|---|---|---|---|---|---|---|
+| Pin Reset Reset Command Power-On Reset | Reset Command Power-On Reset CS Pin Reset | Reset WDT.WDT_EN | CONFIG.UART_DIS ALARM_STATUS Read Reset | Pin Reset | GEN_STATUS Read Power-On Reset Other Registers | Power-On Reset | Reset Command Power-On Reset Software Reset Hardware Reset | 
+---table end--- 
+Figure 7-16 shows the reset tree.# 7.5 Programming
+The AFEx8201 communicate with the system controller through a serial interface that supports either a UART-compatible two-wire bus or an SPI-compatible bus. Based on the hardware configuration, either interface can be enabled. Figure 7-17 and Figure 7-18 show the configurations to enable SPI mode and UART break mode (UBM), respectively. The SPI supports an 8-bit frame-by-frame CRC that is enabled by default, but can be disabled by the user. UBM does not support CRC, but does support the UART protocol parity bit."
+"[desc] afe88201 __ Reset __ 1 Communication Setup [desc]
+After any reset or power up, the AFEx8201 wake up able to use the SPI or UART break mode (UBM). The devices include a robust mechanism that configures the interface between either an SPI-compatible or UART-compatible protocol based system, thus preventing protocol change during normal operation. The selection is based on initial conditions from the respective hardware configurations (see Figure 7-17 and Figure 7-18) and any subsequent user configuration."
+"[desc] afe88201 __ Reset __ 1 Communication Setup __ 1 SPI Mode [desc]
+By default, the AFEx8201 can be fully accessed with the SPI (except UBM.REG_MODE). To set up the device in SPI mode:
+1. Set CONFIG.UART_DIS = 1 (disables the UART communication).
+2. Optionally, set CONFIG.DSDO, CONFIG.FSDO, CONFIG.CLR_PIN_EN, and CONFIG.IRQ_PIN_EN. For details, see Table 7-15."
+"[desc] afe88201 __ Reset __ 1 Communication Setup __ SPI Mode Connections [desc]
+Figure 7-17 shows the SPI mode logical connections (through the isolation barrier, if used) for both minimum communication functionality (all optional communication pins disconnected, most GPIO pins available shown) and maximum communication functionality (all communication pins connected, least GPIO pins available shown). If CONFIG.IRQ_PIN_EN = 1 is set, then the UARTOUT pin functions as the IRQ output. In SPI mode, set CONFIG.SDO_DSDO = 0 to enable the readback function. This function is disabled by default to save power. If the readback function not enabled, SDO remains in Hi-Z mode even during the subsequent frame after a read request. Enable each GPIO pin for use through proper register configuration. If a pin remains unused, tied the pin to either IOVDD using a pullup resistor or to GND using a pulldown resistor as indicated to avoid floating IOs."
+"[desc] afe88201 __ Reset __ 1 Communication Setup __ 2 UART Mode [desc]
+At power up, the UART interface is set to 9600 baud with UBM enabled. Any reset clears the UBM register, and the register must be set
+---table begin---
+Table tile: Reset Tree
+| Factory Trim | SPI Communication | Watchdog Timer | UART Communication | Oscillator | ALARM_STATUS | GEN_STATUS | SPECIAL_CFG|
+|---|---|---|---|---|---|---|---|
+| Pin Reset Reset Command Power-On Reset | Reset Command Power-On Reset CS Pin Reset | Reset WDT.WDT_EN | CONFIG.UART_DIS ALARM_STATUS Read Reset | Pin Reset | GEN_STATUS Read Power-On Reset Other Registers | Power-On Reset | Reset Command Power-On Reset Software Reset Hardware Reset |
+---table end---# 7.5.1.2. UART Mode
+At power up, the UART interface is set to 9600 baud with UBM enabled. Any reset clears the UBM register, and the register must be set again to use UBM. To set up the device in UBM:
+1. Using UBM, set UBM.REG_MODE = 1 at 9600 baud. This setting blocks the SPI from accessing the device and enables the UART interface access to the entire register map.
+2. Optionally, set CONFIG.CLR_PIN_EN and CONFIG.IRQ_PIN_EN (See Table 7-15 for details).
+Figure 7-18 shows the UBM logical connections (through the isolation barrier, if used) for both minimum communication functionality (all optional communication pins disconnected, most GPIO pins available shown) and maximum communication functionality (all communication pins connected, least GPIO pins available shown). If CONFIG.IRQ_PIN_EN = 1 is set, then the SDO pin functions as the IRQ output. If CONFIG.CLR_PIN_EN = 1 is set, then the SDI pin controls the clear pin function. Enable each GPIO pin for use through proper register configuration. If a GPIO pin remains unused, tie the pin to either IOVDD using a pullup resistor or to GND using a pulldown resistor to avoid floating I/Os."
+"[desc] afe88201 __ Reset __ 1 Communication Setup __ GPIO Programming [desc]
+Seven physical pins are interoperable as GPIOs in the AFEx8201 when not used for communication. The state of these pins is set after the communication interface mode is determined (see Section 7.5.1 for power-up conditions and connection-diagram options for each communication mode supported by the AFEx8201). Configure any unused communication pins as GPIO, and resistively tie the pins to IOVDD or GND, respectively, as described in Section 7.5.1.
+---table begin---
+Table title: Table 7-8 UBM or SPI mode and register configuration
+| Pin | UBM Mode | SPI Mode | Register Configuration |
+|---|---|---|---|
+| GPIO0 | SCLR or GPIO | SCLR or GPIO | GPIO0_CFG: ODE, EN, DIR |
+| GPIO1 | Reserved | Reserved | - |
+| GPIO2 | UARTOUT or GPIO | SDO or GPIO | GPIO2_CFG: ODE, EN, DIR |
+| GPIO3 | UARTIN or GPIO | SDI or GPIO | GPIO3_CFG: ODE, EN, DIR |
+| GPIO4 | SCLOCK or GPIO | SCLOCK or GPIO | GPIO4_CFG: ODE, EN, DIR |
+| GPIO5 | Unused or GPIO | Unused or GPIO | GPIO5_CFG: ODE, EN, DIR |
+| GPIO6 | Unused or GPIO | Unused or GPIO | GPIO6_CFG: ODE, EN, DIR |
+---table end---
+For a GPIO pin to be configured as an input, the following conditions must be met:
+1. GPIO_CFG.ODE for the pin must = 1
+2. GPIO.DATA for the pin must = 1
+After initialization, the pin state is Hi-Z. Reading the GPIO.DATA register reads the pin value.
+If the previous conditions are not met, the pin is an output. In this case, the output drive type is determined by the GPIO_CFG.ODE bits to be push-pull or pseudo open drain. The GPIO output is driven by the GPIO.DATA bits. All reads of GPIO.DATA reports the values of the pins, regardless if the pins are configured as GPIO or not. Data written to the GPIO.DATA bits cannot be read directly. If a pin is available for use as GP# 1. GPIO_CFG.ODE configuration
+GPIO_CFG.ODE for the pin must = 1"
+"[desc] afe88201 __ Reset __ DATA configuration [desc]
+GPIO.DATA for the pin must = 1
+After initialization, the pin state is Hi-Z. Reading the GPIO.DATA register reads the pin value.
+If the previous conditions are not met, the pin is an output. In this case, the output drive type is determined by 
+the GPIO_CFG.ODE bits to be push-pull or pseudo open drain. The GPIO output is driven by the GPIO.DATA 
+bits. All reads of GPIO.DATA reports the values of the pins, regardless if the pins are configured as GPIO or 
+not. Data written to the GPIO.DATA bits cannot be read directly. If a pin is available for use as GPIO, then the 
+corresponding GPIO_CFG.EN bit must be set to enable GPIO functionality.
+---table begin---
+Table title: Pin Configuration in Each Interface Mode
+| PIN        | UBM          | SPI     | REGISTER CONFIGURATION TO ENABLE      | GPIO (1)      |
+|---         |---           |---      |---                                    |---            |
+| GPIO6/CS   | GPIO         | Input/Output | CS            | Input | (UBM.REG_MODE = 1) |
+| GPIO5/SDI  | CLR/GPIO     | Input/Output | SDI           | Input | (UBM.REG_MODE = 1) AND (CONFIG.CLR_PIN_EN = 0) |
+| GPIO4/SDO  | IRQ/GPIO     | Input/Output | SDO           | Output | (UBM.REG_MODE = 1) AND (CONFIG.IRQ_PIN_EN = 0) |
+| GPIO3/UARTIN | UARTIN   | Input | GPIO           | Input/Output | (CONFIG.UART_DIS = 1) |
+| GPIO2/UARTOUT | UARTOUT| Output | IRQ/GPIO       | Input/Output | (CONFIG.UART_DIS = 1) AND (CONFIG.IRQ_PIN_EN = 0) |
+| GPIO1 | GND | N/A | GPIO | Input/Output | (CONFIG.UART_DIS = 1) |
+| GPIO0/CLK_OUT | CLKO/GPIO | Input/Output | GPIO/CLKO | Input/Output | (CONFIG.CLKO = 0) AND ((UBM.REGMODE = 1) OR (CONFIG.UART_DIS = 1)) |
+---table end---
+(1) Required by pin in addition to the corresponding GPIO_CFG.EN bit."
+"[desc] afe88201 __ Reset __ 3 Serial Peripheral Interface (SPI) [desc]
+The AFEx8201 are controlled over a versatile four-wire serial interface (SDIN, SDO, SCLK, and CS). The 
+interface operates at clock rates of up to 12.5 MHz and is compatible with SPI, QSPI, Microwire, and digital 
+signal processing (DSP) standards. The SPI communication command consists of a read or write address, a 
+data word, and an optional CRC byte.
+The SPI can access all register addresses except for the UBM register. Read-only and read-write capability is 
+defined by register (see Table 7-11). The SPI supports both SPI Mode 1 (CPOL = 0, CPHA = 1) and SPI Mode 2 
+(CPOL = 1, CPHA = 0). The default SCLK value is low for SPI Mode 1 and high for SPI Mode 2. See Section 6.7 
+for timing diagrams in each mode. The serial clock, SCLK, can be continuous or gated."
+"[desc] afe88201 __ Reset __ 3 Serial Peripheral Interface (SPI) __ 1 SPI Frame Definition [desc]
+Subject to the timing requirements listed in the Timing Requirements, the first SCLK falling edge immediately 
+following the falling edge of CS captures the first frame bit. Subject to the same requirements, the last SCLK 
+falling edge before the rising edge of CS captures the last bit of the frame. Figure 7-19 shows that the SPI 
+shift register frame is 32-bits wide, and consists of an R/W bit, followed by a 7-bit address, and a 16-bit data 
+word. The 8-bit CRC is optional (enabled by default) and is disabled by setting CONFIG.CRC_EN = 0 (see also 
+Section 7.5.3.3). Figure 7-20 shows that when the CRC is disabled, the frame is 24-bits wide."
+"[desc] afe88201 __ Reset __ 3 Serial Peripheral Interface (SPI) __ 1 SPI Frame Definition __ Timing Requirements and Data Details [desc]
+For a valid frame, a full frame length of data (24 bits if CRC is disabled or 32 bits if CRC is enabled) must be  
+transmitted before CS is brought high. If CS is brought high before the last falling SCLK edge of a full frame,  
+then the data word is not transferred into the internal registers. If more than a full frame length of falling SCLK  
+edges are applied before CS is brought high, then the last full frame length number of bits are used. In other  
+words, if the number of falling SCLK edges while CS = 0 is 34, then the last 32 SCLK cycles (or 24 if CRC is  
+disabled) are treated as the valid frame. The device internal registers are updated from the SPI shift register on the rising edge of CS. To start another serial transfer, bring CS low again. When CS is high, the SCLK and SDI signals are blocked and the SDO pin is high impedance."
+"[desc] afe88201 __ Reset __ 3 Serial Peripheral Interface (SPI) __ 1 SPI Frame Definition __ SPI Read and Write Operations [desc]
+The SDI input bit is latched on the SCLK falling edge. The SDI pin receives right-justified data. At the rising edge of CS, the right-most (last) bits are evaluated as a frame. Extra clock cycles (exceeding frame length) during the frame begin to output on SDO the SDI data delayed by one frame length. 
+A read operation is started when R/W bit is 1. The data word input for SDI is ignored in the read command frame. Send the subsequent read or write command frame into SDI to clock out the data of the addressed register on SDO. 
+If no other read or write commands are needed, then issue a NOP command to retrieve the requested data. The read register value is output most significant bit first on SDO on successive edges (rising or falling based on CONFIG.FSDO setting) of SCLK.
+A write operation starts when R/W bit is 0. The SDO output to a write command, delivered in the next frame, contains status bits, data described in the following table, and if the CRC is enabled, an 8-bit CRC for the output frame.
+---table begin---
+Table tile: Command Functions
+| COMMAND BIT | SDI INPUT DATA WORD | SDO RESPONSE DATA WORD(1) |
+|---|---|---|
+| Write (R/W = 0) | Data to be written (16b) | 0x0000 |
+| Read (R/W = 1) | Ignored(2) | Register output data (16b) |
+---table end---
+(1) Response data portion in next frame output.
+(2) The input bits are included in the calculation for CRC, if enabled (see Section 7.5.3.3).
+Valid SDO output is driven only when CS = 0 and CONFIG.DSDO = 0; otherwise, the SDO pin remains Hi-Z to  
+save power. The SDO data bits are left-justified within the frame, meaning the most significant bit is produced on  
+the line (subject to timing details) when CS is asserted low (bit is driven by falling edge of CS). 
+The subsequent bits in the frame are driven by the rising SCLK edge when CONFIG.FSDO = 0 (default). To drive the SDO data on the falling edge of SCLK, set CONFIG.FSDO = 1. This setting effectively gives the SDO data an additional ½ clock period for setup time, but at the expense of hold time.
+The frame output on SDO contains the command bit of the input that generated the frame (previous input frame),  
+followed by seven status bits (see Fi"
+"[desc] afe88201 __ Reset __ 3 Serial Peripheral Interface (SPI) __ Frame Output on SDO [desc]
+The frame output on SDO contains the command bit of the input that generated the frame (previous input frame), followed by seven status bits. 
+When an input frame CRC error is detected, the status bit CRC_ERR = 1. If there is no input frame CRC error, then CRC_ERR = 0. "
+"[desc] afe88201 __ Reset __ 3 Serial Peripheral Interface (SPI) __ Frame Output on SDO __ Frame Property Details [desc]
+The most significant bit is produced on the line (subject to timing details) when CS is asserted low (bit is driven by falling edge of CS). 
+The subsequent bits in the frame are driven by the rising SCLK edge when CONFIG.FSDO = 0 (default). 
+To drive the SDO data on the falling edge of SCLK, set CONFIG.FSDO = 1. This setting effectively gives the SDO data an additional ½ clock period for setup time, but at the expense of hold time.
+---table begin---
+Table title: Frame Output Details
+| Parameter | Value | Description |
+|---|---|---|
+| CS assertion | Low | Bit is driven by falling edge of CS |
+| CONFIG.FSDO default setting | 0 | SDO data is driven by rising SCLK edge |
+| CONFIG.FSDO set to 1 | 1 | SDO data is driven by falling SCLK edge; Provides additional ½ clock period for setup time, at the expense of hold time |
+---table end---"
+"[desc] afe88201 __ Reset __ 3 Serial Peripheral Interface (SPI) __ Frame Output on SDO __ Frame Error Checking [desc]
+There is a provision for CRC to check the integrity of the SPI data communication between the device and the system controller in a noisy environment. This feature is enabled by default and is controlled by the CONFIG.CRC_EN bit. If the CRC is not required in the system, disable frame error checking through the CRC_EN bit, and switch from the default 32-bit frame to the 24-bit frame."
+"[desc] afe88201 __ Reset __ 3 Serial Peripheral Interface (SPI) __ Frame Output on SDO __ CRC Calculation and Error Reporting [desc]
+Frame error checking is based on the CRC-8-ATM (HEC) polynomial: x8 + x2 + x + 1 (9'b100000111).
+For the output register readback, the AFEx8201 supply the calculated 8-bit CRC for the 24 bits of data provided, as part of the 32-bit frame.
+The AFEx8201 decodes 24-bits of the input frame data and the 8-bit CRC to compute the CRC remainder. If no error exists in the frame, the CRC remainder is zero. 
+When the CRC error counter reaches the limit programmed in CONFIG.CRC_ERR_CNT, the CRC_FLT status bit is set in the ALARM_STATUS register. The fault is reported (as long as the corresponding mask is not set) as an ALARM_IRQ on SDO during the next frame. "
+"[desc] afe88201 __ Reset __ 3 Serial Peripheral Interface (SPI) __ Frame Output on SDO __ Handling of CRC Errors [desc]
+When the remainder is nonzero (that is, the input frame has single-bit or multiple-bit errors) the ALARM_STATUS.CRC_ERR_CNT bits are incremented. A bad CRC value prevents execution of commands to the device.
+The ALARM pin asserts low if enabled by the alarm action configuration. The CRC_ERR status bit in the SDO frame is not sticky and is only reported for the previous frame. The ALARM_STATUS.CRC_FLT bit is sticky and is only cleared after a successful read of the ALARM_STATUS register. "
+"[desc] afe88201 __ Reset __ 3 Serial Peripheral Interface (SPI) __ Frame Output on SDO __ Status Registers and Error Monitoring [desc]
+Read the GEN_STATUS or ALARM_STATUS registers to clear any sticky bits that are set.
+The sticky status bits are cleared at the start of the readback frame and are latched again at the end of the readback frame. Therefore, if the fault condition previously reported in the status register is no longer present at the end of the readback frame, and the data are received by the microcontroller with the CRC error, the fault information is lost."
+"[desc] afe88201 __ Reset __ 3 Serial Peripheral Interface (SPI) __ Frame Output on SDO __ Synchronization [desc]
+The AFEx8201 register map runs on the internal clock domain. Both the SPI and UBM packets are synchronized to this domain. This synchronization adds a latency of 0.4 µs to 1.22 µs (1.5 internal clocks), with respect to the rising edge of CS or the STOP bit of the last byte of the UBM packet."
+"[desc] afe88201 __ Reset __ 3 Serial Peripheral Interface (SPI) __ 4 Synchronization [desc]
+The AFEx8201 register map runs on the internal clock domain. Both the SPI and UBM packets are synchronized to this domain. This synchronization adds a latency of 0.4 µs to 1.22 µs (1.5 internal clocks), with respect to the rising edge of CS or the STOP bit of the last byte of the UBM packet.
+The effect of clock synchronization on UBM communication is not evident because of the lower speed and asynchronous nature of UBM communication.
+In SPI mode, if changing register bits CONFIG.DSDO, CONFIG.FSDO, or CONFIG.CRC_EN, keep CS high for at least two clock cycles before issuing the next frame. Frame data corruption can occur if the two extra cycles are not used. The following are examples of frame corruption:
+- Setting CONFIG.DSDO = 0: SDO begins to drive in the middle of the next frame.
+- Changing CONFIG.FSDO: The launching edge of SDO changes in the middle of the next frame.
+- Setting CONFIG.CRC_EN = 1: The next frame has a CRC error because the CRC is enabled in the middle of the frame.
+Send a NOP command (SDI = 0x00_0000) after setting the DSDO, FSDO, and CRC_EN bits to prevent the corrupted frames from impacting communication. Sending a NOP after CONFIG.CRC_EN is set still generates a CRC error, and is reported in the STATUS portion of SDO. To avoid false errors, wait approximately 2 µs after setting CONFIG.CRC_EN before sending the next frame."
+"[desc] afe88201 __ Reset __ 4 UART Interface [desc]
+In UART mode, the device expects 1 start bit, 8 data bits, 1 odd parity bit, and 1 stop bit, or an 8O1 UART character format."
+"[desc] afe88201 __ Reset __ 4 UART Interface __ 1 UART Break Mode (UBM) [desc]
+In UART break mode (UBM), the microcontroller issues a UART break to start communication. The device interprets the UART break as the start to receive commands from the UART. A communication UART character consists of one start bit, eight data bits, one odd parity bit, and at least one stop bit. A UART break character is all 11 bits (including start, data, parity and stop bit) held low by the microcontroller on the UARTIN pin and by the AFEx8201 on the UARTOUT pin. When a valid break character is detected on UARTIN by the AFEx8201, no parity (even though parity is odd) or stop bit errors are flagged for this character. The parity and stop bit differences between valid UBM break and communication characters must be managed by the system microcontroller when receiving these characters from the UARTOUT pin of the AFEx8201.
+AFEx8201 UART break mode communication is supported at 9600 baud.
+Set UBM.REG_MODE = 1 to enable register map access through the UART. By default, this bit is set to 0. The entire register map can only be accessed with SPI, except for the UBM register. The UBM register can only be accessed with UBM. After UBM.REG_MODE is set to 1, the SPI does not have access to the register map, and the full register map is accessible by UBM.
+A UBM data output packet is initiated by AFEx8201 on UARTOUT in two cases. See Figure 7-23 for packet structure details. If the R/IRQn status bit is 0 an IRQ event initiated the break command. If the R/IRQn status bit is 1, the break command is a response to the prior read request.
+To enable IRQ events, set CONFIG.UBM_IRQ_EN = 1. When IRQ is enabled, the AFEx8201 triggers a break command followed by data on UARTOUT (see Figure 7-23)."
+"[desc] afe88201 __ Introduction [desc]
+ccessed with UBM. After UBM.REG_MODE is set to 1, the SPI does not have access to the register map, and the full register map is accessible by UBM."
+"[desc] afe88201 __ UBM Data Output [desc]
+A UBM data output packet is initiated by AFEx8201 on UARTOUT in two cases. See Figure 7-23 for packet structure details. If the R/IRQn status bit is 0 an IRQ event initiated the break command. If the R/IRQn status bit is 1, the break command is a response to the prior read request.
+To enable IRQ events, set CONFIG.UBM_IRQ_EN = 1. When IRQ is enabled, the AFEx8201 triggers a break command followed by data on UARTOUT (see Figure 7-23)."
+"[desc] afe88201 __ UBM Data Content [desc]
+The contents of the data are listed in order of priority below.
+1. If ALARM_IRQ bit is set, then the contents of the ALARM_STATUS register are output.
+2. If GEN_IRQ is set, then the contents of the GEN_STATUS register are output.
+3. If none of the previous bits are set, then an IRQ is not generated.
+A break byte is followed by three bytes. These three bytes have information identical to the SPI frame without the CRC (see Figure 7-20). The CRC cannot be enabled for UBM. All communication characters on the UART bus are transmitted least significant data bit (D0) first."
+"[desc] afe88201 __ UBM Command Structure [desc]
+---table begin---
+Table tile: UBM Read Command Structure
+| S (Start bit) | Address [0:6] | Command Parity bit (Par) | Read (1'b1) |
+|---|---|---|---|
+| S | Address | Par | 1'b1 |
+---table end---"
+"[desc] afe88201 __ UARTOUT Data Frame [desc]
+Figure 7-23 shows the UARTOUT data frame with details of the status bits produced by the AFEx8201."
+"[desc] afe88201 __ Status Bits [desc]
+Every response
+---table begin---
+Table tile: Status Bits
+| STATUS BIT | DESCRIPTION | NOTES / REFERENCE |
+|---|---|---|
+| ALARM_IRQ | 1h = ALARM_IRQ asserted 0h = Normal operation | From the GEN_STATUS(1) register (Table 7-39). Also see Section 7.3.4. |
+| CRC_ERR (CRC enabled SPI only) | 1h = CRC error detect in input frame 0h = No CRC error detected | Generated by the SPI on a frame by frame basis. See Section 7.5.3.3. |
+| GEN_IRQ | 1h = GEN_IRQ asserted 0h = Normal Operation | From the ALARM_STATUS(1) register (Table 7-38). Also see Section 7.3.4. |
+---table end---# 7.5.6. Watchdog Timer
+The AFEx8201 include a watchdog timer (WDT) that is used to make sure that communication between the system controller and the device is not lost. The WDT checks that the device received a communication from the system controller within a programmable period of time. To enable this feature, set WDT.WDT_EN to 1. The WDT monitors both SPI and UBM communications.
+The WDT has two limit fields: WDT.WDT_UP and WDT.WDT_LO. The WDT_UP field sets the upper time limit for the WDT. The WDT_LO field sets the lower time limit. If the WDT_LO is set to a value other than 2’b00, then the WDT acts as a window comparator. If the write occurs too quickly (less than the WDT_LO time), or too slowly (greater than the WDT_UP time), then a WDT error is asserted. When acting as a window comparator, in the event of a WDT error, the WDT resets only when a write to the WDT register occurs. If the WDT_LO is set to 2'b00, then a write to any register resets the WDT time counter. In this mode, the WDT error is asserted when the timer expires.
+If enabled, the chip must have any SPI or UBM write to the device within the programmed timeout window. Otherwise, the ALARM pin asserts low, and the ALARM_STATUS.WD_FLT bit is set to 1. The WD_FLT bit is sticky. After a WD_FLT has been asserted, WDT.WDT_EN must be set to 0 to clear the WDT condition. Then the WDT can be re-enabled. The WDT condition is also cleared by issuing a software or hardware reset. After the WDT condition is clear, WD_FLT is cleared by reading the ALARM_STATUS register.
+When using multiple AFEx8201 devices in a daisy-chain configuration, connect the open-drain ALARM pins of all devices together to form a wired-OR network. The watchdog timer can be enabled in any number of the devices in the chain; although, enabling the watchdog timer in one device in the chain is usually sufficient. The wired-OR ALARM pin can be pulled low in response to the simultaneous presence of different trigger conditions in the devices in the daisy-chain. The host processor must read the ALARM_STATUS register of each device to know all the fault conditions present in the chain.
+The watchdog timeout period is based on a 1200-Hz clock (1.2288 MHz / 1024)."
+"[desc] afe88201 __ Status Bits __ Register Maps [desc]
+Table 7-11 lists the memory-mapped registers for the AFEx8201 registers. Consider all register offset addresses not listed in Table 7-11 as reserved locations; do not modify these register contents.
+---table begin---
+Table title: Register Map
+| ADDR (HEX) | REGISTER | BIT DESCRIPTION |
+|---|---|---|
+| 15 | 14 | 13 |
+| 12 | 11 | 10 |
+| 9 | 8 | 7 |
+| 6 | 5 | 4 |
+| 3 | 2 | 1 |
+| 0 | 00h | NOP [15:0] |
+| 01h | DAC_DATA | DATA [15:0] |
+| 02h | CONFIG | CRC_ERR_CNT |
+| ... | ... | ... |
+---table end---"
+"[desc] afe88201 __ Status Bits __ Register Maps __ SPI Mode [desc]
+s byte start bit. Also see Section 7.3.7.
+Parameter: OSC_DIV_2 (SPI mode)
+1h = Sampled signal is high
+0h = Sampled signal is low
+Subdivided internal oscillator clock signal (frequency divided by 2) sampled at CS falling edge. Also see Section 7.3.7.
+Parameter: R/IRQn (UBM only)
+1h = Read request
+0h = IRQ event
+Generated by the UART interface on a frame by frame basis.
+See Section 7.5.4.1 for details.
+Parameter: RBIST
+1h = RBIST busy (registers not readable)
+0h = RBIST done (registers readable)
+RBIST running status.
+See Section 7.4.1 for details.
+Parameter: RESET
+1h = First readback after RESET
+0h = All other readbacks
+From the GEN_STATUS register (Table 7-39).
+Also see Section 7.4.3.
+Note (1): ALARM_STATUS, and GEN_STATUS registers contain cross-readable IRQ flags for the other register. The ALARM_STATUS register has the GEN_IRQ bit. GEN_STATUS has the ALARM_IRQ bit. This functionality enables the system microcontroller to always get full status information by reading only one register, and thus save power.# 7.6 Register Maps
+aisy-chain. The host processor must read the ALARM_STATUS register of each device to know all the fault conditions present in the chain.
+The watchdog timeout period is based on a 1200-Hz clock (1.2288 MHz / 1024).
+Table 7-11 lists the memory-mapped registers for the AFEx8201 registers. Consider all register offset addresses not listed in Table 7-11 as reserved locations; do not modify these register contents.
+---table begin---
+Table title: Register Map
+|ADDR (HEX)|REGISTER|BIT DESCRIPTION|15|14|13|12|11|10|9|8|7|6|5|4|3|2|1|0|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|00h|NOP|NOP [15:0]||| ||| ||| ||| ||| || |
+|01h|DAC_DATA|DATA [15:0]|| ||| ||| ||| ||| || |
+|02h|CONFIG|CRC_ERR_CNT [1:0]|CLKO [3:0]|UBM_||IRQ_EN|IRQ_||PIN_EN|CLR_|PIN_EN|UART_DIS|RESERVED| CRC_EN|IRQ_POL|IRQ_LVL||DSDO|FSDO|
+|03h|DAC_CFG|RESERVED|PD|SR_CLK [2:0]|SR_STEP [2:0]|SR_EN|SR_MODE|RESERVED|CLR|RESERVED|| ||| ||| || |
+|04h|DAC_GAIN|GAIN [15:0]|| ||| ||| ||| ||| || |
+|05h|DAC_OFFSET|OFFSET [15:0]|| ||| ||| ||| ||| || |
+|06h|DAC_CLR_|CODE|CODE [15:0]||| ||| ||| ||| || |
+|07h|RESET|RESERVED|SW_RST [7:0]|| ||| ||| ||| || |
+|08h|ADC_CFG|BUF_PD|HYST [6:0]|FLT_CNT [2:0]|AIN_||RANGE|EOC_||PER_CH|CONV_RATE [1:0]|DIRECT_||MODE|| || |
+|09h|ADC_INDEX_|CFG|RESERVED|STOP [3:0]|START [3:0]||| ||| ||| || |
+|0Ah|TRIGGER|RESERVED|RBIST|RESERVED|SHADOW||LOAD|ADC||| ||| ||| || |
+|...|...|...|...|...|...|...|...|...|...|...|
+---table end---
+Note (1): ALARM_STATUS, and GEN_STATUS registers contain cross-readable IRQ flags for the other register. The ALARM_STATUS register has the GEN_IRQ bit. GEN_STATUS has the ALARM_IRQ bit. This functionality enables the system microcontroller to always get full status information by reading only one register, and thus save power.
+[Table Continues in the next section]"
+"[desc] afe88201 __ Status Bits __ 1 AFEx8201 Registers [desc]
+[Table Continues in the next section]# 7.6.1 AFEx8201 Registers
+Complex bit access types are encoded to fit into small table cells. The following table shows the codes that are 
+used for access types in this section.
+---table begin---
+Table title: AFEx8201 Access-Type Codes
+| Access Type | Code | Description | Read Type  |
+|---|---|---|---|
+| R | R | Read | W |
+| Write Type | W | W| Write |
+| W | WO | Write only | -n |
+| W | WSC | Write self clear | i, j, k, l, m, n |
+---table end---"
+"[desc] afe88201 __ Status Bits __ 1 AFEx8201 Registers [desc]
+When used in a register name, an offset, or an address, these variables refer to the value of a register array 
+where the register is part of a group of repeating registers. The register groups form a hierarchical structure 
+and the array is represented with a formula."
+"[desc] afe88201 __ Status Bits __ 1 AFEx8201 Registers __ 1 NOP Register (Offset = 0h) [Reset = 0000h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: NOP Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-0 | NOP | WO | 0h | No operation. Data written to this field have no effect. Always reads zeros.|
+---table end---"
+"[desc] afe88201 __ Status Bits __ 1 AFEx8201 Registers __ 2 DAC_DATA Register (Offset = 1h) [Reset = 0000h] [desc]
+Return to the Register Map.
+DAC code for VOUT.
+---table begin---
+Table title: DAC_DATA Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-0 | DATA | R/W | 0h | Data. DAC code for VOUT. |
+---table end---"
+"[desc] afe88201 __ Status Bits __ 1 AFEx8201 Registers __ 3 CONFIG Register (Offset  2h) [Reset  0036h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: CONFIG Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-14 | CRC_ERR_CNT | R/W | 0h | CRC Errors Count Limit Sets the numbers of consecutive SPI CRC frames that must have errors before the status bits is set. 0h = 1 (default); 1h = 2; 2h = 4; 3h = 8 |
+| 13-10 | CLKO | R/W | 0h | CLKO Enable Enable the CLK_OUT pin and set the divider value.0h = CLKO disabled (default); 1h = 1.2288 MHz; 2h = 1.2288 / 2 MHz; 3h = 1.2288 / 4 MHz; 4h = 1.2288 / 8 MHz; 5h = 1.2288 / 16 MHz; 6h =1.2288 / 32 MHz; 7h = 1.2288 / 64 MHz; 8h = 1.2288 / 128 MHz; 9h = 1.2288 / 256 MHz; Ah = 1.2288 / 512 MHz; Bh = 1.2288 / 1024 MHz; Ch = 1'b0; Dh = 1'b0; Eh = 1'b0; Fh = Timer |
+| 9 | UBM_IRQ_EN | R/W | 0h | UBM IRQ Enable Enable IRQ to be sent on UARTOUT through UBM. 0h = Disabled (default); 1h = Enabled |
+| 8 | IRQ_PIN_EN | R/W | 0h | IRQ Pin Enable Enable IRQ pin functionality. 0h = Disabled (default); 1h = Enabled |
+| 7 | CLR_PIN_EN | R/W | 0h | Clear Input Pin Enable Enable pin-based transition to the CLEAR state in UBM and SPI. 0h = Disabled (default); 1h = SCLR pin enabled in SPI mode or SDI pin configured as clear input pin in UBM |
+| 6 | UART_DIS | R/W | 0h | UART Disable Disable UART functionality. 0h = Disabled (default); 1h = Enabled |
+| 5 | RESERVED | R | 1h | Reserved. Always set this bit to 1h for proper functionality. |
+| 4 | CRC_EN | R/W | 1h | CRC Enable Enable CRC for SPI. 0h = Disabled; 1h = Enabled (default) |
+| 3 | IRQ_POL | R/W | 0h | IRQ Polarity 0h = Active low (default); 1h = Active high |
+| 2 | IRQ_LVL | R/W | 1h | IRQ Level 0h = Edge sensitive 1h = Level sensitive (default) |
+| 1 | DSDO | R/W | 1h | SDO Hi-Z 0h = Drive SDO during CS = 0 1h = SDO always Hi-Z (default) |
+| 0 | FSDO | R/W | 0h | Fast SDO SDO is driven on negative edge of SCLK. 0h = drive SDO on rising edge of SCLK (launching edge) (default) 1h = drive SDO on falling edge of SCLK (capture edge 1/2 clock |
+---table end---"
+"[desc] afe88201 __ Status Bits __ 1 AFEx8201 Registers __ 4 DAC_CFG Register (Offset 3h) [Reset 0B00h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: DAC_CFG Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-13 | RESERVED | R/W | 0h | |
+| 12 | PD | R/W | 0h | DAC Output Buffer Power-down DAC output set to Hi-Z in power-down. 0h = DAC output buffer enabled (default) 1h = DAC output buffer disabled |
+| 11-9 | SR_CLK | R/W | 5h | Slew Clock Rate 0h = 307.2 kHz 1h = 153.6 kHz 2h = 76.8 kHz 3h = 38.4 kHz 4h = 19.2 kHz 5h = 9600 Hz (default) 6h = 4800 Hz 7h = 2400 Hz |
+| 8-6 | SR_STEP | R/W | 4h | Slew Step Size 0h = 1 code 1h = 2 codes 2h = 4 codes 3h = 8 codes 4h = 16 codes (default) 5h = 32 codes 6h = 64 codes 7h = 128 codes |
+| 5 | SR_EN | R/W | 0h | Slew Enable Enables slew on the output voltage. 0h = Disabled (default) 1h = Enabled |
+| 4 | SR_MODE | R/W | 0h | Slew Mode Output slew rate mode select. 0h = Linear Slew (default) 1h = Sinusoidal Slew |
+| 3 | RESERVED | R | 0h | |
+| 2 | CLR | R/W | 0h | CLEAR State 0h = Normal operation (default) 1h = Force the DAC to the CLEAR state |
+| 1-0 | RESERVED | R | 0h | |
+---table end---"
+"[desc] afe88201 __ Status Bits __ 1 AFEx8201 Registers __ 5 DAC_GAIN Register (Offset 4h) [Reset 8000h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: DAC_GAIN Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-0 | GAIN | R/W | 8000h | Gain Set the gain of the DAC output from 0.5 – 1.499985. For example: 0000h = 0.5 8000h = 1.0 (default) FFFFh = 1.499985 |
+---table end---"
+"[desc] afe88201 __ Status Bits __ 1 AFEx8201 Registers __ 6 DAC_OFFSET Register (Offset = 5h) [Reset = 0000h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: DAC_OFFSET Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-0 | OFFSET | R/W | 0h | Offset Adjust the offset of the DAC output, 2's complement number. For example: 0000h = 0 (default) FFFFh = –1 |
+---table end---"
+"[desc] afe88201 __ Status Bits __ 1 AFEx8201 Registers __ 7 DAC_CLR_CODE Register (Offset = 6h) [Reset = 0000h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: DAC_CLR_CODE Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-0 | CODE | R/W | 0h | CLEAR State DAC Code DAC code applied in the CLEAR state. See Section 7.3.1.6. |
+---table end---"
+"[desc] afe88201 __ Status Bits __ 1 AFEx8201 Registers __ 8 RESET Register (Offset = 7h) [Reset = 0000h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: RESET Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-8 | RESERVED | R | 0h | |
+| 7-0 | SW_RST | WSC | 0h | Software Reset Write ADh to initiate software reset. |
+---table end---"
+"[desc] afe88201 __ Status Bits __ 1 AFEx8201 Registers __ 10 ADC_INDEX_CFG Register (Offset = 9h) [Reset = 0080h] [desc]
+Return to the Register Map.
+The ADC custom channel sequencing configuration is shown in Table 7-22.
+---table begin---
+Table tile: ADC_INDEX_CFG Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-8 | RESERVED | R | 0h | |
+| 7-4 | STOP | R/W | 8h | Custom Channel Sequencer Stop Index. CCS index to stop ADC sequence. Must be ≥ START. If not, STOP is forced to = START. 0h = OFFSET 1h = AIN0 2h = AIN1 3h = TEMP 4h = SD0 (VREF) 5h = SD1 (PVDD) 6h = SD2 (VDD) 7h = SD3 (ZTAT) 8h = SD4 (VOUT) (default) 9h through Fh = GND |
+| 3-0 | START | R/W | 0h | Custom Channel Sequencer Start Index. CCS index to start ADC sequence. 0h through Fh = Same as STOP field (0h is default) |
+---table end---"
+"[desc] afe88201 __ Status Bits __ 1 AFEx8201 Registers __ 11 TRIGGER Register (Offset Ah) [Reset 0000h] [desc]
+Return to the Register Map.
+---table begin---
+Table tile: TRIGGER Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-4 | RESERVED | R | 0h | |
+| 3 | RBIST | WSC | 0h | RBIST Trigger. This trigger initiates a Register BIST. This BIST runs a CRC calculation through the configuration registers (Table 7-7) and compares the result to a stored CRC value in the RBIST_CRC register. |
+| 2 | RESERVED | R | 0h | |
+| 1 | SHADOWLOAD | WSC | 0h | Shadow Load Trigger. This trigger initiates the loading of the OTP array into the parallel latches. If an OTP CRC error is detected, assert this trigger to try and reload the OTP into the memory locations. |
+| 0 | ADC | WSC | 0h | ADC Trigger. In auto mode, this bit enables or disables the conversions. Manually set to 1 (enable) or 0 (disable). In direct mode, set this bit to start a conversion sequence. The bit is cleared at the end of the sequence. To stop a sequence prematurely, manually clear this bit. |
+---table end---"
+"[desc] afe88201 __ Status Bits __ 1 AFEx8201 Registers __ 12 SPECIAL_CFG Register (Offset = Bh) [Reset = 0000h] [desc]
+Return to the Register Map.
+---table begin---
+Table tile: SPECIAL_CFG Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-3 | RESERVED | R | 0h | |
+| 2 | OTP_LOAD_SW_RST | R/W | 0h | OTP (One Time Programmable Factory Trimmed Registers) LOAD with SW RESET. OTP reloads with the assertion of a software reset (SW_RST). 0h = No reload with SW_RST 1h = Reload with SW_RST |
+| 1 | ALMV_POL | R/W | 0h | Alarm Voltage Polarity. This register bit is ORed with the POL_SEL/AIN1 pin (if AIN1_ENB bit is low) to control the VOUT during a hardware reset condition or if alarm is active and alarm action is set appropriately. The following Boolean function is implemented for the internal signal ALMV_POL_o that sets the VOUT voltage: ALMV_POL_o = ALMV_POL OR (POL_SEL/AIN1 AND NOT AIN1_ENB) 0h = Low (0 V) 1h = High (2.5 V) |
+| 0 | AIN1_ENB | R/W | 0h | AIN1 Pin Enable. This bit determines whether the POL_SEL/AIN1 pin acts as alarm voltage polarity control bit or an input channel |
+---table end---# 1. oad with SW_RST
+oad with SW_RST"
+"[desc] afe88201 __ ALMV_POL [desc]
+1 ALMV_POL R/W 0h Alarm Voltage Polarity This register bit is ORed with the POL_SEL/AIN1 pin (if AIN1_ENB 
+bit is low) to control the VOUT during a hardware reset condition 
+or if alarm is active and alarm action is set appropriately. The 
+following Boolean function is implemented for the internal signal 
+ALMV_POL_o that sets the VOUT voltage:
+ALMV_POL_o = ALMV_POL OR (POL_SEL/AIN1 AND NOT 
+AIN1_ENB)
+0h = Low (0 V)
+1h = High (2.5 V)"
+"[desc] afe88201 __ AIN1_ENB [desc]
+0 AIN1_ENB R/W 0h AIN1 Pin Enable This bit determines whether the POL_SEL/AIN1 pin acts as alarm 
+voltage polarity control bit or an input channel to the ADC.
+0h = AIN1 pin acts as alarm voltage polarity bit and ADC converts 
+GND
+1h = AIN1 pin is an active channel to the ADC"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: 7.6.1.13 ALARM_ACT Register (Offset 10h) [Reset 8020h]
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-14 | SD_FLT | R/W | 2h | Self-Diagnostic Fault Action These bits set the device action after a self-diagnostic fault. 0h = No Action 1h = Set DAC to CLEAR state 2h = Switch to alarm voltage determined by ALMV_POL (default) 3h = Place DAC into Hi-Z (power-down) |
+| 13-12 | TEMP_FLT | R/W | 0h | TEMP Fault Action These bits set the device action if the ADC temperature is outside the TEMP_THRESHOLD Hi or Lo thresholds. 0h through 3h = Same as SD_FLT field (default 0h) |
+| 11-10 | AIN1_FLT | R/W | 0h | AIN1 Fault Action These bits set the device action if the ADC AIN1 channel is outside the AIN1_THRESHOLD Hi or Lo thresholds. 0h through 3h = Same as SD_FLT field (default 0h) |
+| 9-8 | AIN0_FLT | R/W | 0h | AIN0 Fault Action These bits set the device action if the ADC AIN0 channel is outside the AIN0_THRESHOLD Hi or Lo thresholds. 0h through 3h = Same as SD_FLT field (default 0h) |
+| 7-6 | CRC_WDT_FLT | R/W | 0h | CRC and WDT Fault Action These bits set the device action when a SPI CRC or SPI Watchdog Timeout error occurs. 0h through 3h = Same as SD_FLT field (default 0h) |
+| 5-4 | VREF_FLT | R/W | 2h | VREF Fault Action These bits set the device action when a fault is detected on VREF. 0h through 3h = Same as SD_FLT field a |
+| 3-2 | THERM_ERR_FLT | R/W | 0h | Thermal Error Fault Action These bits set the device action when a high temperature error occurs (> 130°C). 0h through 3h = Same as SD_FLT field (default 0h) |
+| 1-0 | THERM_WARN_FLT | R/W | 0h | Thermal Warning Fault Action These bits set the device action when a high temperature warning occurs (> 85°C). 0h through 3h = Same as SD_FLT field (default 0h) |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ WDT_LO Register Description [desc]
+If the WDT is enabled and the WDT Lower Limit is enabled, then only a write to this register resets the WDT timer. If the write occurs before the WDT Lower Limit time, or after the WDT Upper Limit time, then a WDT error is asserted. If WDT Lower Limit is disabled, then a write to any register resets the timer. This is true for both SPI and UART Break modes. All times are based on 1200-Hz clock (1.2288 MHz / 1024).
+- 0h = Disabled (default)
+- 1h = 53 ms (64 clocks)
+- 2h = 106 ms (128 clocks)
+- 3h = 427 ms (512 clocks)
+---table begin---
+Table tile: WDT_LO Register Fields
+| Field | Type | Default | Description |
+|---|---|---|---|
+| WDT_LO | R/W | 0h | WDT Lower Limit |
+| WDT_EN | R/W | 0h | WDT Enable |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ WDT_LO Register Description __ AIN0_THRESHOLD Register Description [desc]
+Return to the Register Map.
+---table begin---
+Table tile: AIN0_THRESHOLD Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-8 | Hi | R/W | FFh | High Threshold for Channel AIN0 {[11:4], 4b1111}, This value is compared (>) against AIN0 data bits[11:0] |
+| 7-0 | Lo | R/W | 0h | Low Threshold for Channel AIN0 {[11:4],4b0000}, This value is compared (<) against AIN0 data bits[11:0] |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ WDT_LO Register Description __ AIN1_THRESHOLD Register Description [desc]
+Return to the Register Map.
+---table begin---
+Table tile: AIN1_THRESHOLD Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-8 | Hi | R/W | FFh | High Threshold for Channel AIN1 {[11:4],4b1111}, This value is compared (>) against AIN1 data bits[11:0] |
+| 7-0 | Lo | R/W | 0h | Low Threshold for Channel AIN1 {[11:4],4b0000}, This value is compared (<) against AIN1 data bits[11:0] |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ WDT_LO Register Description __ TEMP_THRESHOLD Register Description [desc]
+Return to the Register Map.
+---table begin---
+Table tile: TEMP_THRESHOLD Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-8 | Hi | R/W | FFh | High Threshold for Channel TEMP {[11:4],4b1111}, This value is compared (>) against TEMP data bits[11:0] |
+| 7-0 | Lo | R/W | 0h | Low Threshold for Channel TEMP {[11:4],4b0000}, This value is compared (<) against TEMP data bits[11:0] |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ WDT_LO Register Description __ UBM Register Description [desc]
+Return to the Register Map.
+---table begin---
+Table tile: UBM Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-1 | RESERVED | R | 0h | |
+| 0 | REG_MODE | R/W | 0h | Register Mode, Configure the rest of the Register Map to be accessed by UART break mode (UBM) or SPI. This register can only be written by the UART Break communication, 0h = SPI Mode (default), 1h = UART Break Mode|
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ WDT_LO Register Description __ SCRATCH Register Description [desc]
+Return to the Register Map.
+---table begin---
+Table tile: SCRATCH Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-0 | DATA | R/W | FFFFh | Scratch Data, Data written is read back as the inverted value, For example, writing 0xAAAA is read back as 0x5555 |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ WDT_LO Register Description __ CHIP_ID_LSB Register Description [desc]
+Return to the Register Map.
+---table begin---
+Table tile: CHIP ID LSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-0 | ID | R | | Unique part number within each lot |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ WDT_LO Register Description __ CHIP_ID_MSB Register Description [desc]
+Return to the Register Map.
+---table begin---
+Table tile: CHIP ID MSB Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-0 | ID | R | | Encoded lot identification number |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 22 GPIO_CFG Register [desc]
+Return to the Register Map.
+---table begin---
+Table tile: GPIO CONFIG Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15 | RESERVED | R | 0h | |
+| 14-8 | EN | R/W | 00h | GPIO per Pin Enable. (See Table 7-8 for additional configuration required specific to each pin and communication mode) [14] = GPIO6, [13] = GPIO5, [12] = GPIO4, [11] = GPIO3, [10] = GPIO2, [9] = GPIO1, [8] = GPIO0, 0h = GPIO function disable, 1h = GPIO function enabled |
+| 7 | RESERVED | R | 0h | |
+| 6-0 | ODE | R/W | FFh | Pseudo Open Drain Enable GPIO output enable and pseudo open drain functionality on the GPIO pins. (See Table 7-8 for additional configuration required specific to each pin and communication mode.) [6] = GPIO6, [5] = GPIO5, [4] = GPIO4, [3] = GPIO3, [2] = GPIO2, [1] = GPIO1, [0] = GPIO0, 0h = Push-pull output enabled, 1h = Pseudo open-drain output enabled |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 23 GPIO Register [desc]
+Return to the Register Map.
+---table begin---
+Table tile: GPIO Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-7 | RESERVED | R | 0h | |
+| 6-0 | DATA | R/W | 7Fh | GPIO pin data. For GPIO input this bit must be written as 1 and GPIO_CFG.ODE = 1 and GPIO_CFG.EN = 1. Reading this register reads the pin value when the pin is correctly enabled. (See Table 7-8 for additional configuration required specific to each pin and communication mode) For GPIO output this bit sets the pin value. [6] = GPIO6, [5] = GPIO5, [4] = GPIO4, [3] = GPIO3, [2] = GPIO2, [1] = GPIO1, [0] = GPIO0 |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 24 ALARM_STATUS_MASK Register [desc]
+Return to the Register Map.
+---table begin---
+Table tile: ALARM STATUS MASK Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-14 | RESERVED | R | 3h | |
+| 13 | SD_FLT | R/W | 1h | SD Fault Mask 0h = Fault asserts IRQ, 1h = The mask prevents IRQ or Alarm being triggered (default). The status is always set if the condition exists. |
+| 12 | OSC_FAIL | R/W | 0h | OSC_FAIL Fault Mask Same as SD Fault Mask (default 0h). |
+| 11-9 | RESERVED | R | 7h | |
+| 8 | OTP_CRC_ERR | R/W | 1h | OTP CRC Error Mask Same as SD Fault Mask (default 1h). |
+| 7 | CRC_FLT | R/W | 1h | SPI CRC Fault Mask Same as SD Fault Mask (default 1h). |
+| 6 | WD_FLT | R/W | 1h | Watchdog Fault Mask Same as SD Fault Mask (default 1h). |
+| 5 | VREF_FLT | R/W | 0h | VREF Fault Mask Same as SD Fault Mask (default 0h). |
+| 4 | ADC_AIN1_FLT | R/W | 1h | ADC AIN1 Fault Mask Same as SD Fault Mask (default 1h). |
+| 3 | ADC_AIN0_FLT | R/W | 1h | ADC AIN0 Fault Mask Same as SD Fault Mask (default 1h). |
+| 2 | ADC_TEMP_FLT | R/W | 1h | ADC TEMP Fault Mask Same as SD Fault Mask (default 1h). |
+| 1 | THERM_ERR_FLT | R/W | 1h | Temperature > 130°C Error Mask Same as SD Fault Mask (default 1h). |
+| 0 | THERM_WARN_FLT | R/W | 1h | Temperature > 85°C Warning Mask Same as SD Fault Mask (default 1h). |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 28 ADC_FLAGS Register (Offset  23h) [Reset  0000h] [desc]
+Return to the Register Map. The limits for Self Diagnostic (SD) Alarm ADC Thresholds are shown in Table 7-5.
+---table begin---
+Table title: Table 7-40. ADC_FLAGS Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-9 | RESERVED | R | 0h | |
+| 8 | SD4_FAIL | R | 0h | SD4 (VOUT) Limit Fail |
+| 7 | SD3_FAIL | R | 0h | SD3 (ZTAT) Limit Fail |
+| 6 | SD2_FAIL | R | 0h | SD2 (VDD) Limit Fail |
+| 5 | SD1_FAIL | R | 0h | SD1 (PVDD) Limit Fail |
+| 4 | SD0_FAIL | R | 0h | SD0 (VREF) Limit Fail |
+| 3 | TEMP_FAIL | R | 0h | TEMP Limit Fail |
+| 2 | AIN1_FAIL | R | 0h | AIN1 Limit Fail |
+| 1 | AIN0_FAIL | R | 0h | AIN0 Limit Fail |
+| 0 | RESERVED | R | 0h | |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 29 ADC_AIN0 Register (Offset = 24h) [Reset = 0000h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: Table 7-41. ADC_AIN0 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-12 | RESERVED | R | 0h | |
+| 11-0 | DATA | R | 0h | Converted Value of Voltage on Pin AIN0 |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 30 ADC_AIN1 Register (Offset = 25h) [Reset = 0000h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: Table 7-42. ADC_AIN1 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-12 | RESERVED | R | 0h | |
+| 11-0 | DATA | R | 0h | Converted Value of Voltage on Pin AIN1 |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 31 ADC_TEMP Register (Offset = 26h) [Reset = 0000h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: Table 7-43. ADC_TEMP Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-12 | RESERVED | R | 0h | |
+| 11-0 | DATA | R | 0h | Converted Value of Temperature |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 32 ADC_SD_MUX Register (Offset  27h) [Reset  0000h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: Table 7-44. ADC_SD_MUX Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-12 | RESERVED | R | 0h | |
+| 11-0 | DATA | R | 0h | Converted Value of Voltage on Self-Diagnostic (SD) MUX Input |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 33 ADC_OFFSET Register (Offset = 28h) [Reset = 0000h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: Table 7-45. ADC_OFFSET Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-12 | RESERVED | R | 0h | |
+| 11-0 | DATA | R | 0h | ADC Comparator Offset This value reports the offset measured in the device, and can be used to adjust each conversion value. If ADC_BYP.OFST_BYP_EN is set, then the value in ADC_BYP.DATA is used as the offset. This value is not affected by ADC_BYP. |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 34 DAC_OUT Register (Offset = 2Ch) [Reset = 0000h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: Table 7-46. DAC_OUT Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-0 | DATA | R | 0h | DAC Code Applied to the Analog Circuit |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 35 ADC_OUT Register (Offset  2Dh) [Reset  0000h] [desc]
+Return to the Register Map.
+---table begin---
+Table title: Table 7-47. ADC_OUT Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15-12 | RESERVED | R | 0h | |
+| 11-0 | DATA | R | 0h | ADC Data for Each Conversion Does not include ADC_OFFSET.DATA adjustment. Is not affected by ADC_BYP.DATA. |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 36 ADC_BYP Register (Offset = 2Eh) [Reset = 0000h] [desc]
+Return to the Register Map. ADC_BYP is shown in ADC_BYP Register Field Descriptions.
+---table begin---
+Table title: Table 7-48. ADC_BYP Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15 | DATA_BYP_EN | R/W | 0h | Data Bypass Enable Applies ADC_BYP.DATA to the ADC channel being converted. ADC_OFFSET is ignored. Do not set OFST_BYP_EN and DATA_BYP_EN at the same time. If OFST_BYP_EN is also set, DATA_BYP_EN takes priority over OFST_BYP_EN. After a channel is converted, the ADC_BYP.DATA value appears in the readback register for the converted channel and is used to calculate faults. 0h = Data bypass disabled (default) 1h = Data bypass enabled |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 38 TIMER_CFG_0 Register (Offset 3Bh) [Reset 0000h] [desc]
+Return to the Register Map.
+TIMER Configuration 0.
+---table begin---
+Table tile: Table 7-50. TIMER CONFIG 0 Register Field Descriptions
+| Bit  | Field     | Type | Reset | Description   |
+|------|-----------|------|-------|---------------|
+| 15-4 | RESERVED  | TO   | 0h    |               |
+| 3-2  | CLK_SEL   | R/W  | 0h    | Clock Select. Selects the timer clock frequency. 0h = None (default) 1h = 1.2288 MHz 2h = 1.200 kHz 3h = 1.171 Hz |
+| 1    | INVERT    | R/W  | 0h    | Invert Output. Invert the Timer output. By default, the output is set to 1 when the counter is ≥ SET_TIME (3Dh). |
+| 0    | ENABLE    | R/W  | 0h    | Timer Enable. The CLK_OUT pin must also be configured to output the Timer. |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 39 TIMER_CFG_1 Register (Offset = 3Ch) [Reset = 0000h] [desc]
+Return to the Register Map.
+TIMER Configuration 1.
+---table begin---
+Table tile: Table 7-51. TIMER CONFIG 1 Register Field Descriptions
+| Bit | Field   | Type | Reset | Description  |
+|-----|---------|------|-------|--------------|
+| 15-0| PERIOD  | R/W  | 0h    | This field defines the period of the timer. The period is the product of (PERIOD + 1) and the clock period of CLK_SEL. For example, CLK_SEL = 2h (1200 Hz), The period is (PERIOD + 1) × 853 ms. |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 40 TIMER_CFG_2 Register (Offset = 3Dh) [Reset = 0000h] [desc]
+Return to the Register Map.
+TIMER Configuration 2.
+---table begin---
+Table tile: Table 7-52. TIMER CONFIG 2 Register Field Descriptions
+| Bit  | Field     | Type | Reset | Description |
+|------|-----------|------|-------|-------------|
+| 15-0 | SET_TIME  | R/W  | 0h    | The SET_TIME determine when the output of the timer goes high. The bits define the duty cycle of the timer (PERIOD – SET_TIME). The timer starts out as 0 and transitions to 1 when the SET_TIME is met. The polarity of the timer can be inverted using the TIMER_CFG_0.INVERT bit. |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 41 CRC_RD Register (Offset 3Eh) [Reset 0000h] [desc]
+Return to the Register Map.
+CRC read.
+---table begin---
+Table tile: Table 7-53. CRC Read Register Field Descriptions
+| Bit  | Field   | Type | Reset  | Description  |
+|------|---------|------|--------|--------------|
+| 15-0 | CRC     | R/O  | 0h     | Calculated CRC for RBIST or SHADOWLOAD. Final value is calculated internally. This value changes while RBIST or shadow load are running. |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 42 RBIST_CRC Register (Offset = 3Fh) [Reset = 0000h] [desc]
+Return to the Register Map.
+RBIST CRC.
+---table begin---
+Table tile: Table 7-54. RBIST CRC Register Field Descriptions
+| Bit  | Field     | Type | Reset | Description  |
+|------|-----------|------|-------|--------------|
+| 15-0 | RBIST CRC | R/W  | 0h    | Calculated CRC for Register RBIST |
+---table end---"
+"[desc] afe88201 __ AIN1_ENB __ 13 ALARM_ACT Register (Offset 10h) [Reset 8020h] __ 8 Application and Implementation [desc]
+Note
+Information in the following applications sections is not part of the TI component specification,
+and TI does not warrant its accuracy or completeness. TI’s customers are responsible for 
+determining suitability of components for their purposes, as well as validating and testing their design implementation to confirm system functionality."
+"[desc] afe88201 __ 1 Application Information [desc]
+The AFEx8201 are extremely low-power 16-bit and 14-bit voltage output DACs. The DACs support an output 
+range of 0 V to 2.5 V. These devices have an onboard oscillator and an option# 8. Application and Implementation
+**Note**
+Information in the following applications sections is not part of the TI component specification,
+and TI does not warrant its accuracy or completeness. TI’s customers are responsible for 
+determining suitability of components for their purposes, as well as validating and testing their design 
+implementation to confirm system functionality."
+"[desc] afe88201 __ 1 Application Information __ Application Information [desc]
+The AFEx8201 are extremely low-power 16-bit and 14-bit voltage output DACs. The DACs support an output 
+range of 0 V to 2.5 V. These devices have an onboard oscillator and an optional precision internal reference. 
+This DAC is designed for analog voltage or current output modules. These devices also feature a SAR ADC that 
+is used to measure internal and external nodes for making diagnostic measurements with fault detection and 
+alarm actions. Use these diagnostic measurements together with the CRC and watchdog timer monitoring for 
+device and system monitoring for functional safety.
+The PVDD power supply has an operating range of 2.7 V to 5.5 V. The VDD is powered from an onboard LDO. 
+Run the digital interface supply, IOVDD, from 1.71 V to 5.5 V."
+"[desc] afe88201 __ 1 Application Information __ Application Information __ Multichannel Configuration [desc]
+Because CS low is required for communication and SDO can be set to a tri-state condition, only individual CS 
+signals are required from the microcontroller for all the AFEx8201 devices in the system. The SDI, SDO, and 
+SCLK signals can be combined. All the individual ALARM pins can be wired-OR together. This minimizes the 
+number of microcontroller GPIO signals required for communication, as well as the number of isolation channels 
+for isolated systems. The multichannel configuration block diagram is shown in Figure 8-1.
+Microcontroller
+AFE #1
+GPIO1
+SCLK
+DOUT
+DIN
+AFE #2
+AFE #3
+GPIO2
+GPIO3
+ALARM
+CS
+SCLK
+SDI
+SDO
+ALARM
+CS
+SCLK
+SDI
+SDO
+ALARM
+CS
+SCLK
+SDI
+SDO
+ALARM"
+"[desc] afe88201 __ 1 Application Information __ Typical Application __ Analog Output Module [desc]
+100 nF
+100 nF
+10 μF
+GND
+GND
+GND
+3V3
+GPIO5/SDI
+GPIO4/SDO
+SCLK
+GPIO2/UARTOUT
+GPIO3/UARTIN
+GPIO1
+AIN0
+POL_SEL/AIN1
+NC
+VREFIO
+GPIO0/CLK_OUT
+GND
+REF_GND
+3V3
+GND
+GND
+680 pF
+GND
+GND
+ROS
+499
+GND
+AFE88201
+100 nF
+GND
+TLV333
+GND
+VDD
+GND
+0.1 μF
+GND
+VREFIO
+ALARM
+100 k�
+680 pF
+AIN0
+POL_SEL/
+AIN1
+VOUT
+DAC_OUT
+SCLK
+CS
+PICO
+POCI
+RESET
+RESET
+GPIO6/CS
++
+–
+VREFIO
+XTR305
+V+
+VIN
+SET
+IMON
+M1
+NC
+M2
+IAOUT
+OD
+NC
+XTR_M2
+XTR_OD
+1 k�
+1 k�
+1 k�
+DAC_OUT
+0.1 μF
+GND
+47 nF
+DRV
+RG2
+RG1
+IAIN+
+DGND
+PAD
+EFCM
+IAIN-
+EFLD
+V-
+15 �
+8.87 k�
+0.1 μF
+2.2 k�
+2.2 k�
++15V
+–15V
+0.1 μF
+V/I OUTPUT
+0.1 μF
+–15V
+EFOT
+EFCM
+EFLD
+EFOT
+10 k
+�
+10 k
+�
+10 k
+3V3
+GND
+GND
+GND
+GND
+GND
+GND
+GND
+GND
+1 M
+GND
+GND
+SCLR
++15V
+RSET
+GND
+GPIO1
+XTR_M2
+XTR_OD
+3V3
+IOVDD
+PVDD
+REF_EN
+VDD
+5
+13
+12
+17
+19
+6
+9
+10
+7
+8
+1
+2
+4
+3
+15
+16
+18
+21
+22
+23
+11
+24
+14
+20
+4
+5
+15
+3
+6
+2
+12
+20
+1
+14
+17
+16
+19
+18
+21
+9
+8
+13
+10
+7
+11
+This design example shows the construction of an analog output module capable of current and voltage outputs for a programmable logic controller 
+(PLC). This example combines several circuit elements to create a subsystem that can support most analog output applications. This application requires 
+supplies of 3.3 V and ±15 V. The circuit output sets a precision voltage or current with an accuracy of less than 0.1% full scale range (FSR) of total error 
+at room temperature after calibration. The high integration in the system allows for a compact circuit, making this device an excellent choice for analog 
+outputs for AC inverters and servo drives where space is a concern. Error flags and output load monitoring capability ena.# 8. Analog Output Module
+c controller 
+(PLC). This example combines several circuit elements to create a subsystem that can support most analog output applications. This application requires 
+supplies of 3.3 V and ±15 V. The circuit output sets a precision voltage or current with an accuracy of less than 0.1% full scale range (FSR) of total error 
+at room temperature after calibration. The high integration in the system allows for a compact circuit, making this device an excellent choice for analog 
+outputs for ac inverters and servo drives where space is a concern. Error flags and output load monitoring capability enable a robust design. Figure 8-2 
+shows the schematic diagram for the analog output module."
+"[desc] afe88201 __ 1 Application Information __ Typical Application __ 1 Design Requirements [desc]
+The design requirements are:
+* Bipolar analog output voltage range: ±11 V
+* Bipolar analog output current range: –25 mA to 25 mA
+* Operation with standard industrial automation supply voltages from 3.3 V and ±15 V
+* Current and voltage outputs with TUE less than 0.5% at 25°C after calibration"
+"[desc] afe88201 __ 1 Application Information __ Typical Application __ 2 Detailed Design Procedure [desc]
+Figure 8-3 shows a block diagram of an analog output module using the AFEx8201 and the XTR305.
+AFE88201
+0 V to 2.5 V
+1.25-V 
+Reference
+RGAIN
+Microcontroller
+RLoad
+GND
+Current / 
+Voltage
+Output
+ROS
+RSET
+(Unpopulated)
+VIN
+XTR305
+SET
+DRV
+OD, M2
+Set for 
+Current or 
+Voltage 
+Output
+GPIO"
+"[desc] afe88201 __ 1 Application Information __ Typical Application __ 2 Detailed Design Procedure __ 1 XTR305 [desc]
+The XTR305 is a complete output driver for cost-sensitive industrial and process-control applications. Use the 
+M2 pin to configure the application for current or voltage output, No external shunt resistor is required. Only 
+external gain-setting resistors and a loop-compensation capacitor are required.
+The separate driver and receiver channels provide flexibility. The instrumentation amplifier can be used for 
+remote voltage sensing or as a high-voltage, high-impedance measurement channel. In voltage-output mode, 
+a copy of the output current is provided, allowing calculation of load resistance. The digital-output selection 
+capability, error flags, and monitor pins make remote configuration and troubleshooting possible. Fault conditions 
+on the output and on the IA input, as well as overtemperature conditions, are indicated by error flags. The 
+monitoring pins provide continuous feedback about load power or impedance."
+"[desc] afe88201 __ 1 Application Information __ Typical Application __ 2 Detailed Design Procedure __ 1 XTR305 __ 1 Current-Output Mode [desc]
+In the current-output mode, a 0-V to 2.5-V control input is converted to a ±25-mA current output. As the input is 
+unipolar, and the output is bipolar, a reference bias voltage (VREF) is required on the input stage of the XTR305. 
+The bias voltage of 1.25 V is taken from a buffered VREFIO output from the AFE88201. Figure 8-4 shows the 
+configuration of the XTR305 in current-output mode.
+For current-output mode, OD is set high, M1 is set low, and M2 is set high. The normal transfer function for this 
+circuit is given in Equation 10.
+However, with the RSET resistor as an open circuit, the singular VIN term drops out. Using Equation 10, the ROS 
+term sets the output. The transconductance gain is set by ROS according to Equation 11.
+Select ROS 499 Ω as a standard resistor value. This gives an IoutFSR of 50.1 mA, with an output range of 
+±25.05 mA. The transfer function is given by Equation 12.
+Using the AFE88201, the transfer function from code to output current is shown in Equation 13.
+When using the current-output mode, the output load voltage can be monitored through an analog output 
+monitor in the XTR305. See also Section 8.2.1.2.1.3."
+"[desc] afe88201 __ 1 Application Information __ Typical Application __ 2 Detailed Design Procedure __ 1 XTR305 __ 3 Diagnostic Features [desc]
+In addition to the diagnostic ADC and alarms of the AFEx8201 described in Section 7.3.2 and Section 7.3.3.6, 
+the XTR305 has several additional diagnostic features.
+IA Common-Mode Overvoltage Range (EFCM): This flag goes low as soon as the input of the IA reach the limits 
+of the linear operation for the input voltage.
+Overtemperature Flag (EFOT): This flag goes low if the chip temperature reaches 140°C and resets as soon as 
+the temperature cools down to less than 125°C.
+Load Error (EFLD): Indicates fault conditions driving voltage or current into the load. In voltage-output mode, the 
+device monitors the voltage limits of the output swing and the current limit condition caused from short or low 
+load resistance. In current-output mode, the alarm indicates a saturation into the supply rails from a high-load 
+resistance or open load. The fault flag helps detect whether the analog output wire is broken or shorted. This 
+feature improves the reliability of the analog output function. In case of a short-circuited load, the output current 
+is limited to ±20 mA in voltage-output mode, and ±32 mA in the current-output mode.
+All three fault flags are open collector, and therefore require pullup resistors.
+Analog Output Monitor: In current-output mode, the IA output is connected to a resistor through the IAOUT pin 
+and the IMON pin is internally disconnected. IAOUT is proportional to the output voltage given by Equation 18.
+---table begin---
+Table title: IAOUT calculation
+| Parameter | Formula |
+|---|---|
+| IAOUT | 2 × VOUT / RGAIN |
+---table end---"
+"[desc] afe88201 __ 1 Application Information __ Typical Application __ 2 Detailed Design Procedure __ 1 XTR305 __ 2 Voltage Output Mode [desc]
+This current is converted into voltage across a 500‑Ω resistor that can be sensed by the ADC on the AFEx8201. 
+This current measurement enables a monitor of the output power delivered to the load. If the load resistance is 
+known, then the output current can be calculated and compared with the commanded value.
+During voltage-output mode, 1/10th of the output drive current is mirrored onto the IMON pin and IAOUT is 
+internally disconnected. The IMON pin is connected to a 1-kΩ resistor. The voltage across this resistor is sensed 
+by the ADC on the AFE88201. If the output load is known, then the output voltage can be calculated and 
+compared with the commanded value. The output power delivered to the load can also be calculated. Output 
+monitor functions help detect load changes enabling predictive maintenance, which increase reliability of the 
+analog output function."
+"[desc] afe88201 __ 1 Application Information __ Typical Application __ 3 Application Curves [desc]
+Figure 8-6. DAC Code to XTR Output Current
+Figure 8-7. DAC Code to XTR Output Voltage"
+"[desc] afe88201 __ 1 Application Information __ Typical Application __ 3 Application Curves __ 3 Application Curves [desc]
+The DAC Code to XTR Output Current is shown in Figure 8-6 and the DAC Code to XTR Output Voltage is illustrated in Figure 8-7."
+"[desc] afe88201 __ 3 Initialization Setup [desc]
+This section describes several recommendations to set up the AFEx8201. The AFEx8201 power up with the CRC enabled. If the device is intended to be run without the CRC, the CRC must be disabled by setting the CRC_EN bit to 0h in the CONFIG register. Be aware that the command to write to this register is first done with the CRC enabled. The CRC byte must be appended to the command for the device to interpret the command correctly. To disable the CRC after start up, write 0x02 0x00 0x26 0x24 to the device. The first three bytes write the command, while the last byte is the CRC byte. For more information on the CRC, see the communication description in Section 7.5.3.3.
+The AFEx8201 also power up with the SDO pin disabled. The SDO pin is required for reading from any of the device registers, as well as reading any data from the ADC in SPI mode. The SDO pin is enabled by writing 0h into the DSDO bit in the CONFIG register. See also Section 7.5.3.1 and Section 7.5.3.2.
+To enable the ADC, first enable the ADC buffer by writing 0h into the BUF_PD bit in the ADC_CFG register. For information about using the ADC in different modes of operation, see Section 7.3.2."
+"[desc] afe88201 __ 4 Power Supply Recommendations [desc]
+The AFEx8201 can operate within a single-supply range of 2.7 V to 5.5 V applied to the PVDD pin. When 2.7 V to 5.5 V is provided to PVDD, an internal LDO is enabled that drives VDD internally. VDD pin must have 1 μF to 10 μF of capacitance for operation. The digital interface supply, IOVDD, can operate with a supply range of 1.71 V to 5.5 V. 
+Switching power supplies and DC/DC converters often have high-frequency glitches or spikes riding on the output voltage. In addition, digital components can create similar high-frequency spikes. This noise can easily couple into the DAC output voltage or current through various paths between the power connections and analog output. To further reduce noise, include bulk and local decoupling capacitors. The current consumption on the PVDD and IOVDD pins, the short-circuit current limit for the voltage output, and the current ranges for the current output are listed in the Electrical Characteristics. 
+The power supply must meet the requirements listed in the Recommended Operating Conditions."
+"[desc] afe88201 __ 5 Layout __ 1 Layout Guidelines [desc]
+To maximize the performance of the AFEx8201 in any application, follow good layout practices and proper circuit design. The following recommendations are specific to the device:
+- For best performance, dedicate an entire PCB layer to a ground plane and do not route any other signal traces on this layer. However, depending on restrictions imposed by specific end equipment, a dedicated ground plane is not always practical. If ground-plane separation is necessary, make a direct connection of the planes at the DAC. Do not connect individual ground planes at multiple locations because this configuration creates ground loops.
+- IOVDD and PVDD must have 100-nF decoupling capacitors"
+"[desc] afe88201 __ 5 Layout __ 2 Layout Example [desc]
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+18
+17
+16
+15
+14
+13
+24
+23
+22
+21
+20
+19
+GPIO3/UART_IN
+GPIO2/UART_OUT
+GPIO1
+SCLR
+REF_EN
+RESET
+SCLK
+GPIO5/SDI
+GPIO4/SDO
+GPIO6/CS
+CLK_OUT
+IOVDD
+Digital
+Signals
+IOVDD
+IOVDD
+Bypass
+Capacitor
+VDD
+Bypass
+Capacitor
+PVDD
+PVDD
+Bypass
+Capacitor
+ALARM
+Pullup
+Resistor
+IOVDD
+ALARM
+NC
+GND
+GND
+REF_GND
+VREFIO
+VOUT
+VREFIO
+Bypass
+Capacitor
+PVDD
+POL_SEL/AIN1
+AIN0
+GND
+VDD
+AFEx8201
+Figure 8-8. Layout Example"
+"[desc] afe88201 __ 1 Documentation Support __ 1 Related Documentation [desc]
+For related documentation see the following:
+* Texas Instruments, AFE882H1 Evaluation Module User's Guide
+* Texas Instruments, REF35 Ultra Low-Power, High-Precision Voltage Reference data sheet
+* Texas Instruments, XTR305 Industrial Analog Current or Voltage Output Driver data sheet
+* Texas Instruments, ADS1220 4-Channel, 2-kSPS, Low-Power, 24-Bit ADC with Integrated PGA and Reference data sheet
+* Texas Instruments, TPS7A16 60-V, 5-µA IQ, 100-mA, Low-Dropout Voltage Regulator With Enable and Power-Good data sheet
+* Texas Instruments, TPS7A02 Nanopower IQ, 25-nA, 200-mA, Low-Dropout Voltage Regulator With Fast Transient Response data sheet
+* Texas Instruments, ISO7021 Ultra-Low Power Two-Channel Digital Isolator data sheet
+* Texas Instruments, Isolated, Ultra-Low Power Design for 4- to 20-mA Loop Powered Transmitters design guide
+* Texas Instruments, Isolated Loop Powered Thermocouple Transmitter design guide
+* Texas Instruments, Small Form Factor, 2-Wire, 4- to 20-mA Current-Loop, RTD Temperature Transmitter design guide
+* Texas Instruments, Isolated Power and Data Interface for Low-power Applications reference design
+* Texas Instruments, Uniquely Efficient Isolated DC/DC Converter for Ultra-Low Power and Low-Power Applications design guide"
+"[desc] afe88201 __ 2 Receiving Notification of Documentation Updates [desc]
+To receive notification of documentation updates, navigate to the device product folder on ti.com. Click on Subscribe to updates to register and receive a week.# 9.2 Receiving Notification of Documentation Updates
+To receive notification of documentation updates, navigate to the device product folder on ti.com. Click on Subscribe to updates to register and receive a weekly digest of any product information that has changed. For change details, review the revision history included in any revised document."
+"[desc] afe88201 __ 3 Support Resources [desc]
+TI E2E™ support forums are an engineer's go-to source for fast, verified answers and design help — straight from the experts. Search existing answers or ask your own question to get the quick design help you need.
+Linked content serves ""AS IS"" by the respective contributors. They do not constitute TI specifications and do not necessarily reflect TI's views; see TI's Terms of Use."
+"[desc] afe88201 __ 4 Trademarks [desc]
+TI E2E™ is a trademark of Texas Instruments.
+All trademarks are the property of their respective owners."
+"[desc] afe88201 __ 5 Electrostatic Discharge Caution [desc]
+This integrated circuit can be damaged by ESD. Texas Instruments recommends that all integrated circuits be handled with appropriate precautions. Failure to observe proper handling and installation procedures can cause damage.
+ESD damage can range from subtle performance degradation to complete device failure. Precision integrated circuits may be more susceptible to damage because very small parametric changes could cause the device not to meet its published specifications."
+"[desc] afe88201 __ 6 Glossary [desc]
+TI Glossary 
+This glossary lists and explains terms, acronyms, and definitions."
+"[desc] afe88201 __ 10 Mechanical, Packaging, and Orderable Information [desc]
+The following pages include mechanical, packaging, and orderable information. This information is the most current data available for the designated devices. This data is subject to change without notice and revision of this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+---table begin---
+Table title: Packaging Information
+| Orderable Device | Status (1) | Package Type | Package Drawing | Pins | Package Qty | Eco Plan (2) | Lead finish/Ball material (6) | MSL Peak Temp (3) | Op Temp (°C) | Device Marking (4/5) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| AFE88201RRUR | ACTIVE | UQFN | RRU | 24 | 3000 | RoHS & Green | NIPDAU | Level-2-260C-1 YEAR | -55 to 125 | AFE88201 |
+| AFE88201RRUT | ACTIVE | UQFN | RRU | 24 | 250 | RoHS & Green | NIPDAU | Level-2-260C-1 YEAR | -55 to 125 | AFE88201 |
+---table end---"
+"[desc] afe88201 __ 1 Marketing Status Definition [desc]
+(1) The marketing status values are defined as follows:
+ACTIVE: Product device recommended for new designs.
+LIFEBUY: TI has announced that the device will be discontinued, and a lifetime-buy period is in effect.
+NRND: Not recommended for new designs. Device is in production to support existing customers, but TI does not recommend using this part in a new design.
+PREVIEW: Device has been announced but is not in production. Samples may or may not be available.
+OBSOLETE: TI has discontinued the production of the device."
+"[desc] afe88201 __ 2 RoHS Definition [desc]
+(2) RoHS:  TI defines ""RoHS"" to mean semiconductor products that are compliant with the current EU RoHS requirements for all 10 RoHS substances, including the requirement that RoHS substance do not exceed 0.1% by weight in homogeneous materials. Where designed to be soldered at high temperatures, ""RoHS"" products are suitable for use in specified lead-free processes. TI may reference these types of products.# 1. Device Status Definitions
+Consider- PREVIEW: Device has been announced but is not in production. Samples may or may not be available. OBSOLETE: TI has discontinued the production of the device."
+"[desc] afe88201 __ RoHS Definition [desc]
+(2) RoHS:  TI defines ""RoHS"" to mean semiconductor products that are compliant with the current EU RoHS requirements for all 10 RoHS substances, including the requirement that RoHS substance do not exceed 0.1% by weight in homogeneous materials. Where designed to be soldered at high temperatures, ""RoHS"" products are suitable for use in specified lead-free processes. TI may reference these types of products as ""Pb-Free"". RoHS Exempt: TI defines ""RoHS Exempt"" to mean products that contain lead but are compliant with EU RoHS pursuant to a specific EU RoHS exemption. Green: TI defines ""Green"" to mean the content of Chlorine (Cl) and Bromine (Br) based flame retardants meet JS709B low halogen requirements of <=1000ppm threshold. Antimony trioxide based flame retardants must also meet the <=1000ppm threshold requirement."
+"[desc] afe88201 __ Moisture Sensitivity Level [desc]
+(3) MSL, Peak Temp. - The Moisture Sensitivity Level rating according to the JEDEC industry standard classifications, and peak solder temperature."
+"[desc] afe88201 __ Marking Information [desc]
+(4) There may be additional marking, which relates to the logo, the lot trace code information, or the environmental category on the device."
+"[desc] afe88201 __ Device Marking [desc]
+(5) Multiple Device Markings will be inside parentheses. Only one Device Marking contained in parentheses and separated by a ""~"" will appear on a device. If a line is indented then it is a continuation of the previous line and the two combined represent the entire Device Marking for that device."
+"[desc] afe88201 __ Orderable Devices [desc]
+(6) Lead finish/Ball material - Orderable Devices may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum column width."
+"[desc] afe88201 __ TAPE DIMENSIONS [desc]
+Carrier tape  
+Pitch between successive cavity centers  
+Dimension designed to accommodate the component width
+---table begin---
+Table tile: QUADRANT ASSIGNMENTS FOR PIN 1 ORIENTATION IN TAPE
+| Pocket Quadrants | Sprocket Holes |
+|---|---|
+| Q1 | Q1 |
+| Q2 | Q2 |
+| Q3 | Q3 |
+| Q4 | Q4 |
+---table end---"
+"[desc] afe88201 __ Package Specifications [desc]
+---table begin---
+Table tile: Package Specifications
+| Device  | Package Type | Package Drawing | Pins | SPQ | Reel Diameter (mm) | Reel Width W1 (mm) | A0 (mm) | B0 (mm) | K0 (mm) | P1 (mm) | W (mm) | Pin1 Quadrant |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| AFE88201RRUR | UQFN | RRU | 24 | 3000 | 330.0 | 12.4 | 4.25 | 4.25 | 0.8 | 8.0 | 12.0 | Q2 |
+| AFE88201RRUT | UQFN | RRU | 24 | 250 | 180.0 | 12.4 | 4.25 | 4.25 | 0.8 | 8.0 | 12.0 | Q2 |
+---table end---"
+"[desc] afe88201 __ TAPE AND REEL BOX DIMENSIONS [desc]
+*All dimensions are nominal
+---table begin---
+Table tile: TAPE AND REEL BOX DIMENSIONS
+| Device  | Package Type | Package Drawing | Pins | SPQ | Length (mm) | Width (mm) | Height (mm) |
+|---|---|---|---|---|---|---|---|
+| AFE88201RRUR | UQFN | RRU | 24 | 3000 | 367.0 | 367.0 | 35.0 |
+| AFE88201RRUT | UQFN | RRU | 24 | 250 | 210.0 | 185.0 | 35.0 |
+---table end---   "
+"[desc] afe88201 __ PLASTIC QUAD FLATPACK - NO LEAD [desc]
+4225850/A   04/2020
+0.08 C  
+0.1  
+C A B  
+0.05  
+C  
+NOTES:   
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+   per ASME Y14.5M. 
+2. This drawing is subject to change without notice. 
+3. The package thermal pad must be soldered to the printed circuit board for thermal and mechanical performance."
+"[desc] afe88201 __ PLASTIC QUAD FLATPACK - No Lead [desc]
+4225850/A   04/2020
+NOTES: (continued)
+4. This package is designed to be soldered to a thermal pad on the board. For more information, see Texas Instruments literature
+   number SLUA271 (www.ti.com/lit/slua271).
+5. Vias are optional depending on application, refer to device data sheet. If any vias are implemented, refer to their locations shown
+   on this view. It is recommended that vias under paste be filled, plugged or tented."
+"[desc] afe88201 __ PLASTIC QUAD FLATPACK - No Lead [desc]
+4225850/A   04/2020
+NOTES: (continued)
+6. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+   design recommendations."

@@ -1,0 +1,3 @@
+title: Figure 5  EVM  硬件连接方式一
+2.  信号发生器输出一定频率、占空比和幅值的信号连接输入端； 3.  通过示波器测量输出端  OUT  信号。 PWM Generator #1 (f=50kHz, Duty=50% VOH=5V,VOL=0V) Power Supply #1 (15V/0.1A) DMM #1 DC current
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

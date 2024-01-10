@@ -1,0 +1,3 @@
+title: Figure 11   输出高电平峰值电流  IOH
+上海川土微电子有限公司 3 、输出峰值电流  Figure 11   输出高电平峰值电流  IOH （ Cload=180nF ）
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

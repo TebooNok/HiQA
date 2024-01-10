@@ -1,0 +1,3 @@
+title: 图 8-5 BusFault电流电流
+图 8-4 60Ω负载下显性状态电流负载下显性状态电流 图 8-5 BusFault电流电流 image_11
+base name:CA-IF1042_datasheet_Version1

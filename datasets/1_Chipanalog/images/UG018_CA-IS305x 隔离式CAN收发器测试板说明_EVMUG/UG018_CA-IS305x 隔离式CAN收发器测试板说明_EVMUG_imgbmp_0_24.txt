@@ -1,0 +1,3 @@
+图  1  CA-IS305x  DUB8(U) EVM  图
+CA-IS3052U ， CA-IS3052EU  时，信号侧  TXD  实际为  RXD  输出信号， RXD  实际为  TXD  输入信号。 测试板  图  1  CA-IS305x  DUB8(U) EVM  图
+base name:UG018_CA-IS305x 隔离式CAN收发器测试板说明_EVMUG

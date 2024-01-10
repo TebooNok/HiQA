@@ -1,0 +1,3 @@
+title: 图10-2给出了CA-IF1042VS-Q1 版本的典型应用图，VIO电源与MCU的电源连接在一起。
+0. 应用信息应用信息 图10-1给出了CA-IF1042S-Q1版本的典型应用图，VCC电源与MCU的电源连接在一起。 图10-2给出了CA-IF1042VS-Q1 版本的典型应用图，VIO电源与MCU的电源连接在一起。
+base name:CA-IF1042_datasheet_Version1

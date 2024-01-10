@@ -1,0 +1,3 @@
+title: 图  F- 24  在 “Optimizer” 窗口选择需要编辑的设计变量
+1)   在 “Optimizer” 窗口中选择需要编辑的设计变量，被选中的设计变量会被高亮显 示，如图  F- 24  所示。   图  F- 24  在 “Optimizer” 窗口选择需要编辑的设计变量  图  F- 25“Editing Variables” 窗口
+base name:book

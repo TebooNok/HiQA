@@ -1,0 +1,3 @@
+title: 图  11  IOUT  环路控制
+图  11  中， Ix = VDD−EAOUT2 Rx ；   IOUT = VDD−EAOUT2 Rx ∗ 2 − 40(𝑢𝑢𝑢𝑢)  EA OUT VDD1 VREG1 IOUT REFOUT1 EA OUT2 Current mirror VCC
+base name:AN009_利用隔离运算放大器构建隔离电源反馈环路_APPNOTE

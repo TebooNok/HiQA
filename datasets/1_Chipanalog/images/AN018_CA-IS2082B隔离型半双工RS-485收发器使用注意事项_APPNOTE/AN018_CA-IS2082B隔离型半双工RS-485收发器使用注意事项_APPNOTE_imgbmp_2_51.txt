@@ -1,0 +1,3 @@
+title: 图  4  CA-IS2082B  器件应用示意图
+Logic-side VCC 0.1μF 1μF Bus-side VCC 0.1μF Bus-side VCC Rup Rdn Rterm MCU to Bus  图  4  CA-IS2082B  器件应用示意图  Rterm/2 Rdn/N Rup/N
+base name:AN018_CA-IS2082B隔离型半双工RS-485收发器使用注意事项_APPNOTE

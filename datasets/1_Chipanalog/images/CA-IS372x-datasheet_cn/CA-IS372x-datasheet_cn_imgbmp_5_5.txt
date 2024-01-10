@@ -1,0 +1,3 @@
+title: 图 6- 2  CA-IS372x SOIC16-WB  宽体封装顶部视图
+图 6- 2  CA-IS372x SOIC16-WB  宽体封装顶部视图 表  6- 2 CA-IS372x SOIC16-WB  宽体引脚功能描述
+base name:CA-IS372x-datasheet_cn

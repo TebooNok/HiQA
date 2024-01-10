@@ -1,0 +1,3 @@
+title: Not Found
+用环境中能够可靠的通信。工作温度范围支持-40°C到 105°C，具有紧凑的24-pin 4mm*4mm的QFN封装。
+base name:CA-IF428x_datasheet_Version1

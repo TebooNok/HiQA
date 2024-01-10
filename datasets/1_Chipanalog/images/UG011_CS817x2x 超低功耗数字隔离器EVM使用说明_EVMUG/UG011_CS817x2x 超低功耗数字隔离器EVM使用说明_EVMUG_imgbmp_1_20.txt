@@ -1,0 +1,3 @@
+title: Not Found
+S1,S2,S5  和  S6  为测试  SMA  座，通过  BNC-SMA  线缆将信号发生器 (AFG) 和  EVM  的输入信号连接在一起。
+base name:UG011_CS817x2x 超低功耗数字隔离器EVM使用说明_EVMUG

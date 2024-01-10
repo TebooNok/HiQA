@@ -1,0 +1,3 @@
+title: 图  21 EA OUT /EA OUT2  输出电压动态响应 ( 正弦波 )
+图  18 EA OUT2  Offset  随温度变化曲线  图  19 EA OUT  精度随温度变化曲线  图  20 REF OUT  电压随温度变化曲线 EA OUT2 EA OUT +IN 100mV/div 100mV/div 200mV/div 2us/div
+base name:UG010_CA-IS3102W 高稳定性隔离误差放大器测试板说明_EVMUG

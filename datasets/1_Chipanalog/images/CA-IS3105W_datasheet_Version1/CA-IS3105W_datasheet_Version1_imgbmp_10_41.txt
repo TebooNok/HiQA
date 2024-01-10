@@ -1,0 +1,3 @@
+I ISO 50mV/div
+I ISO 50mA/div 130mA 13mA 100us / div 30mV/div VISO I ISO 50mV/div 100us / div VISO 30mV/div I ISO 50mA/div 13mA 130mA 4.85
+base name:CA-IS3105W_datasheet_Version1

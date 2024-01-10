@@ -1,0 +1,3 @@
+title: 图  11-3 DFN8  封装尺寸图
+11.3.   DFN8  外形尺寸 备注: 1.   图中所有数值单位为毫米。 图  11-3 DFN8  封装尺寸图
+base name:CS485xx_datasheet_Version1

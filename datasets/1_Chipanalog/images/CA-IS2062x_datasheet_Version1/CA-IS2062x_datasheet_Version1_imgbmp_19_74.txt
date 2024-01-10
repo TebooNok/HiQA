@@ -1,0 +1,3 @@
+title: 图  10-3  推荐  PCB  电源部分走线
+:PCB top layer :PCB bottom layer :PCB Via （ PIN11 ） V ISO 1 μ F GND2 Bead 图  10-3  推荐  PCB  电源部分走线
+base name:CA-IS2062x_datasheet_Version1

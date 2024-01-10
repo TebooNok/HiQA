@@ -1,0 +1,3 @@
+图  1  CA-IS3092W PCB  的  3D  仿真图
+下面以  CA-3092W  为例 , 介绍  CA-IS3092W/98W  的测试说明。 测试板  3D  仿真图  图  1  CA-IS3092W PCB  的  3D  仿真图
+base name:UG004_CA-IS3092W_98W 带电源的数字隔离器测试板说明_EVMUG

@@ -1,0 +1,3 @@
+title: 图  1.  隔离开关电源简化框图
+考虑到隔离放大器相比于光耦的诸多优势，越来越多的电源设计开始采用隔离放大器。下面，我们就对两种隔离技术 进行说明和对比。  + - +IN -IN COMP DRV Control R T R B Z1 Z2 Vin Vo GND1 GND2 REFOUT2
+base name:AN009_利用隔离运算放大器构建隔离电源反馈环路_APPNOTE

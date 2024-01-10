@@ -1,0 +1,3 @@
+title: Figure 2   原理图
+上海川土微电子有限公司 原理图  Figure 2   原理图 注：原理图以  CA-IS3211VxJ （ SOIC6-WB ）为例。
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

@@ -1,0 +1,3 @@
+title: 图  10-3   推荐  PCB  电源部分走线
+外部电源； VISO IN  是  B  侧隔离器供电引脚，需要对  GNDB  接  1μF  电容。图  10-2  展示了  VDDL  和  VDDP  共用一个电源时的 PCB  布线。  0.1μF 10μF VDDP VISO OUT VDDL GNDA GNDA VISO IN GNDB GNDB
+base name:CA-IS2631HA_datasheet_Version1

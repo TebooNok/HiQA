@@ -1,0 +1,3 @@
+title: 下图为SOIC8封装尺寸图和建议焊盘尺寸图。尺寸以毫米为单位
+Copyright © 2019, Chipanalog Incorporated                                                                                                                                                                                          21 上海川土微电子有限公司上海川土微电子有限公司 11. 封装信息封装信息 SOIC8外形尺寸外形尺寸 下图为SOIC8封装尺寸图和建议焊盘尺寸图。尺寸以毫米为单位 图11- 1 SOIC8封装尺寸图封装尺寸图
+base name:CA-IF1051S_VS-Q1_datasheet_version1

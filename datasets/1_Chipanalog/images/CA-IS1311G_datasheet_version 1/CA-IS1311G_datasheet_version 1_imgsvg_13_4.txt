@@ -1,0 +1,3 @@
+title: 图图 8-1 共模抑制比测试电路共模抑制比测试电路
+14                                                                                                                                                                                     Copyright © 2022, Chipanalog Incorporated 上海川土微电子有限公司上海川土微电子有限公司 8 参数测量信息参数测量信息 注备注: 1. 高压浪涌脉冲发生器产生振幅> 1 kV，上升/下降时间< 10 ns，达到共模瞬态噪声压摆率> 150 kV/μs的重复高压脉冲。
+base name:CA-IS1311G_datasheet_version 1

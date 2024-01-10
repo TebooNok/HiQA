@@ -1,0 +1,3 @@
+title: 图  3  基于电容隔离运算放大器的开关电源框图
++ - +IN -IN COMP Z1 Z2 Vin Vo Driver Primary Side Secondary Side
+base name:AN009_利用隔离运算放大器构建隔离电源反馈环路_APPNOTE

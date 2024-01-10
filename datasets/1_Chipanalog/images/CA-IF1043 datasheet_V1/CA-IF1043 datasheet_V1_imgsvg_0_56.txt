@@ -1,0 +1,3 @@
+title: Not Found
+故障保护电压±58V，包含许多保护功能，如热关断， TXD显性超时保护和电源欠压保护，以提高器件和CAN 的稳定性。 器件信息器件信息
+base name:CA-IF1043 datasheet_V1

@@ -1,0 +1,3 @@
+title: 图6-2 CA-IF48xxFS/CA-IF48xxFD/CA-IF48xxFM引脚图引脚图
+Copyright © 2019, Chipanalog Incorporated                                                                                                                                                                                       5 上海川土微电子有限公司上海川土微电子有限公司 6.2. CA-IF48xx全双工收发器全双工收发器 图6-2 CA-IF48xxFS/CA-IF48xxFD/CA-IF48xxFM引脚图引脚图 表6-2. CA-IF48xxFS/CA-IF48xxFD/CA-IF48xxFM引脚功能描述引脚功能描述
+base name:CA-IF48xx_datasheet_Version1

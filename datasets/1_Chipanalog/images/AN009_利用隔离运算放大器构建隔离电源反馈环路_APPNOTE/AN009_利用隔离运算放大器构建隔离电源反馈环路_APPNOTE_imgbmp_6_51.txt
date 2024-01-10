@@ -1,0 +1,3 @@
+title: 图  11  IOUT  环路控制
+EA OUT VDD1 VREG1 IOUT REFOUT1 EA OUT2 Current mirror VCC Controller VDD Rx COMP Ix  图  11  IOUT  环路控制  由此，可以求出从  EA OUT2  至  IOUT  的电流信号传递函数为：
+base name:AN009_利用隔离运算放大器构建隔离电源反馈环路_APPNOTE

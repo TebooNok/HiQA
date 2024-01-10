@@ -1,0 +1,3 @@
+title: Not Found
+Figure 3  Top Layer  Figure 4  Bottom Layer 注： PCB  布局以  CA-IS3211VxJ （ SOIC6-WB ）为例。
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

@@ -1,0 +1,3 @@
+title: 图  5- 34 “Results Browser” 窗口
+流。在 “Results Browser” 中，为交流仿真的结果提供了几个常用的函数。图  5- 36  给出 了针对交流仿真结果， “Results Browser” 中的快捷键栏。  图  5- 34 “Results Browser” 窗口
+base name:book

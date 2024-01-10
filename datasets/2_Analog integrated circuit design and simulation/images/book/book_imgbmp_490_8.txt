@@ -1,0 +1,3 @@
+title: 图  A- 20  精确结构拷贝后的子单元 “down” （ “Extra Views” 栏中无内容）
+式，还会将子单元 “down” 的 “veirloga” 显示方式作为额外拷贝一同拷贝到设计库 “new” 中， 如图  A- 21  所示。  图  A- 20  精确结构拷贝后的子单元 “down” （ “Extra Views” 栏中无内容）
+base name:book

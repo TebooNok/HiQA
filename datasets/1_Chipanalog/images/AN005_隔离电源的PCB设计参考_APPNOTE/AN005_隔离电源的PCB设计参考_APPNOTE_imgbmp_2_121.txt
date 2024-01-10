@@ -1,0 +1,3 @@
+title: 图  9
+V CC VIA GND1 V ISO GND1 V CC V CC GND1 GND1 GND2 GND2 GND2 ≥ 8mm V ISO V ISO  图  9
+base name:AN005_隔离电源的PCB设计参考_APPNOTE

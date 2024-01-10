@@ -1,0 +1,3 @@
+图  1  CA-IF4805HM EVM  图
+下面以  CA-IF4805HM  为例 , 介绍  CA-IF4805HM  系列的测试说明。 测试板  图  1  CA-IF4805HM EVM  图
+base name:UG024_CA-IF48xxHM RS-485收发器测试板说明_EVMUG

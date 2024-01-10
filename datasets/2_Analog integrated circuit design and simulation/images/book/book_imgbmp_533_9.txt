@@ -1,0 +1,3 @@
+title: 图  C- 1  典型的“ Waveform ”窗口
+窗口的使用，可以大幅提高对仿真结果的分析能力。 C.1     “ Waveform ”窗口简介 C.1.1    “Waveform” 窗口界面。  图  C- 1  典型的“ Waveform ”窗口 C.1.2     “ Waveform ”窗口的菜单
+base name:book

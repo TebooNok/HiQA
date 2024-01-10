@@ -1,0 +1,3 @@
+title: 图  A- 50  用于瞬态仿真的  RC  电路
+图  A- 50  用于瞬态仿真的  RC  电路
+base name:book

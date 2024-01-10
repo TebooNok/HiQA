@@ -1,0 +1,3 @@
+title: 图  8- 39  在 “Calculator” 中保存缓存中编辑好的温漂系数计算公式
+式保存。在 “Calculator” 中的 “Memories” 下拉菜单，选择 “Table” � “New Memories” 命 令，如图  8- 39  所示：  图  8- 39  在 “Calculator” 中保存缓存中编辑好的温漂系数计算公式 在 “Calculator” 中，原来显示函数的窗口将显示 “Memories Editor” 窗口，在该窗
+base name:book

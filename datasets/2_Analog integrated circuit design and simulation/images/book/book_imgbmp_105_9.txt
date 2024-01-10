@@ -1,0 +1,3 @@
+title: 图  4- 20 “Noise Analysis” 设定窗口
+后就等于等效输入噪声。下面着重讲述 “Output Noise” 和 “Input Noise” 的设置。  图  4- 20 “Noise Analysis” 设定窗口 1.    “Output Noise”
+base name:book

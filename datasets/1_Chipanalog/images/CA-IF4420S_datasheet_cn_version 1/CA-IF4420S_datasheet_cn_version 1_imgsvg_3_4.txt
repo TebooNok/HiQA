@@ -1,0 +1,3 @@
+title: 图6- 1 CA-IF4420S引脚图引脚图
+4                                                                                                                                                                                     Copyright © 2019, Chipanalog Incorporated 上海川土微电子有限公司上海川土微电子有限公司 . 引脚功能描述引脚功能描述 图6- 1 CA-IF4420S引脚图引脚图 表6- 1 CA-IF4420S引脚功能描述引脚功能描述
+base name:CA-IF4420S_datasheet_cn_version 1

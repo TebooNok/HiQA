@@ -1,0 +1,3 @@
+上海川土微电子有限公司
+上海川土微电子有限公司 BOM  清单 Items  Designator  Description  Footprint  Quantity  Vendor  PN.
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

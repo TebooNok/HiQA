@@ -1,0 +1,3 @@
+R L =NC
+VDDP=5V,  VISOOUT=5V VDDP=5V,  VISOOUT=3.3V VDDP=3.3V,  VISOOUT=3.3V R L =NC V ISO   20mV/div 20μs/div 100mA/div   I ISO 1ms/div V ISO
+base name:CA-IS2092A_datasheet_Version1

@@ -1,0 +1,3 @@
+title: 化电路图简化电路图
+A-IS1300B25G-Q1器件通过宽体八脚SOIC封装 ，支持 在汽车温度范围内（–40°C 到125°C）正常工作。 件信息器件信息 化电路图简化电路图
+base name:CA-IS1300B25G-Q1_datasheet_version1

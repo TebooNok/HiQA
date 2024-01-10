@@ -1,0 +1,3 @@
+2V/div
+50mA/div 500ms / div VINP 2V/div I ISO VISO 50mA/div 2V/div 5us / div V ISO 10mV/div 100us / div VISO 30mV/div I ISO 50mA/div
+base name:UG007_CA-IS3105W 隔离电源测试板说明_EVMUG

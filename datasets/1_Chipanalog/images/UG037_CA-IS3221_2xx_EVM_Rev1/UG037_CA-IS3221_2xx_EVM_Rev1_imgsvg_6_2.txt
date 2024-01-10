@@ -1,0 +1,3 @@
+title: Not Found
+www.chipanalog.com                                                                                                                                                     Rev1.0, Jun ,2023
+base name:UG037_CA-IS3221_2xx_EVM_Rev1

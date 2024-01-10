@@ -1,0 +1,3 @@
+2V/div
+2V/div 2V/div V DI 1μs / div V OD 2V/div V RO 2V/div 2V/div
+base name:UG016_CA-IS2092W 带电源的数字隔离器测试板说明_EVMUG

@@ -1,0 +1,3 @@
+title: 图  D- 3 “ Calculator ”工作模式选择
+中选中“ Set RPN ”，则进入逆波兰模式，如图  D- 3  所示。不选中“ Set RPN ”则是代数模 式。  图  D- 3 “ Calculator ”工作模式选择 D.1.4   输入常数 在菜单中选择“ Const ”下拉菜单，可以在里面选择常用的常数，加入到缓存中，如图
+base name:book

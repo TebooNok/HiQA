@@ -1,0 +1,3 @@
+VINP =5V ， V ISO= 5V ， I ISO =300mA  ， V ISO  纹波电压峰峰值   VINP =5V ， V ISO =3.3V ， I ISO =300mA  ， V ISO  纹波电压峰峰值
+VINP =5V ， V ISO= 5V ， I ISO =300mA  ， V ISO  纹波电压峰峰值   VINP =5V ， V ISO =3.3V ， I ISO =300mA  ， V ISO  纹波电压峰峰值
+base name:CA-IS3115x_datasheet_preliminary_规格书

@@ -1,0 +1,3 @@
+title: 图  11- 1  推荐  PCB  电源部分走线
+板，增加内部地层加强散热同时能屏蔽电磁辐射有助于改善  EMI 。部分  PCB  走线如图  11- 1  所示。 VINP GNDP VISO GNDS 10 μ F 10 μ F 0.1 μ F 0.1 μ F <2mm <2mm
+base name:CA-IS3115x_datasheet_preliminary_规格书

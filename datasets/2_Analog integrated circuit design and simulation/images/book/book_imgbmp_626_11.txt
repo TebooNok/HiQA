@@ -1,0 +1,3 @@
+title: 图  F- 7“Optimizer” 窗口的菜单
+在 “Status Display” 中显示的当前优化器所处的工作状态。例如， “Status Display” 中的显 示表明优化器是在进行仿真，还是处于其他的工作状态。 �   Menu  图  F- 7“Optimizer” 窗口的菜单
+base name:book

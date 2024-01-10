@@ -1,0 +1,3 @@
+title: 图8-5. VCCI/VDD_ UVLO上电延时上电延时
+(取决于电源摆率)，驱动器将输出置于低电平。该延迟时间设计可确保系统在出现VCCI或VDDA/VDDB断电情况下的安 全工作。 图8-5. VCCI/VDD_ UVLO上电延时上电延时
+base name:CA-IS322x-Q1_Version1

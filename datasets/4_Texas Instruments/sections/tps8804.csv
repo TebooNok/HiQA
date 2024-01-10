@@ -1,0 +1,928 @@
+section
+"[desc] tps8804 __ TPS8804 烟雾探测器 AFE [desc]
+特性
+•照相室 AFE
+–双 8 位可编程电流 LED 驱动器
+–LED 电流温度补偿
+–用于光电二极管的超低失调电压运算放大器
+–可编程和可旁路增益级
+•一氧化碳传感器 AFE
+–超低失调电压增益级
+–可编程增益和基准
+•电源管理
+–用于外部微控制器的可编程 LDO
+•SLC 接口发送器和接收器
+•超低功耗
+•I2C 串行接口
+•宽输入电压范围"
+"[desc] tps8804 __ 应用 [desc]
+烟雾和一氧化碳探测器"
+"[desc] tps8804 __ 说明 [desc]
+TPS8804 集成了双波光电烟雾探测和一氧化碳探测系
+统所需的所有放大器和驱动器。它的高度灵活性非常适
+合精度和功耗至关重要的烟雾探测系统。"
+"[desc] tps8804 __ 说明 __ 器件信息 [desc]
+---table begin---
+Table tile: 器件信息
+| 器件型号 | 封装 | 封装尺寸（标称值） |
+|---|---|---|
+| TSSOP(38) | 9.7mm x 4.4mm | 如需了解所有可用封装，请参阅数据表末尾的可订购产品附录。 |
+---table end---"
+"[desc] tps8804 __ 简化版应用 [desc]
+VSLC
+TPS8804
+PLDO
+AMUX
+AGND
+SLC_RX
+VCC
+VINT
+VMCU
+MCUSEL
+MCU
+ADC
+GPIO
+I2C
+GPIO
+LEDEN
+GPIO
+SCL
+SDA
+CSEL
+MCU_TX1
+MCU_RX
+VIN
+PGND DGND
+SLC_TX1
+CSA
+DINA
+PDO
+PDN
+PDP
+PREF
+COO
+Photo 
+Chamber
+Pre-Regulator
+5V to 15V
+VLINE
+REF0P3
+COP
+CON
+CO
+Sensor
+VLINE
+LEDLDO
+DINB
+CSB
+Blue
+IR"
+"[desc] tps8804 __ Pin Configuration and Functions [desc]
+Thermal 
+Pad
+VCC
+REF0P3
+COP
+PREF
+CON
+AMUX
+COO
+DGND
+MCU_TX1
+LEDEN
+CSEL
+SCL
+SDA
+GPIO
+SLC_RX
+MCU_RX
+VMCU
+PLDO
+VINT
+20
+38
+36
+37
+35
+33
+34
+32
+30
+31
+29
+27
+28
+26
+24
+25
+23
+21
+22
+VSLC
+RESERVED
+RESERVED
+RESERVED
+LEDLDO
+PDP
+AGND
+PDN
+CSA
+PDO
+DINA
+DINB
+CSB
+MCUSEL
+SLC_TX2
+SLC_TX1
+MCU_TX2
+RESERVED
+PGND"
+"[desc] tps8804 __ Pin Configuration and Functions __ Pin Functions [desc]
+---table begin---
+Table tile: Pin Functions
+| PIN | I/O | DESCRIPTION | NAME | NO. |
+|---|---|---|---|---|
+| AGND | I | Analog ground. Connect to ground plane. | AMUX | 33 |
+| CON | I | Negative terminal of CO operational amplifier. Connect to GND if unused. | COO | 34 |
+| COP | I | Positive terminal of CO operational amplifier. Connect to GND if unused. | CSA | 9 |
+| CSB | I | LED driver B current sense. Connect to GND if unused. | CSEL | 29 |
+| DGND | I | Digital ground. Connect to AGND. | DINA | 10 |
+| DINB | I | LED driver B current sink. Connect to cathode of LED. Connect to GND if unused. | GPIO | 26 |
+| LEDEN | I | LED driver enable. Do not leave floating while device is powered. | LEDLDO | 4 |
+| MCU_RX | O | SLC interface output for receiving data from VLINE. | MCU_TX1 | 30 |
+| MCU_TX2 | I | Secondary SLC interface input for transmitting data to VLINE. | MCUSEL | 13 |
+| PDN | I | Photo input amplifier negative input. Connect to cathode of photodiode. | PDO | 8 |
+| PDP | I | Photo input amplifier positive Input. Connect to anode of photodiode. | PGND | 17 |
+---table end---# 6. Specifications"
+"[desc] tps8804 __ Pin Configuration and Functions __ Absolute Maximum Ratings [desc]
+---table begin---
+Table tile: Absolute Maximum Ratings over operating free-air temperature range
+| PARAMETER | MIN | MAX | UNIT |
+|---|---|---|---|
+| Power IO | -0.3 | 16.5 | V |
+| Analog IO | -0.3 | 12 | V |
+| Analog connections | -0.3 | VINT + 0.3 or 3.6, whichever is lower | V |
+| LDO outputs | -0.3 | PLDO + 0.3 or 3.6, whichever is lower | V |
+| LED current sense | -0.3 | DINA + 0.3 or 3.6, whichever is lower | V |
+| LED current sense | -0.3 | DINB + 0.3 or 3.6, whichever is lower | V |
+| Photo amplifier inputs | -0.3 | 3.6 | V |
+| PLDO voltage | -0.3 | 7.0 | V |
+| SLC receiver | -0.3 | 18 | V |
+| Digital IO | -0.3 | VMCU + 0.3 or 3.6, whichever is lower | V |
+| Max operating ambient temperature | -40 | 125 | °C |
+| Max operating junction temperature | -40 | 125 | °C |
+---table end---"
+"[desc] tps8804 __ Pin Configuration and Functions __ ESD Ratings [desc]
+---table begin---
+Table tile: ESD Ratings over operating free-air temperature range
+| Parameter | Value | UNIT |
+|---|---|---|
+| V(ESD) Human-body model (HBM), per ANSI/ESDA/JEDEC JS-001 1 | ±3000 | V |
+| Charged-device model (CDM), per JEDEC specification JESD22-C101 2 | ±1500 | V |
+---table end---"
+"[desc] tps8804 __ Pin Configuration and Functions __ Recommended Operating Conditions [desc]
+---table begin---
+Table tile: Recommended Operating Conditions over operating free-air temperature range
+| PARAMETER | MIN | MAX | UNIT |
+|---|---|---|
+| SLC transmitter supply | 4.5 | 15.6 | V |
+| Power supply | 2.6 | 15.6 | V |
+| LED driver | 0 | 11.5 | V |
+| SLC receiver | 0 | 17 | V |
+| Digital IO | 0 | VMCU | V |
+| Digital IO supply | 1.425 | 3.6 | V |
+| Ambient temperature | –40 | 85 | °C |
+| Junction temperature | –40 | 85 | °C |
+---table end---"
+"[desc] tps8804 __ PHOTO CHAMBER INPUT STAGE AMPLIFIER [desc]
+---table begin---
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| VPDO | Output voltage range PAMP_EN=1, Feedback network: 1.5M Ω, 10pF | 0 | 0.5 | V |
+| fPDIN, BW | Unity Gain Bandwidth | 1 | 5 | MHz |
+| VPDIN, OFS | Input Offset Voltage | -530 | -195 | 240 | µV |
+| VPDO, OFS | Output Offset Voltage 50mV applied to PDP with 1.5MΩ series resistor. 1.5MΩ resistor connects PDN to PDO. Voltage measured between 50mV and PDO. | -10 | 10 | mV |
+| fPDIN, CHOP | Chop Frequency | 2 | MHz |
+---table end---"
+"[desc] tps8804 __  [desc]
+---table begin---
+Table title: Name of Table
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| V/V | VPDO1=10mV,  VPDO2=20mV, PREF_SEL=0, PGAIN[1:0] = 01 | 10.67 | 11 | 11.33 | V/V |
+| V/V | VPDO1=10mV,  VPDO2=20mV, PREF_SEL=0, PGAIN[1:0] = 10 | 19.4 | 20 | 20.6 | V/V |
+| V/V | VPDO1=10mV,  VPDO2=20mV, PREF_SEL=0, PGAIN[1:0] = 11 | 33.95 | 35 | 36.05 | V/V |
+| Closed Loop Gain Slope (VAOUT_PH2- VAOUT_PH1)/(VSIG2-VSIG1). Apply VSIG1 from PREF to PDO and measure AOUT_PH. Apply VSIG2 from PREF to PDO and measure AOUT_PH | VSIG1=10mV, VSIG2=20mV, PREF_SEL=1, PGAIN[1:0] = 00 | 4.61 | 4.75 | 4.89 | V/V |
+|---| VSIG1=10mV,  VSIG2=20mV, PREF_SEL=1, PGAIN[1:0] = 01 | 10.09 | 10.4 | 10.71 | V/V |
+|---| VSIG1=10mV,  VSIG2=20mV, PREF_SEL=1, PGAIN[1:0] = 10 | 17.94 | 18.5 | 19.06 | V/V |
+|---| VSIG1=10mV,  VSIG2=20mV, PREF_SEL=1, PGAIN[1:0] = 11 | 31.28 | 32.25 | 33.22 | V/V |
+---table end---"
+"[desc] tps8804 __  [desc]
+---table begin---
+ | PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| FPGAIN, BW | Unity Gain Bandwidth | 1 | 5 | 8 | MHz |
+| VPGAIN, OFS | Input offset Voltage | -6 |  | 5 | mV |
+| TPGAIN, SET | Gain amplifier settling time. Time between stepping the voltage and measuring 90% of the final value + 10% of the initial value at AOUT_PH | PGAIN[1:0]=00. PDO stepped from 3mV to 30mV. PREF_SEL=0 | 1.8 |  | 2.522 | µs |
+| IPGAIN, ACT | Active current. Current does not include bias block. | 1.0 V input voltage, PGAIN[1:0] = 00, PGAIN_EN = 1 | 40 |  | 70 | µA |
+| LED LDO | VLEDLDO LEDLDO output voltage range  | 7.5 |  | 10 | V |
+| VLEDLDO,ACC | LDO output accuracy | I_LEDLDO = 0uA to 100uA | -5 |  | 5 | % |
+| VLEDLDO, RES | LED LDO output step size | 0.5 |  |  | V |
+| ILEDLDO, OUT | LDO output current limit | 1 | 3 | 6 | mA |
+| ILEDLDO, Q | Quiescent current. Current does not include bias block. | 31 |  | 60 | µA |
+---table end---"
+"[desc] tps8804 __  [desc]
+---table begin---
+ | PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| VLEDLDO, DROP LED LDO dropout voltage | VSLC=7V, ILEDLDO=100uA | 565 |  | 1000 | mV |
+---table end---"
+"[desc] tps8804 __ LED Current [desc]
+ED≈158mA, 0.8% temp 
+coefficient)
+300
+mV
+PLDO=3.6V, RCSA=820mΩ, 
+TEMPCOA[1:0]=01, 
+PDAC_A[7:0]=0x79, TJ=27°C 
+(I_LED≈507mA, 0.1% temp 
+coefficient)
+500
+mV
+IDINA
+LED current
+0
+550
+mA"
+"[desc] tps8804 __ LED Driver B [desc]
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| NPDACB, RES | Resolution | 8 | Bits |
+| VCSB | CSB output voltage | TJ = 27°C TEMPCOB[1:0] = 00, PDAC_B = 00, RCSB=1  kOhms, VDINB=3V | 271 | 299 | 327 | mV |
+---table end---"
+"[desc] tps8804 __ CO TRANSIMPEDANCE [desc]
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| RI, CO | CO input resistance | COSWRI = 1 | 0.7 | 1 | 1.5 | kΩ |
+---table end---"
+"[desc] tps8804 __ SLC Interface [desc]
+---
+以上是格式转换后的源码。# 1.0.0. PARAMETER VALUES
+---table begin---
+Table title: Parametric Values
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| RCOTEST, PU | COTEST pull up FET resistance | 0.36 | 0.76 | 1.1 | kΩ |
+|RCOTEST, PD | COTEST pull-down FET resistance | 0.25 | 0.37 | 0.82 | kΩ |
+---table end---"
+"[desc] tps8804 __ SLC Interface __ SLC INTERFACE [desc]
+---table begin---
+Table title: SLC Interface
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| tSLCRX, DEG | SLC receiver deglitch time | SLCRX_EN=1, SLCRX_DEG[1:0]=00 | 0 | 0 | 0.065 | ms |
+|...|...|...|...|...|...|
+---table end---"
+"[desc] tps8804 __ SLC Interface __ SLC INTERFACE __ ANALOG MULTIPLEXER [desc]
+---table begin---
+Table title: Analog Multiplexer
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| VMUX | Multiplexer buffer input signal voltage range | AMUX_BYP=0 | 0.05 | 2 | V |
+|...|...|...|...|...|...|
+---table end---"
+"[desc] tps8804 __ SLC Interface __ SLC INTERFACE __ OSCILLATOR, REFERENCE SYSTEM [desc]
+---table begin---
+Table title: Oscillator, Reference System
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| fOSC8 | Oscillator frequency | 8 | | | MHz |
+|...|...|...|...|...|...| 
+---table end---"
+"[desc] tps8804 __ SLC Interface __ SLC INTERFACE __ IO BUFFERS [desc]
+---table begin---
+Table title: IO Buffers
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| VIO, ILO | IO buffer input low threshold | LEDEN, CSEL, MCU_TX1, MCU_TX2, GPIO | 0.3×VMCU | 0.7× VMCU | | V |
+|...|...|...|...|...|...|
+---table end---"
+"[desc] tps8804 __ SLC Interface __ SLC INTERFACE __ IO Buffers Parameters [desc]
+---table begin---
+Table title: IO Buffers Parameters
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| VIO, OL | IO buffer output low-level MCU_RX, GPIO. IIO = 3 mA,  VMCU = 1.8 V | 0 | 0.19 | 0.6 | V |
+| MCU_RX, GPIO. IIO = 1 mA,  VMCU = 1.5 V | 0 | 0.20 | 0.6 | V |
+| VIO, OH | IO buffer output high-level. Spec is the voltage drop from VMCU (i.e., VMCU - VOH) MCU_RX, GPIO. IIO = -3 mA,  VMCU = 1.8 V | 0 | 0.30 | 0.6 | V |
+| MCU_RX, GPIO. IIO = -1 mA,  VMCU = 1.5 V | 0 | 0.37 | 0.6 | V |
+---table end---"
+"[desc] tps8804 __ SLC Interface __ SLC INTERFACE __ I2C IO Parameters [desc]
+---table begin---
+Table title: I2C IO Parameters
+| PARAMETER | TEST CONDITIONS | MIN | TYP | MAX | UNIT |
+|---|---|---|---|---|---|
+| VI2C,IL | Low-level input voltage | -0.5 |  | 0.3 × VMCU | V |
+| VI2C,IH | High-level input voltage | 0.7 × VMCU |  |  | V |
+| VI2C,HYS | Hysteresis of Schmitt trigger inputs | 0.05 × VMCU |  |  | V |
+| VI2C,OL | Low-level output voltage 3 mA sink current; VMCU >2V | 0 | | 0.4 | V |
+| 2 mA sink current; VMCU < 2V | 0 |  | 0.2 × VMCU | V |
+| II2C,OL | Low-level output current VOL = 0.4 V | 2.5 |  |  | mA |
+| VOL = 0.6 V | 4 |  |  | mA |
+---table end---"
+"[desc] tps8804 __ SLC Interface __ SLC INTERFACE __ Mode [desc]
+---table begin---
+Table tile: Standard-Mode and Fast-Mode comparison
+| Function | Standard-Mode | Fast-Mode |
+|---|---|---|
+| tSU;STO (set-up time for STOP condition) | 4 µs | 0.6 µs |
+| tBUF (bus free time between a STOP and START condition) | 4.7 µs | 1.3 µs |
+| tVD;DAT (data valid time) | 3.45 µs | 0.9 µs |
+| tVD;ACK (data valid acknowledge time) | 3.45 µs | 0.9 µs |
+| CBUS (capacitive load for each bus line) | 400 pF | 250 pF |
+| VNL (noise margin at the LOW level for each connected device (including hysteresis)) | 0.1 × VMCU | V |
+| VNH (noise margin at the HIGH level for each connected device (including hysteresis)) | 0.2 × VMCU | V |
+---table end---"
+"[desc] tps8804 __ 6 Typical Characteristics [desc]
+TA = 27°C, VCC = 3.65 V
+---table begin---
+Table tile: 8 MHz Oscillator Current and Bias Block Current
+| Current (µA) | Counts |
+|---|---|
+| 5 | 1 |
+| 10 | 1 |
+| 15 | 1 |
+| 20 | 5 |
+| 25 | 5 |
+| 30 | 13 |
+| 35 | 16 |
+| 40 | 16 | 
+---table end---"
+"[desc] tps8804 __ 1 Overview [desc]
+The TPS8804 integrates an analog supply LDO, digital supply LDO, photoelectric chamber analog front end 
+(AFE), carbon monoxide sensor AFE, SLC interface driver, analog multiplexer, and digital core. The high 
+integration greatly reduces component count in smoke detectors and carbon monoxide detectors. The two LED 
+drivers have highly configurable temperature compensation to support IR and blue LEDs over a wide range of 
+currents. The wide bandwidth of the photo-amplifier saves power due to reduced LED on-time. The CO amplifier 
+has integrated gain resistors. The SLC interface driver connects to the two-wire power line, driving it low and 
+sensing when the line has been pulled low. Each block is highly configurable with the digital core I2C interface, 
+supporting on-the-fly adjustment of amplifier gains, regulator voltages, and driver currents. Configurable status 
+and interrupt signal registers alert the MCU of fault conditions such as under-voltage, over-temperature, and 
+SLC power alerts."
+"[desc] tps8804 __ 3 Feature Description __ 1 System Power-up [desc]
+---table begin---
+Table tile: Power-up State Diagram
+| State | Description |
+|---|---|
+| Active | All blocks configurable |
+| Shutdown | VCC>VPWRUP, INTLDO enabled |
+| Wait 6 ms | Registers loaded |
+| VCC<VPWRDOWN | Wait 2ms |
+| Set VMCUSET[0:1] based on MCUSEL pin | Enable MCU LDO |
+| Wait for MCU_PG=1 | MCU_PG=1 |
+| Power Up | |
+---table end---
+The TPS8804 can power-up from a DC power supply above 3.6 V connected to the VCC pin. When the VCC 
+voltage exceeds the VPWRUP threshold, the TPS8804 initializes for 6 ms. After the initialization, the MCUSEL pin 
+is sensed for 2 ms to determine the MCU.# 7.3. Feature Description"
+"[desc] tps8804 __ 3 Feature Description __ 1 System Power-up __ System Power-up [desc]
+---table begin---
+Table tile: VMCU Power-up Voltage
+| MCUSEL Connection | VMCU (V) |
+|---|---|
+| 620-Ω to GND | 1.5 |
+| Short to GND | 1.8 |
+| Short to VINT | 2.5 |
+| 330-pF to GND | 3.3 |
+---table end---"
+"[desc] tps8804 __ 3 Feature Description __ 1 System Power-up __ LDO Regulators __ Power LDO Regulator [desc]
+The power LDO is a voltage clamp that supplies many of the internal blocks in the TPS8804, including the internal LDO and MCU LDO. Because the power LDO is designed to clamp the VCC voltage, it is not precise and varies with VCC voltage and load. The power LDO shorts VCC and PLDO when the VCC voltage is below approximately 5 V, and regulates VCC when VCC is above approximately 5 V. The power LDO has a dropout voltage of approximately 1 V when it is regulating VCC. When the power LDO transitions from shorting to regulating, the PLDO voltage drops by approximately 1 V. Connect a 1-µF capacitor to PLDO to stabilize the PLDO voltage.
+The power LDO is designed for use by the device and can be used to supply external circuitry that has a voltage limit of 7 V. The power LDO can also be used to supply the IR or blue LED anode through a diode."
+"[desc] tps8804 __ 3 Feature Description __ 1 System Power-up __ LDO Regulators __ Internal LDO Regulator [desc]
+The internal LDO (INT LDO) regulator powers the TPS8804 amplifiers and digital core with a stable 2.3 V supply. Connect a 1-µF capacitor to VINT to stabilize the output. The INT LDO is always enabled when the device is powered. The INT LDO can be used to supply external circuitry. It is not recommended to power noisy or switching loads with INT LDO, as any noise on VINT couples to the internal amplifiers and can generate noise. The INT LDO can be used in the CO connectivity test circuitry and the photo reference circuitry."
+"[desc] tps8804 __ 3 Feature Description __ 1 System Power-up __ LDO Regulators __ Microcontroller LDO Regulator [desc]
+The microcontroller LDO (MCU LDO) powers the internal digital input and output buffers (IO buffers) and external MCU that controls and programs the TPS8804. Connect a 1-µF capacitor to VMCU to stabilize the output. The MCU LDO can be programmed to output 1.5 V, 1.8 V, 2.5 V, and 3.3 V. The default MCU LDO setting is determined by the configuration on the MCUSEL pin (see 表 7-1). After the device is powered, the MCU LDO voltage can be changed using the VMCUSET register. The MCU LDO can also be disabled using the MCU_DIS register.
+The MCU LDO output VMCU powers the IO buffers on SCL, SDA, CSEL, GPIO, LEDEN, MCU_RX, MCU_TX1, MCU_TX2. The IO buffers level shift signals from the digital core to a level suitable for the microcontroller and signals from the microcontroller to a level suitable for the digital core. In general, connect VMCU to the microcontroller supply voltage to guarantee logic level compatibility. If the MCU LDO is disabled, connect an external# 7.1. MCU LDO Voltage Adjustment
+After the device is powered, the MCU LDO voltage can be changed using the VMCUSET register. The MCU LDO can also be disabled using the MCU_DIS register.
+The MCU LDO output VMCU powers the IO buffers on SCL, SDA, CSEL, GPIO, LEDEN, MCU_RX, MCU_TX1, MCU_TX2. The IO buffers level shift signals from the digital core to a level suitable for the microcontroller and signals from the microcontroller to a level suitable for the digital core. 
+Generally, connect VMCU to the microcontroller supply voltage to guarantee logic level compatibility. If the MCU LDO is disabled, connect an external supply to VMCU.
+The MCU LDO has a power good signal MCU_PG that indicates whether the MCU LDO is above 85% the regulation voltage. A 125-µs deglitch filter prevents noise from affecting the MCU_PG signal. If MCU_PG is low after 10 ms of changing the MCU LDO voltage or enabling the MCU LDO, the MCU_ERR flag is set high. If the MCU_ERR flag is high and MCUERR_DIS is low, the MCU LDO fault state is entered. See 节 7.4.1.1 section for more information."
+"[desc] tps8804 __ 3 Feature Description __ 1 System Power-up __ Photo Chamber AFE [desc]
+The TPS8804 photo amplifier connects to a photoelectric chamber photodiode and has two stages—an input stage and gain stage. When the photoelectric chamber LED is enabled, light scatters off smoke particles in the chamber into the photodiode, producing a signal proportional to the smoke concentration. The output of each photo amplifier stage is connected to the AMUX for ADC reading. This configuration provides high bandwidth and dynamic range for the photodiode signal chain as the gain stage is on-the-fly adjustable."
+"[desc] tps8804 __ 3 Feature Description __ 1 System Power-up __ Photo Chamber AFE __ Photo Input Amplifier [desc]
+The input stage is a wide-bandwidth, low-offset op-amp designed for amplifying photodiode currents. In 图 7-2, negative feedback causes the photodiode to conduct with zero voltage bias. The photo-current flows through resistors connected from PDP to a reference (GND or PREF) and PDN to PDO. These two resistors determine the gain of the input stage. The same value must be used for these two resistors because PDP and PDN leakage is amplified by these resistors. 
+Capacitors installed in parallel with the resistors compensate the op-amp feedback loop for optimal response. The optimal compensation capacitance depends on the photodiode's capacitance. The compensation capacitance should be adjusted to minimize settling time without having overshoot on the output of the amplifier. Overshoot adds unnecessary noise in the output. 
+The input stage outputs through the PDO pin, which is internally connected to the integrated photo gain stage and AMUX. The input stage has the option of being referenced to GND or PREF. PREF is a reference that is normally pulled to VINT and is set to 50 mV when PREF_SEL = 1 and either PAMP_EN = 1 or PGAIN_EN = 1. 
+The 50 mV reference keeps the input amplifier in a linear operating region when no signal is applied, improving the speed and zero-current sensitivity of the amplifier. It is generally recommended to set PREF_SEL=1 and connect the external gain resistor and compensation capacitor to PREF. Connect a 100-pF filtering capacitor from PREF to GND to reduce high frequency noise on PREF.
+When measuring the photo amplifier output, it is recommended to take multiple ADC samples. Averaging ADC samples approximately reduces the n.# 7.3.3.2 Photo Gain Amplifier
+The high-bandwidth, low noise photo gain amplifier connects to the output of the photo input stage to further amplify the photodiode signal. The gain amplifier is adjustable on-the-fly using the I2C interface. The gain amplifier has four settings:
+---table begin---
+Table tile: Gain Amplifier Settings
+|Setting | PREF_SEL=0 | PREF_SEL=1|
+|---|---|---|
+|1 | 5x | 4.75x |
+|2 | 11x | 10.4x |
+|3 | 20x | 18.5x |
+|4 | 35x | 32.3x |
+---table end---
+The gain stage has the option of being referenced to GND or PREF with the PREF_SEL bit. When PREF_SEL=1, a 5 mV reference offset counteracts the gain stage's input offset voltage to keep the gain stage output above 50 mV. The 5 mV reference offset is amplified by the gain stage, causing the output to change when the gain is changed, even when there is zero photo-current. It is recommended to connect a 470 kΩ resistor from PREF to VINT if the gain is set to 11x, 20x, or 35x. This resistor changes the PREF voltage to 70 mV and prevents the output from dropping below 50 mV in worst-case conditions. Referencing the gain stage to PREF causes the 50 mV reference to change with signal level due to the finite impedance of the reference. Because the reference is changing with the signal level, the gain is slightly less with PREF_SEL=1."
+"[desc] tps8804 __ 3 Feature Description __ 4 LED Driver [desc]
+Note: Diagram not included"
+"[desc] tps8804 __ 3 Feature Description __ 4 LED Driver __ 1 LED Current Sink [desc]
+The two LED drivers are current regulated, temperature compensated, and adjustable with an 8-bit DAC. When the LED driver is enabled, the CSA voltage is regulated, and the current through the CSA resistor also flows through the LED and the DINA pin. A current sense resistor connects to the CSA pin. The LED driver is enabled with the LEDEN pin and LEDPIN_EN bit. Both the pin and bit must be high for the LED driver to operate. The LEDSEL bit switches which driver the LEDEN signal connects to. The GPIO pin can be configured to enable either LED driver.
+The LED driver is temperature compensated to account for reduced LED intensity with increasing temperature. Four temperature compensation settings are available to support a variety"
+"[desc] tps8804 __ CSA Voltage Regulation [desc]
+Voltage is regulated, and the current through the CSA resistor also flows through the LED and the DINA pin. A current sense resistor connects to the CSA pin. The LED driver is enabled with the LEDEN pin and LEDPIN_EN bit. Both the pin and bit must be high for the LED driver to operate. The LEDSEL bit switches which driver the LEDEN signal connects to. The GPIO pin can be configured to enable either LED driver."
+"[desc] tps8804 __ CSA Voltage Regulation __ LED Driver Temperature Compensation [desc]
+The LED driver is temperature compensated to account for reduced LED intensity with increasing temperature. Four temperature compensation settings are available to support a variety of IR and blue LEDs. Temperature compensation is implemented by varying the CSA regulated voltage with temperature, thus the temperature compensation also depends on the CSA resistor. Each temperature compensation setting has a different DAC output at room temperature. To achieve a specific temperature compensation and current, the PDAC, TEMPCO, and CSA resistor must all be adjusted according to the section 8.2.2.2 procedure."
+"[desc] tps8804 __ CSA Voltage Regulation __ LED Drivers Interchangeability and Adjustment [desc]
+The two LED drivers are interchangeable and support both IR and blue LEDs. The only difference between the two LED drivers is a code CSA_BIN available to improve the LED A driver current accuracy for IR LEDs. CSA_BIN in register 0x00 categorizes CSA voltage for each unit as close to the minimum, below average, above average, or close to the maximum (see section 7.6). Use CSA_BIN to adjust the DAC and compensate for the variation on the LED A driver's current. After adjusting the DAC, the effective variation is reduced by a factor of 4 for the TEMPCOA = 11, PDAC_A = 00 setting. IR LEDs typically require the TEMPCOA = 11 temperature compensation setting. Therefore, use the LED driver A for powering IR LEDs. If better accuracy is required, calibrate the LED driver current by connecting the CSA or CSB pin to the microcontroller ADC port, measuring the CSA or CSB voltage, and adjusting PDAC_A or PDAC_B until the required current is achieved."
+"[desc] tps8804 __ CSA Voltage Regulation __ LED Operation Guidelines [desc]
+Ensure that the LED current remains below 550 mA, the pulse width remains below 1 ms, and the duty cycle remains below 1%. There is no protection to prevent operation outside these conditions. Ensure the PDAC and TEMPCO registers are programmed before enabling the LED driver."
+"[desc] tps8804 __ CSA Voltage Regulation __ LED Voltage Supply [desc]
+Enough voltage must be provided to the LED such that the DINA voltage is at least the dropout voltage (VDINA,DROP) above the CSA voltage while the LED driver is enabled. Ensure the DINA voltage does not exceed 11.5 V. Because of the high LED drive currents, a large capacitor connected to the LED anode is required to provide pulsed power to the LED. Any of the internal regulators ( PLDO, LEDLDO) or external supply ( VDC) meeting the voltage requirements can be used to charge the LED capacitor. Connect the LED anode to LEDLDO when VCC > 11.5 V."
+"[desc] tps8804 __ CSA Voltage Regulation __ LED LDO Operation [desc]
+The LED LDO clamps the VSLC voltage and blocks reverse current with an integrated diode. It is current limited to prevent inrush current caused by charging the large capacitor. The regulation voltage is adjustable in the LEDLDO register. The LED LDO may be operated with VSLC below the regulation voltage. In this case, the LEDLDO voltage stabilizes to VSLC minus a diode voltage drop.
+The LED driver current and rise time can vary by a few millivolts and microseconds across the LED anode supply and VCC voltages. It is recommended to use a consistent LED anode voltage whenever the LED driver is enabled.
+Connect a capacitor with a value between 1 µF and 100 µF to the LEDLDO."
+"[desc] tps8804 __ CSA Voltage Regulation __ 5 Carbon Monoxide Sensor AFE [desc]
+The TPS8804 CO AFE connects to an electrochemical CO sensor. The amplifier converts the microamps of sensor current into a voltage readable by an ADC. This is achieved with a low-offset, low-power op-amp with configurable input, gain, and output resistors."
+"[desc] tps8804 __ CSA Voltage Regulation __ 5 Carbon Monoxide Sensor AFE __ 1 CO Transimpedance Amplifier [desc]
+The CO transimpedance amplifier is a low-offset, low-power op-amp with integrated input, gain, and output resistors. Each of these resistors can be disconnected using the COSW register bits if using external resistors. The input resistor limits amplifier current during a CO sensor connectivity test. The gain resistor amplifies the CO sensor signal. Adjust the gain resistor by changing the COGAIN register bits. Use the output resistor with an external capacitor to filter the CO amplifier output signal.
+The CO amplifier has two integrated references. A programmable 1.25-mV to 5-mV reference COREF is internally connected to the op-amp positive terminal. A 300-mV reference is connected to the REF0P3 pin. When the millivolt reference is used, the CO sensor must be connected to GND. The millivolt reference is amplified to offset the amplifier output above GND. When the 300 mV reference is used, the reference offsets the CO amplifier output by 300 mV. In general, either reference can be used. The 300-mV reference offers better DC accuracy at the cost of extra power consumption. The 300 mV reference is generated with a reference and op-amp buffer for high precision. The REF0P3 pin must connect to a 1 nF capacitor for stability if it is enabled. The buffer is designed to source and sink small currents as required by the CO amplifier. The 300 mV reference and the 1.25 mV to 5mV reference cannot be enabled simultaneously.
+A resistor connected in parallel with the CO sensor prevents charge from accumulating across its terminals. The output of the CO amplifier is connected to the COO pin for continuous monitoring and the AMUX for periodic sampling."
+"[desc] tps8804 __ CSA Voltage Regulation __ 5 Carbon Monoxide Sensor AFE __ 2 CO Connectivity Test [desc]
+The built-in CO connectivity test function connects to the PREF pin and is available for use in place of a pull-up resistor and pull-down FET if PREF_SEL=0.# n.
+The REF0P3 pin must connect to a 1 nF capacitor for stability if it is enabled. The buffer is designed to source and sink small currents as required by the CO amplifier. The 300 mV reference and the 1.25 mV to 5mV reference cannot be enabled simultaneously. A resistor connected in parallel with the CO sensor prevents charge from accumulating across its terminals. The output of the CO amplifier is connected to the COO pin for continuous monitoring and the AMUX for periodic sampling."
+"[desc] tps8804 __ CSA Voltage Regulation __ 5 Carbon Monoxide Sensor AFE __ 2 CO Connectivity Test [desc]
+The built-in CO connectivity test function connects to the PREF pin and is available when the photo amplifier is not referenced to PREF. The COTEST_EN and COTEST_DIR register bits program a pull-up and pull-down switch on PREF. A 200 kΩ pull-up resistor charges the 1 µF capacitor when the CO test is not in use. When PREF is pulled low, charge is injected into the amplifier and the output pulse shape can be used to determine if the sensor is connected. An external MOSFET and pull-up resistor achieves the same function as the internal COTEST circuitry."
+"[desc] tps8804 __ CSA Voltage Regulation __ 6 SLC Interface Transmitter and Receiver [desc]
+In smoke detection systems where the power line carries communication signals between smoke detectors and central fire panels, the SLC interface connects to the power line to transmit and receive data from the MCU. The interface isolates the high voltage power line from the microcontroller, mitigating risk of damage and reducing external component count."
+"[desc] tps8804 __ CSA Voltage Regulation __ 6 SLC Interface Transmitter and Receiver __ 1 SLC Transmitter [desc]
+Signals are transmitted to the power line by pulling the line low with a controlled current sink. When the driver is enabled, the microcontroller controls the SLC_TX1 and SLC_TX2 outputs by driving MCU_TX1 and MCU_TX2 high. In 图 7-6, the SLC_TX2 output driver connects to an external transistor and current-limiting resistor. The current drawn from the power line is shown in 方程式 1. The SLC_TX1 output driver is able to pull the line completely low. This configuration allows for multi-level communication.
+ISINK = VSLC F VBE
+RE
+(1)"
+"[desc] tps8804 __ CSA Voltage Regulation __ 6 SLC Interface Transmitter and Receiver __ 2 SLC Receiver [desc]
+The SLC receiver transmits signals from the power line to the microcontroller. A reverse biased Zener diode level shifts the power line. The Zener diode is selected to drop the voltage such that when VLINE is high, the SLCRX pin is above 3 V and when VLINE is low, the SLCRX pin is below 0.5 V. The 100-pF capacitor filters voltage spikes that may occur on VLINE. The hysteretic and deglitched comparator filters spurious noise on VLINE. The comparator output is synchronized with the 32 kHz clock before being deglitched. The hysteresis voltage and deglitch time are programmable with the SLCRX_HYS and SLCRX_DEG register bits. An internal pulldown resistor biases the Zener diode to maintain the SLC_RX voltage below 17 V, the recommended maximum."
+"[desc] tps8804 __ CSA Voltage Regulation __ 7 AMUX [desc]
+The AMUX switch and buffer are used to connect the various TPS8804 amplifier outputs to a single ADC. The unity-gain amplifier improves the drive strength and fidelity of the analog signals when co# 7.3.7 AMUX
+degitched. The hysteresis voltage and deglitch time are programmable with the SLCRX_HYS and SLCRX_DEG register bits. An internal pulldown resistor biases the Zener diode to maintain the SLC_RX voltage below 17 V, the recommended maximum.
+The AMUX switch and buffer are used to connect the various TPS8804 amplifier outputs to a single ADC. The unity-gain amplifier improves the drive strength and fidelity of the analog signals when connected to an ADC. A 330 pF to 1 nF capacitor must be connected to the AMUX pin to stabilize its output. The 10-kΩ resistor filters high-frequency noise in the analog signal. Using a 10-kΩ resistor and 1-nF capacitor reduces noise levels in the photo amplifier signal. The buffer has the option of being bypassed to remove the added offset introduced by the unity-gain amplifier."
+"[desc] tps8804 __ CSA Voltage Regulation __ 8 Analog Bias Block and 8 MHz Oscillator [desc]
+A central analog bias block connects to many of the amplifiers, drivers, and regulators. This block is enabled when any of its connected blocks are enabled. Similarly, an internal 8-MHz oscillator is enabled when the photo input amplifier is enabled.
+---table begin---
+Table title: Conditions for Enabling the Bias Block and 8 MHz Oscillator
+| BLOCK   | CONDITION    | BIAS ENABLED? | 8-MHZ OSC ENABLED? |
+|---------|--------------|---------------|-------------------|
+| Photo input amplifier   | PAMP_EN = 1  | Yes         | Yes               |
+| AMUX buffer | AMUX_SEL[0:2] ≠ 000 | Yes | No |
+| LED LDO | LEDLDO_EN = 1 | Yes | No |
+| Photo gain amplifier | PGAIN_EN = 1 | Yes | No |
+---table end---"
+"[desc] tps8804 __ CSA Voltage Regulation __ 9 Interrupt Signal Alerts [desc]
+Configurable interrupt signals notify the MCU when a system anomaly occurs. The interrupt signal indicates the STATUS1 register, which has bits that latch high when reaching various condition limits such as temperature or voltage. Each of the bits in the STATUS1 register can be independently configured to send an interrupt signal by setting the MASK register bit corresponding to each STATUS1 bit. The GPIO bits must be set to 0x2 to output interrupt signals through the GPIO pin, and the STATUS_MCURX bit must be set to 1 to output interrupt signals through the MCU_RX pin. By connecting the GPIO or MCU_RX pin to the microcontroller, the MCU can be immediately notified when a STATUS1 bit changes instead of having to repeatedly read the STATUS1 register. After the device sends the interrupt signal, the signal remains high until the STATUS1 register is read, at which point the fault clears if the error condition is removed."
+"[desc] tps8804 __ 4 Device Functional Modes __ 1 Fault States [desc]
+Active
+Set OTS_ERR=1
+TJ>125°C after 300 µs 
+of enabling OTS_EN
+Enable temperature monitor
+Disable amplifiers, drivers, and 
+MCU LDO
+Start 1-second timer
+Check TJ
+Timeout
+TJ>110°C
+Enable blocks if previously 
+enabled
+Read STATUS1 register while TJ<110°C
+Was OTS entered from MCU 
+LDO fault state?
+Set MCULDO_ERR=1
+Enable temperature monitor
+Disable amplifiers and drivers 
+Start 1-second timer
+Check MCU_PG
+MCU_PG=0
+Timeout
+MCU_PG=1
+MCU_PG=0 after 10 ms 
+of enabling MCU LDO or 
+changing VMCUSET
+No
+Yes
+Enable blocks if previously 
+enabled
+TJ<110°C
+TJ>125°C
+Read STATUS1 register while MCU_PG=1
+Over-Temperature Shutdown
+MCU LDO Fault
+MCUERR_DIS=0
+MCUERR_DIS=1
+The TPS8804 device uses several monitors to alert the MCU when system irregularities occur. In addition to 
+alerting the MCU, two monitors cause the device to enter protective fault states:
+•
+MCULDO under-voltage
+•
+system over-temperature
+The fault states reduce risk of damage and brown-outs to the system in the event of short circuits or other power 
+errors."
+"[desc] tps8804 __ 4 Device Functional Modes __ 1 Fault States __ 1 MCU LDO Fault [desc]
+The MCU LDO has an undervoltage monitor to notify the MCU if the LDO falls out of regulation. This monitor is 
+enabled any time the MCU LDO is enabled and its status is in the MCU_PG register bit. A 125-μs deglitch time 
+rejects load and line transient spikes that may briefly drop the MCU LDO voltage below the under-voltage 
+threshold. If MCU_PG is low while the MCU LDO is enabled and it has been more than 10 ms since the LDO 
+was enabled or changed voltage, the MCU_ERR register bit latches high. When the MCU_ERR bit is set high 
+and the MCUERR_DIS bit is low, the MCU LDO fault state is entered. When the MCU LDO fault state is entered, all amplifiers and drivers are disabled. The MCU LDO remains 
+enabled to attempt to recover the system. The device enables the over-temperature monitor (OTS_EN) to 
+prevent a VMCU short circuit from overheating the TPS8804 device. If a VMCU short circuit causes the 
+temperature of the TPS8804 to rise, an over-temperature shutdown occurs and the MCU LDO shuts off. There are two methods to exit the fault state. Every second in the fault state, the MCU_PG register bit is 
+automatically read. If high, the fault state is exited. The MCU_ERR bit remains high until the STATUS1 register is 
+read. Alternatively, if the STATUS1 register is read and MCU_PG is high, the fault state is exited. When the 
+device exits the MCU_ERR fault state, the device re-enables all blocks that were enabled before the fault state 
+occurred. If an over-temperature fault occurs while in the MCU LDO fault state, the device enters the over-temperature 
+fault state. The over-temperature fault state disables the MCU LDO in addition to the blocks that are disabled by 
+the MCU LDO fault state. After the device exits the over-temperature fault state, it immediately re-enters the 
+MCU LDO fault state to confirm the MCU LDO status."
+"[desc] tps8804 __ 4 Device Functional Modes __ 1 Fault States __ 2 Over-Temperature Fault [desc]
+An over-temperature shutdown (OTS) fault occurs if OT# 7.4.1.2 Over-Temperature Fault
+An over-temperature shutdown (OTS) fault occurs if OTS_EN = 1 and the die temperature exceeds 125°C. The 
+fault is masked for 300 μs after setting OTS_EN = 1. OTS_EN must be enabled for at least 300 μs in order to 
+determine if the die has overheated. After the device detects an over-temperature condition, it disables all 
+drivers, amplifiers, and regulators and sets OTS_ERR to 1. This action prevents additional temperature stress 
+caused by a short circuit.
+Similar to the MCU LDO fault, the device exits the OTS fault state with two methods:
+- The device checks the die temperature once every second. If the temperature is below 110°C, the device 
+exits the fault state.
+- Reading the STATUS1 register with the die temperature below 110°C exits the fault state.
+When the device exits the OTS fault state, it re-enables all blocks that were enabled before the OTS fault 
+occurred."
+"[desc] tps8804 __ 5 Programming [desc]
+The TPS8804 serial interface follows the I2C industry standard. The device supports both standard and fast 
+mode, and it supports auto-increment for fast reading and writing of sequential registers. A 33-kΩ pullup resistor 
+connecting the SDA and SCL pins to VMCU is recommended for fast mode operation. The VMCU voltage 
+determines the logic level for I2C communication. The CSEL pin selects the device address. When CSEL is 
+pulled to GND, the device address is 0x3F. When CSEL is pulled to VMCU, the device address is 0x2A."
+"[desc] tps8804 __ 6 Register Maps [desc]
+Complex bit access types are encoded to fit into small table cells.
+---table begin---
+Table tile: Device Access Type Codes
+| Access Type | Code | Description |
+|---|---|---|
+| Read Type | R | Read |
+| | RC | Read to Clear |
+| Write Type | W | Write |
+| Reset or Default Value | -n | Value after reset or the default value |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 1 REVID Register (Offset = 0h) [reset = 0h] [desc]
+REVID is shown in 表 7-5.
+---table begin---
+Table tile: 表 7-5. REVID Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-6 | CSA_BIN | R | 0h | CSA voltage bin for TEMPCOA=11, PDAC_A=00 setting 0h = CSA voltage between specified minimum and typical, closer to minimum 1h = CSA voltage between specified minimum and typical, closer to typical 2h = CSA voltage between specified maximum and typical, closer to typical 3h = CSA voltage between specified maximum and typical, closer to maximum |
+| 5-0 | RESERVED | R | 0h | Reserved |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 2 STATUS1 Register (Offset = 1h) [reset = 0h] [desc]
+STATUS1 is shown in 表 7-6.
+---table begin---
+Table tile: 表 7-6. STATUS1 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7 | RESERVED | R | 0h | Reserved |
+| 6 | VCCLOW | RC | 0h | VCC low warning 0h = no VCCLOW error has occurred 1h = VCC below V_VCCLOW,FALL threshold and VCCLOW_DIS=1 for VCCLOW deglitch time. VCCLOW is masked for 1 ms after VCCLOW_DIS is set to 0 |
+| 5 | MCULDO_ERR | RC | 0h | MCU LDO power good error 0h = no MCULDO error has occurred 1h = MCU_PG=0 and MCU_EN=1 for TMCULDO,PG. MCULDO_ERR is masked for TMCULDO,MASK after VMCUSET or MCU_DIS has changed |
+| 3-0 | RESERVED | R | 0h | Reserved |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 3 STATUS2 Register (Offset = 2h) [reset = 0h] [desc]
+STATUS2 is shown in 表 7-7.
+---table begin---
+Table tile: 表 7-7. STATUS2 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-2 | RESERVED | R | 0h | Reserved |
+| 1 | MCU_PG | R | 0h | MCU LDO power good indicator 0h = MCU LDO is below power good threshold or MCU_DIS=1 1h = MCU LDO is above power good threshold and MCU_DIS=0 |
+| 0 | RESERVED | R | 0h | Reserved |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 4 MASK Register (Offset = 3h) [reset = 0h] [desc]
+---table begin---
+Table tile: 表 7 8. MASK Register Field Descriptions (continued)
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 5 | MCULDO_ERRM | R/W | 0h | MCU LDO power good error interrupt mask 0h = interrupt on MCULDO power good error 1h = no interrupt on MCULDO power good error |
+| 2-0 | RESERVED | R | 0h | Reserved |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 5 CONFIG1 Register (Offset = 4h) [reset = 20h] [desc]
+CONFIG1 is shown in 表 7-9.
+---table begin---
+Table tile: 表 7-9. CONFIG1 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-6 | SLCRX_DEG | R/W | 0h | SLC_RX deglitch control 0h = none 1h = 125us 2h = 1ms 3h = 20ms |
+| 2-0 | RESERVED | R | 0h | Reserved |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 6 CONFIG2 Register (Offset = 5h) [reset = 0h] [desc]
+CONFIG2 is shown in 表 7-10.# 7.6.6 CONFIG2 Register (Offset = 5h) [reset = 0h]
+CONFIG2 is shown in 表 7-10.
+---table begin---
+Table tile: 表 7-10. CONFIG2 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-6 | RESERVED | R | 0h | Reserved |
+| 5 | SLCRX_HYS | R/W | 0h | SLC receiver comparator hysteresis 0h = 1.2V hysteresis 1h = 0.1V hysteresis |
+| 4-0 | RESERVED | R | 0h | Reserved |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 7 ENABLE1 Register (Offset = 6h) [reset = 0h] [desc]
+ENABLE1 is shown in 表 7-11.
+---table begin---
+Table tile: 表 7-11. ENABLE1 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-6 | RESERVED | R | 0h | Reserved |
+| 5 | SLCRX_EN | R/W | 0h | Control of SLC receiver 0h = disable 1h = enable |
+| 4 | RESERVED | R | 0h | Reserved |
+| 3 | PAMP_EN | R/W | 0h | Photo input amplifier control 0h = amplifier disabled 1h = amplifier enabled |
+| 2 | PGAIN_EN | R/W | 0h | Photo Gain amplifier control 0h = amplifier disabled 1h = amplifier enabled |
+| 1 | RESERVED | R | 0h | Reserved |
+| 0 | LEDLDO_EN | R/W | 0h | LED LDO control 0h = disabled 1h = enabled |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 8 ENABLE2 Register (Offset = 7h) [reset = 0h] [desc]
+ENABLE2 is shown in 表 7-12.
+---table begin---
+Table tile: 表 7-12. ENABLE2 Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7 | LEDSEL | R/W | 0h | LED input select 0h = LEDENA 1h = LEDENB |
+| 6-3 | RESERVED | R | 0h | Reserved |
+| 2 | LEDPIN_EN | R/W | 0h | LEDEN pin enable 0h = LEDEN pin does not enable LED block 1h = LEDEN pin enables LED block |
+| 1 | SLCTX_EN | R/W | 0h | SLC transmitter enable 0h = SLC transmitter disabled 1h = SLC transmitter enabled |
+| 0 | RESERVED | R | 0h | Reserved |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 9 CONTROL Register (Offset = 8h) [reset = 0h] [desc]
+CONTROL is shown in 表 7-13.
+---table begin---
+Table tile: 表 7-13. CONTROL Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-6 | RESERVED | R | 0h | Reserved |
+| 5 | MCU_DIS | R/W | 0h | MCU LDO disable 0h = MCU LDO enabled 1h = MCU LDO disabled |
+| 4 | VCCLOW_DIS | R/W | 0h | VCCLOW brown-out monitor disable 0h = VCCLOW monitor is enabled 1h = VCCLOW monitor is disabled |
+| 3 | MCUERR_DIS | R/W | 0h | MCULDO error mode disable 0h = in case of MCULDO error, FAULT mode is entered 1h = disable entering FAULT mode in case of MCULDO error |
+| 2 | OTS_EN | R/W | 0h | Over-temperature shutdown mode disable 0h = disable entering over-temperature FAULT mode. 1h = in case of over-temperature, FAULT mode is entered and OTS_ERR flag is raised. |
+| 1 | SOFTRESET | R/W | 0h | Set registers to the default value 0h = do not reset registers 1h = reset all registers. SOFTRESET is reset. VMCUSET bits and STATUS1 register is unchanged. |
+| 0 | RESERVED | R | 0h | Reserved |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 11 COSW Register (Offset = Ch) [reset = 0h] [desc]
+COSW is shown in 表 7-15.
+---table begin---
+Table tile: 表 7-15. COSW Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7 | COSWRO | R/W | 0h | CO amplifier output resistor (output of amplifier to COO pin) enable 0h = 0 Ohms 1h = 100 kOhms |
+| 6 | COSWRG | R/W | 0h | CO gain resistor (output of amplifier to inverting input of amplifier) enable 0h = Hi-Z 1h = Resistance set by COGAIN register |
+| 5 | COSWRI | R/W | 0h | CO input resistor (inverting input of amplifier to CON pin) enable 0h = 0 Ohms 1h = 1 kOhms |
+| 4 | COSWREF | R/W | 0h | CO reference switch enable 0h = positive input of amplifier connected to COP 1h = positive input of amplifier connected to 1mV to 5mV COREF |
+| 3-0 | RESERVED | R | 0h | Reserved |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 12 CO Register (Offset = Dh) [reset = 0h] [desc]
+CO is shown in 表 7-16.
+---table begin---
+Table tile: 表 7-16. CO Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7 | REF0P3_EN | R/W | 0h | 300mV reference enable 0h = Buffer disabled 1h = Buffer enabled |
+| 6-5 | COREF | R/W | 0h | Reference voltage for CO amplifier 0h = 1.25mV 1h = 2.5mV 2h = 3.75mV 3h = 5mV |
+| 4-3 | COGAIN | R/W | 0h | CO amplifier feedback resistance 0h = 1100 kOhm 1h = 300 kOhm 2h = 500 kOhm 3h = 800 kOhm |
+| 2 | COTEST_DIR | R/W | 0h | CO test output direction 0h = pull-down 1h = pull-up |
+| 1 | COTEST_EN | R/W | 0h | Enable COTEST output on PREF 0h = disabled 1h = enabled |
+| 0 | COAMP_EN | R/W | 0h | CO amplifier control 0h = disabled 1h = enabled |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 13 LEDLDO Register (Offset = Fh) [reset = 0h] [desc]
+LEDLDO is shown in 表 7-17.
+---table begin---
+Table tile: 表 7 17. LEDLDO Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-4 | RESERVED | R | 0h | Reserved |
+| 3-1 | LEDLDO | R/W | 0h | LED LDO settings 0h = 7.5V 1h = 8.0V 2h = 8.5V 3h = 9.0V 4h = 9.5V 5h = 10V 6h = Reserved 7h = Reserved |
+| 0 | RESERVED | R | 0h | Reserved |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 14 PH_CTRL Register (Offset = 10h) [reset = 0h] [desc]
+PH_CTRL is shown in 表 7-18.
+---table begin---
+Table tile: 表 7-18. PH_CTRL Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7 | RESERVED | R | 0h | Reserved |
+| 6-5 | TEMPCOB | R/W | 0h | LED B Temperature Coefficient Setting 0h = 0.347 mV/C 1h = 0.416 mV/C 2h = 0.693 mV/C 3h = 1.040 mV/C |
+| 4-3 | TEMPCOA | R/W | 0h | LED A Temperature Coefficient Setting 0h = 0.347 mV/C 1h = 0.416 mV/C 2h = 0.693 mV/C 3h = 1.040 mV/C |
+| 2 | PREF_SEL | R/W | 0h | Photo Reference setting 0h = Photo gain amplifier referenced to 0mV 1h = Photo gain amplifier and PREF pin connected to 50mV internal reference |
+| 1-0 | PGAIN | R/W | 0h | Photo Gain setting 0h = 5 1h = 11 2h = 20 3h = 35 |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 15 LED_DAC_A Register (Offset = 11h) [reset = 0h] [desc]
+LED_DAC_A is shown in 表 7-19.
+---table begin---
+Table tile: 表 7-19. LED_DAC_A Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | PDAC_A | R/W | 0h | LED DAC A setting 00h to FFh = 0mV to 300mV |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 16 LED_DAC_B Register (Offset = 12h) [reset = 0h] [desc]
+LED_DAC_B is shown in 表 7-20.
+---table begin---
+Table tile: 表 7-20. LED_DAC_B Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 7-0 | PDAC_B | R/W | 0h | LED DAC B setting 00h to FFh = 0mV to 300mV |
+---table end---"
+"[desc] tps8804 __ 6 Register Maps __ 8 Application and Implementation [desc]
+备注
+以下应用部分中的信息不属于 TI 器件规格的范围，TI 不担保其准确性和完整性。TI 的客 户应负责确定
+器件是否适用于其应用。客户应验证并测试其设计，以确保系统功能。"
+"[desc] tps8804 __ 1 Application Information [desc]
+The TPS8804 supports a variety of smoke alarm platforms, including single-wave or dual-wave photoelectric 
+smoke and CO detection."
+"[desc] tps8804 __ 2 Typical Application [desc]
+In this example, a smoke alarm requires the following:
+- 100 MΩ photoamplifier transconductance with sub-nanoamp detection
+- 100 mA IR LED current with 1-mA/°C temperature compensation
+- 50mA blue LED current with 0.1mA/°C temperature compensation"
+"[desc] tps8804 __ 2 Typical Application __ 2 Detailed Design Procedure __ 1 Photo Amplifier Component Selection [desc]
+To meet the 100-MΩ photoamplifier transconductance requirement, set the gain stage to 35x with PGAIN = 11. 
+Because the application requires sub-nanoamp current detection, reference the photo amplifier to PREF and set 
+PREF_SEL = 1. This reference offsets the input stage output by 50 mV and offsets the gain stage output by 225 
+mV. Because the application uses PREF, the gain stage amplification reduces to 32.25x. Divide 100 MΩ by 
+32.25x to get 3.1 MΩ. The gain is distributed across two resistors, therefore use a resistor with a value of 
+approximately 1.55 MΩ. A 1.5-MΩ resistor is selected..."
+"[desc] tps8804 __ 2 Typical Application __ 2 Detailed Design Procedure __ 2 LED Driver Component Selection [desc]
+The LED current depends on the TEMPCO bits, PDAC register and CSA and CSB resistors. Changing any of 
+these values affects the LED current and temperature compensation. The following method selects the 
+TEMPCO, PDAC, and CSA resistor value based on the required LED current and temperature compensation. 
+The 100-mA LED current and 1 mA/°C temperature compensation is used as an example for LED A. Repeat the 
+process for LED B.# 1. LED Current and Temperature Compensation 
+The LED current depends on the TEMPCO bits, PDAC register and CSA and CSB resistors. Changing any of these values affects the LED current and temperature compensation. The following method selects the TEMPCO, PDAC, and CSA resistor value based on the required LED current and temperature compensation. The 100-mA LED current and 1 mA/°C temperature compensation is used as an example for LED A. Repeat the process for LED B."
+"[desc] tps8804 __ 2 Typical Application __ 2 Detailed Design Procedure __ Steps for LED Current and Temperature Compensation [desc]
+1. Determine the room temperature current and temperature compensation required by the application.
+    - 100mA and 1mA/°C is required by the design.
+2. Calculate the compensation in percentage per degree by dividing the compensation coefficient by the current and multiplying by 100.
+    - 1 mA/°C divided by 100 mA is 1%/°C.
+3. Use 表 8-1 or 表 8-2 to select a TEMPCO setting which contains the required compensation. If the required compensation is in two ranges, use the range with a higher TEMPCO setting. If the required temperature coefficient is not in any of the ranges, choose the TEMPCO and PDAC setting closest to the required temperature coefficient, then go to step 5.
+    - 1%/°C is between the mimumum and maximum for TEMPCO = 11.
+4. Calculate the target CSA voltage. Divide the driver temperature coefficient [mV/°C] by the desired temperature coefficient [%/°C] and multiply by 100.
+    - 1.040 mV/°C divided by 1 %/°C is 104 mV.
+5. Calculate the CSA resistor by dividing the target CSA voltage by the required current and subtracting 0.1 Ω for internal resistance.
+    - 104 mV divided by 100 mA is 1.04 Ω. Subtract 0.1 Ω to get 0.94 Ω.
+6. Select the closest available resistor and calculate the final CSA voltage by multiplying the required current by the total resistance (external and internal).
+    - Use a 0.92 Ω resistor. Multiply 100 mA and 1.02 Ω to get 102mV CSA voltage.
+7. Calculate the PDAC value by subtracting the final CSA voltage by the specified CSA voltage at PDAC = 0x00 and dividing the result by 1.176 mV (the DAC LSB, equal to 300 mV divided by 255).
+    - 102 mV minus 79 mV is 23 mV, divided by 1.176 mV is 20. Write 0x14 to the PDAC register.
+8. Calibrate the PDAC value. If using the LED A driver, read the CSA_BIN register bits and add 0x11 if CSA_BIN=00b, add 0x06 if CSA_BIN=01b, subtract 0x06 if CSA_BIN=10b, or subtract 0x11 if CSA_BIN=11b. The CSA_BIN value varies from unit to unit and must be read on each unit calibrated using this method. Alternatively, measure the CSA or CSB voltage using the MCU ADC and adjust PDAC accordingly.
+    - The microcontroller reads that a unit has CSA_BIN=01b. 0x20 is written to PDAC_A."
+"[desc] tps8804 __ Table 1: Temperature Coefficients for Each TEMPCOA and DAC_A Setting [desc]
+---table begin---
+Table title: Temperature Coefficients for Each TEMPCOA and DAC_A Setting
+| Register Setting | CSA Voltage [mV], T = 27°C | Temperature Coefficient [mV/°C] | Temperature Coefficient [%/°C] | Coefficient Information |
+|---|---|---|---|---|
+| TEMPCOA[1:0] = 11, PDAC_A = 0x00 | 79 |  1.040 | 1.316% | Max for TEMPCO = 11b |
+| TEMPCOA[1:0] = 11, PDAC_A = 0xFF | 376 | 1.040 | 0.277% | Min for TEMPCO = 11b |
+| TEMPCOA[1:0] = 10, PDAC_A = 0x00 | 188 | 0.693 | 0.369% | Max for TEMPCO = 10b |
+| TEMPCOA[1:0] = 10, PDAC_A = 0xFF | 484 | 0.693 | 0.143% | Min for TEMPCO = 10b |
+| TEMPCOA[1:0] = 01, PDAC_A = 0x00 | 277 | 0.416 | 0.150% | Max for TEMPCO = 01b |
+| TEMPCOA[1:0] = 01, PDAC_A = 0xFF | 572 | 0.416 |  0.073% | Min for TEMPCO = 01b |
+| TEMPCOA[1:0] = 00, PDAC_A = 0x00 | 299 | 0.347 |  0.116% | Max for TEMPCO = 00b |
+| TEMPCOA[1:0] = 00, PDAC_A = 0xFF | 593 | 0.347 | 0.059% |  Min for TEMPCO = 00b |
+---table end---"
+"[desc] tps8804 __ Table 2: Temperature Coefficients for Each TEMPCOB and DAC_B Setting [desc]
+---table begin---
+Table title: Temperature Coefficients for Each TEMPCOB and DAC_B Setting
+| Register Setting | CSB Voltage [mV], T = 27°C | Temperature Coefficient [mV/°C] | Temperature Coefficient [%/°C] | Coefficient Information |
+|---|---|---|---|---|
+| TEMPCOB[1:0] = 11, PDAC_B = 0x00 | 81 | 1.000 | To be Calculated | To be Calculated |
+---table end---# 8.2.2.4 Regulator Component Selection
+To stabilize the output voltage on each regulator, install 1-µF capacitors on VINT, VMCU, and PLDO. Connect the MCUSEL pin to GND to set the MCU LDO voltage to 1.8V. The MCU LDO can be set to other voltages by changing the MCUSEL pin connection. Connect the MCUSEL pin to GND through a 1 nF capacitor to set the MCU LDO voltage to 3.3 V. Connect MCUSEL to VINT to set the MCU LDO to 2.5 V. Connect MCUSEL to GND with a 620-Ω resistor to set the MCU LDO to 1.5 V."
+"[desc] tps8804 __ Table 2: Temperature Coefficients for Each TEMPCOB and DAC_B Setting __ 3 Application Curves [desc]
+All curves use the schematics shown in 图 8-1. The photo amplifier curves do not have the 470 kΩ PREF resistor installed. 图 8-2. LED Driver and Photo Amplifier Waveforms 图 8-3. LED Driver and Photo Amplifier Waveforms  with 128 Averages 图 8-4. Carbon Monoxide Amplifier Waveforms with Calibration Gas"
+"[desc] tps8804 __ Table 2: Temperature Coefficients for Each TEMPCOB and DAC_B Setting __ 3 Application Curves __ 5 Temperature Coefficients [desc]
+---table begin---
+Table title: TEMPCOB & DAC_B Variables
+| Register Setting | Voltage [mV] | Temperature Coefficient [mV/°C]| Temperature Coefficient [%/°C] | Coefficient Information |
+|---|---|---|---|---|
+| TEMPCOB[1:0] = 11, PDAC_B = 0x00 | 81 | 1.040 | 1.284% | Max for TEMPCO = 11b|
+| TEMPCOB[1:0] = 11, PDAC_B = 0xFF | 379 | 1.040 | 0.272% | Min for TEMPCO = 11b|
+| TEMPCOB[1:0] = 10, PDAC_B = 0x00 | 189 | 0.693 | 0.369% | Max for TEMPCO = 10b|
+| TEMPCOB[1:0] = 10, PDAC_B = 0xFF | 486 | 0.693 | 0.143% | Min for TEMPCO = 10b|
+| TEMPCOB[1:0] = 01, PDAC_B = 0x00 | 277 | 0.416 | 0.150% | Max for TEMPCO = 01b|
+| TEMPCOB[1:0] = 01, PDAC_B = 0xFF | 572 | 0.416 | 0.073% | Min for TEMPCO = 01b|
+| TEMPCOB[1:0] = 00, PDAC_B = 0x00 | 299 | 0.347 | 0.116% | Max for TEMPCO = 00b|
+| TEMPCOB[1:0] = 00, PDAC_B = 0xFF | 594 | 0.347 | 0.059% | Min for TEMPCO = 00b|
+---table end---# 1. 
+1-µF capacitors on VINT, VMCU, and PLDO. Connect the MCUSEL pin to GND to set the MCU LDO voltage to 1.8V. The MCU LDO can be set to other voltages by changing the MCUSEL pin connection. Connect the MCUSEL pin to GND through a 1 nF capacitor to set the MCU LDO voltage to 3.3 V. Connect MCUSEL to VINT to set the MCU LDO to 2.5 V. Connect MCUSEL to GND with a 620-Ω resistor to set the MCU LDO to 1.5 V."
+"[desc] tps8804 __ Table 2: Temperature Coefficients for Each TEMPCOB and DAC_B Setting __ 3 Application Curves __ 9 Power Supply Recommendations [desc]
+A 4.5-V to 15-V power supply is recommended on VCC and VSLC. If a blue LED is used with the LED driver, higher voltage may be required. Ensure the power supply can tolerate transient currents caused by the LED driver. A supply capable of 5 mA average current is generally sufficient. Ensure the power supply's rise time is less than 100 ms."
+"[desc] tps8804 __ 1 Layout Guidelines [desc]
+These blocks require careful layout placement:
+•
+Photo amplifier
+•
+CO amplifier
+•
+Ground plane and traces"
+"[desc] tps8804 __ 1 Layout Guidelines __ 1 Photo Amplifier Layout [desc]
+The photo amplifier is a very sensitive analog block in the TPS8804 device. Minimal trace lengths must be used to connect the photodiode and relevant external components to PDP, PDN, PDO, PREF and AGND. It is recommended to shield the PDP, PDN, PDO, and PREF traces with the AGND plane."
+"[desc] tps8804 __ 1 Layout Guidelines __ 2 CO Amplifier Layout [desc]
+Similar to the photo amplifier, the CO amplifier is very sensitive to noise. Connect the CO electrochemical sensor close to the TPS8804 device and shield the COP, CON, and COO traces with the AGND plane."
+"[desc] tps8804 __ 1 Layout Guidelines __ 3 Ground Plane Layout [desc]
+Connect AGND and DGND to the ground plane. Ensure there is a short path from AGND to DGND. Route PGND and its associated blocks (LED driver, SLC transmitter) separately from the ground plane. Connect PGND to AGND at a single point near the IC."
+"[desc] tps8804 __ 2 Layout Example [desc]
+图 10-1. Photo Amplifier Layout 图 10-2. CO Amplifier Layout PGND PGND AGND PGND PGND PGND DGND AGND Plane PGND Plane 图 10-3. Ground Layout"
+"[desc] tps8804 __ 1 接收文档更新通知 [desc]
+要接收文档更新通知，请导航至 ti.com 上的器件产品文件夹。点击订阅更新 进行注册，即可每周接收产品信息更 新摘要。有关更改的详细信息，请查看任何已修订文档中包含的修订历史记录。"
+"[desc] tps8804 __ 2 支持资源 [desc]
+TI E2E™ 支持论坛是工程师的重要参考资料，可直接从专家获得快速、经过验证的解答和设计帮助。搜索现有解 答或提出自己的问题可获得所需的快速设计帮助。 链接的内容由各个贡献者“按原样”提供。这些内容并不构成 TI 技术规范，并且不一定反映 TI 的观点；请参阅  TI 的"
+"[desc] tps8804 __ 3 Trademarks [desc]
+TI E2E™ is a trademark of Texas Instruments. 所有商标均为其各自所有者的财产。"
+"[desc] tps8804 __ 4 静电放电警告 [desc]
+静电放电 (ESD) 会损坏这个集成电路。德州仪器 (TI) 建议通过适当的预防措施处理所有集成电路。如果不遵守正确的处理 和安装程序，可能会损坏集成电路。 ESD 的损坏小至导致微小的性能降级，大至整个器件故障。精密的集成电路可能更容易受到损坏，这是因为非常细微的参 数更改都可能会导致器件与其发布的规格不相符。"
+"[desc] tps8804 __ 5 术语表 [desc]
+TI 术语表  本术语表列出并解释了术语、首字母缩略词和定义。"
+"[desc] tps8804 __ Packaging Information [desc]
+---table begin---
+Table title: Packaging Information
+| Orderable Device | Status (1) | Package Type | Package Drawing | Pins Package | Qty | Eco Plan (2) | Lead finish/Ball material (6) | MSL Peak Temp (3) | Op Temp (°C) | Device Marking (4/5) | Samples |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| TPS8804DCPR | ACTIVE | HTSSOP | DCP | 38 | 2000 | RoHS & Green | NIPDAU | Level-3-260C-168 HR | -40 to 85 | TPS8804DCP | Samples |
+---table end---"
+"[desc] tps8804 __ 12 [desc]
+(1) The marketing status values are defined as follows: ACTIVE: Product device recommended for new designs. LIFEBUY: TI has announced that the device will be discontinued, and a lifetime-buy period is in effect. NRND: Not recommended for new designs. Device is in production to support existing customers, but TI does not recommend using this part in a new design. PREVIEW: Device has been announced but is not in production. Samples may or may not be available. OBSOLETE: TI has discontinued the production of the device.
+(2) RoHS: TI defines ""RoHS"" to mean semiconductor products that are compliant with the current EU RoHS requirements for all 10 RoHS substances, including the requirement that RoHS substance do not exceed 0.1% by weight in homogeneous materials. Where designed to be soldered at high temperatures, ""RoHS"" products are suitable for use in specified lead-free processes. TI may reference these types of products as ""Pb-Free"". RoHS Exempt: TI defines ""RoHS Exempt"" to mean products that contain lead but are compliant with EU RoHS pursuant to a specific EU RoHS exemption.
+(3) MSL, Peak Temp. - The Moisture Sensitivity Level rating according to the JEDEC industry standard classifications, and peak solder temperature.
+(4) There may be additional marking, which relates to the logo, the lot trace code information, or the environmental category on the device.
+(5) Multiple Device Markings will be inside parentheses. Only one Device Marking contained in parentheses and separated by a ""~"" will appear on a device. If a line is indented then it is a continuation of the previous line and the two combined represent the entire Device Marking for that device.
+(6) Lead finish/Ball material - Orderable Devices may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum column width."
+"[desc] tps8804 __ Important Information and Disclaimer [desc]
+The information provided on this page represents TI's knowledge and belief as of the date that it is provided. TI bases its knowledge and belief on information provided by third parties, and makes no representation or warranty as to the accuracy of such information. Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals. TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers and other limited information may not be available for release.
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer.# 1. TI Information
+Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals. TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers and other limited information may not be available for release.
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer on an annual basis."
+"[desc] tps8804 __ Tape and Reel Information [desc]
+---table begin---
+Table tile: Reel Width
+| A0 | B0 | K0 | W |
+|---|---|---|---|
+| Dimension designed to accommodate the component length | Dimension designed to accommodate the component thickness | Overall width of the carrier tape | Pitch between successive cavity centers |
+---table end---"
+"[desc] tps8804 __ Tape Dimensions [desc]
+---table begin---
+Table tile: Quadrant Assignments for Pin 1 Orientation in Tape
+| Q1 | Q2 | Q3 | Q4 |
+|---|---|---|---|
+| User Direction of Feed | Reel Diameter | All dimensions are nominal | Device |
+---table end---"
+"[desc] tps8804 __ Pack Materials [desc]
+---table begin---
+Table tile: Pack Materials-Page 2
+| Device | Package Type | Package Drawing | Pins | SPQ | Length (mm) | Width (mm) | Height (mm) |
+|---|---|---|---|---|---|---|---|
+| TPS8804DCPR | HTSSOP | DCP | 38 | 2000 | 367.0 | 367.0 | 38.0 |
+| TPS8804DCPR | HTSSOP | DCP | 38 | 2000 | 356.0 | 356.0 | 35.0 |
+---table end---"
+"[desc] tps8804 __ SMALL OUTLINE PACKAGE Specifications [desc]
+4.4 x 9.7, 0.5 mm pitch 4224560/B C 36X 0.5 2X
+9 38X 0.27 0.17 6.6 6.2 TYP SEATING PLANE 0.15 0.05 0.25 GAGE PLANE 0 -8 1.2 MAX 2X 0.95 MAX NOTE 5 2X 0.95 MAX 
+NOTE 5 4.70 3.94 2.90 2.43 B 4.5 4.3 A 9.8 9.6 NOTE 3 0.75 0.50 (0.15) TYP
+5.1 Additional Package Notes
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing per ASME Y14.5M.
+2. This drawing is subject to change without notice.
+3. This dimension does not include mold flash, protrusions, or gate burrs. Mold flash, protrusions, or gate burrs shall not exceed 0.15 mm per side.
+4. Reference JEDEC registration MO-153.
+5. Features may differ or may not be present.
+6. Publication IPC-7351 may have alternate designs.
+7. Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+8. This package is designed to be soldered to a thermal pad on the board. For more information, see Texas Instruments literature numbers SLMA002 (www.ti.com/lit/slma002) and SLMA004 (www.ti.com/lit/slma004).
+9. Size of metal pad may vary due to creepage requirement.
+10. Vias are optional depending on application, refer to device data sheet. It is recommended that vias under paste be filled, plugged or tented.# 1. Fabrication Notes
+1. Sizes may differ or may not be present.
+2. Publication IPC-7351 may have alternate designs.
+3. Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+4. This package is designed to be soldered to a thermal pad on the board. For more information, see Texas Instruments literature numbers SLMA002 (www.ti.com/lit/slma002) and SLMA004 (www.ti.com/lit/slma004).
+5. Size of metal pad may vary due to creepage requirement.
+6. Vias are optional depending on application, refer to device data sheet. It is recommended that vias under paste be filled, plugged or tented."
+"[desc] tps8804 __ Land Pattern [desc]
+Note: Information presented is illustrative. Actual dimensions, tolerances, and values may vary."
+"[desc] tps8804 __ Land Pattern Table [desc]
+---table begin---
+Table tile: Land Pattern Dimensions
+| Dimension | Value |
+|---|---|
+| 1 | 19 |
+| 2 | 20 |
+| 3 | 38 |
+| 4 | 39 |
+---table end---"
+"[desc] tps8804 __ Additional Notes [desc]
+11. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate design recommendations.
+12. Board assembly site may have different recommendations for stencil design."
+"[desc] tps8804 __ Solder Paste Example [desc]
+Note: Based on 0.125 mm thick stencil."

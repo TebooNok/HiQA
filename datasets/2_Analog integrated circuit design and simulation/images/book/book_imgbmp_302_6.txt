@@ -1,0 +1,3 @@
+title: 图  8- 31  对 “VS(“/VREF”)” 求最小值
+理后的数据表达式在 “Calculator” 的缓存中显示，如图  8- 31  所示。  图  8- 31  对 “VS(“/VREF”)” 求最小值 点击 “Calculator” 键盘中的 “-” 号，将缓存和堆栈中第一位的数据做减法操作。结果如
+base name:book

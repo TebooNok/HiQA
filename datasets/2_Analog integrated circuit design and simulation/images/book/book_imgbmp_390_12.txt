@@ -1,0 +1,3 @@
+title: 图  9-32  选择参数分析
+在  ADE  窗口中，选择 “Tools” 下拉菜单中的 “Parametric Analysis” 命令，打开 “Parametric Analysis” 窗口。如图  9-32  所示。  图  9-32  选择参数分析
+base name:book

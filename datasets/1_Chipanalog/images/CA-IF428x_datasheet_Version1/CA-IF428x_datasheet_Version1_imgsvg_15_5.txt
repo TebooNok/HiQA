@@ -1,0 +1,3 @@
+title: 图11- 2    CA-IF4289的典型应用图的典型应用图(EN_VT接GND，AIO-BIO接收端阈值使用外部接收端阈值使用外部TVL,TVT电压电压)
+16                                                                                                                                                                                     Copyright © 2019, Chipanalog Incorporated 上海川土微电子有限公司 image_6 图11- 2    CA-IF4289的典型应用图的典型应用图(EN_VT接GND，AIO-BIO接收端阈值使用外部接收端阈值使用外部TVL,TVT电压电压)
+base name:CA-IF428x_datasheet_Version1

@@ -1,0 +1,3 @@
+title: 6-1 CA-IS3740VLN 顶部视图顶部视图
+Version 1.00,2022/09/01     上海川土微电子有限公司上海川土微电子有限公司 引脚功能描述引脚功能描述 6-1 CA-IS3740VLN 顶部视图顶部视图 表表 6-1 CA-IS3740VLN 引脚功能描述引脚功能描述
+base name:CA-IS3740VLN_datasheet_Version1

@@ -1,0 +1,3 @@
+title: 图  11  迟滞控制  PFC  升压电路
+限。该种控制将被控量控制在一定范围内，控制相对简单，频率不固定，控制电路如图  11 ，波形如图  12  所示。 C OUT v bus v ac i ac Boost Rectifier DRV DRV Isolation + - V REF PI/PID Multiplier
+base name:AN011_隔离电流检测放大器在PFC升压系统的应用_APPNOTE

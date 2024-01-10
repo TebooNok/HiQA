@@ -1,0 +1,3 @@
+I ISO
+2us / div V ISO 10mV/div 2us / div V ISO 50mV/div I ISO 2us / div 2us / div 50mA/div 100us / div 13mA 117mA 3.20
+base name:UG002_CA-IS364x 带电源的数字隔离器测试板说明_EVMUG

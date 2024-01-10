@@ -1,0 +1,3 @@
+title: Figure 7   输出上升时间  tr  Figure 8   输出下降时间  tf
+上海川土微电子有限公司 关键参数测试 下面是以  CA-IS3211VxJ （ SOIC6-WB ）为例 ,  测试一些典型波形 ,  包括输出上升 & 下降时间、传输延
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

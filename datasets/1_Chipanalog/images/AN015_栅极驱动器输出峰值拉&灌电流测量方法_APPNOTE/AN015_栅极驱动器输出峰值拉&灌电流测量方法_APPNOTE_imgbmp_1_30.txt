@@ -1,0 +1,3 @@
+title: Not Found
+图  3  栅极驱动电路等效模型                        图 4   电容充电电流波形
+base name:AN015_栅极驱动器输出峰值拉&灌电流测量方法_APPNOTE

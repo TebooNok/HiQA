@@ -1,0 +1,3 @@
+title: Not Found
+All dimensions are nominal A0 (mm) B0 (mm) K0 (mm) P1 (mm) W (mm) image_17 image_18 APE DIMENSIONS QUADRANT ASSIGNMENTS FOR PIN 1 ORIENTATION IN TAPE
+base name:CA-IF1051S_VS-Q1_datasheet_version1

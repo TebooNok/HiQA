@@ -1,0 +1,3 @@
+title: Not Found
+Figure 13   输出波形（ Frequency=1MHz ） 注： (1)  波形通道设置  CH1: Input, CH2: OUT.    IOH≈5.4A  IOH≈7.6A
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

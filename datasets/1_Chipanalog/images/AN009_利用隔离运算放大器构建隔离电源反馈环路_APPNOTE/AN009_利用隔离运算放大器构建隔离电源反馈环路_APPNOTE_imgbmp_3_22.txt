@@ -1,0 +1,3 @@
+title: 图  4. CA-IS310x  误差放大器环路补偿
+Z1 、 Z2  构成  CA-IS310x  的补偿网络，从  FB  至  COMP  的传递函数如下：  Gain(s) = −  Z1(s) Z2(s)  + - +IN -IN COMP Z1 Z2 PGND2 Tx Rx EA OUT VDD2 VDD1 VREG1 IOUT VREG2 LDO REFOUT2
+base name:AN009_利用隔离运算放大器构建隔离电源反馈环路_APPNOTE

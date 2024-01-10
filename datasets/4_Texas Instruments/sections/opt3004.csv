@@ -1,0 +1,859 @@
+section
+"[desc] opt3004 __ 特性 [desc]
+采用精密光学滤波以匹配人眼：
+- 在 ±85° 入射角时，可阻隔超过 99%（典型值）的红外线
+- 自动满量程设置功能可简化软件并确保配置适当
+- 测量范围：0.01lux 至 83,000lux
+- 23 位有效动态范围，具有自动增益范围设置功能
+- 12 种二进制加权满量程范围设置：范围之间的匹配度小于 0.2%（典型值）
+- 低工作电流: 1.8µA（典型值）
+- 工作温度范围：–40°C 至 +85°C
+- 宽电源范围：1.6V 至 3.6V
+- 可耐受 5.5V 电压的 I/O
+- 灵活的中断系统
+- 小巧的外形：– 2mm × 2mm × 0.65mm USON 封装– 2.1mm × 1.9mm × 0.6mm SOT-5X3 封装"
+"[desc] opt3004 __ 应用 [desc]
+- IP 网络摄像头
+- 显示屏背光控制
+- 照明控制系统
+- 平板电脑和笔记本电脑
+- 温度调节装置和家庭自动化电器
+- 销售点终端
+- 室外交通信号灯和路灯"
+"[desc] opt3004 __ 说明 [desc]
+OPT3004 是一款用于测量可见光密度的传感器。传感器的光谱响应与人眼的视觉响应紧密匹配，并且具有很高的红外线阻隔率（在入射角较大时）。
+OPT3004 是一款用于测量人眼可见光强度的单芯片照度计。OPT3004 器件具有精密的光谱响应和较强的红外阻隔功能，因此能够准确测量人眼可见光的强度，且不受光源影响。对于为追求美观效果而需要将传感器安装在深色玻璃下的工业设计而言，较强的红外阻隔功能还有助于保持高精度。OPT3004 专门针对构建基于光线的人眼般体验的系统而设计，是人眼匹配度低且红外阻隔能力差的光电二极管、光敏电阻或其他环境光传感器首选的理想替代产品。"
+"[desc] opt3004 __ 说明 __ 产品说明 [desc]
+凭借内置的满量程设置功能，无需手动选择满量程范围即可在 0.01lux 至 83,000lux 范围内进行测量。该功能允许在 23 位有效动态范围内进行光测量。
+---table begin---
+Table tile: 器件信息
+| 器件型号 | 封装(1) | 封装尺寸（标称值） |
+|---|---|---|
+| OPT3004 | USON (6) | 2.00mm × 2.00mm |
+| OPT3004 | SOT-5X3(2) (8) | 2.10mm x 1.90mm |
+---table end---"
+"[desc] opt3004 __ 方框图 [desc]
+SCL
+SDA
+ADDR
+VDD
+OPT3004
+INT
+Ambient
+Light
+GND
+I2C
+Interface
+VDD 
+ADC
+Optical
+Filter"
+"[desc] opt3004 __ Pin Configuration and Functions [desc]
+---table begin---
+Table tile: Pin Functions
+| PIN NO. | NAME | TYPE | DESCRIPTION |
+|---|---|---|---|
+| 1 | VDD | Power | Device power. Connect to a 1.6-V to 3.6-V supply. |
+| 2 | ADDR | Digital input | Address pin. This pin sets the LSBs of the I2C address. |
+| 3 | GND | Power | Ground |
+| 4 | SCL | Digital input | I2C clock. Connect with a 10-kΩ resistor to a 1.6-V to 5.5-V supply. |
+| 5 | INT | Digital output | Interrupt output open-drain. Connect with a 10-kΩ resistor to a 1.6-V to 5.5-V supply. |
+| 6 | SDA | Digital I/O | I2C data. Connect with a 10-kΩ resistor to a 1.6-V to 5.5-V supply. |
+---table end---"
+"[desc] opt3004 __ 2 ESD Ratings [desc]
+---table begin---
+Table tile: ESD Ratings
+| VALUE | UNIT |
+|---|---|
+| V(ESD) Electrostatic discharge | Human-body model (HBM), per ANSI/ESDA/JEDEC JS-001(1) ±2000V |
+| Charged-device model (CDM), per ANSI/ESDA/JEDEC JS-002(2) | ±500 |
+---table end---"
+"[desc] opt3004 __ Specifications [desc]
+JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process.
+JEDEC document JEP157 states that 250-V CDM allows safe manufacturing with a standard ESD control process."
+"[desc] opt3004 __ 3 Recommended Operating Conditions [desc]
+---table begin---
+Table tile: Recommended Operating Conditions
+| MIN | NOM | MAX | UNIT |
+|---|---|---|---|
+| Operating temperature | –40 | 85 | °C |
+| Operating power-supply voltage | 1.6 | 3.6 | V |
+---table end---"
+"[desc] opt3004 __ 4 Thermal Information [desc]
+For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application report.# 1. Specifications
+· resistor, VDD ≤ VI²C
+---table begin---
+Table title: Basic Measurement Specifications
+| Parameter | Min | Max | Unit |
+|---|---|---|---|
+| Quiescent Current | Dark Active, VDD = 3.6 V | 1.8 | 2.5 | µA |
+| Shutdown (M[1:0] = 00)(2), VDD = 3.6 V | 0.3 | 0.47 | µA |
+| POR (Power-on-reset threshold TA = 25°C) | - | 0.8 | V|
+---table end---"
+"[desc] opt3004 __ 4 Thermal Information [desc]
+· Por
+Power-on-reset threshold
+TA = 25°C
+0.8
+V"
+"[desc] opt3004 __ Digital [desc]
+I/O pin capacitance
+3
+pF
+Total integration time(5)
+(CT = 1)(2), 800-ms mode, fixed lux range
+720
+800
+880
+ms"
+"[desc] opt3004 __ Temperature [desc]
+Specified temperature range
+–40
+85
+°C"
+"[desc] opt3004 __ Notes [desc]
+(1) Characterized by measuring fixed near-full-scale light levels on the higher adjacent full-scale range setting.
+(2) Refers to a control field within the configuration register.
+(3) Tested with the white LED calibrated to 2k lux and an 850-nm source.
+(4) PSRR is the percent change of the measured lux output from its current value, divided by the change in power supply voltage, as characterized by results from 3.6-V and 1.6-V power supplies.
+(5) The conversion time, from start of conversion until the data are ready to be read, is the integration time plus 3 ms.
+(6) The specified leakage current is dominated by the production test equipment limitations. Typical values are much smaller."
+"[desc] opt3004 __ Timing Requirements [desc]
+---table begin---
+Table title: I2C High-Speed Mode
+| Parameter | Min | Nom | Max | Unit |
+|---|---|---|---|---|
+| SCL operating frequency | 0.01 | - | 2.6 | MHz |
+| Bus free time between stop and start | 160 | - | - | ns |
+| Hold time after repeated start | 160 | - | - | ns |
+| Setup time for repeated start | 160 | - | - | ns |
+| Setup time for stop | 160 | - | - | ns |
+---table end---"
+"[desc] opt3004 __ Spectrum [desc]
+At TA = 25°C, VDD = 3.3 V, 800-ms conversion time (CT = 1), automatic full-scale range (RN[3:0] = 1100b), white LED, and normal-angle incidence of light, unless otherwise specified."
+"[desc] opt3004 __ Wavelengths [desc]
+Normalized Response vs. Wavelength from 85° to -85° in 10° Steps Normalized to each Angle of Incidence.# 7.2. Typical Characteristics
+At TA = 25°C, VDD = 3.3 V, 800-ms conversion time (CT = 1), automatic full-scale range (RN[3:0] = 1100b), white LED, and normal-angle incidence of light, unless otherwise specified.
+---table begin---
+Table tile: Wavelength
+| Wavelength (nm)| Normalized Response |
+|---|---|
+| 300 | 0 |
+| 400 | 0.1 |
+| 500 | 0.2 |
+| 600 | 0.3 |
+| 700 | 0.4 |
+| 800 | 0.5 |
+| 900 | 0.6 |
+| 1000 | 0.7 |
+---table end---"
+"[desc] opt3004 __ Wavelengths __ Spectral Response vs Wavelength [desc]
+Following the pdf document, the figures section are ignored."
+"[desc] opt3004 __ Wavelengths __ Output Response vs Input Illuminance, Multiple Light Sources (Fluorescent, Halogen, Incandescent) [desc]
+Following the pdf document, the figures section are ignored."
+"[desc] opt3004 __ Wavelengths __ Output Response vs Input Illuminance (Entire Range = 0 lux to 83k lux) [desc]
+Following the pdf document, the figures section are ignored."
+"[desc] opt3004 __ Wavelengths __ Output Response vs Input Illuminance (Mid Range = 0 lux to 100 lux) [desc]
+Following the pdf document, the figures section are ignored."
+"[desc] opt3004 __ Wavelengths __ Typical Characteristics (continued) [desc]
+---table begin---
+Table tile: Temperature vs Dark Output Response
+| Temperature (qC)| Dark Output Response (Lux) |
+|---|---|
+| -40 | 0 |
+| -20 | 0.01 |
+| 0 | 0.02 |
+| 20 | 0.03 |
+| 40 | 0.04 |
+| 60 | 0.05 |
+| 80 | 0.06 |
+| 100 | 0.07 |
+---table end---"
+"[desc] opt3004 __ Wavelengths __ Normalized Response vs Temperature [desc]
+Following the pdf document, the figures section are ignored."
+"[desc] opt3004 __ Wavelengths __ Conversion Time vs Power Supply [desc]
+Following the pdf document, the figures section are ignored."
+"[desc] opt3004 __ Wavelengths __ Normalized Response vs Power-Supply Voltage [desc]
+Following the pdf document, the figures section are ignored."
+"[desc] opt3004 __ Wavelengths __ Typical Characteristics (continued) [desc]
+At TA = 25°C, VDD = 3.3 V, 800-ms conversion time (CT = 1), automatic full-scale range (RN[3:0] = 1100b), white LED, and normal-angle incidence of light, unless otherwise specified.
+---table begin---
+Table tile: Illuminance Angle
+| Illuminance Angle (q)| Normalized Response |
+|---|---|
+| -90 | 0 |
+| -70 | 0.1 |
+| -50 | 0.2 |
+| -30 | 0.3 |
+| -10 | 0.4 |
+---table end---"
+"[desc] opt3004 __ Wavelengths __ Supply Current vs Input Illuminance [desc]
+Following the pdf document, the figures section are ignored."
+"[desc] opt3004 __ Wavelengths __ Shutdown Current vs Input Illuminance [desc]
+Following the pdf document, the figures section are ignored."
+"[desc] opt3004 __ Wavelengths __ Supply Current vs Temperature [desc]
+Following the pdf document, the figures section are ignored.# 7.14. Normalized Response vs Illuminance Angle
+e of light, unless otherwise specified.
+---table begin---
+Table tile: Normalized Response vs Illuminance Angle
+| Illuminance Angle (q) | Normalized Response |
+|---|---|
+| -90 | 0 |
+| -70 | 0.1 |
+| -50 | 0.2 |
+| -30 | 0.3 |
+| -10 | 0.4 |
+| 10 | 0.5 |
+| 30 | 0.6 |
+| 50 | 0.7 |
+| 70 | 0.8 |
+| 90 | 0.9 |
+| NA | 1 |
+---table end---"
+"[desc] opt3004 __ Wavelengths __ Supply Current vs Input Illuminance [desc]
+---table begin---
+Table tile: Supply Current vs Input Illuminance
+| Input Illuminance (Lux) | Supply Current (PA) |
+|---|---|
+| 100 | 1 |
+| 1000 | 1.5 |
+| 10000 | 2 |
+| 100000 | 2.5 |
+---table end---
+Note: M[1:0] = 10b"
+"[desc] opt3004 __ Wavelengths __ Shutdown Current vs Input Illuminance [desc]
+---table begin---
+Table tile: Shutdown Current vs Input Illuminance
+| Input Illuminance (Lux) | Supply Current (PA) |
+|---|---|
+| 0 | 0.2 |
+| 20000 | 0.25 |
+| 40000 | 0.3 |
+| 60000 | 0.35 |
+| 80000 | 0.4 |
+---table end---
+Note: M[1:0] = 00b"
+"[desc] opt3004 __ Wavelengths __ Supply Current vs Temperature [desc]
+---table begin---
+Table tile: Supply Current vs Temperature
+| Temperature (qC) | Supply Current (PA) |
+|---|---|
+| -40 | 1 |
+| -20 | 1.5 |
+| 0 | 2 |
+| 20 | 2.5 |
+| 40 | 3 |
+| 60 | 3.5 |
+| 80 | NA |
+| 100 | NA |
+---table end---
+Note: Vdd = 3.3V, Vdd = 1.6V, M[1:0] = 10b  "
+"[desc] opt3004 __ Wavelengths __ Shutdown Current vs Temperature [desc]
+---table begin---
+Table tile: Shutdown Current vs Temperature
+| Temperature (qC) | Shutdown Supply Current (PA) |
+|---|---|
+| -40 | 0.2 |
+| -20 | 0.4 |
+| 0 | 0.6 |
+| 20 | 0.8 |
+| 40 | 1 |
+| 60 | 1.2 |
+| 80 | 1.4 |
+| 100 | 1.6 |
+---table end---
+Note: Vdd = 3.3V, Vdd = 1.6V, M[1:0] = 00b, input illuminance = 0 lux  "
+"[desc] opt3004 __ Wavelengths __ Functional Block Diagram [desc]
+SCL
+SDA
+ADDR
+VDD
+OPT3004
+INT
+Ambient
+Light
+GND
+I2C
+Interface
+VDD 
+ADC
+Optical
+Filter"
+"[desc] opt3004 __ Wavelengths __ 1 Human Eye Matching [desc]
+The OPT3004 spectral response closely matches that of the human eye. If the ambient light sensor measurement is used to help create a good human experience, or create optical conditions that are optimal for a human, the sensor must measure the same spectrum of light that a human sees.
+The device also has excellent infrared light (IR) rejection. This IR rejection is especially important because many real-world lighting sources have significant infrared content that humans do not see. If the sensor measures infrared light that the human eye does not see, then a true human experience is not accurately represented.
+Furthermore, if the ambient light sensor is hidden underneath a dark window (such that the end-product user cannot see the sensor) the infrared rejection of the OPT3004 becomes significantly more important because many dark windows attenuate visible light but transmit infrared light. This attenuation of visible light and lack of attenuation of IR light amplifies the ratio of the infrared light to visible light that illuminates the sensor. Results can still be well matched to the human eye under this condition because of the high infrared rejection of the OPT3004."
+"[desc] opt3004 __ Wavelengths __ 2 Automatic Full-Scale Range Setting [desc]
+The OPT3004 has an automatic full-scale range setting feature that eliminates the need to predict and set the optimal range for the device. In this mode, the OPT3004 automatically selects the optimal full-scale range for the given lighting condition. The OPT3004 has a high degree of result matching between the full-scale range settings. This matching eliminates the problem of varying results or the need for range-specific, user-calibrated gain factors when different full-scale ranges are chosen. For further details, see the Automatic Full-Scale Setting Mode section."
+"[desc] opt3004 __ Wavelengths __ 3 Interrupt Operation, INT Pin, and Interrupt Reporting Mechanisms [desc]
+The device has an interrupt reporting system that allows the processor connected to the I2C bus to go to sleep, or otherwise ignore the device results, until a user-defined event occurs that requires possible action.  Alternatively, this same mechanism can also be used with any system that can take advantage of a single digital signal that indicates whether the light is above or below levels of interest.
+The interrupt event conditions are controlled by the high-limit and low-limit registers, as well as the configuration register latch and fault count fields. The results of comparing the result register with the high-limit register and low-limit register are referred to as fault events. The fault count register dictates how many consecutive same-result fault events are required to trigger an interrupt event and subsequently change the state of the interrupt reporting mechanisms, which are the INT pin, the# 8.3 Interrupt Reporting Mechanism
+The OPT3004 includes an interrupt reporting mechanism that provides an additional digital signal that indicates whether the light is above or below levels of interest.
+The interrupt event conditions are controlled by the high-limit and low-limit registers, as well as the configuration register latch and fault count fields. The results of comparing the result register with the high-limit register and low-limit register are referred to as fault events. The fault count register dictates how many consecutive same-result fault events are required to trigger an interrupt event and subsequently change the state of the interrupt reporting mechanisms, which are the INT pin, the flag high field, and the flag low field. The latch field allows a choice between a latched window-style comparison and a transparent hysteresis-style comparison.
+The INT pin has an open-drain output, which requires the use of a pull-up resistor. This open-drain output allows multiple devices with open-drain INT pins to be connected to the same line, thus creating a logical NOR or AND function between the devices. The polarity of the INT pin can be controlled with the polarity of interrupt field in the configuration register. When the POL field is set to 0, the pin operates in an active low behavior that pulls the pin low when the INT pin becomes active. When the POL field is set to 1, the pin operates in an active high behavior and becomes high impedance, thus allowing the pin to go high when the INT pin becomes active.
+Additional details of the interrupt reporting registers are described in the Interrupt Reporting Mechanism Modes and Internal Registers sections."
+"[desc] opt3004 __ Wavelengths __ 4 I2C Bus Overview [desc]
+The OPT3004 offers compatibility with both I2C and SMBus interfaces. The I2C and SMBus protocols are essentially compatible with one another. The I2C interface is used throughout this document as the primary example with the SMBus protocol specified only when a difference between the two protocols is discussed.
+The OPT3004 is connected to the bus with two pins: an SCL clock input pin and an SDA open-drain bidirectional data pin. The bus must be controlled by a controller device that generates the serial clock (SCL), controls the bus access, and generates start and stop conditions. To address a specific device, the controller initiates a start condition by pulling the data signal line (SDA) from a high logic level to a low logic level while SCL is high. All targets on the bus shift in the target address byte on the SCL rising edge, with the last bit indicating whether a read or write operation is intended. During the ninth clock pulse, the target being addressed responds to the controller by generating an acknowledge bit by pulling SDA low.
+Data transfer is then initiated and eight bits of data are sent, followed by an acknowledge bit. During data transfer, SDA must remain stable while SCL is high. Any change in SDA while SCL is high is interpreted as a start or stop condition. When all data are transferred, the controller generates a stop condition, indicated by pulling SDA from low to high while SCL is high. The OPT3004 includes a 28-ms timeout on the I2C interface to prevent locking up the bus. If the SCL line is held low for this duration of time, the bus state machine is reset."
+"[desc] opt3004 __ Wavelengths __ 4 I2C Bus Overview __ 1 Serial Bus Address [desc]
+To communicate with the OPT3004, the controller must first initiate an I2C start command. Then, the controller must address target devices via a target address byte. The target address byte consists of seven address bits and a direction bit that indicates whether the action is to be a read or write operation.
+Four I2C addresses are possible.# 8.3.4.1 Serial Bus Address
+To communicate with the OPT3004, the controller must first initiate an I2C start command. Then, the controller must address target devices via a target address byte. The target address byte consists of seven address bits and a direction bit that indicates whether the action is to be a read or write operation.
+Four I2C addresses are possible by connecting the ADDR pin to one of four pins: GND, VDD, SDA, or SCL. "
+"[desc] opt3004 __ Wavelengths __ 4 I2C Bus Overview __ 1 Serial Bus Address __ 1 OPT3004 I2C Address Configuration [desc]
+---table begin---
+Table title: Possible I2C Addresses with Corresponding ADDR Configuration
+| DEVICE I2C ADDRESS | ADDR PIN |
+|---|---|
+| 1000100 | GND |
+| 1000101 | VDD |
+| 1000110 | SDA |
+| 1000111 | SCL |
+---table end---"
+"[desc] opt3004 __ Wavelengths __ 4 I2C Bus Overview __ 2 Serial Interface [desc]
+The OPT3004 operates as a target device on both the I2C bus and SMBus. Connections to the bus are made via the SCL clock input line and the SDA open-drain I/O line. The OPT3004 supports the transmission protocol for standard mode (up to 100 kHz), fast mode (up to 400 kHz), and high-speed mode (up to 2.6 MHz). All data bytes are transmitted most-significant bits first.
+The SDA and SCL pins feature integrated spike-suppression filters and Schmitt triggers to minimize the effects of input spikes and bus noise. See the Electrical Interface section for further details of the I2C bus noise immunity."
+"[desc] opt3004 __ 4 Device Functional Modes __ 1 Automatic Full-Scale Setting Mode [desc]
+The OPT3004 has an automatic full-scale-range setting mode that eliminates the need for a user to predict and set the optimal range for the device. This mode is entered when the configuration register range number field (RN[3:0]) is set to 1100b.
+The first measurement that the device takes in auto-range mode is a 10-ms range assessment measurement. The device then determines the appropriate full-scale range to take its first full measurement.
+For subsequent measurements, the full-scale range is set by the result of the previous measurement. If a measurement is towards the low side of full-scale, the full-scale range is decreased by one or two settings for the next measurement. If a measurement is towards the upper side of full-scale, the full-scale range is increased by one setting for the next measurement.
+If the measurement exceeds the full-scale range, resulting from a fast increasing optical transient event, the current measurement is aborted. This invalid measurement is not reported. A 10-ms measurement is taken to assess and properly reset the full-scale range. Then, a new measurement is taken with this proper full-scale range. Therefore, during a fast increasing optical transient in this mode, a measurement can possibly take longer to complete and report than indicated by the configuration register conversion time field (CT)."
+"[desc] opt3004 __ 4 Device Functional Modes __ 2 Interrupt Reporting Mechanism Modes [desc]
+There are two major types of interrupt reporting mechanism modes: latched window-style comparison mode and transparent hysteresis-style comparison mode. The configuration register latch field (L) (see the configuration register, bit 4) controls which of these two modes is used. An end-of-conversion mode is also associated with each major mode type. The end-of-conversion mode is active when the two most significant bits...# 8.4.2 Interrupt Reporting Mechanism Modes
+There are two major types of interrupt reporting mechanism modes: latched window-style comparison mode and transparent hysteresis-style comparison mode. The configuration register latch field (L) (see the configuration register, bit 4) controls which of these two modes is used. An end-of-conversion mode is also associated with each major mode type. The end-of-conversion mode is active when the two most significant bits of the threshold low register are set to 11b. The mechanisms report via the flag high and flag low fields, the conversion ready field, and the INT pin."
+"[desc] opt3004 __ 4 Device Functional Modes __ 2 Interrupt Reporting Mechanism Modes __ 1 Latched Window-Style Comparison Mode [desc]
+The latched window-style comparison mode is typically selected when using the OPT3004 to interrupt an external processor. In this mode, a fault is recognized when the input signal is above the high-limit register or below the low-limit register. When the consecutive fault events trigger the interrupt reporting mechanisms, these mechanisms are latched, thus reporting whether the fault is the result of a high or low comparison. These mechanisms remain latched until the configuration register is read, which clears the INT pin and flag high and flag low fields. The SMBus alert response protocol, described in detail in the SMBus Alert Response section, clears the pin but does not clear the flag high and flag low fields. The behavior of this mode, along with the conversion ready flag, is summarized in 表 8-2. Note that 表 8-2 does not apply when the two threshold low register MSBs (see the Transparent Hysteresis-Style Comparison Mode section for clarification on the MSBs) are set to 11b.
+---table begin---
+Table tile: Latched Window Style Comparison Mode: Flag Setting and Clearing Summary
+| OPERATION | FLAG HIGH FIELD | FLAG LOW FIELD | INT PIN | CONVERSION READY FIELD |
+|---|---|---|---|---|
+|The result register is above the high-limit register for fault count times. See the Result Register and the High-Limit Register for further details. | 1 | X | Active | 1 |
+|The result register is below the low-limit register for fault count times. See the Result Register and the Low-Limit Register for further details. | X | 1 | Active | 1 |
+|The conversion is complete with fault count criterion not met| X | X | X | 1 |
+|Configuration register read | 0 | 0 | Inactive | 0 |
+|Configuration register write, M:0] = 00b (shutdown) | X | X | X | X |
+|Configuration register write, M:0] > 00b (not shutdown) | X | X | X | 0 |
+|SMBus alert response protocol | X | X | Inactive | X |
+---table end---
+Note:
+1. The INT pin depends on the setting of the polarity field (POL). The INT pin is low when the pin state is active and POL = 0 (active low) or when the pin state is inactive and POL = 1 (active high). X = no change from the previous state.
+2. Immediately after the configuration register is read, the device automatically resets the conversion ready field to its 0 state. Thus, if two configuration register reads are performed immediately after a conversion completion, the first reads 1 and the second reads 0.
+3. The high-limit register is assumed to be greater than the low-limit register. If this assumption is incorrect, the flag high field and flag low field can take on different behaviors."
+"[desc] opt3004 __ 4 Device Functional Modes __ 2 Interrupt Reporting Mechanism Modes __ 2 Transparent Hysteresis-Style Comparison Mode [desc]
+The transparent hysteresis-style comparison mode is typically used when a single digital signal is desired that indicates whether the input light is higher than or lower than a light level of interest. If the result register is higher than the high-limit register...# 8.4.2.2 Transparent Hysteresis-Style Comparison Mode
+The transparent hysteresis-style comparison mode is typically used when a single digital signal is desired that 
+indicates whether the input light is higher than or lower than a light level of interest. If the result register is higher 
+than the high-limit register for a consecutive number of events set by the fault count field, the INT line is set to 
+active, the flag high field is set to 1, and the flag low field is set to 0. If the result register is lower than the low-
+limit register for a consecutive number of events set by the fault count field, the INT line is set to inactive, the flag 
+low field is set to 1, and the flag high field is set to 0. The INT pin and flag high and flag low fields do not change 
+state with configuration reads and writes. The INT pin and flag fields continually report the appropriate 
+comparison of the light to the low-limit and high-limit registers. The device does not respond to the SMBus alert 
+response protocol while in either of the two transparent comparison modes (configuration register, latch field = 
+0). The behavior of this mode, along with the conversion ready is summarized in 表 8-3. Note that 表 8-3 does 
+not apply when the two threshold low register MSBs (LE[3:2] from 表 8-11) are set to 11.
+---table begin---
+Table title: 表 8-3. Transparent Hysteresis-Style Comparison Mode: Flag Setting and Clearing Summary(2) (4) 
+| OPERATION | FLAG HIGH FIELD | FLAG LOW FIELD | INT PIN(1) | CONVERSION READY FIELD |
+|---|---|---|---|---|
+| The result register is above the high-limit register for fault count times. See the Result Register and the High-Limit Register for further details. | 1 | 0 | Active | 1 |
+| The result register is below the low-limit register for fault count times. See the Result Register and the Low-Limit Register for further details. | 0 | 1 | Inactive | 1 |
+| The conversion is complete with fault count criterion not met | X | X | X | 1 |
+| Configuration register read(3) | X | X | X | 0 |
+| Configuration register write, M[1:0] = 00b (shutdown) | X | X | X | X |
+| Configuration register write, M[1:0] > 00b (not shutdown) | X | X | X | 0 |
+| SMBus alert response protocol | X | X | X | X |
+---table end---"
+"[desc] opt3004 __ 4 Device Functional Modes __ 2 Interrupt Reporting Mechanism Modes __ 3 Latched Window-Style Comparison Mode: Flag Setting and Clearing Summary [desc]
+---table begin---
+Table title: 表 8-4. End-of-Conversion Mode while in Latched Window-Style Comparison Mode: Flag Setting and Clearing Summary(2) 
+| OPERATION | FLAG HIGH FIELD | FLAG LOW FIELD | INT PIN(1) | CONVERSION READY FIELD |
+|---|---|---|---|---|
+| The result register is above the high-limit register for fault count times. See the Result Register and the High-Limit Register for further details. | 1 | X | Active | 1 |
+| The result register is below the low-limit register for fault count times. See the Result Register and the Low-Limit Register for further details. | X | 1 | Active | 1 |
+| The conversion is complete with fault count criterion not met | X | X | Active | 1 |
+| Configuration register read(3) | 0 | 0 | Inactive | 0 |
+| Configuration register write, M[1:0] = 00b (shutdown) | X | X | X | X |
+| Configuration register write, M[1:0] > 00b (not shutdown) | X | X | X | 0 |
+| SMBus alert response protocol | X | X | Inactive | X |
+---table end---"
+"[desc] opt3004 __ 4 Device Functional Modes __ 2 Interrupt Reporting Mechanism Modes __ 4 End-of-Conversion and Transparent Hysteresis-Style Comparison Mode [desc]
+---table begin---
+Table title: 表 8-5. End-Of-Conversion Mode while in Transparent Hysteresis-Style Comparison Mode: Flag Setting and Clearing Summary(2)
+| OPERATION | FLAG HIGH FIELD | FLAG LOW FIELD | INT PIN(1) | CONVERSION READY FIELD |
+|---|---|---|---|---|
+| The result register is above the high-limit register for fault count times. See the Result Register and the High-Limit Register for further details. | 1 | 0 | Active | 1 |
+| The result register is below the low-limit register for fault count times. See the Result Register and the Low-Limit Register for further details. | 0 | 1 | Active | 1 |
+| The conversion is complete with fault count criterion not met | X | X | Active | 1 |
+| Configuration register read(3) | X | X | Inactive | 0 |
+| Configuration register write, M[1:0] = 00b (shutdown) | X | X | X | X |
+| Configuration register write, M[1:0] > 00b (not shutdown) | X | X | Inactive | 0 |
+| SMBus alert response protocol | X | X | X | X |
+---table end---"
+"[desc] opt3004 __ 5 Programming [desc]
+The OPT3004 supports the transmission protocol for standard mode (up to 100 kHz), fast mode (up to 400 kHz), and high-speed mode (up to 2.6 MHz). Fast and standard modes are described as the default protocol, referred to as F/S. High-speed mode is described in the High-Speed I 2C Mode section."
+"[desc] opt3004 __ 5 Programming __ 1 Writing and Reading [desc]
+Accessing a specific register on the OPT3004 is accomplished by writing the appropriate register address during the I2C transaction sequence. Refer to 表 8-6 for a complete list of registers and their corresponding register addresses. The value for the register address (as shown in 图 8-1) is the first byte transferred after the target address byte with the R/W bit low.# 8.5.1.1 High-Speed I2C Mode
+When the bus is idle, both the SDA and SCL lines are pulled high by the pull-up resistors or active pull-up devices. The controller generates a start condition followed by a valid serial byte containing the high-speed (HS) controller code 0000 1XXXb. This trans
+---table begin---
+Table tile: OPT3004 Pinout
+| Pin Number | Pin Name | Description |
+|---|---|---|
+| 1 | A1 | Determines the least significant bit of the slave address |
+| 2 | A0 | Determines the least significant bit of the slave address |
+| 3 | R/W | Determines the direction of data flow |
+| 4 | Frame 1 | Two-Wire Target Address Byte (1) |
+| 5 | ACK by OPT3004 | Acknowledgement by OPT3004 |
+| 6 | Stop by controller | End of communication |
+| 7 | Frame 2 | Register Address Byte |
+---table end---
+The value of the target address byte is determined by the ADDR pin setting; see the table above. The process of writing to a register begins with the first byte transmitted by the controller. This byte is the target address with the R/W bit low. The OPT3004 then acknowledges receipt of a valid address. The next byte transmitted by the controller is the address of the register that data are to be written to. The next two bytes are written to the register addressed by the register address. The OPT3004 acknowledges receipt of each data byte. The controller may terminate the data transfer by generating a start or stop condition.
+When reading from the OPT3004, the last value stored in the register address by a write operation determines which register is read during a read operation. To change the register address for a read operation, a new partial I2C write transaction must be initiated. This partial write is accomplished by issuing a target address byte with the R/W bit low, followed by the register address byte and a stop command. The controller then generates a start condition and sends the target address byte with the R/W bit high to initiate the read command. The next byte is transmitted by the target and is the most significant byte of the register indicated by the register address. This byte is followed by an acknowledge from the controller; then the target transmits the least significant byte. The controller acknowledges receipt of the data byte. The controller may terminate the data transfer by generating a not-acknowledge after receiving any data byte, or by generating a start or stop condition. If repeated reads from the same register are desired, continually sending the register address bytes is not necessary; the OPT3004 retains the register address until that number is changed by the next write operation.# 8.5.1.1 High-Speed I2C Mode
+When the bus is idle, both the SDA and SCL lines are pulled high by the pull-up resistors or active pull-
+up devices. The controller generates a start condition followed by a valid serial byte containing the high-speed (HS) 
+controller code 0000 1XXXb. This transmission is made in either standard mode or fast mode (up to 400 kHz). 
+The OPT3004 does not acknowledge the HS controller code but does recognize the code and switches its 
+internal filters to support a 2.6-MHz operation.
+The controller then generates a repeated start condition (a repeated start condition has the same timing as the 
+start condition). After this repeated start condition, the protocol is the same as F/S mode, except that 
+transmission speeds up to 2.6 MHz are allowed. Instead of using a stop condition, use repeated start conditions 
+to secure the bus in HS mode. A stop condition ends the HS mode and switches all internal filters of the 
+OPT3004 to support the F/S mode."
+"[desc] opt3004 __ 5 Programming __ 1 Writing and Reading __ 2 General-Call Reset Command [desc]
+The I2C general-call reset allows the host controller in one command to reset all devices on the bus that respond 
+to the general-call reset command. The general call is initiated by writing to the I2C address 0 (0000 0000b). The 
+reset command is initiated when the subsequent second address byte is 06h (0000 0110b). With this transaction, 
+the device issues an acknowledge bit and sets all of its registers to the power-on-reset default condition."
+"[desc] opt3004 __ 5 Programming __ 1 Writing and Reading __ 3 SMBus Alert Response [desc]
+The SMBus alert response provides a quick identification for which device issued the interrupt. Without this alert 
+response capability, the processor does not know which device pulled the interrupt line when there are multiple 
+target devices connected.
+The OPT3004 is designed to respond to the SMBus alert response address, when in the latched window style 
+comparison mode (configuration register, latch field = 1). The OPT3004 does not respond to the SMBus alert 
+response when in transparent mode (configuration register, latch field = 0).
+The response behavior of the OPT3004 to the SMBus alert response is shown in 图 8-4. When the interrupt line 
+to the processor is pulled to active, the controller can broadcast the alert response target address (0001 1001b). 
+Following this alert response, any target devices that generated an alert identify themselves by acknowledging 
+the alert response and sending their respective I2C address on the bus. The alert response can activate several 
+different target devices simultaneously. If more than one target attempts to respond, bus arbitration rules apply. 
+The device with the lowest address wins the arbitration. If the OPT3004 loses the arbitration, the device does not 
+acknowledge the I2C transaction and its INT pin remains in an active state, prompting the I2C controller 
+processor to issue a subsequent SMBus alert response. When the OPT3004 wins the arbitration, the device 
+acknowledges the transaction and sets its INT pin to inactive. The controller can issue that same command 
+again, as many times as necessary to clear the INT pin. See the Interrupt Reporting Mechanism Modes section 
+for additional details of how the flags and INT pin are controlled. The controller can obtain information about the 
+source of the OPT300"
+"[desc] opt3004 __ Device Behavior Description [desc]
+e arbitration, the device does not acknowledge the I2C transaction and its INT pin remains in an active state, prompting the I2C controller processor to issue a subsequent SMBus alert response. When the OPT3004 wins the arbitration, the device acknowledges the transaction and sets its INT pin to inactive. The controller can issue that same command again, as many times as necessary to clear the INT pin. See the Interrupt Reporting Mechanism Modes section for additional details of how the flags and INT pin are controlled. The controller can obtain information about the source of the OPT3004 interrupt from the address broadcast in the above process. The flag high field (configuration register, bit 6) is sent as the final LSB of the address to provide the controller additional information about the cause of the OPT3004 interrupt. If the controller requires additional information, the result register or the configuration register can be queried. The flag high and flag low fields are not cleared upon an SMBus alert response.
+Frame 1 SMBus ALERT Response Address Byte
+Frame 2 Target Address Byte(2)
+Start By
+Controller
+ACK By
+Device
+From
+Device
+NACK By
+Controller
+Stop By
+Controller
+1
+9
+1
+9
+SDA
+SCL
+INT
+0
+0
+0
+1
+1
+0
+0
+R/ W
+1
+0
+0
+0
+1
+A1
+A0
+FH(1)
+A.
+FH is the flag high field (FH) in the configuration register (see 表 8-10).
+B.
+A1 and A0 are determined by the ADDR pin; see 表 8-1."
+"[desc] opt3004 __ Timing Diagram for SMBus Alert Response [desc]
+图 8-4. Timing Diagram for SMBus Alert Response
+8.6 Register Maps
+8.6.1 Internal Registers
+The device is operated over the I2C bus with registers that contain configuration, status, and result information. All registers are 16 bits long.
+---"
+"[desc] opt3004 __ Main Registers [desc]
+There are four main registers: result, configuration, low-limit, and high-limit. There are also two ID registers: manufacturer ID and device ID. 表 8-6 lists these registers.
+---table begin---
+Table tile: Register Map
+| REGISTER ADDRESS (Hex)(1) | BIT 15 | BIT 14 | BIT 13 | BIT 12 | BIT 11 | BIT 10 | BIT 9 | BIT 8 | BIT 7 | BIT 6 | BIT 5 | BIT 4 | BIT 3 | BIT 2 | BIT 1 | BIT 0 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Result | 00h | E3 | E2 | E1 | E0 | R11 | R10 | R9 | R8 | R7 | R6 | R5 | R4 | R3 | R2 | R1 | R0 |
+| Configuration | 01h | RN3 | RN2 | RN1 | RN0 | CT | M1 | M0 | OVF | CRF | FH | FL | L | POL | ME | FC1 | FC0 |
+| Low Limit | 02h | LE3 | LE2 | LE1 | LE0 | TL11 | TL10 | TL9 | TL8 | TL7 | TL6 | TL5 | TL4 | TL3 | TL2 | TL1 | TL0 |
+| High Limit | 03h | HE3 | HE2 | HE1 | HE0 | TH11 | TH10 | TH9 | TH8 | TH7 | TH6 | TH5 | TH4 | TH3 | TH2 | TH1 | TH0 |
+| Manufacturer ID | 7Eh | ID15 | ID14 | ID13 | ID12 | ID11 | ID10 | ID9 | ID8 | ID7 | ID6 | ID5 | ID4 | ID3 | ID2 | ID1 | ID0 |
+| Device ID | 7Fh | DID15 | DID14 | DID13 | DID12 | DID11 | DID10 | DID9 | DID8 | DID7 | DID6 | DID5 | DID4 | DID3 | DID2 | DID1 | DID0 |
+---table end---
+---
+#4. Register Descriptions
+备注
+Register offset and register address are used interchangeably."
+"[desc] opt3004 __ Result Register Details [desc]
+8.6.2.1 Result Register (offset = 00h)
+This register contains the result of the most recent light to digital conversion. This 16-bit register has two fields: a 4-bit exponent and a 12-bit mantissa.
+---"
+"[desc] opt3004 __ Result Register Field Pattern [desc]
+The formula to translate this register into lux is given in 方程式 1:
+lux = LSB_Size × R[11:0] (1) where: LSB_Size = 0.01 × 2E[3:0] (2) LSB_Size can also be taken from 表 8-8. The complete lux equation is shown in 方程式 3: lux = 0.01 × (2E[3:0]) × R[11:0] (3)
+A series of result register output examples with the corresponding LSB weight and resulting lux are given in 表 8-9. Note that many combinations of exponents (E[3:0]) and fractional results (R[11:0]) can map onto the same lux result, as shown in the examples of 表 8-9.
+---table begin---
+Table tile: 8-9 Examples of Decoding the Result Register into lux
+| RESULT REGISTER (Bits 15:0, Binary) | EXPONENT (E[3:0], Hex) | FRACTIONAL RESULT (R[11:0], Hex) | LSB WEIGHT (lux, Decimal) | RESULTING LUX  (Decimal) |
+|---|---|---|---|---|
+| 0000 0000 0000 0001b | 00h | 001h | 0.01 | 0.01 |
+| 0000 1111 1111 1111b | 00h | FFFh | 0.01 | 40.95 |
+| 0011 0100 0101 0110b | 03h | 456h | 0.08 | 88.80 |
+| 0111 1000 1001 1010b | 07h | 89Ah | 1.28 | 2818.56 |
+| 1000 1000 0000 0000b | 08h | 800h | 2.56 | 5242.88 |
+| 1001 0100 0000 0000b | 09h | 400h | 5.12 | 5242.88 |
+| 1010 0010 0000 0000b | 0Ah | 200h | 10.24 | 5242.88 |
+| 1011 0001 0000 0000b | 0Bh | 100h | 20.48 | 5242.88 |
+| 1011 0000 0000 0001b | 0Bh | 001h | 20.48 | 20.48 |
+| 1011 1111 1111 1111b | 0Bh | FFFh | 20.48 | 83865.60 |
+---table end---"
+"[desc] opt3004 __ Result Register Field Pattern __ 3 Configuration Register (offset = 01h) [reset = C810h] [desc]
+LEGEND: R/W = Read/Write; R = Read only
+---table begin---
+Table title: 8-10 Configuration Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15:12 | RN[3:0] | R/W | 1100b | Range number field (read or write). The range number field selects the full-scale lux range of the device. The format of this field is the same as the result register exponent field (E[3:0]); see 表 8-8. When RN[3:0] is set to 1100b (0Ch), the device operates in automatic full-scale setting mode, as described in the Automatic Full-Scale Setting Mode section. |
+---table end---"
+"[desc] opt3004 __ Result Register Field Pattern __ Configuration Register Field Descriptions [desc]
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15:12 | RN[3:0] | R/W | 1100b | Range number field (read or write). The range number field selects the full-scale lux range of the device. The format of this field is the same as the result register exponent field (E[3:0]); see 表 8-8. When RN[3:0] is set to 1100b (0Ch), the device operates in automatic full-scale setting mode, as described in the Automatic Full-Scale Setting Mode section. In this mode, the automatically chosen range is reported in the result exponent (register 00h, E[3:0]). The device powers up as 1100 in automatic full-scale setting mode. Codes 1101b, 1110b, and 1111b (0Dh, 0Eh, and 0Fh) are reserved for future use. |"
+"[desc] opt3004 __ Result Register Field Pattern __ Configuration Register Field Descriptions __ Configuration Register Field Descriptions (continued) [desc]
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 11 | CT | R/W | 1b | Conversion time field (read or write). The conversion time field determines the length of the light to digital conversion process. The choices are 100 ms and 800 ms. A longer integration time allows for a lower noise measurement. The conversion time also relates to the effective resolution of the data conversion process. The 800-ms conversion time allows for the fully specified lux resolution. The 100-ms conversion time with full-scale ranges above 0101b for E[3:0] in the result and configuration registers also allows for the fully specified lux resolution. The 100-ms conversion time with full-scale ranges below and including 0101b for E[3:0] can reduce the effective result resolution by up to three bits, as a function of the selected full-scale range. Range 0101b reduces by one bit. Ranges 0100b, 0011b, 0010b, and 0001b reduces by two bits. Range 0000b reduces by three bits. The result register format and associated LSB weight does not change as a function of the conversion time. 0 = 100 ms 1 = 800 ms |
+| 10:9 | M[1:0] | R/W | 00b | Mode of conversion operation field (read or write). The mode of conversion operation field controls whether the device is operating in continuous conversion, single-shot, or low-power shutdown mode. The default is 00b (shutdown mode), such that upon power-up, the device only consumes operational level power after appropriately programming the device. When single-shot mode is selected by writing 01b to this field, the field continues to read 01b while the device is actively converting. When the single-shot conversion is complete, the mode of conversion operation field is automatically set to 00b and the device is shut down. When the device enters shutdown mode, either by completing a single-shot conversion or by a manual write to the configuration register, there is no change to the state of the reporting flags (conversion ready, flag high, flag low) or the INT pin. These signals are retained for subsequent read operations while the device is in shutdown mode. 00 = Shutdown (default) 01 = Single-shot 10, 11 = Continuous conversions |
+| 8 | OVF | R | 0b | Overflow flag field (read-only). The overflow flag field indicates when an overflow condition occurs in the data conversion process, typically because the light illuminating the device exceeds the programmed full-scale range of the device. Under this condition OVF is set to 1, otherwise OVF remains at 0. The field is reevaluated on every measurement. If the full-scale range is manually set (RN[3:0] field < 1100b), the overflow flag field can be set while the result register reports a value less than full-scale. This res |# 1.0. Conversion Instructions
+(default) 01 = Single-shot 10, 11 = Continuous conversions"
+"[desc] opt3004 __ Result Register Field Pattern __ Overflow Condition [desc]
+The overflow flag field indicates when an overflow condition occurs in the data conversion process, typically because the light illuminating the device exceeds the programmed full-scale range of the device. Under this condition OVF is set to 1, otherwise OVF remains at 0. The field is reevaluated on every measurement.
+If the full-scale range is manually set (RN[3:0] field < 1100b), the overflow flag field can be set while the result register reports a value less than full-scale. This result occurs if the input light has a temporary high spike level that temporarily overloads the integrating ADC converter circuitry but returns to a level within range before the conversion is complete. Thus, the overflow flag reports a possible error in the conversion process. This behavior is common to integrating-style converters.
+If the full-scale range is automatically set (RN[3:0] field = 1100b), the only condition that sets the overflow flag field is if the input light is beyond the full-scale level of the entire device. When there is an overflow condition and the full-scale range is not at maximum, the OPT3004 aborts its current conversion, sets the full-scale range to a higher level, and starts a new conversion. The flag is set at the end of the process. This process repeats until there is either no overflow condition or until the full-scale range is set to its maximum range."
+"[desc] opt3004 __ Result Register Field Pattern __ Conversion Completion [desc]
+The conversion ready field indicates when a conversion completes. The field is set to 1 at the end of a conversion and is cleared (set to 0) when the configuration register is subsequently read or written with any value except one containing the shutdown mode (mode of operation field, M[1:0] = 00b). Writing a shutdown mode does not affect the state of this field; see the Interrupt Reporting Mechanism Modes section for more details.
+---table begin---
+Table title: Configuration Register Field Descriptions (continued)
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 6 | FH | R | 0b | Flag high field (read-only). |
+| 5 | FL | R | 0b | Flag low field (read-only). |
+| 4 | L | R/W | 1b | Latch field (read or write). |
+---table end---"
+"[desc] opt3004 __ Result Register Field Pattern __ Flag High Field [desc]
+The flag high field (FH) identifies that the result of a conversion is larger than a specified level of interest. FH is set to 1 when the result is larger than the level in the high-limit register (register address 03h) for a consecutive number of measurements defined by the fault count field (FC[1:0]). See the Interrupt Reporting Mechanism Modes section for more details on clearing and other behaviors of this field."
+"[desc] opt3004 __ Result Register Field Pattern __ Flag Low Field [desc]
+The flag low field (FL) identifies that the result of a conversion is smaller than a specified level of interest. FL is set to 1 when the result is smaller than the level in the low-limit register (register address 02h) for a consecutive number of measurements defined by the fault count field (FC[1:0]). See the Interrupt Reporting Mechanism Modes section for more details on clearing and other behaviors of this field."
+"[desc] opt3004 __ Result Register Field Pattern __ Latch Field [desc]
+The latch field controls the functionality of the interrupt reporting mechanisms: the INT pin, the flag high field (FH), and flag low field (FL). This bit selects the reporting style between a latched window-style comparison and a transparent hysteresis-style comparison.
+0 = The device functions in transparent hysteresis-style comparison operation, where the three interrupt reporting mechanisms directly reflect the comparison of the result register with the high- and low-limit registers with no user-controlled clearing event. See the Interrupt Reporting Mechanism Modes section for more details.# 4. Latch Field (Read or Write)
+The latch field controls the functionality of the interrupt reporting mechanisms: the INT pin, the flag high field (FH), and flag low field (FL). This bit selects the reporting style between a latched window-style comparison and a transparent hysteresis-style comparison.
+- 0 = The device functions in transparent hysteresis-style comparison operation, where the three interrupt reporting mechanisms directly reflect the comparison of the result register with the high- and low-limit registers with no user-controlled clearing event. See the Interrupt Operation, INT Pin, and Interrupt Reporting Mechanisms section for further details.
+- 1 = The device functions in latched window-style comparison operation, latching the interrupt reporting mechanisms until a user-controlled clearing event."
+"[desc] opt3004 __ POL (Read or Write) [desc]
+The polarity field controls the polarity or active state of the INT pin.
+- 0 = The INT pin reports active low, pulling the pin low upon an interrupt event.
+- 1 = Operation of the INT pin is inverted, where the INT pin reports active high, becoming high impedance and allowing the INT pin to be pulled high upon an interrupt event."
+"[desc] opt3004 __ ME (read or write) [desc]
+The mask exponent field forces the result register exponent field (register 00h, bits E[3:0]) to 0000b when the full-scale range is manually set, which can simplify the processing of the result register when the full-scale range is manually programmed. This behavior occurs when the mask exponent field is set to 1 and the range number field (RN[3:0]) is set to less than 1100b. Note that the masking is only performed to the result register. When using the interrupt reporting mechanisms, the result comparison with the low-limit and high-limit registers is unaffected by the ME field."
+"[desc] opt3004 __ Fault Count Field (read or write) [desc]
+The fault count field instructs the device as to how many consecutive fault events are required to trigger the interrupt reporting mechanisms: the INT pin, the flag high field (FH), and flag low field (FL). The fault events are described in the latch field (L), flag high field (FH), and flag low field (FL) descriptions.
+- 00 = One fault count (default)
+- 01 = Two fault counts
+- 10 = Four fault counts
+- 11 = Eight fault counts
+---table begin---
+Table title: Low-Limit Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15:12 | LE[3:0] | R/W | 0h | Exponent. |
+| 11:0 | TL[11:0] | R/W | 000h | Result. | 
+---table end--- "
+"[desc] opt3004 __ Fault Count Field (read or write) __ 3 Low-Limit Register (offset = 02h) [reset = C0000h] [desc]
+This register sets the lower comparison limit for the interrupt reporting mechanisms: the INT pin, the flag high field (FH), and flag low field (FL), as described in the Interrupt Reporting Mechanism Modes section."
+"[desc] opt3004 __ Fault Count Field (read or write) __ 3 Low-Limit Register (offset = 02h) [reset = C0000h] __ Low-Limit Register Details [desc]
+Further details are as follows: 
+- 11:0 TL[11:0] R/W 000h Result. These bits are the result in straight binary coding (zero to full-scale).
+- The format of this register is nearly identical to the format of the result register described in the Result Register.
+- The low-limit register exponent (LE[3:0]) is similar to the result register exponent (E[3:0]). 
+- The low-limit register result (TL[11:0]) is similar to result register result (R[11:0]).
+- The equation to translate this register into the lux threshold is given in 方程式 4, which is similar to the equation for the result register, 方程式 3.
+- lux = 0.01 × (2LE[3:0]) × TL[11:0] (4) 
+---
+---table begin---
+Table title: Full-Scale Range and LSB Size as a Function of Exponent Level
+| LE3 | LE2 | LE1 | LE0 | FULL-SCALE RANGE (lux) | LSB SIZE (lux per LSB) |
+|---|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 40.95 | 0.01 |
+| 0 | 0 | 0 | 1 | 81.90 | 0.02 |
+| ... | ... | ... | ... | ... | ... |
+| 1 | 0 | 1 | 0 | 41932.80 | 10.24 |
+| 1 | 0 | 1 | 1 | 83865.60 | 20.48 |
+---table end--- 
+The result and limit registers are all converted into lux values internally for comparison."
+"[desc] opt3004 __ Fault Count Field (read or write) __ 3 Low-Limit Register (offset = 02h) [reset = C0000h] __ 4 High-Limit Register (offset = 03h) [reset = BFFFh] [desc]
+The high-limit register sets the upper comparison limit for the interrupt reporting mechanisms: the INT pin, the flag high field (FH), and flag low field (FL). The format of this register is almost identical to the format of the low-limit register and the result register. The high-limit register exponent (HE[3:0]) is similar to the low-limit register exponent (LE[3:0]) and the result register exponent (E[3:0]). The high-limit register result (TH[11:0]) is similar to the low-limit result (TH[11:0]) and the result register result (R[11:0]). Note that the comparison of the high-limit register with the result register is unaffected by the ME bit.
+---table begin---
+Table title: High-Limit Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15:12 | HE[3:0] | R/W | Bh | Exponent. These bits are the exponent bits. |
+| 11:0 | TH[11:0] | R/W | FFFh | Result. These bits are the result in straight binary coding (zero to full-scale). |
+---table end---"
+"[desc] opt3004 __ Fault Count Field (read or write) __ 3 Low-Limit Register (offset = 02h) [reset = C0000h] __ 5 Manufacturer ID Register (offset = 7Eh) [reset = 5449h] [desc]
+This register is intended to help uniquely identify the device.
+---table begin---
+Table title: Manufacturer ID Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15:0 | ID[15:0] | R | 5449h | Manufacturer ID. The manufacturer ID reads 5449h. In ASCII code, this register reads TI. |
+---table end---"
+"[desc] opt3004 __ Fault Count Field (read or write) __ 3 Low-Limit Register (offset = 02h) [reset = C0000h] __ 6 Device ID Register (offset = 7Fh) [reset = 3001h] [desc]
+This register is also intended to help uniquely identify the device.
+---table begin---
+Table title: Device ID Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+|---|---|---|---|---|
+| 15:0 | DID[15:0] | R | 3001h | Device ID. The device ID reads 3001h. |
+---table end---"
+"[desc] opt3004 __ Fault Count Field (read or write) __ 3 Low-Limit Register (offset = 02h) [reset = C0000h] __ 9 Application and Implementation [desc]
+Note: The information in the following application sections is not part of the TI device specifications, and TI does not warrant its accuracy or completeness. TI's customers should determine the device's suitability for their applications. Customers should verify and test their design to ensure system functionality."
+"[desc] opt3004 __ 1 Application Information [desc]
+Ambient light sensors are used in a wide variety of applications that require control as a function of ambient light. Because ambient light sensors nominally match the human eye spectral response, they are superior to photodiodes when the goal is to create an experience for human beings. Very common applications include display optical-intensity control and industrial or home lighting control.
+There are two categories of interface to the OPT3004: electrical and optical."
+"[desc] opt3004 __ 1 Application Information __ 1 Electrical Interface [desc]
+The electrical interface is quite simple, as illustrated in Figure 9-1. Connect the OPT3004 I2C SDA and SCL pins to the same pins of an applications processor, microcontroller, or other digital processor. If that digital processor requires an interrupt resulting from an event of interest from the OPT3004, then connect the INT pin to either an interrupt or general-purpose I/O pin of the processor. There are multiple uses for this interrupt, including signaling the system to wake up from low-power mode, processing other tasks while waiting for an ambient light event of interest, or alerting the processor that a sample is ready to be read. Connect pullup resistors between a power supply appropriate for digital communication and the SDA and SCL pins (because they have open-drain output structures). If the INT pin is used, connect a pullup resistor to the INT pin. A typical value for these pullup resistors is 10 kΩ. The resistor choice can be optimized in conjunction to the bus capacitance to balance the system speed, power, noise immunity, and other requirements.
+The power supply and grounding considerations are discussed in the Power-Supply Recommendations section.
+Although spike suppression is integrated in the SDA and SCL pin circuits, use proper layout practices to minimize the amount of coupling into the communication lines. One possible introduction of noise occurs from capacitive coupling signal edges between the two communication lines themselves. Another possible introduction of noise occurs from.# 9.1.2 Optical Interface
+The optical interface is physically located within the package, facing away from the PCB, as specified by the Sensor Area in the figure.
+Physical components, such as a plastic housing and a window that allows light from outside of the design to illuminate the sensor, can help protect the OPT3004 and neighboring circuitry. Sometimes, a dark or opaque window is used to further enhance the visual appeal of the design by hiding the sensor from view. This window material is typically transparent plastic or glass.
+Any physical component that affects the light that illuminates the sensing area of a light sensor also affects the performance of that light sensor. Therefore, for optimal performance, make sure to understand and control the effect of these components. Design a window width and height to permit light from a sufficient field of view to illuminate the sensor. For best performance, use a field of view of at least ±35 or more. Understanding and designing the field of view is discussed further in OPT3001: Ambient Light Sensor Application Guide.
+The visible-spectrum transmission for dark windows typically ranges between 5% to 30%, but can be less than 1%. Specify a visible-spectrum transmission as low as, but no more than, necessary to achieve sufficient visual appeal because decreased transmission decreases the available light for the sensor to measure. The windows are made dark by either applying an ink to a transparent window material, or including a dye or other optical substance within the window material itself. This attenuating transmission in the visible spectrum of the window creates a ratio between the light on the outside of the design and the light that is measured by the OPT3004. To accurately measure the light outside of the design, compensate the OPT3004 measurement for this ratio; an example is given in Dark Window Selection and Compensation.
+Ambient light sensors are used to help create lighting experiences for humans; therefore, the matching of the sensor spectral response to that of the human eye response is vital. Infrared light is not visible to the human eye and can interfere with the measurement of visible light when sensors lack infrared rejection. Therefore, the ratio of visible light to interfering infrared light affects the accuracy of any practical system that represents the human eye. The strong rejection of infrared light by the OPT3004 allows measurements consistent with human perception under high-infrared lighting conditions, such as from incandescent, halogen, or sunlight sources.
+Although the inks and dyes of dark windows serve their primary purpose of being minimal# 9.2.3. Dark Window Selection and Compensation
+There are several "
+"[desc] opt3004 __ 1 Application Information __ 1 Electrical Interface __ Product Case and Window Over the OPT3004 [desc]
+Active Sensor Area
+OPT3004
+Product Case
+Window
+Side View
+Window Height
+Window Width"
+"[desc] opt3004 __ 1 Application Information __ 1 Electrical Interface __ Product Case and Window Over the OPT3004 __ Optomechanical Design [desc]
+After completing the electrical design, the next task is the optomechanical design. Design a product case that includes a window to transmit the light from outside the product to the sensor, as shown in 图 9-2. Design the window width and window height to give a ±45° field of view. A rigorous design of the field of view takes into account the location of the sensor area, as shown in 图 9-2. The OPT3004 active sensor area is centered along one axis of the package top view, but has a minor offset on the other axis of the top view. Window sizing and placement is discussed in more rigorous detail in OPT3001: Ambient Light Sensor Application Guide. "
+"[desc] opt3004 __ 1 Application Information __ 1 Electrical Interface __ Design Requirements [desc]
+The basic requirements of this design are:
+* Sensor is hidden under dark glass so that sensor is not obviously visible. Note that this requirement is subjective to designer preference.
+* Accuracy of measurement of fluorescent light is 15%
+* Variation in measurement between fluorescent, halogen, and incandescent bulbs (also known as light source variation) is as small as possible."
+"[desc] opt3004 __ 2 Typical Application [desc]
+Measuring the ambient light with the OPT3004 in a product case and under a dark window is described in this section. The schematic for this design is shown in 图 9-1. "
+"[desc] opt3004 __ 2 Typical Application __ Optical Physics of Light in Application [desc]
+Light pipes can appear attractive for aiding in the optomechanical design that brings light to the sensor; however, do not use light pipes with any ambient light sensor unless the system designer fully understands the ramifications of the optical physics of light pipes within the full context of his design and objectives.
+For best accuracy, avoid grill-like window structures, unless the designer understands the optical effects sufficiently. These grill-like window structures create a nonuniform illumination pattern at the sensor that make light measurement results vary with placement tolerances and angle of incidence of the light. If a grill-like structure is desired, the OPT3004 is an excellent sensor choice because it is minimally sensitive to illumination uniformity issues disrupting the measurement process. "
+"[desc] opt3004 __ 2 Typical Application __ Infrared Rejection of OPT3004 [desc]
+response is vital. Infrared light is not visible to the human eye and can interfere with the measurement of visible light when sensors lack infrared rejection. Therefore, the ratio of visible light to interfering infrared light affects the accuracy of any practical system that represents the human eye. The strong rejection of infrared light by the OPT3004 allows measurements consistent with human perception under high-infrared lighting conditions, such as from incandescent, halogen, or sunlight sources.
+Although the inks and dyes of dark windows serve their primary purpose of being minimally transmissive to visible light, some inks and dyes can also be very transmissive to infrared light. The use of these inks and dyes further decreases the ratio of visible to infrared light, and thus decreases sensor measurement accuracy. However, because of the excellent infrared rejection of the OPT3004, this effect is minimized, and good results are achieved under a dark window with similar spectral responses to those shown in 图 9-3.# 9.2.2.1 Field Of View
+Field of view. A rigorous design of the field of view takes into account the location of the sensor area, as shown in 图 9-2. The OPT3004 active sensor area is centered along one axis of the package top view, but has a minor offset on the other axis of the top view. Window sizing and placement is discussed in more rigorous detail in OPT3001: Ambient Light Sensor Application Guide."
+"[desc] opt3004 __ 2 Typical Application __ Infrared Rejection of OPT3004 __ 2 Dark Window Selection and Compensation [desc]
+There are several approaches to selecting and compensating for a dark window. One of many approaches is the method described here. Sample several different windows with various levels of darkness. Choose a window that is dark enough to optimize the balance between the aesthetics of the device and sensor performance. Note that the aesthetic evaluation is the subjective opinion of the designer; therefore, it is more important to see the window on the physical design rather than refer to window transmission specifications on paper. Make sure that the chosen window is not darker than absolutely necessary because a darker window allows less light to illuminate the sensor and therefore impedes sensor accuracy.
+The window chosen for this application example is dark and has less than 7% transmission at 550 nm. 图 9-3 shows the normalized response of the spectrum. Note that the equipment used to measure the transmission spectrum is not capable of measuring the absolute accuracy (non-normalized) of the dark window sample, but only the relative normalized spectrum. Also note that the window is much more transmissive to infrared wavelengths longer than 700 nm than to visible wavelengths between 400 nm and 650 nm. This imbalance between infrared and visible light decreases the ratio of visible light to infrared light at the sensor. Although it is preferable to have the window decrease this ratio as little as possible (by having a window with a close ratio of visible transmission to infrared transmission), the OPT3004 still performs well as shown in 图 9-6.
+After choosing the dark window, measure the attenuating effect of the dark window for later compensation. In order to measure this attenuation, measure a fluorescent light source with a lux meter, then measure that same light with the OPT3004 under the dark window. To measure accurately, it is important to use a fixture that can accommodate either the lux meter or the design containing the OPT3004 and dark window, with the center of each of the sensing areas being in exactly the same X, Y, Z location, as shown in 图 9-4. The Z placement of the design (distance from the light source) is the top of the window, and not the OPT3004 itself.
+The fluorescent light in this location measures 1000 lux with the lux meter, and 73 lux with the OPT3004 under the dark window within the application. Therefore, the window has an effective transmission of 7.3% for the fluorescent light. This 7.3% is the weighted average attenuation across the entire spectrum, weighted by the spectral response of the lux meter (or photopic response).# 9.2.2. Light Source and Window 
+Fixture with One Light Source Accommodating Either a Lux Meter or the Design (Window and OPT3004) in the Exact Same X,Y,Z Position. 
+The fluorescent light in this location measures 1000 lux with the lux meter, and 73 lux with the OPT3004 under the dark window within the application. Therefore, the window has an effective transmission of 7.3% for the fluorescent light. This 7.3% is the weighted average attenuation across the entire spectrum, weighted by the spectral response of the lux meter (or photopic response).
+For all subsequent OPT3004 measurements under this dark window, the following formula is applied.
+Compensated Measurement = Uncompensated Measurement / (7.3%)
+(5)"
+"[desc] opt3004 __ 2 Typical Application __ 3 Application Curves [desc]
+To validate that the design example now measures correctly, create a sequential number of different light intensities with the fluorescent light by using neutral density filters to attenuate the light. Different light intensities can also be created by changing the distance between the light source, and the measurement devices. However, these two methods for changing the light level have minor accuracy tradeoffs that are beyond the scope of this discussion. Measure each intensity with both the lux meter and the OPT3004 under the window, and compensate using 方程式 5. The results are displayed in 图 9-5, and show that the application accurately reports results very similar to the lux meter.
+To validate that the design measures a variety of light sources correctly, despite the large ratio of infrared transmission to visible light transmission of the window, measure the application with a halogen bulb and an incandescent bulb. Use the physical location and light attenuation procedures that were used for the fluorescent light. The results are shown in 图 9-6.
+The addition of the dark window changes the results as seen by comparing the results of the same measurement with a window (图 9-6) and without a window (图 7-4). Even after the expected change, the performance is still good. All data are both within 15% of the correct answer, and within 15% of the other bulb measurements.
+Results can vary at different angles of light because the OPT3004 does not match the lux meter at all angles of light.
+If the measurement variation between the light sources is not acceptable, choose a different window that has a closer ratio of visible light transmission to infrared light transmission."
+"[desc] opt3004 __ 3 Do's and Don'ts [desc]
+As with any optical product, special care must be taken into consideration when handling the OPT3004. Although the OPT3004 has low sensitivity to dust and scratches, proper optical device handling procedures are still recommended.
+The optical surface of the device must be kept clean for optimal performance in both prototyping with the device and mass production manufacturing procedures. Tweezers with plastic or rubber contact surfaces are recommended to avoid scratches on the optical surface. Avoid manipulation with metal tools.# 9.3 Do's and Don'ts
+As with any optical product, special care must be taken into consideration when handling the OPT3004. Although the OPT3004 has low sensitivity to dust and scratches, proper optical device handling procedures are still recommended. The optical surface of the device must be kept clean for optimal performance in both prototyping with the device and mass production manufacturing procedures. Tweezers with plastic or rubber contact surfaces are recommended to avoid scratches on the optical surface. Avoid manipulation with metal tools when possible. The optical surface must be kept clean of fingerprints, dust, and other optical-inhibiting contaminants. If the device optical surface requires cleaning, the use of de-ionized water or isopropyl alcohol is recommended. A few gentle brushes with a soft swab are appropriate. Avoid potentially abrasive cleaning and manipulating tools and excessive force that can scratch the optical surface. If the OPT3004 performs less than optimally, inspect the optical surface for dirt, scratches, or other optical artifacts."
+"[desc] opt3004 __ 10 Power-Supply Recommendations [desc]
+Although the OPT3004 has low sensitivity to power-supply issues, good practices are always recommended. For best performance, the device VDD pin must have a stable, low-noise power supply with a 100-nF bypass capacitor close to the device and solid grounding. Low consumption levels provide many options for powering the device."
+"[desc] opt3004 __ 1 Layout Guidelines [desc]
+The PCB layout design for the OPT3004 requires a couple of considerations. Bypass the power supply with a capacitor placed close to the OPT3004. Note that optically reflective surfaces of components also affect the performance of the design. The three-dimensional geometry of all components and structures around the sensor must be taken into consideration to prevent unexpected results from secondary optical reflections. Placing capacitors and components at a distance of at least twice the height of the component is usually sufficient. The most optimal optical layout is to place all close components on the opposite side of the PCB from the OPT3004. However, this approach may not be practical for the constraints of every design. Electrically connecting the thermal pad to ground is recommended. This connection can be created either with a PCB trace or with vias to ground directly on the thermal pad itself. If the thermal pad contains vias, they are recommended to be of a small diameter (< 0.2 mm) to prevent them from wicking the solder away from the appropriate surfaces."
+"[desc] opt3004 __ 2 Layout Example [desc]
+An example PCB layout with the OPT3004 is shown in Figure 11-1 and Figure 11-2."
+"[desc] opt3004 __ 3 Soldering and Handling Recommendations [desc]
+The OPT3004 has been qualified for three soldering reflow operations per JEDEC JSTD-020. Note that excessive heat may discolor the device and affect optical performance. See application report SLUA271, QFN/SON PCB Attachment, for details on soldering thermal profile and other information. If the OPT3004 must be removed from a PCB, discard the device and do not reattach. As with most optical devices, handle the OPT3004 with special care to ensure optical surfaces stay clean and free from damage. See the Do's and Don'ts section for more detailed recommendations. For best optical performance, solder flux an# 11.4 DNP (S-PDSO-N6) Mechanical Drawings
+s been qualified for three soldering reflow operations per JEDEC JSTD-020. Note that excessive heat may discolor the device and affect optical performance. See application report SLUA271, QFN/SON PCB Attachment, for details on soldering thermal profile and other information. If the OPT3004 must be removed from a PCB, discard the device and do not reattach. As with most optical devices, handle the OPT3004 with special care to ensure optical surfaces stay clean and free from damage. See the Do's and Don'ts section for more detailed recommendations. For best optical performance, solder flux and any other possible debris must be cleaned after soldering processes."
+"[desc] opt3004 __ 1 Documentation Support __ 1 Related Documentation [desc]
+For related documentation see the following:
+•
+OPT3001: Ambient Light Sensor Application Guide
+•
+OPT3004EVM User's Guide
+•
+QFN/SON PCB Attachment"
+"[desc] opt3004 __ 13 Mechanical, Packaging, and Orderable Information [desc]
+The following pages include mechanical, packaging, and orderable information. This information is the most current data available for the designated devices. This data is subject to change without notice and revision of this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+---table begin---
+Table tile: PACKAGE INFORMATION
+| Orderable Device | Status (1) | Package Type | Package Drawing | Pins | Package Qty | Eco Plan (2) | Lead finish/ Ball material (6) | MSL Peak Temp (3)| Op Temp (°C) | Device Marking (4/5) | 
+|---|---|---|---|---|---|---|---|---|---|---|
+| OPT3004DNPR | ACTIVE | USON | DNP | 6 | 3000 | RoHS & Green | NIPDAUAG | Level-3-260C-168 HR| -40 to 85| 04 |
+| OPT3004DTSR | ACTIVE | SOT-5X3 | DTS | 8 | 3000 | RoHS & Green | NIPDAU | Level-2-260C-1 YEAR| -40 to 85 | 3004 |
+| OPT3004DTST | LIFEBUY | SOT-5X3 | DTS | 8 | 250 | RoHS & Green | NIPDAU | Level-2-260C-1 YEAR | -40 to 85 | 3004 |
+---table end---
+(1) The marketing status values are defined as follows:
+ACTIVE: Product device recommended for new designs.
+LIFEBUY: TI has announced that the device will be discontinued, and a lifetime-buy period is in effect.
+NRND: Not recommended for new designs. Device is in production to support existing customers, but TI does not recommend using this part in a new design.
+PREVIEW: Device has been announced but is not in production. Samples may or may not be available.
+OBSOLETE: TI has discontinued the production of the device.
+(2) RoHS:  TI defines ""R# 1. Product Information
+Green
+NIPDAU
+Level-2-260C-1 YEAR
+-40 to 85
+3004"
+"[desc] opt3004 __ Marketing Status Definitions [desc]
+(1) The marketing status values are defined as follows:
+* ACTIVE: Product device recommended for new designs.
+* LIFEBUY: TI has announced that the device will be discontinued, and a lifetime-buy period is in effect.
+* NRND: Not recommended for new designs. Device is in production to support existing customers, but TI does not recommend using this part in a new design.
+* PREVIEW: Device has been announced but is not in production. Samples may or may not be available.
+* OBSOLETE: TI has discontinued the production of the device."
+"[desc] opt3004 __ RoHS Information [desc]
+(2) RoHS:  TI defines ""RoHS"" to mean semiconductor products that are compliant with the current EU RoHS requirements for all 10 RoHS substances, including the requirement that RoHS substance do not exceed 0.1% by weight in homogeneous materials. Where designed to be soldered at high temperatures, ""RoHS"" products are suitable for use in specified lead-free processes. TI may reference these types of products as ""Pb-Free"".
+* RoHS Exempt: TI defines ""RoHS Exempt"" to mean products that contain lead but are compliant with EU RoHS pursuant to a specific EU RoHS exemption.
+* Green: TI defines ""Green"" to mean the content of Chlorine (Cl) and Bromine (Br) based flame retardants meet JS709B low halogen requirements of <=1000ppm threshold. Antimony trioxide based flame retardants must also meet the <=1000ppm threshold requirement."
+"[desc] opt3004 __ Other Product Information [desc]
+(3) MSL, Peak Temp. - The Moisture Sensitivity Level rating according to the JEDEC industry standard classifications, and peak solder temperature.
+(4) There may be additional marking, which relates to the logo, the lot trace code information, or the environmental category on the device.
+(5) Multiple Device Markings will be inside parentheses. Only one Device Marking contained in parentheses and separated by a ""~"" will appear on a device. If a line is indented then it is a continuation of the previous line and the two combined represent the entire Device Marking for that device.
+(6) Lead finish/Ball material - Orderable Devices may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum column width."
+"[desc] opt3004 __ Disclaimer and Reel Information [desc]
+These dimensions are designed to accommodate the component width and the cavity.
+QUADRANT ASSIGNMENTS FOR PIN 1 ORIENTATION IN TAPE
+Pocket Quadrants
+Spr# 1.0. TAPE AND REEL INFORMATION
+Dimension designed to accommodate the component length
+Dimension designed to accommodate the component thickness
+Overall width of the carrier tape
+Pitch between successive cavity centers
+Dimension designed to accommodate the component width
+---table begin---
+Table title: Reel Dimensions
+| Reel Dimensions |
+|---|
+| A0 |
+| B0 |
+| K0 |
+| W |
+---table end---"
+"[desc] opt3004 __ Disclaimer and Reel Information __ TAPE DIMENSIONS [desc]
+---table begin---
+Table title: Tape Dimensions
+| Tape Dimensions |
+|---|
+| K0 |
+| P1 |
+| B0 |
+| W |
+| A0 |
+---table end---"
+"[desc] opt3004 __ Disclaimer and Reel Information __ QUADRANT ASSIGNMENTS FOR PIN 1 ORIENTATION IN TAPE [desc]
+Pocket Quadrants
+Sprocket Holes
+---table begin---
+Table title: Quadrant Assignments
+| Quadrant | Assignment |
+|---|---|
+| Q1 | Sprocket Holes |
+| Q2 | User Direction of Feed |
+---table end---"
+"[desc] opt3004 __ Disclaimer and Reel Information __ PACKAGE DRAWING [desc]
+5.0. TAPE AND REEL BOX DIMENSIONS
+All dimensions are nominal
+---table begin---
+Table title: Box Dimensions
+| Device | Package Type | Package Drawing | Pins | SPQ | Length | Width | Height |
+|---|---|---|---|---|---|---|---|
+| OPT3004DNPR | USON | DNP | 6 | 3000 | 356.0 | 338.0 | 48.0 |
+---table end---"
+"[desc] opt3004 __ Disclaimer and Reel Information __ PACKAGE DRAWING [desc]
+NOTES:
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing per ASME Y14.5M.
+2. This drawing is subject to change without notice.
+3. The package thermal pad must be soldered to the printed circuit board for thermal and mechanical performance.
+4. Optical package with clear mold compound.
+The rest of the text continues...# 1. Dimensions Information
+Mold flash, interlead flash, protrusions or gate burrs shall not exceed 0.15 per end or side
+| Parameter | Measure |
+|---|---|
+| A    | 0.05 |
+| A Max| 0.1  |
+| B    | 0.05 |
+| C    | 0.05 |
+| B    | 0.05 |
+| C    | 0.05 |
+| C    | 0.05 |"
+"[desc] opt3004 __ Seating Plane Details [desc]
+SEATING PLANE
+PIN 1
+INDEX AREA"
+"[desc] opt3004 __ Additional Notes (Continued) [desc]
+Publication IPC-7351 may have alternate designs.
+Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+SYMM
+SYMM
+LAND PATTERN EXAMPLE
+EXPOSED METAL SHOWN
+SCALE: 30X"
+"[desc] opt3004 __ Solder Mask Details [desc]
+SOLDER MASK
+OPENING 
+METAL
+METAL UNDER
+SOLDER MASK
+SOLDER MASK OPENING
+NON SOLDER MASK DEFINED
+(PREFERRED)
+SOLDER MASK DEFINED"
+"[desc] opt3004 __ Recommended Pin Configuration [desc]
+| Pin Number | Pin Configuration |
+|---|---|
+| 1 | 1.72 |
+| 2 | 2 |
+| 3 | 3 |
+| 4 | 4 |
+| 5 | 5 |
+| 6 | 6 |
+| 7 | 7 |
+| 8 | 8 |"
+"[desc] opt3004 __ Additional Notes (Continued) [desc]
+Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate design recommendations.
+Board assembly site may have different recommendations for stencil design."

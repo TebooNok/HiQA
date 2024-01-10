@@ -1,0 +1,3 @@
+V ISO  纹波电压峰峰值： 50mV
+动态负载电流  I ISO ： 4 mA  阶跃至  40mA ， V ISO  纹波电压峰峰值： 50mV 200us/div V ISO 4mA 40mA 50mA/div 20mV/div I ISO 20mV/div
+base name:CA-IS2631HA_datasheet_Version1

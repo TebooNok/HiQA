@@ -1,0 +1,3 @@
+title: 图5-1 CA-IF1042x 引脚图脚图
+4                                                                                                                                                                                     Copyright © 2019, Chipanalog Incorporated 上海川土微电子有限公司上海川土微电子有限公司 . 引脚功能描述引脚功能描述 图5-1 CA-IF1042x 引脚图脚图 表 5-1 CA-IF1042x引脚功能描述引脚功能描述
+base name:CA-IF1042_datasheet_Version1

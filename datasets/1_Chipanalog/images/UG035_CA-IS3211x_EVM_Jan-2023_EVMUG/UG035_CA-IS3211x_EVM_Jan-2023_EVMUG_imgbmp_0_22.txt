@@ -1,0 +1,3 @@
+title: Not Found
+Output ） ,  客户可根据方案需求选择不同封装类型的芯片。  3D  视图  Figure 1  CA-IS3211VxJ(SOIC6) PCB 3D  视图
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

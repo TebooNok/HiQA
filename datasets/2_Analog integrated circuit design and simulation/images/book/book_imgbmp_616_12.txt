@@ -1,0 +1,3 @@
+title: 图  E- 28  加入并派出特定仿真点的 “Parametric Analysis” 设置
+“-20~20” 的范围选中，如图  E- 28  所示。这时我们再通过 “Analysis” � “Show Sweep Set” � “Selected Sorted” 来查看选中的仿真点。如图  E- 29  图  E- 28  加入并派出特定仿真点的 “Parametric Analysis” 设置
+base name:book

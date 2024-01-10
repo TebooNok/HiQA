@@ -1,0 +1,3 @@
+title: Not Found
+12.   封装信息 QFN  的外形尺寸  图  12-1  QFN  封装尺寸图
+base name:CA-IF428x_datasheet_Version1

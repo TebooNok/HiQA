@@ -1,0 +1,3 @@
+title: 图  9-2.  驱动器输出级
+值为  0.55Ω 。由于输出级  MOSFET  具有超低导通电阻， MOSFET  漏源之间产生的压降非常小， CA-IS322x  的输出电压摆幅 可以达到电源轨到轨 (VDD_ 与  VSS_ 之间的电压 ) 。  VDD OUT VSS Shoot- Through Prevention Circuitry RNMOS R OH ROL Pull Up
+base name:CA-IS322x-Q1_Version1

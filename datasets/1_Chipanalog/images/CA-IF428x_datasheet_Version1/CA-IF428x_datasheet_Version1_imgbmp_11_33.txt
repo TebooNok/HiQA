@@ -1,0 +1,3 @@
+V DIN
+5μs / div 5V/div 2V/div 5V/div 2V/div V AIO V DOUT V BIO V DIN 5μs / div V AIO 2V/div V DOUT V BIO 5V/div 2V/div V DIN 5V/div
+base name:CA-IF428x_datasheet_Version1

@@ -1,0 +1,3 @@
+title: 图  11  迟滞控制  PFC  升压电路
+V REF PI/PID Multiplier Vbus_SNS Ibus_SNS X V OUT _SNS HG LG i bus HG LG COMP V COMP K_i bus U2 Q1 Q2  图  11  迟滞控制  PFC  升压电路
+base name:AN011_隔离电流检测放大器在PFC升压系统的应用_APPNOTE

@@ -1,0 +1,3 @@
+I ISO 50mA/div
+VINP=5V ， VISO=5.4V  100us / div VISO 30mV/div I ISO 50mA/div 100us / div VISO 30mV/div I ISO 50mA/div 130mA 13mA 100us / div
+base name:CA-IS3105W_datasheet_Version1

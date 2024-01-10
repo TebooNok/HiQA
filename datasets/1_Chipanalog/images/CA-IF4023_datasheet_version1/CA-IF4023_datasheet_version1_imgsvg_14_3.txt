@@ -1,0 +1,3 @@
+title: 图9-1 RXIN到RXOUT通信信号通信信号传输传输时序图时序图
+Copyright © 2020, Chipanalog Incorporated                                                                                                                                                                                          15 上海川土微电子有限公司上海川土微电子有限公司 图9-1 RXIN到RXOUT通信信号通信信号传输传输时序图时序图
+base name:CA-IF4023_datasheet_version1

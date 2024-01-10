@@ -1,0 +1,3 @@
+title: 图  9-12  设置好的模型库文件
+图  9-11  添加模型库文件 完成库文件设置后的 “Model Library Setup” 窗口如图  9-12  所示。  图  9-12  设置好的模型库文件 在  ADE  窗口中，选择 “Analysis” 下拉菜单中的 “Choose” 命令。在弹出的 “Choosing
+base name:book

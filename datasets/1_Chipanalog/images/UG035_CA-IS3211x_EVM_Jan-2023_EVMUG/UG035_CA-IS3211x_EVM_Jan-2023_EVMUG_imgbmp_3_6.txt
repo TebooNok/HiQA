@@ -1,0 +1,3 @@
+title: Figure 5  EVM  硬件连接方式一
+上海川土微电子有限公司 测试仪器 DC  直流电源、 500MHz  带宽示波器安捷伦  DSOX3054T 、 6.5  位多功能万用表安捷伦  34465A 、高频信
+base name:UG035_CA-IS3211x_EVM_Jan-2023_EVMUG

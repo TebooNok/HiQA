@@ -1,0 +1,3 @@
+title: 图10-1. CA-IF48xxHS/HM/HD半双工半双工RS-485收发器网络连接收发器网络连接
+确保器件在任何速率下可靠工作，在电源引脚安装一个至少100nF的陶瓷电容，电容须紧靠电源引脚安装，以 降低电源纹波。 图10-1. CA-IF48xxHS/HM/HD半双工半双工RS-485收发器网络连接收发器网络连接
+base name:CA-IF48xx_datasheet_Version1

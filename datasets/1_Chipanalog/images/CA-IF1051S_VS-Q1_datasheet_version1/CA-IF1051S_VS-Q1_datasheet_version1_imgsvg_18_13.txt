@@ -1,0 +1,3 @@
+title: 图10- 1 CA-IF1051VS-Q1 CAN总线典型应用总线典型应用电路电路
+接在同一CAN总线上。图10-1，图10-2分别为CA-IF1051VS-Q1和CA-IF1051S-Q1的典型应用电路，其中，图10-1中， VIO与MCU共用同一电源，以保持逻辑输入、输出电平的兼容性。 图10- 1 CA-IF1051VS-Q1 CAN总线典型应用总线典型应用电路电路 image_15 图10- 2 CA-IF1051S-Q1 CAN总线典型应用总线典型应用电路电路
+base name:CA-IF1051S_VS-Q1_datasheet_version1

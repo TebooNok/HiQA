@@ -1,0 +1,3 @@
+title: 图  D- 42  “ overshoot ”函数计算方法示意图
+假如表达式的峰值为  M ，跳变初始值为  I ，跳变结束值为  F ，如图  D- 42  所示。那么“ overshoot ” 函数的计算为：  图  D- 42  “ overshoot ”函数计算方法示意图 ( ) *100 M F overshoot
+base name:book

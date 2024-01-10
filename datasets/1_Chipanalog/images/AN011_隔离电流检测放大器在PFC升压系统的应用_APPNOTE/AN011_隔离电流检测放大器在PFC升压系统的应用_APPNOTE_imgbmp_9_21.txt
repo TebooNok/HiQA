@@ -1,0 +1,3 @@
+title: 图  18  应用于电流检测的  PCB  设计范例
+6>   两侧地在  PCB  的顶层和底层保持  8mm  以上间距以防止高压爬电，如图  19  所示。  R_SNS VDD1 VDD2 GND1 GND2 ≥ 8mm INP INN C1 C2 R1 R2 C2 OUTP/CLKIN
+base name:AN011_隔离电流检测放大器在PFC升压系统的应用_APPNOTE
