@@ -1,0 +1,3 @@
+title: 图  D- 31 “ Select ”子菜单中的内容
+“ Select ”子菜单中的内容是已有存储项名称的列表。如图  D- 31  所示。  图  D- 31 “ Select ”子菜单中的内容 通过点击存储项的名称，可以把该存储项中的表达式读入到“ Calculator ”的缓存中。
+base name:book

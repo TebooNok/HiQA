@@ -1,0 +1,3 @@
+title: 默认的变量存在的。此时 “temp” 在 “Variable Name” 栏中显示出来。如图  E- 8  所示。
+默认的变量存在的。此时 “temp” 在 “Variable Name” 栏中显示出来。如图  E- 8  所示。
+base name:book

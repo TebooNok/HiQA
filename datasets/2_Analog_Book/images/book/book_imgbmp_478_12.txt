@@ -1,0 +1,3 @@
+title: 图  A- 2  CIW  菜单展开内容
+A.2.1   命令行窗口（ CIW ）菜单 CIW  菜单展开包含的选项如图  A- 2  所示，下面将介绍其中比较重要的一些选项。  图  A- 2  CIW  菜单展开内容 1.   “ Files” 菜单 �   “New” 命令 通过选择 “File” � “New” ，可以建立新的设计库 (Design Library) 或者设计的 “CellView” ；
+base name:book

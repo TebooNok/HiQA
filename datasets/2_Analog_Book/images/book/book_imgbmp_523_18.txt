@@ -1,0 +1,3 @@
+title: 图  B- 3 “Results Browser” 窗口中的快捷键
+B.1.2   “Results Browser” 窗口中的快捷键 “Results Browser” 窗口中的快捷键如图  B- 3  所示。  图  B- 3 “Results Browser” 窗口中的快捷键 1.   各个快捷键的功能如下： �   ：打开仿真的输出结果，等同“ File ” � “ Open Results ”
+base name:book

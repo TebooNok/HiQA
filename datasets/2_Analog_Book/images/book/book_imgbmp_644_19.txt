@@ -1,0 +1,3 @@
+title: 图  F- 34“Loading State” 窗口
+1)   选择 “Session” � “Load State” ，然后 “Loading State” 窗口弹出，如图  F- 34  所示。  图  F- 34“Loading State” 窗口 ~/.artist_state/LibraryName/CellName/.asd_Optimization/StateName
+base name:book

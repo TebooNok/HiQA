@@ -1,0 +1,3 @@
+title: 图  3- 32  PMOS  电流镜负载差分放大电路
+出电阻  r o5 ，但这样做仅仅能将  CMRR  的低频值提高，因为  CMRR  的  3dB  值为： 3dB o5 E 1 r C ω = 。因此，提高  r o5 的值将使  ω 3db 的值下降。  图  3- 32  PMOS  电流镜负载差分放大电路
+base name:book

@@ -1,0 +1,3 @@
+title: 图  8- 144   添加选项组
+RES  resslow resfast restypical CAP  capslow capfast captypical
+base name:book

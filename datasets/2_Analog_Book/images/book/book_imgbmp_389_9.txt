@@ -1,0 +1,3 @@
+title: 图  9-29  将  PMOS  的栅长设置为变量 “ L ”
+捷键 “q” ，在 “Edit Object Properties” 窗口中，将原来 “Length” 栏中的 “10u” 改为 “ L ” ，如 图  9-29  所示。  图  9-29  将  PMOS  的栅长设置为变量 “ L ” 在  ADE  窗口中，选择 “Variable” 下拉菜单中的 “Copy From Cellview” 选项。在  ADE
+base name:book

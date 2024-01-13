@@ -1,0 +1,3 @@
+title: 果我们将一个稳定的电压源加到多个  MOS  管上，那么可以构成如图  3- 6  所示的
+n OUTn REF R / / W L I I = W L                       (3-9)
+base name:book

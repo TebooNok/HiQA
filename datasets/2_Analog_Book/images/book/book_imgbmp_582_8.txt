@@ -1,0 +1,3 @@
+title: 图  D- 17 “ Waveform ”窗口中选择曲线被传送的“ Calculator ”的缓存中
+2)   保持“ Select Mode ”选中，在“ Waveform ”窗口中选择需要的曲线。“ Calculator ” 捕获曲线后如图  D- 17  所示。  图  D- 17 “ Waveform ”窗口中选择曲线被传送的“ Calculator ”的缓存中
+base name:book

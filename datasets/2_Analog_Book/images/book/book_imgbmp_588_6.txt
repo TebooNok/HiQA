@@ -1,0 +1,3 @@
+title: 图  D- 29 “ Table ”子菜单
+次如下：  图  D- 29 “ Table ”子菜单 �   “ Edit ”：打开“ Memories Editor ”窗口，如图  D- 29  中所示。如果在这之前存储
+base name:book

@@ -1,0 +1,3 @@
+title: 图  A- 43  导入以前的仿真状态
+图  A- 43  导入以前的仿真状态 3)   点击菜单 “Session” � “Save Script” 可以将现在的仿真设置保存成 “OCEAN” 脚本，
+base name:book

@@ -1,0 +1,3 @@
+title: 图  8- 23   在 “Parametric Analysis” 窗口中为 “Sweep1” 添加扫描变量
+在 “Parametric Analysis” 窗口中选择 “Setup” 下拉菜单中的 “Pick Name For Variable” 命 令，并选择 “Sweep1…” ，如图  8- 23  所示。  图  8- 23   在 “Parametric Analysis” 窗口中为 “Sweep1” 添加扫描变量
+base name:book

@@ -1,0 +1,3 @@
+title: 图  C- 42 “Open Graph” 对话框
+此时将会弹出“ Open Graph ”对话框。如图  C- 42  所示。  图  C- 42 “Open Graph” 对话框 2)   在 “Look In” 下拉菜单中选择所要保存的文件路径。
+base name:book

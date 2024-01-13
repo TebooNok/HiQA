@@ -1,0 +1,3 @@
+title: 图  9-11  添加模型库文件
+窗口中，首先在 “Setup” 下拉菜单中选择 “Model Libraries” 添加模型的库文件。如图  9-11 所示。  图  9-11  添加模型库文件 完成库文件设置后的 “Model Library Setup” 窗口如图  9-12  所示。
+base name:book

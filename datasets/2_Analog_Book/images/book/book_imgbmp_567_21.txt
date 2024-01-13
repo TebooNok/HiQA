@@ -1,0 +1,3 @@
+title: 图  C- 38“Save” 对话框
+�   在 “Look In” 下方的窗口中选择需要载入的波形文件 4)   点击 “Open” ，载入文件。  图  C- 38“Save” 对话框
+base name:book

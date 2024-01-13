@@ -1,0 +1,3 @@
+title: 图  8- 28  通过 “Calculator” 选择仿真结果 “VS(“/VREF”)”
+此进一步选择 “vs” 。在电路图中选择 “VREF” 端，此时 “dc” 扫描产生的 “VREF” 端的电压 数据被输送到 “Calculator” 的缓存中，如图  8- 28  所示。  图  8- 28  通过 “Calculator” 选择仿真结果 “VS(“/VREF”)” 在 “Calculator” 的函数窗口中选择并点击 “ymax” 函数对 “VS(“/VREF”)” 进行操作。处
+base name:book

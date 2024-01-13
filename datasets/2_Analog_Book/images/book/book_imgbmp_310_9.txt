@@ -1,0 +1,3 @@
+title: 图  8- 51  修改 “Algorithm Selection” 为 “LSQ”
+“LSQ” ，如图  8- 51  所示。点击 “OK” 或者 “Apply” 即完成了优化算法的切换。  图  8- 51  修改 “Algorithm Selection” 为 “LSQ” 选择 “Optimizer” 下拉菜单中的 “Run” 命令，开始优化，如图  8- 52  所示。优化结果如
+base name:book

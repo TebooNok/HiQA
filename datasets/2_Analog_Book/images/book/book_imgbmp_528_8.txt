@@ -1,0 +1,3 @@
+title: 图  B- 11 “Windows” 中的文件夹
+统中的文件夹系统十分类似。  图  B- 10 “Results Browser” 中文件夹  图  B- 11 “Windows” 中的文件夹 如同在 “Window” 操作系统中，在左边的资源管理器中完成文件的选择、打开和切换，
+base name:book

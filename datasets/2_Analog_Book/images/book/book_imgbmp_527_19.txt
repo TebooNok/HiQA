@@ -1,0 +1,3 @@
+title: 图  B- 9  选择仿真结果保存路径
+通过选择“ File ” � “ Open Result” 或者快捷键 打开 “Choose Data Directory” 窗口，如 图  B- 9  所示，从而选择仿真结果保存路径。  图  B- 9  选择仿真结果保存路径  “Choose Data Directory” 窗口打开时，将 “icfb” 的启动路径作为默认路径。在  ADE  的
+base name:book

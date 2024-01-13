@@ -1,0 +1,3 @@
+title: 图  5- 49  仿真结果被输送到 “Calculator” 中
+的运算放大器的  3dB  带宽，如图  5- 51  所示，可以看出该运算放大器的  3dB  带宽为 23.076MHz 。  图  5- 49  仿真结果被输送到 “Calculator” 中  图  5- 50 “Calculator” 中对 “bandwidth” 函数的设置
+base name:book

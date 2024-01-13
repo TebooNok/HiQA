@@ -1,0 +1,3 @@
+title: Variable” 中的变量，如图  8- 104  所示。
+获得电路图中的变量列表，如图  8- 103  所示。对于需要修改的参数，可以双击 “Design Variable” 中的变量，如图  8- 104  所示。
+base name:book

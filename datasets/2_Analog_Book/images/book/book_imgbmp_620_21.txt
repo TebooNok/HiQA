@@ -1,0 +1,3 @@
+title: 图  E- 38 “Tool” 下拉菜单中的内容
+CaseM  S1Vm  S2Vm …… SnVm E.10   保存 “Parametric Analysis” 的设置  图  E- 38 “Tool” 下拉菜单中的内容
+base name:book

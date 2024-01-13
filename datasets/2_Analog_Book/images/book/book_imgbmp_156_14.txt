@@ -1,0 +1,3 @@
+title: 图  5- 63  运算放大器增益的波特图
+择 “Vout” 仿真结果。点击鼠标右键，在弹出的下拉菜单中选择 “Claculator” ，即将 “Results Browser” 中将仿真结果输送到 “Calculator” 中。如图  5- 64  所示。  图  5- 63  运算放大器增益的波特图
+base name:book

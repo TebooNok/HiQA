@@ -1,0 +1,3 @@
+title: 图  3- 35
+应，我们需要一个电流阱。直流电流为  I out =75μA ，电阻  r oc =0.5 MΩ 。  图  3- 35 器件参数： μ n C ox  = 50 μA/V 2 ； V TH  = 1V ； -2 Φ P  = 2 Φ n  =0.8V ； r n = r p = 0.6 V -1/2 ；
+base name:book

@@ -1,3 +1,0 @@
-title: 图  F- 21  选择 “res” 设计变量
-图  F- 20“Editing Variables” 窗口  图  F- 21  选择 “res” 设计变量
-base name:book

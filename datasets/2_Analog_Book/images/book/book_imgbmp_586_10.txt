@@ -1,0 +1,3 @@
+title: 图  D- 25  选择“ Range ”的“ Display Results ”窗口
+�   若将“ Display Results ”窗口中的“ Data ”选择为“ Range ”，   “ Display Results ” 窗口将变成图  D- 25  的形式。  图  D- 25  选择“ Range ”的“ Display Results ”窗口 此时“ Start/End ”、“ Step/Scale ”和“ Log ”窗口被激活。在“ Start/End ”中填入坐
+base name:book

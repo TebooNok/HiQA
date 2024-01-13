@@ -1,0 +1,3 @@
+title: 图  A- 6“Technology File Manager” 界面
+框，如图  A- 6  所示。这个对话框用于管理设计库和模型库之间的对应关系的设置。  图  A- 5 “Analog Environment” 界面  图  A- 6“Technology File Manager” 界面 3.   “Options” 菜单
+base name:book

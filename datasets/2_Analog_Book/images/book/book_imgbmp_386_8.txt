@@ -1,0 +1,3 @@
+title: 图  9-22  设定好的  PSRR  输出
+复制到 “expression” 一行。这个表达式设定好后，点击 “Add” ，新表达式就成为一个输 出 ,  如图  9-22  所示。  图  9-22  设定好的  PSRR  输出  2)   PSRR  的仿真 设置好仿真模型后，在  ADE  窗口中选择 “Analysis”→“Choose” ，设置仿真类型。
+base name:book

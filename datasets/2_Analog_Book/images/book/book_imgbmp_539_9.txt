@@ -1,0 +1,3 @@
+title: 图  C- 4  纵向排列字窗口
+�   选择“ Graph ” � “ Layout Vertical ”：如图  C- 4  所示，采用该方式时，子窗口 将成纵向排列。  图  C- 4  纵向排列字窗口
+base name:book

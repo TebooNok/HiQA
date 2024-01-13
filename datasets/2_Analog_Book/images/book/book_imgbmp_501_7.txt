@@ -1,0 +1,3 @@
+title: 图  A- 34 ADE  的基本界面
+图  A- 34 ADE  的基本界面  A.5.1   使用  ADE  进行仿真的基本流程 1.   选择仿真的电路
+base name:book

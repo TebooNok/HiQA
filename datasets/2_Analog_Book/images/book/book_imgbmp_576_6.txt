@@ -1,0 +1,3 @@
+title: 图  D- 6  在“ CIW ”窗口中打开“ Calculator ”
+6  所示  图  D- 6  在“ CIW ”窗口中打开“ Calculator ” �   在“ Analog Design Environment ”窗口中选择“ Tools ” � “ Calculator ”，如图  D- 7
+base name:book

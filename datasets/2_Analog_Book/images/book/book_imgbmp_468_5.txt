@@ -1,0 +1,3 @@
+title: 图  10- 76 Matlab  处理后的输出数据的频谱图和信噪比
+图  10- 76 Matlab  处理后的输出数据的频谱图和信噪比 习题 % Make plot figure(1);
+base name:book

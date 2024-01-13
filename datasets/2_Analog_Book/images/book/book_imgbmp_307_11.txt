@@ -1,0 +1,3 @@
+title: 图  8- 43  在 “Optimizer” 中添加优化对象
+Optimizer” 窗口。然后在 “Analog Circuit Optimizer” 窗口的 “Goals” 下拉菜单中选择 “Add…” 命令，如图  8- 43  所示。  图  8- 43  在 “Optimizer” 中添加优化对象 在弹出的 “Adding Goals” 窗口中设置优化对象。在这里将带隙基准电压源的温漂系数
+base name:book

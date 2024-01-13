@@ -1,0 +1,3 @@
+title: 图  9-10  基准电流源的具体实现
+R 2   rnwell 4u 512.73u 186K  1  st02  rnwell  symbol   图  9-10  基准电流源的具体实现
+base name:book

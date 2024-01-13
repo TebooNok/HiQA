@@ -1,0 +1,3 @@
+title: 图  8- 45  将 “Calculator” 中的表达式拷贝成优化对象的表达式
+把 “Calculator” 缓存中的表达式拷贝到 “Expression” 栏中，如图  8- 45  所示。  图  8- 45  将 “Calculator” 中的表达式拷贝成优化对象的表达式 因为带隙基准电压源的温漂系数越小越好，因此将 “Direction” 设置为 “minimize” 。因
+base name:book

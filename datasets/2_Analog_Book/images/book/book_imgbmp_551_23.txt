@@ -1,0 +1,3 @@
+title: 图  C- 20 “Trace Attributes” 对话框
+6)   “Cursor X/Y Offset” 中设置鼠标  X/Y  坐标的偏差量。如果这两个值不为零，那 么波形光标的坐标则是根据这两个值的相对量。 7)   点击 “OK” 完成对波形属性的设置。  图  C- 20 “Trace Attributes” 对话框
+base name:book

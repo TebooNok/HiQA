@@ -1,0 +1,3 @@
+title: 图  5- 48  从 “Results Browser” 中将仿真结果输送到 “Calculator” 中
+图  5- 47  通过观察运算放大器增益幅频特性获得  3dB  带宽  图  5- 48  从 “Results Browser” 中将仿真结果输送到 “Calculator” 中
+base name:book

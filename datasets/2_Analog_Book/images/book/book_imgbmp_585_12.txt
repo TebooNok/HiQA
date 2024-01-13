@@ -1,0 +1,3 @@
+title: 图  D- 23  选择“ Point ”的“ Display Results ”窗口
+�   若将“ Display Results ”窗口中的“ Data ”选择为“ Point ”，   “ Display Results ” 窗口将变成图  D- 23  的形式。  图  D- 23  选择“ Point ”的“ Display Results ”窗口 “ X Intercept ”栏被激活，“ Calculator ”将显示缓存中表达式在该栏中所填入的坐标
+base name:book

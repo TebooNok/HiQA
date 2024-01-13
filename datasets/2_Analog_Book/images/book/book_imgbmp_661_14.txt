@@ -1,0 +1,3 @@
+title: 图  G- 22  另存工艺角分析的配置文件
+Setup As..”— 另存配置。下次使用  Corner Analysis  的时候就可以调用以前的配置 了。 “Save As” 窗口如图  G- 22  所示。  图  G- 22  另存工艺角分析的配置文件
+base name:book

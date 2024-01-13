@@ -1,0 +1,3 @@
+title: 图  9-25 Save all  设置
+图  9-24  进入  Save all  设置  图  9-25 Save all  设置 为了方便观察  ac  电流，我们在输出设置中同样加入  ac  电流值。在  ADE  窗口中选
+base name:book

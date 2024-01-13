@@ -1,0 +1,3 @@
+title: 图  F- 36“Optimization Option” 窗口
+1)   选择 “Session” � “Options” ，然后 “Optimization Option” 窗口弹出，如图  F- 36  所示。  图  F- 36“Optimization Option” 窗口 2)   制定一个特定的算法，在 “Algorithm Selection” 下拉菜单中选择 “LSQ” 和 “CFSQP”
+base name:book

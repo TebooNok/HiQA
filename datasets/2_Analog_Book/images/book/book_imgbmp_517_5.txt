@@ -1,0 +1,3 @@
+title: 图  A- 62  交流分析的设定
+图  A- 62  交流分析的设定  图  A- 63  扫描参变量的设定 注意：如果是做 “Frequency” 扫描， “Sweep Range” 填写的是频带范围。目的是观察电
+base name:book

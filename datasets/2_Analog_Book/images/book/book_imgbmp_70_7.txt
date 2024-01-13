@@ -1,0 +1,3 @@
+title: 图  3- 25 MOS  差分放大器电路用于计算  CMRR
+C ov =0.5 fF/µm ， C in = 0.1fF/µm 2 ， C jswn = 0.2fF/µm  图  3- 25 MOS  差分放大器电路用于计算  CMRR 本例题中将定量研究  MOS  差分器的共模抑制比（ CMRR ）。 CMRR  值与偏置
+base name:book

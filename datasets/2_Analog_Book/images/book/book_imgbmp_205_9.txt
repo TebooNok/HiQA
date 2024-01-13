@@ -1,0 +1,3 @@
+title: 图  6- 28  引用 “symbol” 文件
+一个测试平台。我们最开始曾经建立过一个 “HGAMP_tb” 的  cellview ，将在这里面搭建测试 平台。首先在该电路图中将刚刚生成的放大器 “symbol” 引用进来，如图  6- 28  所示。  图  6- 28  引用 “symbol” 文件
+base name:book

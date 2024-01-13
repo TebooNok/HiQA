@@ -1,0 +1,3 @@
+title: 图  C- 23 “Plot vs” 下拉菜单中的内容
+11)   点击 “OK” 完成对坐标轴的设置。  图  C- 22“Axis Attributes” 对话框  图  C- 23 “Plot vs” 下拉菜单中的内容
+base name:book

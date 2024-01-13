@@ -1,0 +1,3 @@
+title: 图  8- 29  对 “VS(“/VREF”)” 求最大值
+在 “Calculator” 的函数窗口中选择并点击 “ymax” 函数对 “VS(“/VREF”)” 进行操作。处 理后的数据表达式在 “Calculator” 的缓存中显示。如图  8- 29  所示。  图  8- 29  对 “VS(“/VREF”)” 求最大值 重复第一步，再次从电路图中选取 “VREF” 端，缓存中的数据将自动压入堆栈。点击
+base name:book

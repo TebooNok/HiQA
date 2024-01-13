@@ -1,3 +1,0 @@
-title: 图  E- 35 “Parametric Set” 模式的界面
-图  E- 34 “Parametric Set” 模式的 “Parametric Analysis”  图  E- 35 “Parametric Set” 模式的界面
-base name:book

@@ -1,0 +1,3 @@
+title: 图  8- 41  将存储器中的内容保存到文件中
+“Calculator” 中的 “Memories” 下拉菜单，选择 “Save…” 命令，如图  8- 41  所示。  图  8- 41  将存储器中的内容保存到文件中 在弹出的 “Save” 对话框的 “File Name” 栏填入需要的文件名称，例如 “ppm” ，如
+base name:book

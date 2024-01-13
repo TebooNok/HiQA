@@ -1,0 +1,3 @@
+title: 图  E- 22  设置新的扫描变量
+图  E- 21  添加新的扫描变量后的 “Parametric Analysis” 窗口  图  E- 22  设置新的扫描变量
+base name:book

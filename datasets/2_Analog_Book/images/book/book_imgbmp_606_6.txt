@@ -1,0 +1,3 @@
+title: 图  E- 5 “Parametric Analysis” 的所有下拉菜单
+图  E- 4“Parametric Analysis” 窗口  图  E- 5 “Parametric Analysis” 的所有下拉菜单 1)   选择 “Setup” � “Pick Name For Variable” � “SweepN” 。如果现在只有一个扫描，那
+base name:book

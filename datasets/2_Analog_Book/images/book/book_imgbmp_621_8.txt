@@ -1,0 +1,3 @@
+title: 图  E- 39 “Parametric Analysis Save” 窗口
+�   永久保存：在 “Tool” 下拉菜单中，选择 “Save” 项，将会弹出 “Parametric Analysis Save” 窗口，如图  E- 39  所示。  图  E- 39 “Parametric Analysis Save” 窗口 在 “Directory” 中填入文件路径，在 “File” 中填入文件名，文件名的后缀是 “.il” 点击 “OK”
+base name:book

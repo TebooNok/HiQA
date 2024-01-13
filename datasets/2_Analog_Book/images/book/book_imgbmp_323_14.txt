@@ -1,0 +1,3 @@
+title: 图  8- 72  调整  M0  和  M1  管宽长比后的输出噪声
+择 “Results Browser…” 命令，启动 “Results Browser” ，如图  8- 73  所示。  图  8- 72  调整  M0  和  M1  管宽长比后的输出噪声
+base name:book

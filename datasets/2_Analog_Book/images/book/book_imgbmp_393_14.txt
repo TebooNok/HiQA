@@ -1,0 +1,3 @@
+title: 图  9-38  设置  PPM  输出变量
+在  ADE  中选中 “Outputs”→“Setup” ，将变量取名为 “PPM” ，点击 “Open” 打开计算 器 “Calculator” ，如图  9-38  所示。  图  9-38  设置  PPM  输出变量 在计算器中依次点击 “swept_dc” 栏中的 “is” 选项，打开直流电流选择模式，如图
+base name:book

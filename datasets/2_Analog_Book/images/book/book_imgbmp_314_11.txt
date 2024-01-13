@@ -1,0 +1,3 @@
+title: 图  8- 59  在  Select Component Parameter” 对话框中选择 “dc”
+图  8- 58  在 “Choosing Analyses” 窗口中选择 “Component Parameter”  图  8- 59  在  Select Component Parameter” 对话框中选择 “dc”
+base name:book

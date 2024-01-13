@@ -1,0 +1,3 @@
+title: 图  E- 9  设置扫描范围
+我们选择 “From/To” 模式，范围从 -20  0 C  到  20  0 C ，如图  E- 9  所示。  图  E- 9  设置扫描范围 接着选择 “Step Control” 方式， “Step Control” 有以下  7  种方式，如图  E- 10  所示：
+base name:book

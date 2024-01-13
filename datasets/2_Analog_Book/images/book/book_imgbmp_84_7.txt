@@ -1,0 +1,3 @@
+title: 图  3- 44
+3.13  如图  3- 44  所示的双端输入单端输出差分放大电路， NMOS  管 ( W / L )=100/2 ， v i1 =10mV, v i2 =12mV ， I BIAS =100 µA  以及  r ob =100 kΩ ，求：  图  3- 44 (a)  v i1 =  v i2 =0V ，且直流输出电压为  0V  时，求  R D 的值
+base name:book

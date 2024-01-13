@@ -1,0 +1,3 @@
+title: 图  G- 5  工艺角定义（ Corner Definition ）
+工艺角定义界面位于工艺角分析窗口的上半部，显示的是当前定义的工艺角的信息， 如图  G- 5  所示。  图  G- 5  工艺角定义（ Corner Definition ） 这个界面的信息一般是从工艺定制文件 (PCF) 文件中和设计配置文件 (DCF) 文件中定
+base name:book

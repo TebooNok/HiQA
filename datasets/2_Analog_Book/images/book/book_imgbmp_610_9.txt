@@ -1,0 +1,3 @@
+title: 图  E- 16 “Analysis” 下拉菜单中的内容
+接下来，我们可以进行参变量分析了，选择 “Analysis” 下拉菜单。如图  E- 16  所示。  图  E- 16 “Analysis” 下拉菜单中的内容 如果我们选择 “Start” ，则在所有设置的范围内，对电路进行仿真，如果我们选择
+base name:book

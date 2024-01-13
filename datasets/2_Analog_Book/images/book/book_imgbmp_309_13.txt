@@ -1,0 +1,3 @@
+title: 完成上述设置后的 “Analog Circuit Optimizer” 窗口如图  8- 49  所示：
+完成上述设置后的 “Analog Circuit Optimizer” 窗口如图  8- 49  所示：
+base name:book

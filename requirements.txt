@@ -1,0 +1,11 @@
+jieba
+whoosh
+openai
+tiktoken
+chromadb
+streamlit
+pandas
+numpy
+PyMuPDF
+python-dotenv
+pillow
