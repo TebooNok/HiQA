@@ -1,0 +1,3 @@
+title: Figure 6-19. DAC Output Noise, 0.1 Hz to 10 Hz
+Figure 6-17. DAC Full Scale Error vs Temperature Figure 6-18. DAC Zero Scale Error vs Temperature DAC at midcode PVDD = 5.5 V Figure 6-19. DAC Output Noise, 0.1 Hz to 10 Hz
+base name:afe88201

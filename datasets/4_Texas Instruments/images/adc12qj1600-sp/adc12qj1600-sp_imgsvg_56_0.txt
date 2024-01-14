@@ -1,0 +1,3 @@
+title: Not Found
+LK+ CLKt SE_CLK Internal PLL+VCO (C-PLL) ÷VPFD & CP ÷N ÷P
+base name:adc12qj1600-sp

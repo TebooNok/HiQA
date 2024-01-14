@@ -1,0 +1,3 @@
+title: Figure 6-39. Reference Voltage Long-Term Stability
+Two minutes after 25°C to 85°C temperature step, 30 units Figure 6-38. Ambient Temperature Change Settling 30 units Figure 6-39. Reference Voltage Long-Term Stability
+base name:afe88201

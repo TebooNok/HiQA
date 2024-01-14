@@ -1,0 +1,3 @@
+title: 图  9-4. Receive Subsystem (Per Channel)
+chain has configurable lower cutoff frequencies above 175 kHz and can support bandwidths up to 5 MHz. 图  9-4  describes the receive subsystem. 图  9-4. Receive Subsystem (Per Channel) IWRL6432 ZHCSRC3  –  DECEMBER 2022 www.ti.com.cn
+base name:iwrl6432

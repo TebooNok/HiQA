@@ -1,0 +1,3 @@
+title: 图  6-8. Standby Current vs V DD
+图  6-7. Standby Current vs. Temperature 图  6-8. Standby Current vs V DD Percentage Offset ( � )
+base name:ldc3114

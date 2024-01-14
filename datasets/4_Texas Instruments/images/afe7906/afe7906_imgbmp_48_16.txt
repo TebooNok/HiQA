@@ -1,0 +1,3 @@
+title: 图  6-150. RX IMD3 vs Input Level
+图  6-149. RX IMD3 vs Input Level and Temperature at 3.6 GHz External clock mode, 20-MHz tone spacing, 2x Decimation
+base name:afe7906

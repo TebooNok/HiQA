@@ -1,0 +1,3 @@
+title: Figure 6-24. DAC Settling Time With Sinusoidal Slew Rate  Control
+Figure 6-23. DAC Settling Time With Linear Slew Rate Control  Figure 6-24. DAC Settling Time With Sinusoidal Slew Rate  Control
+base name:afe88201

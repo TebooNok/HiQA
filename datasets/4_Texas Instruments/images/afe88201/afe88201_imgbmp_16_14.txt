@@ -1,0 +1,3 @@
+title: Figure 6-32. ADC Offset Error vs Temperature
+Figure 6-30. ADC DNL Range vs Temperature  Figure 6-31. ADC INL Range vs Temperature  Figure 6-32. ADC Offset Error vs Temperature  Figure 6-33. ADC Gain Error vs Temperature
+base name:afe88201

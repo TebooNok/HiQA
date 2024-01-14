@@ -1,0 +1,3 @@
+title: 图  6-5. Supply Current vs Temperature. Sensor R P  = 720  Ω ,  Scan Rate = 40 SPS, Sensor Frequency = 20 MHz.
+图  6-4. Supply Current vs Sensor R P  for Low Power Mode.  Sensor Frequency = 10 MHz. 图  6-5. Supply Current vs Temperature. Sensor R P  = 720  Ω ,  Scan Rate = 40 SPS, Sensor Frequency = 20 MHz.
+base name:ldc3114

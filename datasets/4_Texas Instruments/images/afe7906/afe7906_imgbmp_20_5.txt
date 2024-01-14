@@ -1,0 +1,3 @@
+title: 图  6-12. RX Output FFT at 5 MHz
+A IN  = -12 dBFS, f ADC  = 1500 MSPS, f NCO  = 32.13 MHz,
+base name:afe7906

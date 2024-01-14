@@ -1,0 +1,3 @@
+title: Not Found
+Sn SCLK SDO � � � � LSB CSn SCLK SDOLSB � � � image_15 image_16 image_17 image_18 image_19
+base name:ads131b24-q1

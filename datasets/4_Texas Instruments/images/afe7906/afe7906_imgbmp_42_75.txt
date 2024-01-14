@@ -1,0 +1,3 @@
+title: 图  6-122. RX IMD3 vs Input Level at 2.6 GHz (Ext. Clock)
+图  6-121. RX IMD3 vs Input Level and Temperature at 2.6 GHz Tone spacing = 50 MHz, External clock mode 图  6-122. RX IMD3 vs Input Level at 2.6 GHz (Ext. Clock)
+base name:afe7906

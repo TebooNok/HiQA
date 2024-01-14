@@ -1,0 +1,3 @@
+LDC3114QPWR ACTIVE TSSOP PW 16 3000 RoHS & Green NIPDAU Level-2-260C-1 YEAR -40 to 125 LDC3114
+LDC3114QPWR ACTIVE TSSOP PW 16 3000 RoHS & Green NIPDAU Level-2-260C-1 YEAR -40 to 125 LDC3114 (1) The marketing status values are defined as follows: ACTIVE:  Product device recommended for new designs.
+base name:ldc3114

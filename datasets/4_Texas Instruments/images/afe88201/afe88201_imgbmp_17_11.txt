@@ -1,0 +1,3 @@
+title: Figure 6-37. Multiple Temperature Cycle Hysteresis
+Figure 6-36. Multiple Temperature Cycle Hysteresis –40°C to +85°C cycles, 60 minutes per cycle Figure 6-37. Multiple Temperature Cycle Hysteresis
+base name:afe88201

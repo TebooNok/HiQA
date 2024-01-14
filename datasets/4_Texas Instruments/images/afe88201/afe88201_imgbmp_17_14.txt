@@ -1,0 +1,3 @@
+title: Figure 6-38. Ambient Temperature Change Settling
+Figure 6-37. Multiple Temperature Cycle Hysteresis Two minutes after 25°C to 85°C temperature step, 30 units
+base name:afe88201

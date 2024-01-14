@@ -1,0 +1,3 @@
+title: Figure 6-22. DAC Falling Settling Time
+Figure 6-22. DAC Falling Settling Time  Figure 6-23. DAC Settling Time With Linear Slew Rate Control
+base name:afe88201

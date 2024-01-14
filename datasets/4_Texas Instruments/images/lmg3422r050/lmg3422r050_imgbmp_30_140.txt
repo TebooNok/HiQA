@@ -1,0 +1,3 @@
+title: 图  10-1. Typical Half-Bridge Application
+LMG342x Half-Bridge GaN Daughter Card ISO_12V_H AGND 5V_H 0.1uF C20 0.1uF C21 49.9 R16 49.9 R7 10uF C1 68pF C14 68pF C6
+base name:lmg3422r050

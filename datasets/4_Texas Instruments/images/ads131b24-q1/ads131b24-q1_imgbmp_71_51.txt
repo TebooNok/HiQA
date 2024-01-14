@@ -1,0 +1,3 @@
+title: 图  9-45. DRDYn Pin Behavior: Setting the STARTy Bit and Reading Conversion Data While New
+图  9-44. DRDYn Pin Behavior: Setting the STARTy Bit While Reading Conversion Data High-Z SDI SDO CSn STATUS ADC1A Data ADC1B Data Output CRC
+base name:ads131b24-q1

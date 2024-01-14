@@ -1,0 +1,3 @@
+title: Figure 6-10. DAC Footroom Over Temperature and Load
+Figure 6-10. DAC Footroom Over Temperature and Load
+base name:afe88201

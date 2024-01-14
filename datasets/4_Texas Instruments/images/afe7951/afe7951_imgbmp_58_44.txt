@@ -1,0 +1,3 @@
+title: 图  7-139. 3.5GHz （ 频带  42 ） 条件下的  TX 20MHz LTE  输出频谱
+20MHz  频率间隔 ， 3.5GHz  匹配 图  7-138. 3.5GHz  条件下  TX IMD3  与数字振幅和通道间的关系 3.5GHz  匹配 ， 单载波  20MHz BW TM1.1 LTE 图  7-139. 3.5GHz （ 频带  42 ） 条件下的  TX 20MHz LTE  输出频谱
+base name:afe7951

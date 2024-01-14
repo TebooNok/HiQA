@@ -1,0 +1,3 @@
+title: 图  9-40. DRDYn Pin Behavior: Incomplete Read of Conversion Data Before New Conversions Complete
+图  9-39. DRDYn Pin Behavior: Reading All Conversion Data Before New Conversions Complete High-Z SDI SDO NULL CSn Command CRC STATUS ADC1A Data NULL Command CRC
+base name:ads131b24-q1

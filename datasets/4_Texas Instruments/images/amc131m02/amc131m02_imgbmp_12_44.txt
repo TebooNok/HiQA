@@ -1,0 +1,3 @@
+title: 图  6-9.  偏移误差与温度间的关系
+Offset Error (μV) Channel 0 Channel 1  图  6-8.  偏移误差与增益间的关系  图  6-9.  偏移误差与温度间的关系 www.ti.com.cn AMC131M02 ZHCST20  –  SEPTEMBER 2023
+base name:amc131m02

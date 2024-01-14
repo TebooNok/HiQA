@@ -1,0 +1,3 @@
+title: Figure 6-14. DAC Glitch Impulse Falling Edge
+PVDD = 5.5 V Figure 6-13. DAC Glitch Impulse Rising Edge PVDD = 5.5 V Figure 6-14. DAC Glitch Impulse Falling Edge
+base name:afe88201

@@ -1,0 +1,3 @@
+title: Not Found
+tw(CSDOZ)tp(CSDO) tw(CSH) tw(CLH) tw(SCL) tsu(DI) DRDY tw(DRH) tw(DRL) CLKIN SYNC/RESET §� §� tw(SYL)tw(RSL) image_31 image_32
+base name:amc131m02

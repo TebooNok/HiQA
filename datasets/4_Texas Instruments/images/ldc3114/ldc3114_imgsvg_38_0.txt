@@ -1,0 +1,3 @@
+title: Not Found
+DD IN0 66 ms startup time25 ms scan cycle Power upDATA is readyafter all active channels finish two conversions.
+base name:ldc3114

@@ -1,0 +1,3 @@
+title: Figure 6-41. Reference AC PSRR vs frequency
+Figure 6-41. Reference AC PSRR vs frequency  Figure 6-42. Reference Source and Sink Current Capability Figure 6-43. Initial Accuracy Distribution
+base name:afe88201

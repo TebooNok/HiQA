@@ -1,7 +1,7 @@
 import fitz
 from PIL import Image
 
-from service.keyword_setting import load_keywords
+# from service.keyword_setting import load_keywords
 from utils import *
 import jieba
 from whoosh.index import create_in, open_dir
@@ -9,8 +9,8 @@ from whoosh.fields import *
 from whoosh.qparser import QueryParser
 import os
 import shutil
-from utils.img_tools import *
-from app import BASE_DIR
+from build_tool.img_tools import *
+# from app import BASE_DIR
 from utils.filter import *
 
 
@@ -29,8 +29,9 @@ def load_pdf(kb_name, filename, dpi=300, skip_page_front=0, skip_page_back=1, sk
     :param file:
     :return:
     """
-    directory = os.path.join(BASE_DIR, 'file_system', kb_name)
-    file_path = os.path.join(directory, 'pdfs', f"{filename}.pdf")
+
+    directory = os.path.join(r'C:\Users\cxy\PycharmProjects\HiQA\datasets', kb_name)
+    file_path = os.path.join(directory, 'pdfs', filename)
     doc = fitz.open(file_path)
 
     # load pages
@@ -45,7 +46,7 @@ def load_pdf(kb_name, filename, dpi=300, skip_page_front=0, skip_page_back=1, sk
     matrix = fitz.Matrix(scale, scale)
     skip_block = int(skip_block)
 
-    base_name = filename
+    base_name = filename.split('.pdf')[0]
     path_name = os.path.join(directory, 'images', base_name)
     if os.path.exists(path_name):
         shutil.rmtree(path_name)
@@ -75,7 +76,10 @@ def load_pdf(kb_name, filename, dpi=300, skip_page_front=0, skip_page_back=1, sk
                     file_name = path_name + f'/{base_name}_imgbmp_{page.number}_{number}'
                     image_name = file_name + '.png'
                     # print(image_name)
-                    cropped.save(image_name)
+                    try:
+                        cropped.save(image_name)
+                    except:
+                        continue
                     # # Handle text extraction around the image
                     text_content = get_text_around_image(blocks[skip_block:], i, lang)
                     title = get_title_of_image(blocks[skip_block:], i, lang)
@@ -152,6 +156,7 @@ def load_pdf(kb_name, filename, dpi=300, skip_page_front=0, skip_page_back=1, sk
         except Exception as e:
             # some page dont have svg image
             pass
+    return path_name
 
 
 def build_index(kb_name, lang='CN'):
@@ -161,8 +166,10 @@ def build_index(kb_name, lang='CN'):
     else:
         schema = Schema(file_name=ID(stored=True), content=TEXT(stored=True))
 
-    directory = os.path.join(BASE_DIR, 'file_system', kb_name)
-    index_path = os.path.join(directory, 'index')
+    # directory = os.path.join('datasets', kb_name)
+    directory = os.path.join(r'C:\Users\cxy\PycharmProjects\HiQA\datasets', kb_name)
+    index_path = os.path.join(directory, 'indexes')
+
     # Create an index in a directory
     if os.path.exists(index_path):
         shutil.rmtree(index_path)
@@ -187,14 +194,18 @@ def build_index(kb_name, lang='CN'):
         for file in os.listdir(file_path):
             if file.endswith('.txt'):
                 doc_path = os.path.join(file_path, file)
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                writer.add_document(file_name=file[:-4], content=content)
+                try:
+                    with open(doc_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    writer.add_document(file_name=file[:-4], content=content)
+                except Exception as e:
+                    print(doc_path)
+                    pass
             # print('==========')
             # print(content)
             # print("==========")
 
-    writer.commit()
+    # writer.commit()
     # return ix
 
 
@@ -202,7 +213,7 @@ def search_images_from_response(kb_name, user_input, response, lang='CN', k=20):
 
     global ix
     if ix is None:
-        ix = open_dir(os.path.join(BASE_DIR, 'file_system', kb_name, 'index'))
+        ix = open_dir(os.path.join(BASE_DIR, 'file_system', kb_name, 'indexes'))
     directory = os.path.join(BASE_DIR, 'file_system', kb_name)
     images_path = os.path.join(directory, 'images')
 
@@ -303,10 +314,10 @@ def search_images_from_response(kb_name, user_input, response, lang='CN', k=20):
 # print(os.listdir('using_pdfs'))
 
 # import tqdm
-# for file in tqdm.tqdm(os.listdir('using_pdfs')):
-#     tmd_dir = load_pdf(file)
-#     ix, tmp_index_dir = build_index('using_pdfs/' + file, tmd_dir)
-# #
+# for file in tqdm.tqdm(os.listdir('../datasets/4_Texas Instruments/pdfs')):
+#     load_pdf('4_Texas Instruments', file)
+# build_index('4_Texas Instruments')
+#
 # writer.commit()
 # from whoosh.index import open_dir
 # search_ix = open_dir('indexes')

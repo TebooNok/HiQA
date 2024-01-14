@@ -1,0 +1,3 @@
+title: Figure 6-5. DAC INL vs Digital Input Code
+Figure 6-4. MIN and MAX DAC DNL Range vs Temperature  Figure 6-5. DAC INL vs Digital Input Code  Figure 6-6. MIN and MAX DAC INL Range vs Temperature
+base name:afe88201

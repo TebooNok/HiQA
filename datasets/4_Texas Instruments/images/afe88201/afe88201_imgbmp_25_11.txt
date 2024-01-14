@@ -1,0 +1,3 @@
+title: Figure 7-3. Linear Slew Rate: Rising
+typical rising and falling DAC output waveforms, respectively. 4 mA (0x0BA3) to 24 mA (0xF45D) measured on a 40-Ω shunt
+base name:afe88201

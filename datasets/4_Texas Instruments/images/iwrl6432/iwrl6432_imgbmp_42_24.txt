@@ -1,0 +1,3 @@
+title: 图  8-16. QSPI Read (Clock Mode 0)
+distortion. All required details about clock division factor DCLK_DIV can be found in the device-specific Technical Reference Manual. (2) P = SCLK period in ns. (3) M = QSPI_SPI_DC_REG.DDx + 1, N = 2 图  8-16. QSPI Read (Clock Mode 0) www.ti.com.cn IWRL6432 ZHCSRC3  –  DECEMBER 2022
+base name:iwrl6432

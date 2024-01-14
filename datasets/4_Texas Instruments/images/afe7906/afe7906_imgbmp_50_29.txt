@@ -1,0 +1,3 @@
+title: 图  6-163. RX HD3 vs Input Level
+External clock mode, 2x Decimation 图  6-162. RX HD3 vs Input Level at 3.76GHz External clock mode, 25°C, 2x Decimation 图  6-163. RX HD3 vs Input Level
+base name:afe7906

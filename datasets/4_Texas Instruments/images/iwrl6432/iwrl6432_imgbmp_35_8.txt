@@ -1,0 +1,3 @@
+title: 图  8-13. RDIF Timing Requirements
+1. Aggregated data rate over four data lanes. 8.12.5.1 RDIF Interface Timings 图  8-13. RDIF Timing Requirements 表  8-19. Timing Requirements for RDIF Interface
+base name:iwrl6432

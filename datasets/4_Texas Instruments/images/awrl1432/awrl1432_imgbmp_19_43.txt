@@ -1,0 +1,3 @@
+title: 图  8-2. BOM Optimized Mode Power Management (Left: 1.8V I/O Topology, Right: 3.3V I/O Topology)
+The choice of one rail vs two rails is dependent on the IO voltages needed. 图  8-2. BOM Optimized Mode Power Management (Left: 1.8V I/O Topology, Right: 3.3V I/O Topology)
+base name:awrl1432

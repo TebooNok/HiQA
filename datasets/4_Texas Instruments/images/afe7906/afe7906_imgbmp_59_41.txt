@@ -1,0 +1,3 @@
+title: 图  6-211. RX Output FFT at 6.851GHz and -3dBFS
+图  6-210. RX Calibrated Integrated Phase Error at 6.851GHz F NCO  = 6.851GHz, F IN  offset -130kHz 图  6-211. RX Output FFT at 6.851GHz and -3dBFS
+base name:afe7906

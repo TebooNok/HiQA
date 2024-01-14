@@ -1,0 +1,3 @@
+title: 图  6-42. RX Output FFT at 405 MHz and -60dBFS
+f NCO  = 400MHz 图  6-41. RX Output FFT at 405 MHz and -30dBFS f NCO  = 400MHz 图  6-42. RX Output FFT at 405 MHz and -60dBFS
+base name:afe7906

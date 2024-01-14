@@ -1,0 +1,3 @@
+title: 图  6-156. RX HD2 vs Input Level at 3.76 GHz
+图  6-155. RX HD2 vs Input Level and Temperature at 3.6 GHz External clock mode, 2x Decimation 图  6-156. RX HD2 vs Input Level at 3.76 GHz
+base name:afe7906

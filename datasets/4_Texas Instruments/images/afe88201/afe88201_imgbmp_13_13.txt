@@ -1,0 +1,3 @@
+title: Figure 6-20. DAC Output Noise Density vs Frequency
+DAC at midcode PVDD = 5.5 V Figure 6-19. DAC Output Noise, 0.1 Hz to 10 Hz DAC at midcode PVDD = 5.5 V Figure 6-20. DAC Output Noise Density vs Frequency
+base name:afe88201

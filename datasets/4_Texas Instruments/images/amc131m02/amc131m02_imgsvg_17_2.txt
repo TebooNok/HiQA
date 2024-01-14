@@ -1,0 +1,3 @@
+title: Not Found
+image_0 image_1 ow side supply(3.0 V to 5.5 V) DVDD DCDC_CAP DGND SCLK
+base name:amc131m02

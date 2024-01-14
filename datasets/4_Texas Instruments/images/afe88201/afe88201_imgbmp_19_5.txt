@@ -1,0 +1,3 @@
+title: Figure 6-45. IOVDD Supply Current vs Temperature
+Figure 6-45. IOVDD Supply Current vs Temperature  Figure 6-46. VDD Voltage vs Load Current
+base name:afe88201

@@ -1,0 +1,3 @@
+title: 图  6-15. RX Output FFT at 30 MHz
+A IN  = -60 dBFS, f ADC  = 1500 MSPS, f NCO  = 32.13 MHz, Decimate by 24x 图  6-14. RX Output FFT at 5 MHz A IN  = -3 dBFS, f ADC  = 1500 MSPS, f NCO  = 32.13 MHz,
+base name:afe7906

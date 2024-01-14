@@ -1,0 +1,3 @@
+title: Figure 6-12. DAC Output Voltage Long-Term Stability
+Figure 6-11. DAC Source and Sink Current Capability Ideal reference Figure 6-12. DAC Output Voltage Long-Term Stability
+base name:afe88201

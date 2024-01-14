@@ -36,7 +36,8 @@ if __name__ == '__main__':
 5. There are redundant parts in the reference materials provided by us. Please ignore the materials that are not relevant to the question.
 6. If you are asked to answer a multiple choice question (single choice or multiple choice), analyze each choice first. After analyzing the choices, write the answer.
 7. If you use the table in your answer, please output the table in markdown's table format. The format of the table must strictly use markdown's format.
-8. If some data is not directly given, try to calculate through the given data first, show the calculation process, and then answer the question after the calculation step is complete."""
+8. If some data is not directly given, try to calculate through the given data first, show the calculation process, and then answer the question after the calculation step is complete.
+9. Please focus on answering the user's question, do not answer with irrelevant information."""
 
     if st.button('Submit'):
         # set gpt version

@@ -1,0 +1,3 @@
+title: 图  10-1. Layout of LDC3114 (TSSOP-16) With Decoupling Capacitors and Sensor Capacitors
+wide to minimize parasitic inductances. 10.2 Layout Example 图  10-1. Layout of LDC3114 (TSSOP-16) With Decoupling Capacitors and Sensor Capacitors
+base name:ldc3114

@@ -1,0 +1,3 @@
+title: 图  6-165. RX Noise Spectral Density vs Input Level at 3.76GHz
+图  6-164. RX Noise Spectral Density vs Input Level and DSA  Setting at 3.6 GHz External clock mode, 25°C, 2x Decimation 图  6-165. RX Noise Spectral Density vs Input Level at 3.76GHz
+base name:afe7906

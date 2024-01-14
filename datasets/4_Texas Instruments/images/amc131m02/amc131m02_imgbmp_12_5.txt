@@ -1,0 +1,3 @@
+title: 图  6-5.  输入阻抗与  CLKIN  频率间的关系
+图  6-5.  输入阻抗与  CLKIN  频率间的关系  图  6-6.  输入阻抗与温度间的关系 -1.2 -0.8 -0.4 0 0.4 0.8 1.2 Differential Input Voltage (V) -10
+base name:amc131m02

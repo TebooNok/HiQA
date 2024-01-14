@@ -1,0 +1,3 @@
+title: Not Found
+R IOVDD DCAP AV D DP R 5 V 1 µF 220 nF 1 µF 1 µF 36 3 3 40393837≈ image_21 image_22 image_23 image_24 image_25
+base name:ads131b24-q1

@@ -1,0 +1,3 @@
+title: Not Found
+RDYn tGC_SETTLEtGC_DATA SamplingC1 Data not settledSwap inputs,digital filter resetConversionstartData not settled
+base name:ads131b24-q1

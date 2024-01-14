@@ -1,0 +1,3 @@
+title: Figure 6-43. Initial Accuracy Distribution
+Figure 6-42. Reference Source and Sink Current Capability Figure 6-43. Initial Accuracy Distribution www.ti.com AFE78201, AFE88201 SLASF44 – MAY 2023
+base name:afe88201

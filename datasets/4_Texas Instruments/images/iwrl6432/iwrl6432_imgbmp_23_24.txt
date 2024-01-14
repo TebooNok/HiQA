@@ -1,0 +1,3 @@
+title: 图  8-4. Noise Figure, In-band P1dB vs Receiver Gain
+图  8-4  shows variations of noise figure and in-band P1dB parameters with respect to receiver gain programmed. 图  8-4. Noise Figure, In-band P1dB vs Receiver Gain
+base name:iwrl6432

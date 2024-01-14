@@ -1,0 +1,3 @@
+title: Figure 6-33. ADC Gain Error vs Temperature
+Figure 6-31. ADC INL Range vs Temperature  Figure 6-32. ADC Offset Error vs Temperature  Figure 6-33. ADC Gain Error vs Temperature www.ti.com AFE78201, AFE88201 SLASF44 – MAY 2023
+base name:afe88201

@@ -1,0 +1,3 @@
+title: 图  6-169. RX 2-tone SFDR vs Input Amplitude and Frequency at  3.7 GHz
+图  6-168. RX 2-tone SFDR vs Input Amplitude and DSA Setting  at 3.7 GHz External clock mode, 20MHz tone spacing, excluding 3 rd  order
+base name:afe7906
