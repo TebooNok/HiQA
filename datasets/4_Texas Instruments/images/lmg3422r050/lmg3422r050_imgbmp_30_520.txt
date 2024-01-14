@@ -1,0 +1,3 @@
+title: 图  10-1. Typical Half-Bridge Application
+OUTC 12 OUTD 6 GND1 2 GND1 8 GND2 9 GND2 15 ISO7741FDBQR U3 L1 L2 i INGND i INGND 0 R10 Top_FET_PWM Top_FET_FAULT Top_FET_OC Top_FET_TEMP
+base name:lmg3422r050

@@ -1,0 +1,3 @@
+title: 图  10-3. Block Diagram for PLC Digital Output Module
+Backplane  Power 24-V Field Power V OUT  2 A1 SNS VDD VS V SNS EN SEL DIA_EN FLT 图  10-3. Block Diagram for PLC Digital Output Module
+base name:tps272c45

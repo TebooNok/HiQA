@@ -1,0 +1,3 @@
+title: 图  10-3. Block Diagram for PLC Digital Output Module
+V OUT  1 Output  Clamp V OUT  MON Charge  Pump GND TPS272C45 To Additional  Channels TPS272C45 GND 2 VS V OUT
+base name:tps272c45

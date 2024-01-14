@@ -1,0 +1,3 @@
+title: 图  10-1. Typical Half-Bridge Application
+Top_FET_TEMP Top_FET_PWM FAULT_L TEMP_L OC_L 10.0 R18 OUTA INA i PGND i PGND GND1 8 INA 2 INB 3 INC 4 IND 5 OUTE 6 OUTF 7
+base name:lmg3422r050

@@ -1,0 +1,3 @@
+title: 图  8-4. Carbon Monoxide Amplifier Waveforms with Calibration Gas
+图  8-2. LED Driver and Photo Amplifier Waveforms 图  8-3. LED Driver and Photo Amplifier Waveforms with 128 Averages 图  8-4. Carbon Monoxide Amplifier Waveforms with Calibration Gas
+base name:tps8804

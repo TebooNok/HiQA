@@ -1,0 +1,3 @@
+title: 图  7-12. I SNS  Settling Time on Rising Load Step
+图  7-11. I SNS  Settling Time on DIA_EN Transition V EN  = 5 V V DIAG_EN  = 5 V I OUT1  = 0.5 A to 2 A
+base name:tps272c45

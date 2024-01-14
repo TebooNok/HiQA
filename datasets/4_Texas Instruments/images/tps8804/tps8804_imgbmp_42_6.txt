@@ -1,0 +1,3 @@
+title: 图  8-2. LED Driver and Photo Amplifier Waveforms 图  8-3. LED Driver and Photo Amplifier Waveforms
+All curves use the schematics shown in  图  8-1 . The photo amplifier curves do not have the 470 k Ω  PREF resistor installed. 图  8-2. LED Driver and Photo Amplifier Waveforms 图  8-3. LED Driver and Photo Amplifier Waveforms
+base name:tps8804

@@ -1,0 +1,3 @@
+title: Figure 8-18. Reverse Protection With GND Network
+TPS281C100x EN ILIM SNS VOUT Vs DIAG_EN GND Load FLT MCU VDDIO OL_ON R GND D GND Reverse FET Turn  On – + R PROT Figure 8-18. Reverse Protection With GND Network
+base name:tps281c100

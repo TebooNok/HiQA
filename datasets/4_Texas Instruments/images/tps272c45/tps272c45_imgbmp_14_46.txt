@@ -1,0 +1,3 @@
+title: 图  7-10. Turn-off Time (T OFF )
+V EN  = 0 V to 5 V V S  = 24 V R OUT  = 10 Ω 图  7-9. Turn-on Time (T ON ) V EN  = 5 V to 0 V V S  = 24 V R OUT  = 10 Ω 图  7-10. Turn-off Time (T OFF )
+base name:tps272c45

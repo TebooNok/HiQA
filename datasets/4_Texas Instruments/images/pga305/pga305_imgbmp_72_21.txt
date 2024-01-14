@@ -1,0 +1,3 @@
+RHH
+PGA305ARHHT ACTIVE VQFN RHH 36 250 RoHS & Green NIPDAU Level-2-260C-1 YEAR -40 to 150 PGA305A RHH (1) The marketing status values are defined as follows: ACTIVE:  Product device recommended for new designs.
+base name:pga305
