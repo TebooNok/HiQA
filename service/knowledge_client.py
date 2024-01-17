@@ -153,8 +153,8 @@ def retrieve_knowledge(question, question_embd, max_token, dataset, begin, verbo
     result_list = reset_by_lucene(question, results, threshold=0.5, lucene_weight=0.5)
     if verbose:
         print('after rank by lucene', time.time() - begin)
-    # all_text = ''
-    # returned_values = filter_knowledge(question, result_list)
+
+    returned_values = filter_knowledge(question, result_list)
     # if verbose:
     #     print('after filter knowledge by keywords', time.time() - begin)
     # if len(returned_values) >= 2:
@@ -181,7 +181,7 @@ def retrieve_knowledge(question, question_embd, max_token, dataset, begin, verbo
         print('after filter', time.time() - begin)
     # for text in results['documents'][0]:
     #     all_text += text.replace('[desc]', '') + '\n'
-    all_text = '\n\n'.join(result_list)
+    all_text = returned_values
 
     # reduce length to max_token
     tokens = encoding.encode(all_text)
