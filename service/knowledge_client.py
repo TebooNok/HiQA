@@ -109,7 +109,7 @@ def reset_by_lucene(question, results, threshold, lucene_weight):
         knowledge = "*** New Knowledge Paragraph ***\n" \
                     f"[Source File] {res[2]['filename']} [Source File]\n" \
                     f"[Knowledge Title] {res[2]['title']} [Knowledge Title]\n" \
-                    f"[Knowledge Content] {res[3].replace('[desc]', '').replace('---table begin---', '以下为表格:').replace('---table end---', '')} [Knowledge Content]"
+                    f"[Knowledge Content] {res[3].replace('[desc]', '').replace('---table begin---', 'The following is table:').replace('---table end---', '')} [Knowledge Content]"
 
         string_list.append(knowledge)
 
@@ -148,6 +148,17 @@ def retrieve_knowledge(question, question_embd, max_token, dataset, begin, verbo
             n_results=50
         )
 
+    result_list = [doc for doc in results['documents'][0]]
+    string_list = []
+    for res in result_list:
+        knowledge = "*** New Knowledge Paragraph ***\n" \
+                    f"[Knowledge Content] {res.replace('[desc]', '').replace('---table begin---', 'The following is table:').replace('---table end---', '')} [Knowledge Content]"
+
+        string_list.append(knowledge)
+    
+    # early return to avoid lucene and keyword
+    return '\n\n'.join(string_list)
+    
     if verbose:
         print('after retrieve', time.time() - begin)
     result_list = reset_by_lucene(question, results, threshold=0.5, lucene_weight=0.5)
