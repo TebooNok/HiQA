@@ -1,0 +1,63 @@
+﻿Question,Answer
+"单选题：AFE7906的特性中每个 DDC 通道有（  ）个 NCO
+A: 4    B: 8    C: 12   D: 16",D: 16 
+"单选题：OPT3004的特性中测量范围是（ ）
+A: 0.001lux 至 10lux   B: 1lux 至 15lux   C: 0.01lux 至 83,000lux  D: 20lux 至 83lux","C: 0.01lux 至 83,000lux"
+"单选题：在AMC131M02 的 Calibration 中实时校正的误差不包括（）
+A: 偏移误差    B: 增益误差    C: 相位误差   D: 时序误差",D: 时序误差
+"多选题：ADC12QJ1600-SP 的应用有（）。
+A: 电子战（信号情报、电子情报）     B: 卫星通信 (SATCOM)             C: 电池管理系统     D: 断路器",A、B
+"判断题：In the DAC53xAxW's Timing Requirements: I2C Fast Mode，all input signals are timed from VIL to 70% of Vpull-up, 3 V ≤ VDD ≤ 5.5 V, –40°C ≤ TA ≤ +125°C, and 1.7 V ≤ Vpull-up ≤ VDD",√
+"判断题：In the Carbon Monoxide Sensor AFE of TPS8804, the CO transimpedance amplifier is a low-offset, low-power op-amp with integrated input, gain, and output 
+resistors.",√
+判断题：The ADC12DJ5200SE has an automatic SYSREF calibration feature to alleviate the often challenging setup and hold times associated with capturing SYSREF for giga-sample data converters.,√
+判断题：The AFEx8201 Integrated Precision Oscillator's internal time base is provided by an internal oscillator that is trimmed to less than 1% tolerance at room temperature.,× The internal oscillator is trimmed to less than 0.5% tolerance at room temperature.
+"填空题：The IWRL6432 device features a MultiChannel buffered / Standard Serial Peripheral Interface (McSPI) module which is a _________,  _________ serial bus.",multichannel transmit/receive，synchronous serial bus
+"填空题： The OPT3004’s  Application Information includes two categories of interface:   _________,  _________."," electrical interface,optical interface"
+简答题：What is primarily intended use for the Quad Serial Peripheral Interface (QSPI) in the AWRL1432 ?,The QSPI in the device is primarily intended for fast booting from quad-SPI flash memories.
+简答题：What are the description of OPOL3 in OPOL_DPOL Register Field for the Register Maps in LDC3114?,"Button Output Polarity for OUT3 Pin
+0h = Active low (Default)
+1h = Active high"
+简答题：Please introduce the voltage-output Smart Digital-to-Analog Converter (DAC) Architecture channels of the DAC53xAxW devices.,"The voltage-output DAC channels of the DAC53xAxW devices consist of a string architecture with a voltageoutput amplifier, as well as an external feedback pin on channel 1."
+简答题：What are the two timing components of the turn-off transition in Turn-Off Times of Switching Parameters for the LMG342xR050?,"The turn-off transition has two timing components: turn-off delay time, and turn-off fall time."
+简答题：What is the typical application example in the TPS272C45 device?," The TPS272C45 device can be used as output switches in a digital 
+output module."
+简答题：Please introduce the function of One-Wire Interface (OWI) in PGA305.,"The function of OWI is to enable writes to and
+reads from all memory locations inside the PGA305 device that are available for OWI access."
+简答题：What are the  CO Amplifier Layout of the Layout Guidelines in relation to the TPS8804 device to minimize noise sensitivity?,"The layout guidelines for the CO amplifier suggest connecting the CO electrochemical sensor close to the TPS8804 device and shielding the COP, CON, and COO traces with the AGND plane to minimize noise sensitivity."
+简答题：请介绍ADC12DJ5200SE的应用有什么,"通信测试仪（802.11ad，5G）
+电子战（信号情报、电子情报）
+卫星通信 (SATCOM)
+射频采样软件定义无线电 (SDR)"
+简答题：What are the  types of  Interrupt Reporting Mechanism Modes of Device Functional Modes mentioned in OPT3004？,"latched window-style comparison mode and 
+transparent hysteresis-style comparison mode."
+"简答题：What triggers the TPS272C45 to enter the FAULT state, and what conditions must be met for the device to reset the fault indication and turn the switch back on?","The TPS272C45 enters the FAULT state when any of the following protection features are triggered for either channel: current limit, thermal shutdown, or DC overvoltage on the VS supply that exceeds the overvoltage protection threshold (VOVPR). In the FAULT state, the fault indication is signaled on the FLT pin, which can be monitored by an MCU to take appropriate action.
+
+For the device to reset the fault indication and turn the switch back on, the following conditions must all be met: the LATCH pin must be low, the retry time period (tRETRY) must have expired, and all faults (thermal shutdown, current limit, overvoltage) must be cleared."
+AMC131M02的典型应用有哪些？,"使用 AMC131M02 的典型三相电能测量前端。该 ADC 对电阻电流传感器（分流器）和分压器的输出
+进行采样，以测量主交流电源各分支的电流和电压。该设计在宽输入电流范围 (0.05A–100A) 内能达到很高的精
+度，在必要时还支持高采样频率，以实现独立谐波分析等高级电能质量功能。与集成片上系统 (SoC) 和应用特定
+的专用产品相比，通过使用 AMC131M02 对每相电压和电流进行采样，可以让设计人员更加灵活地选择计量微控
+制器 (MCU)。"
+AMC131M02的典型应用中进行了详细设计过程说明，其中电压是如何测量的？,"市电的标称电压范围为 100V 至 240V，因此必须按比例缩小该电压，才能被 ADC 检测到。图 9-5 展示了 ADC 通
+道 1 上用于此电压调节的模拟前端。
+电压测量模拟前端由分压器网络（RHI 和 RLO）以及 RC 低通滤波器（RFILT 和 CFILT）组成。通常还会放置其他保
+护元件（例如尖峰保护压敏电阻），但为了简单起见，此电路中未显示这些元件。
+方程式 12 展示了在给定的市电电压和选定的分压器电阻值下，如何计算馈入 ADC 电压通道的差分电压范围。
+LO
+ADC RMS
+HI LO
+R
+V V 2
+3R R
+ r u u
+
+(12)
+在典型设计中，RHI 为 300kΩ，RLO 为 750Ω。根据方程式 12 和选定电阻值，对于 240V 的市电电压（在相线及
+中性线间测得），电压检测 ADC 的输入信号电压摆幅为 ±256mV (182mVRMS)。该电压完全在 ±1.2V 输入电压范
+围内，因此，当为电压通道选择的 PGA 增益值为 1 时，AMC131M02 可以检测到该电压范围。此外，还可以根
+据选定的电阻值和增益设置组合来测量高达主电压四倍（高达 1000V）的过压。
+ADC 通道 1 的有限输入阻抗会导致因 RLO 的非理想分压而产生的增益误差和偏移误差。如具有 ±250mV 输入和
+差分输出的隔离式电压测量电路 应用手册中所述，与 ADC 的反相输入串联的电阻器可以减少偏移和增益误差。
+建议附加串联电阻的值近似为 RLO，设计步骤记录在具有 ±250mV 输入和差分输出的隔离式电压测量电路 应用手
+册中。"

@@ -1,0 +1,250 @@
+﻿Question,Answer,Context
+"单选题：AFE7906的特性中每个 DDC 通道有（  ）个 NCO
+A: 4    B: 8    C: 12   D: 16",B: 16 ,"[desc] afe7906 __ 特性 [desc]
+AFE7906 具有 3GSPS ADC 的 6 通道、5MHz 至 12GHz 射频采样接收器
+* 申请完整数据表
+* 六个射频采样 14 位、3 GSPS ADC
+* 最大射频信号带宽：
+    * 4 个 ADC：每个 ADC 为 1200 MHz
+    * 6 个 ADC：每个 ADC 为 600 MHz
+* 射频频率范围：5 MHz 至 12 GHz
+* 数字步进衰减器 (DSA)：25 dB 范围，0.5 dB 步进
+* 单频带 DDC（在 6 个通道上）和双频带 DDC（在 4 个通道上）
+* 每个 DDC 通道 16 个 NCO
+* 可选内部 PLL/VCO，提供 ADC 采样率下的 ADC 时钟或外部时钟
+* Sysref 对齐检测器
+* 串行器/解串器数据接口：
+    * 可兼容 JESD204B 和 JESD204C
+    * 8 个高达 29.5 Gbps 的串行器/解串器发送器
+    * 子类 1 多器件同步
+* 封装：17mm × 17mm FCBGA，间距 0.8 mm"
+"单选题：OPT3004的特性中测量范围是（ ）
+A: 0.001lux 至 10lux   B: 1lux 至 15lux   C: 0.01lux 至 83,000lux  D: 20lux 至 83lux","C: 0.01lux 至 83,000lux","[desc] opt3004 __ 特性 [desc]
+采用精密光学滤波以匹配人眼：
+- 在 ±85° 入射角时，可阻隔超过 99%（典型值）的红外线
+- 自动满量程设置功能可简化软件并确保配置适当
+- 测量范围：0.01lux 至 83,000lux
+- 23 位有效动态范围，具有自动增益范围设置功能
+- 12 种二进制加权满量程范围设置：范围之间的匹配度小于 0.2%（典型值）
+- 低工作电流: 1.8µA（典型值）
+- 工作温度范围：–40°C 至 +85°C
+- 宽电源范围：1.6V 至 3.6V
+- 可耐受 5.5V 电压的 I/O
+- 灵活的中断系统
+- 小巧的外形：– 2mm × 2mm × 0.65mm USON 封装– 2.1mm × 1.9mm × 0.6mm SOT-5X3 封装"
+"单选题：在AMC131M02 的 Calibration 中实时校正的误差不包括（）
+A: 偏移误差    B: 增益误差    C: 相位误差   D: 时序误差",D: 时序误差,"[desc] amc131m02 __ 建议的抗混叠电路 __ 5 Calibration [desc]
+某些信号链错误可以通过单次室温校准来纠正。AMC131M02 可以存储校准值并使用这些值实时校正结果。可以使用 AMC131M02 实时校正的误差包括偏移误差、增益误差和相位误差。
+当输入为零电压（对于电压通道）或零电流（对于电流通道）时，通过确定信号链的测量输出来执行偏移校准。可以针对每个通道测量零输入的 ADC 转换结果并将其记录在外部非易失性存储器中。部署系统后，可以将这些值提供给相应通道的 CHn_OCAL_MSB 和 CHn_OCAL_LSB 寄存器。然后，AMC131M02 在将这些值提供给主机之前从转换结果中减去这些值。
+与偏移误差校正类似，系统增益误差可在部署前确定，并可用于实时校正每个通道上的增益误差。增益误差定义为 ADC 传递函数相对于 PGA 增益校正理想值 1 的百分比差异。可以通过测量最大和最小输入信号的结果，找出这些结果之间的差异并除以理想差值来确定该误差。方程式 11 介绍了如何计算增益误差。
+Max,Measured
+Min,Measured
+Max
+Min
+V,I
+V,I
+Gain Error
+1
+V,I
+V,I
+�
+�
+�
+(11)
+要校正增益误差，请将每个偏移校正转换结果除以测得的增益。AMC131M02 根据校准寄存器 一节中所述的方法将每个转换结果乘以存储在 CHn_GCAL_MSB 和 CHn_GCAL_LSB 寄存器中的增益校准系数。主机可以将每个通道的测量反相增益值编程到这些寄存器中，以便针对每个样本自动校正这些值。
+AMC131M02 还可以校正传感器引入的系统相位误差。对于该设计，从分流器到 ADC 输入（以及从电压测量电阻分压器）的 PCB 布线会在系统中引入一些相位误差。一些设计使用软件方法进行相位校正，但 AMC131M02 可以实时执行该功能。系统必须首先测量各个通道之间的相位关系。然后 AMC131M02 将一个通道定义为相位 0。随后，可以编辑 CHn_CFG 寄存器中对应于各种其他通道的 PHASEn 位，以校正相对于相位 0 通道的相位关系。"
+"多选题：ADC12QJ1600-SP 的应用有（）。
+A: 电子战（信号情报、电子情报）     B: 卫星通信 (SATCOM)             C: 电池管理系统     D: 断路器",A、B,"[desc] adc12qj1600-sp __ 应用 [desc]
+- 电子战（信号情报、电子情报）
+- 卫星通信 (SATCOM)"
+"判断题：In the DAC53xAxW's Timing Requirements: I2C Fast Mode，all input signals are timed from VIL to 70% of Vpull-up, 3 V ≤ VDD ≤ 5.5 V, –40°C ≤ TA ≤ +125°C, and 1.7 V ≤ Vpull-up ≤ VDD",√,"[desc] dac532a3w __ DYNAMIC PERFORMANCE __ Timing Requirements: I2C Fast Mode [desc]
+All input signals are timed from VIL to 70% of Vpull-up, 3 V ≤ VDD ≤ 5.5 V, –40°C ≤ TA ≤ +125°C, and 1.7 V ≤ Vpull-up ≤ VDD.
+
+Table tile: Timing Requirements: I2C Fast Mode
+| PARAMETER | MIN | NOM | MAX | UNIT |
+|---|---|---|---|---|
+| fSCL SCL frequency | - | 400 | - | kHz |
+| tBUF Bus free time between stop and start conditions | 1.3 | - | - | µs |
+| tHDSTA Hold time after repeated start | 0.6 | - | - | µs |
+| tSUSTA Repeated start setup time | 0.6 | - | - | µs |
+| tSUSTO Stop condition setup time | 0.6 | - | - | µs |
+| tHDDAT Data hold time | 0 | - | - | ns |
+| tSUDAT Data setup time | 100 | - | - | ns |
+| tLOW SCL clock low period | 1300 | - | - | ns |
+| tHIGH SCL clock high period | 600 | - | - | ns |
+| tF Clock and data fall time | 300 | - | - | ns |
+| tR Clock and data rise time | 300 | - | - | ns |
+| tVDDAT Data valid time, R = 360 Ω, Ctrace = 23 pF, Cprobe = 10 pF | - | 0.9 | - | µs |
+| tVDACK Data valid acknowledge time, R = 360 Ω, Ctrace = 23 pF, Cprobe = 10 pF | - | 0.9 | - | µs |"
+"判断题：In the Carbon Monoxide Sensor AFE of TPS8804, the CO transimpedance amplifier is a low-offset, low-power op-amp with integrated input, gain, and output 
+resistors.",√,"[desc] tps8804 __ CSA Voltage Regulation __ 5 Carbon Monoxide Sensor AFE __ 1 CO Transimpedance Amplifier [desc]
+The CO transimpedance amplifier is a low-offset, low-power op-amp with integrated input, gain, and output resistors. Each of these resistors can be disconnected using the COSW register bits if using external resistors. The input resistor limits amplifier current during a CO sensor connectivity test. The gain resistor amplifies the CO sensor signal. Adjust the gain resistor by changing the COGAIN register bits. Use the output resistor with an external capacitor to filter the CO amplifier output signal.
+The CO amplifier has two integrated references. A programmable 1.25-mV to 5-mV reference COREF is internally connected to the op-amp positive terminal. A 300-mV reference is connected to the REF0P3 pin. When the millivolt reference is used, the CO sensor must be connected to GND. The millivolt reference is amplified to offset the amplifier output above GND. When the 300 mV reference is used, the reference offsets the CO amplifier output by 300 mV. In general, either reference can be used. The 300-mV reference offers better DC accuracy at the cost of extra power consumption. The 300 mV reference is generated with a reference and op-amp buffer for high precision. The REF0P3 pin must connect to a 1 nF capacitor for stability if it is enabled. The buffer is designed to source and sink small currents as required by the CO amplifier. The 300 mV reference and the 1.25 mV to 5mV reference cannot be enabled simultaneously.
+A resistor connected in parallel with the CO sensor prevents charge from accumulating across its terminals. The output of the CO amplifier is connected to the COO pin for continuous monitoring and the AMUX for periodic sampling."
+判断题：The ADC12DJ5200SE has an automatic SYSREF calibration feature to alleviate the often challenging setup and hold times associated with capturing SYSREF for giga-sample data converters.,√,"[desc] adc12dj5200se __ Automatic SYSREF Calibration [desc]
+The ADC12DJ5200SE has an automatic SYSREF calibration feature to alleviate the often challenging setup and 
+hold times associated with capturing SYSREF for giga-sample data converters. Automatic SYSREF calibration 
+uses the tAD adjust feature to shift the device clock to maximize the SYSREF setup and hold times or to align the 
+sampling instance based on the SYSREF rising edge.
+The device must have a proper device clock applied and be programmed for normal operation before starting the 
+automatic SYSREF calibration. When ready to initiate automatic SYSREF calibration, a continuous SYSREF 
+signal must be applied. SYSREF must be a continuous (periodic) signal when using the automatic SYSREF 
+calibration. Start the calibration process by setting SRC_EN high in the SYSREF calibration enable register after 
+configuring the automatic SYSREF calibration using the SRC_CFG register. Upon setting SRC_EN high, the 
+device searches for the optimal tAD adjust setting until the device clock falling edge is internally aligned to the 
+SYSREF rising edge. TAD_DONE in the SYSREF calibration status register can be monitored to make sure the 
+SYSREF calibration has finished. By aligning the device clock falling edge with the SYSREF rising edge, 
+automatic SYSREF calibration maximizes the internal SYSREF setup and hold times relative to the device clock 
+and also sets the sampling instant based on the SYSREF rising edge. After the automatic SYSREF calibration 
+finishes, the rest of the startup procedure can be performed to finish bringing up the system.
+For multi-device synchronization, the SYSREF rising edge timing must be matched at all devices and therefore 
+trace lengths must be matched from a common SYSREF source to each device. Any skew between the 
+SYSREF rising edge at each device results in additional error in the sampling instance be# 7.3.7 RMS to DC Conversion (Definitions Extracted: None)
+The RMS to DC block provides the true RMS value, average value, and peak value of the incoming waveform. The RMS value provides the effective value of the incoming waveform. It is the DC quantity that delivers the same power to a given resistance as the AC signal. The average value is the rectified mean value of the incoming waveform. In the RMS mode, the PEAK and AVG bits of the configuration register should be cleared."
+判断题：The AFEx8201 Integrated Precision Oscillator's internal time base is provided by an internal oscillator that is trimmed to less than 1% tolerance at room temperature.,× The internal oscillator is trimmed to less than 0.5% tolerance at room temperature.,"[desc] afe88201 __ Other Features __ 6 Integrated Precision Oscillator [desc]
+The internal time base of the device is provided by an internal oscillator that is trimmed to less than 0.5% 
+tolerance at room temperature. The precision oscillator is the timing source for ADC conversions. At power up, 
+the internal oscillator and ADC take roughly 300 µs to reach < 1% error stability. After the clock stabilizes, the 
+ADC data output is accurate to the electrical specifications provided in Section 6."
+"填空题：The IWRL6432 device features a MultiChannel buffered / Standard Serial Peripheral Interface (McSPI) module which is a _________,  _________ serial bus.",multichannel transmit/receive，synchronous serial bus,"[desc] iwrl6432 __ 9 Input Clocks and Oscillators __ 4 MultiChannel buffered / Standard Serial Peripheral Interface (McSPI) [desc]
+The McSPI module is a multichannel transmit/receive, controller/peripheral synchronous serial bus. The McSPI modules include the following main features:
+- Serial clock with programmable frequency, polarity, and phase for each channel
+- Wide selection of SPI word lengths, ranging from 4 to 32 bits
+- Up to four channels in controller mode, or single channel in receive mode
+- Controller multichannel mode:
+  - Full duplex/half duplex
+  - Transmit-only/receive-only/transmit-and-receive modes
+  - Flexible input/output (I/O) port controls per channel
+  - Programmable clock granularity
+  - Per channel configuration for clock definition, polarity enabling, and word width
+- Single interrupt line for multiple interrupt source events
+- Enable the addition of a programmable start-bit for McSPI transfer per channel (start-bit mode)
+- Supports start-bit write command
+- Supports start-bit pause and break sequence
+- Programmable shift operation# 8.12.4.2 SPI Timing Conditions
+ntroller mode, or single channel in receive mode
+- Controller multichannel mode:
+    - Full duplex/half duplex
+    - Transmit-only/receive-only/transmit-and-receive modes
+    - Flexible input/output (I/O) port controls per channel
+    - Programmable clock granularity
+    - Per channel configuration for clock definition, polarity enabling, and word width
+- Single interrupt line for multiple interrupt source events
+- Enable the addition of a programmable start-bit for McSPI transfer per channel (start-bit mode)
+- Supports start-bit write command
+- Supports start-bit pause and break sequence
+- Programmable shift operations (1-32 bits)
+- Programmable timing control between chip select and external clock generation
+- Built-in FIFO available for a single channel
+
+Table title: McSPI Timing Conditions
+| MIN | TYP | MAX | UNIT |
+|---|---|---|---|
+| tR | Input rise time | 1 | 3 | ns |
+| tF | Input fall time | 1 | 3 | ns |
+| CLOAD | Output load capacitance | 2 | 15 | pF |"
+"填空题： The OPT3004’s  Application Information includes two categories of interface:   _________,  _________."," electrical interface,optical interface","[desc] opt3004 __ 1 Application Information [desc]
+Ambient light sensors are used in a wide variety of applications that require control as a function of ambient light. Because ambient light sensors nominally match the human eye spectral response, they are superior to photodiodes when the goal is to create an experience for human beings. Very common applications include display optical-intensity control and industrial or home lighting control.
+There are two categories of interface to the OPT3004: electrical and optical."
+简答题：What is primarily intended use for the Quad Serial Peripheral Interface (QSPI) in the AWRL1432 ?,The QSPI in the device is primarily intended for fast booting from quad-SPI flash memories.,"[desc] awrl1432 __ Inter-Integrated Circuit Interface (I2C) __ 11 Quad Serial Peripheral Interface (QSPI) [desc]
+The quad serial peripheral interface (QSPI) module is a kind of SPI module that allows single, dual, or quad read access to external SPI devices. This module has a memory mapped register interface, which provides a direct interface for accessing data from external SPI devices and thus simplifying software requirements.# 8.12.11 
+Quad Serial Peripheral Interface (QSPI)
+The quad serial peripheral interface (QSPI) module is a kind of SPI module that allows single, dual, or quad read access to external SPI devices. This module has a memory mapped register interface, which provides a direct interface for accessing data from external SPI devices and thus simplifying software requirements. The QSPI works as a controller only. The QSPI in the device is primarily intended for fast booting from quad-SPI flash memories.
+The QSPI supports the following features:
+- Programmable clock divider
+- Six-pin interface
+- Programmable length (from 1 to 128 bits) of the words transferred
+- Programmable number (from 1 to 4096) of the words transferred
+- Optional interrupt generation on word or frame (number of words) completion
+- Programmable delay between chip select activation and output data from 0 to 3 QSPI clock cycles
+节 8.12.11.2 and 节 8.12.11.3 assume the operating conditions stated in 节 8.12.11.1."
+简答题：What are the description of OPOL3 in OPOL_DPOL Register Field for the Register Maps in LDC3114?,"Button Output Polarity for OUT3 Pin
+0h = Active low (Default)
+1h = Active high","[desc] ldc3114 __ 5 Register Maps __ OPOL_DPOL Register Field Descriptions [desc]
+
+Table title: OPOL_DPOL Register Field Descriptions
+| Bit | Field | Type | Reset | Description |
+| --- | --- | --- | --- | --- |
+| 7 | OPOL3 | R/W | 0h | Button Output Polarity for OUT3 Pin. 0h = Active low (Default), 1h = Active high |
+| 6 | OPOL2 | R/W | 0h | Button Output Polarity for OUT2 Pin. 0h = Active low (Default), 1h = Active high |
+| 5 | OPOL1 | R/W | 0h | Button Output Polarity for OUT1 Pin. 0h = Active low (Default), 1h = Active high |
+| 4 | OPOL0 | R/W | 0h | Button Output Polarity for OUT0 Pin. 0h = Active low (Default), 1h = Active high |
+| 3 | DPOL3 | R/W | 1h | Processed Button Algorithm Data Polarity for Channel 3. 0h = BTN_DATA3 decreases as fSENSOR3 increases. 1h = DATA3 increases as fSENSOR3 increases. |
+| 2 | DPOL2 | R/W | 1h | Processed Button Algorithm Data Polarity for Channel 2. 0h = BTN_DATA2 decreases as fSENSOR2 increases. 1h = DATA2 increases as fSENSOR2 increases. |
+| 1 | DPOL1 | R/W | 1h | Processed Button Algorithm Data Polarity for Channel 1. 0h = BTN_DATA1 decreases as fSENSOR1 increases. 1h = DATA1 increases as fSENSOR1 increases. |
+| 0 | DPOL0 | R/W | 1h | Processed Button Algorithm Data Polarity for Channel 0. 0h = BTN_DATA0 decreases as fSENSOR0 increases. 1h = DATA0 increases as fSENSOR0 increases. |"
+简答题：Please introduce the voltage-output Smart Digital-to-Analog Converter (DAC) Architecture channels of the DAC53xAxW devices.,"The voltage-output DAC channels of the DAC53xAxW devices consist of a string architecture with a voltageoutput amplifier, as well as an external feedback pin on channel 1.","[desc] dac532a3w __ 3 Feature Description __ 1 Smart Digital-to-Analog Converter (DAC) Architecture [desc]
+The voltage-output DAC channels of the DAC53xAxW devices consist of a string architecture with a voltage-
+output amplifier, as well as an external feedback pin on channel 1. Section 6.2 shows the DAC architecture 
+within the block diagram that operates from a 3-V to 5.5-V power supply. The DAC has an internal voltage 
+reference of 1.21 V. Optionally, use the power supply as a reference. The voltage-output mode supports multiple 
+programmable output ranges.
+The DAC53xAxW devices support Hi-Z output when VDD is off, maintaining very low leakage current at the 
+output pins with up to 1.25 V of forced voltage. The DAC output pin also starts up in high-impedance mode by 
+default, making these devices an excellent choice for voltage margining and scaling applications. To change the 
+power-up mode to 10 kΩ-GND or 100 kΩ-GND, program the corresponding DAC-PDN-x field in the COMMON-
+CONFIG register and load these bits in the device NVM.
+The DAC53xAxW devices support comparator mode on channel 1. The FB1 pin acts as an input for the 
+comparator. The DAC architecture supports inversion of the comparator output using register settings. The 
+comparator outputs can be push-pull or open-drain. The comparator mode supports programmable hysteresis 
+using the margin-high and margin-low register fields, latching comparator, and window comparator. The 
+comparator outputs are accessible internally by the device.
+Channel 2 functions as a current source with a minimum 770-mV headroom at 300-mA output. Make sure the 
+junction temperature of the device is kept within the recommended limit while using the current output.
+The DAC53xAxW devices include a smart feature set to enable processor-less operation and high integration. 
+The NVM enables a predictable start-up. In the absence of a processor or when the processor or software fails, 
+the GPIO triggers the DAC output without the SPI or I2C interface. The integrated functions and the FB1 pin 
+enable PWM output for control applications."
+简答题：What are the two timing components of the turn-off transition in Turn-Off Times of Switching Parameters for the LMG342xR050?,"The turn-off transition has two timing components: turn-off delay time, and turn-off fall time.","[desc] lmg3422r050 __ 1 Switching Parameters __ 2 Turn-Off Times [desc]
+The turn-off transition has two timing components: turn..# 8.1.2 Turn-Off Times
+The turn-off transition has two timing components: turn-off delay time, and turn-off fall time. The turn-off delay 
+time is from when IN goes low to when the drain-source voltage rises to 20% of the bus voltage. The turn-off fall 
+time is from when the drain-source voltage rises to 20% of the bus voltage to when the drain-source voltage 
+rises to 80% of the bus voltage. Note that the turn-off fall time is the same as the VDS 20% to 80% rise time. The 
+turn-off timing components are independent of the RDRV pin setting, but heavily dependent on the LHB load 
+current."
+简答题：What is the typical application example in the TPS272C45 device?," The TPS272C45 device can be used as output switches in a digital 
+output module.","[desc] tps272c45 __ 2 Typical Application [desc]
+This application example demonstrates how the TPS272C45 device can be used as output switches in a digital output module. In this example, consider an 8-channel module with a maximum output current capability of 2 A per channel."
+简答题：Please introduce the function of One-Wire Interface (OWI) in PGA305.,"The function of OWI is to enable writes to and
+reads from all memory locations inside the PGA305 device that are available for OWI access.","[desc] pga305 __ 7 Detailed Description __ 12 One-Wire Interface (OWI) [desc]
+The device includes an OWI digital communication interface. The function of OWI is to enable writes to and reads from all memory locations inside the PGA305 device that are available for OWI access."
+简答题：What are the  CO Amplifier Layout of the Layout Guidelines in relation to the TPS8804 device to minimize noise sensitivity?,"The layout guidelines for the CO amplifier suggest connecting the CO electrochemical sensor close to the TPS8804 device and shielding the COP, CON, and COO traces with the AGND plane to minimize noise sensitivity.","[desc] tps8804 __ 1 Layout Guidelines __ 2 CO Amplifier Layout [desc]
+Similar to the photo amplifier, the CO amplifier is very sensitive to noise. Connect the CO electrochemical sensor close to the TPS8804 device and shield the COP, CON, and COO traces with the AGND plane."
+简答题：请介绍ADC12DJ5200SE的应用有什么,"通信测试仪（802.11ad，5G）
+电子战（信号情报、电子情报）
+卫星通信 (SATCOM)
+射频采样软件定义无线电 (SDR)","[desc] adc12dj5200se __ 应用 [desc]
+通信测试仪（802.11ad，5G）
+电子战（信号情报、电子情报）
+卫星通信 (SATCOM)
+射频采样软件定义无线电 (SDR)"
+简答题：What are the  types of  Interrupt Reporting Mechanism Modes of Device Functional Modes mentioned in OPT3004？,"latched window-style comparison mode and 
+transparent hysteresis-style comparison mode.","[desc] opt3004 __ 4 Device Functional Modes __ 2 Interrupt Reporting Mechanism Modes [desc]
+There are two major types of interrupt reporting mechanism modes: latched window-style comparison mode and transparent hysteresis-style comparison mode. The configuration register latch field (L) (see the configuration register, bit 4) controls which of these two modes is used. An end-of-conversion mode is also associated with each major mode type. The end-of-conversion mode is active when the two most significant bits...# 8.4.2 Interrupt Reporting Mechanism Modes
+There are two major types of interrupt reporting mechanism modes: latched window-style comparison mode and transparent hysteresis-style comparison mode. The configuration register latch field (L) (see the configuration register, bit 4) controls which of these two modes is used. An end-of-conversion mode is also associated with each major mode type. The end-of-conversion mode is active when the two most significant bits of the threshold low register are set to 11b. The mechanisms report via the flag high and flag low fields, the conversion ready field, and the INT pin."
+"简答题：What triggers the TPS272C45 to enter the FAULT state, and what conditions must be met for the device to reset the fault indication and turn the switch back on?","The TPS272C45 enters the FAULT state when any of the following protection features are triggered for either channel: current limit, thermal shutdown, or DC overvoltage on the VS supply that exceeds the overvoltage protection threshold (VOVPR). In the FAULT state, the fault indication is signaled on the FLT pin, which can be monitored by an MCU to take appropriate action.
+
+For the device to reset the fault indication and turn the switch back on, the following conditions must all be met: the LATCH pin must be low, the retry time period (tRETRY) must have expired, and all faults (thermal shutdown, current limit, overvoltage) must be cleared.","[desc] tps272c45 __ Calculating RILIMx __ 3 Protection Mechanisms [desc]
+The TPS272C45 protects the system against load fault events like short circuits, inductive load kickback, overload events, overvoltage and over-temperature events. This section describes the details for protecting against each of these fault cases.
+There are a number of protection features which, if triggered, causes the switch to automatically disable:
+- Current limit
+- Thermal shutdown
+- DC overvoltage on VS supply above the overvoltage protection threshold, VOVPR
+When one of these protections are triggered for either channel, the device enters the FAULT state. In the FAULT state, the fault indication is available on the FLT pin for an MCU to monitor and react to.
+The fault indication is reset and the switch turns back on when all of the below conditions are met:
+- LATCH pin is low
+- tRETRY has expired
+- All faults are cleared (thermal shutdown, current limit, overvoltage)"
+AMC131M02的典型应用有哪些？,,"[desc] amc131m02 __ 2 典型应用 [desc]
+本节介绍了使用 AMC131M02 的典型三相电能测量前端。该 ADC 对电阻电流传感器（分流器）和分压器的输出进行采样，以测量主交流电源各分支的电流和电压。该设计在宽输入电流范围 (0.05A–100A) 内能达到很高的精度，在必要时还支持高采样频率，以实现独立谐波分析等高级电能质量功能。与集成片上系统 (SoC) 和应用特定的专用产品相比，通过使用 AMC131M02 对每相电压和电流进行采样，可以让设计人员更加灵活地选择计量微控制器 (MCU)。
+图 9-4 展示了三相电能测量设计的前端。在此设计中，每相一个 AMC131M02 测量相应相位的电流和电压，从而提供相间电隔离。这种隔离非常重要，因为在典型情况下，一个相位上的电压电平可能为 220V，另一个相位上的电压电平可能为 –220V。如果多个相位使用一个 ADC，则可能会在两个相邻 ADC 输入之间出现大约 440V 的电压差，从而可能损坏器件。
+该设计.....# 9.2 典型应用
+本节介绍了使用 AMC131M02 的典型三相电能测量前端。该 ADC 对电阻电流传感器（分流器）和分压器的输出进行采样，以测量主交流电源各分支的电流和电压。该设计在宽输入电流范围 (0.05A–100A) 内能达到很高的精度，在必要时还支持高采样频率，以实现独立谐波分析等高级电"
+AMC131M02的典型应用中进行了详细设计过程说明，其中电压是如何测量的？,,"[desc] amc131m02 __ 建议的抗混叠电路 __ 2 详细设计过程 __ 1 电压测量 [desc]
+市电的标称电压范围为 100V 至 240V，因此必须按比例缩小该电压，才能被 ADC 检测到。图 9-5 展示了 ADC 通道 1 上用于此电压调节的模拟前端。
+电压测量模拟前端由分压器网络（RHI 和 RLO）以及 RC 低通滤波器（RFILT 和 CFILT）组成。通常还会放置其他保护元件（例如尖峰保护压敏电阻），但为了简单起见，此电路中未显示这些元件。
+方程式 12 展示了在给定的市电电压和选定的分压器电阻值下，如何计算馈入 ADC 电压通道的差分电压范围。
+LO ADC RMS HI LO R V V 2 3R R r u u �
+在典型设计中，RHI 为 300kΩ，RLO 为 750Ω。根据方程式 12 和选定电阻值，对于 240V 的市电电压（在相线及中性线间测得），电压检测 ADC 的输入信号电压摆幅为 ±256mV (182mVRMS)。该电压完全在 ±1.2V 输入电压范围内，因此，当为电压通道选择的 PGA 增益值为 1 时，AMC131M02 可以检测到该电压范围。此外，还可以根据选定的电阻值和增益设置组合来测量高达主电压四倍（高达 1000V）的过压。
+ADC 通道 1 的有限输入阻抗会导致因 RLO 的非理想分压而产生的增益误差和偏移误差。如具有 ±250mV 输入和差分输出的隔离式电压测量电路 应用手册中所述，与 ADC 的反相输入串联的电阻器可以减少偏移和增益误差。建议附加串联电阻的值近似为 RLO，设计步骤记录在具有 ±250mV 输入和差分输出的隔离式电压测量电路 应用手册中。"
