@@ -18,7 +18,8 @@ if __name__ == '__main__':
 
     dataset = st.selectbox('Select a dataset',
                            ['Product documents - Texas Instruments', 'Product documents - Chipanalog',
-                            'Book - Analog integrated circuit design', 'Annual financial reports'])
+                            'Book - Analog integrated circuit design', 'Annual financial reports',
+                            'Ablation - Origin TI', 'Ablation - without HCA TI'])
     max_tokens = st.selectbox('knowledge length', ['short', 'long'])
     if max_tokens == 'short':
         max_tokens = 2000
@@ -88,7 +89,9 @@ if __name__ == '__main__':
 
             st.markdown("----")
             print('after gpt, ' + str(time.time() - begin))
-            if show_images and (dataset == 'Product documents - Chipanalog' or dataset == 'Book - Analog integrated circuit design'):
+            if show_images and (dataset == 'Product documents - Chipanalog' or
+                                dataset == 'Book - Analog integrated circuit design' or
+                                dataset == 'Product documents - Texas Instruments'):
                 # images = search_images_from_response(response)
                 try:
                     images = search_images_from_response(user_input, response, dataset)

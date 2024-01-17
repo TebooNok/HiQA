@@ -210,8 +210,11 @@ def search_images_from_response(user_input, response, dataset, lang='CN', k=1000
     ix = ixs[dataset]
     if dataset == 'Product documents - Chipanalog':
         directory = 'datasets/1_Chipanalog/'
-    else:
+    if dataset == 'Product documents - Chipanalog':
         directory = 'datasets/2_Analog_Book/'
+    if dataset == 'Product documents - Texas Instruments':
+        directory = 'datasets/4_Texas Instruments/'
+
     # product_in_query = filter_product_names(user_input, default_products)
     # product_in_response = filter_product_names(response, default_products)
     # # print('product_in_query', product_in_query)
