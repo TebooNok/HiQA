@@ -19,12 +19,18 @@ if __name__ == '__main__':
     dataset = st.selectbox('Select a dataset',
                            ['Product documents - Texas Instruments', 'Product documents - Chipanalog',
                             'Book - Analog integrated circuit design', 'Annual financial reports',
-                            'Ablation - Origin TI', 'Ablation - without HCA TI'])
+                            'Ablation - Origin TI', 'Ablation - without HCA TI', 'Ablation - fix chunk TI'])
     max_tokens = st.selectbox('knowledge length', ['short', 'long'])
     if max_tokens == 'short':
         max_tokens = 2000
     else:
         max_tokens = 8000
+
+    vec_only = st.selectbox('vec_only', ['False', 'True'])
+    if vec_only == 'True':
+        only_vec = True
+    else:
+        only_vec = False
 
     user_input = st.text_input("Enter your query: ")
     show_images = st.checkbox('Use Image', key="unique_key_for_show_images")
@@ -58,7 +64,7 @@ if __name__ == '__main__':
             begin = time.time()
             # response = get_response_from_openai(user_input, begin)
             response = ''
-            knowledge = get_knowledge(user_input, max_tokens, dataset, begin, verbose=True)
+            knowledge = get_knowledge(user_input, max_tokens, dataset, begin, only_vec=only_vec, verbose=True)
             print('\nknowledge:\n' + knowledge + '\n\n')
 
             if gpt_version == "1" or gpt_version == "2":
