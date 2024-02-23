@@ -1,5 +1,6 @@
 # HiQA
-Hierarchical Contextual Augmentation RAG for Massive Documents QA.
+Paper: [HiQA: A Hierarchical Contextual Augmentation RAG for Massive Documents QA, arXiv:2402.01767](https://arxiv.org/abs/2402.01767)
+
 
 HiQA offers a suite of tools designed for document processing, which includes segmenting documents into sections, enhancing them with metadata, and embedding them for detailed analysis. 
 This is followed by employing a multi-route retrieval system to search for relevant knowledge in response to a specific question. 
