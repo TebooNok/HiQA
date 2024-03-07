@@ -19,18 +19,16 @@ openai.api_key = os.environ.get('OPENAI_API_KEY')
 openai.api_base = os.environ.get('OPENAI_API_BASE')
 
 
-def extract_text_from_pdf(file_name, section2begin, section2end, finance_begin, header):
+def extract_text_from_pdf(file_name):
     doc = fitz.open(file_name)
     text = ""
     for page in doc:
-        if page.number < section2begin:
-            continue
-        if section2end < page.number < finance_begin:
-            continue
-        page_text = page.get_text()
-        page_text = page_text.replace(header, '')
-        # if '目录' in page_text:
+        # if page.number < section2begin:
         #     continue
+        # if section2end < page.number < finance_begin:
+        #     continue
+        page_text = page.get_text()
+        # page_text = page_text.replace(header, '')
         text += page_text
     return text
 
@@ -168,13 +166,14 @@ def parse_markdown(file_content):
     return sections
 
 
-def pdf2md(file_name, section2begin, section2end, finance_begin, header):
+def pdf2md(file_name):
     file_path = os.path.join('pdfs', file_name + '.pdf')
-    text = extract_text_from_pdf(file_path, section2begin, section2end, finance_begin, header)
+    text = extract_text_from_pdf(file_path)
 
     text_len = len(text)
     text_list = []
 
+    # sliding window size and overlap
     chunk_size = 3000
     tolerance = 300
     for i in range(0, text_len, chunk_size):
@@ -186,6 +185,7 @@ def pdf2md(file_name, section2begin, section2end, finance_begin, header):
     title_chunk = False
     full_results = ''
     for chunk in tqdm.tqdm(text_list):
+        # modify this if you need to fit your pdf format
         prompt = get_message(chunk)
         if history_content:
             if 2*tolerance > len(history_prompt):
@@ -209,6 +209,8 @@ def pdf2md(file_name, section2begin, section2end, finance_begin, header):
                  "content": """你是一个格式转换工具，根据要求转换文本的内容格式，用markdown输出转换后的内容，输出前后不要任何解释说明和标识。格式转换后不丢失原文内容。"""},
                 {"role": "user", "content": prompt}
             ]
+
+        # gpt-4-32k works better than preview version in terms of understanding instruction
         result = openai.ChatCompletion.create(
             # model="gpt-3.5-turbo-16k",
             model='gpt-4-32k',
@@ -244,11 +246,11 @@ def pdf2md(file_name, section2begin, section2end, finance_begin, header):
     return full_markdown
 
 
-# #local test: book build
+# running pdf2md to convert a pdf file to a well-structured markdown
 if __name__ == '__main__':
     start_time = time.time()
     # md = pdf2md('test_kb', 'CA-IS372x-datasheet_cn')
-    md = pdf2md('广东生益', 3, 8, 92, '2022 年年度报告')
+    md = pdf2md('Input PDF File', 3, 8, 92, '2022 年年度报告')
     # # save to local
     # with open('test.md', 'w', encoding='utf-8') as f:
     #     f.write(md)

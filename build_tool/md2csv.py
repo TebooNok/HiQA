@@ -80,11 +80,4 @@ def md2sections(file_name: str):
         df.to_csv(directory + "/" + name + '.csv', index=False, encoding='utf-8')
 
 
-# md2sections('卓胜微.md')
-# md2sections('唯捷创芯.md')
-# md2sections('思瑞浦.md')
-# md2sections('艾为.md')
-md2sections('南亚新材.md')
-md2sections('广东生益.md')
-md2sections('浙江华正.md')
-md2sections('金安国记.md')
+# md2sections('markdown file from pdf2md')

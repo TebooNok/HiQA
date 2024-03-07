@@ -301,24 +301,15 @@ def search_images_from_response(kb_name, user_input, response, lang='CN', k=20):
         # print('final return: ', len(images_ret))
         return images_ret
 
-# file = 'CA-IS372x-datasheet_cn.pdf'
-# # file = 'CA-IS3086 datasheet_cn.pdf'
-# temp_image_dir = load_pdf(file, lang='CN')
-# print(temp_image_dir)
-# ix, temp_index_dir = build_index(file, temp_image_dir)
-# results_list = search(ix, "波形", lang='CN', k=10)
-# ret_img = return_image(file, results_list, temp_image_dir)
-# print('title: ' + ret_img[0])
-# ret_img[1].show()
-
-# print(os.listdir('using_pdfs'))
-
+# Basic usage, convert all pdfs in a path and build index.
 # import tqdm
 # for file in tqdm.tqdm(os.listdir('../datasets/4_Texas Instruments/pdfs')):
 #     load_pdf('4_Texas Instruments', file)
 # build_index('4_Texas Instruments')
 #
 # writer.commit()
+
+# Examples of how to search
 # from whoosh.index import open_dir
 # search_ix = open_dir('indexes')
 # query = "IF-428x接收端阈值"
@@ -326,8 +317,8 @@ def search_images_from_response(kb_name, user_input, response, lang='CN', k=20):
 # for result in results:
 #     print(result)
 #
+# Examples of how to show image.
 # from PIL import Image
-#
 # for result in results:
 #     image_name = result[0]
 #     base_name = image_name.split('_img')[0]
@@ -335,6 +326,7 @@ def search_images_from_response(kb_name, user_input, response, lang='CN', k=20):
 #     image_title = result[1].split('\n')[0].split(':')[1]
 #     img.show(title=image_title)
 
+# Examples of using API.
 # query = "CA-IF428x是什么"
 # response = "川土微为您提供的答案是：CA-IF428x 是一款符合家庭总线标准的全集成收发机，其电源和数据共用一对双绞线。CA-IF428x 支持超过 200kbps的数据传输，包含动态电缆匹配电阻，可调的接收端阈值及滞回，可调的发射端摆率等特性以改善复杂应用时的信号完整性等。"
 # print(search_images_from_response('test_kb', query, response))

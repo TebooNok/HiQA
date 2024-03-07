@@ -3,6 +3,8 @@ from dotenv import load_dotenv
 import os
 import tiktoken
 import pandas as pd
+
+# note that this is in version openai==0.28, if you update to >=1.0.0, you need to create OpenAI() object.
 from openai.embeddings_utils import get_embedding
 
 embedding_model = "text-embedding-ada-002"
@@ -103,11 +105,4 @@ def section_to_embed(file_name: str):
     df_new.to_csv(embd_path, index=False, encoding='utf-8')
 
 
-# section_to_embed('卓胜微.csv')
-# section_to_embed('唯捷创芯.csv')
-# section_to_embed('思瑞浦.csv')
-# section_to_embed('艾为.csv')
-section_to_embed('南亚新材.csv')
-section_to_embed('广东生益.csv')
-section_to_embed('浙江华正.csv')
-section_to_embed('金安国记.csv')
+# section_to_embed('csv file from md2csv')
