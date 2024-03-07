@@ -102,6 +102,7 @@ Table tile: Name of Table
 
 
 def parse_markdown(file_content):
+    file_content = file_content.replace('---table end---#', '---table end---\n\n#')
     lines = file_content.strip().split('\n')
     sections = []
     current_section = []

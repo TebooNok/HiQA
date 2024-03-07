@@ -140,7 +140,9 @@ Table tile: Pin Functions (continued)
 | SDI | G8 | I | Serial interface data input. The Using the Serial Interface section describes the serial interface in more detail. Supports 1.1-V and 1.8-V CMOS levels. |
 | SDO | H8 | O | Serial interface data output. The Using the Serial Interface section describes the serial interface in more detail. This pin is high impedance during normal device operation. This pin outputs 1.9-V CMOS levels during serial interface read operations. This pin can be left disconnected if not used. |
 | SYNCSE | C2 | I | Single-ended JESD204C SYNC signal. This input is an active low input that is used to initialize the JESD204C serial link in 8B/10B modes when SYNC_SEL is set to 0. The 64B/66B modes do not use the SYNC signal for initialization, however it may be used for NCO synchronization. When toggled low in 8B/10B modes this input initiates code group synchronization (see the Code Group Synchronization (CGS) section). After code group synchronization, this input must be toggled high to start the initial lane alignment sequence (see the Initial Lane Alig |
----table end---# 1. Text Information
+---table end---
+
+# 1. Text Information
 n be left disconnected if not used.
 SYNCSE
 C2
@@ -1663,7 +1665,9 @@ Table tile: Declaration of Supported JESD204C Features (continued)
 | e | clause 7 | Forward error correction (FEC) when using the 64B/66B or 64B/80B link layer | Supported |
 | f | clause 7 | CRC3 when using the 64B/66B or 64B/80B link layer | Not supported |
 | g | clause 8 | A physical SYNC pin when using the 8B/10B link layer | Supported |
----table end---# 7.3.9.2 Scrambler
+---table end---
+
+# 7.3.9.2 Scrambler
 A data scrambler is available to scramble the data before transmission across the channel. Scrambling is used to remove the possibility of spectral peaks in the transmitted data due to repetitive data streams. The scrambler is optional for 8B/10B encoded modes, however it is mandatory for 64B/66B encoded modes to have sufficient spectral content for clock recovery and adaptive equalization and to maintain DC balance to allow AC coupling of the transmitter to the receiver. The scrambler operates on the data before encoding, such that the 8B/10B scrambler scrambles the 8-bit octets before 10-bit encoding and the 64B/66B scrambler scrambles the 64-bit block before the sync header insertion (66-bit encoding). The JESD204C receiver automatically synchronizes its descrambler to the incoming scrambled data stream. For 8B/10B encoding, the initial lane alignment sequence (ILA) is never scrambled. Scrambling can be enabled by setting SCR (in the JESD204C control register) for 8B/10B encoding modes, but it is automatically enabled in 64B/66B modes. The scrambling polynomial is different for 8B/10B encoding and 64B/66B encoding schemes as defined by the JESD204C standard.
 
 # 7.3.9.3 Link Layer
@@ -2311,7 +2315,9 @@ Table tile: Trim Register Descriptions
 | Band-gap reference | BG_TRIM | Measurement on BG output pin. |
 | Input termination resistance | RTRIM_x, where x = A for INA or B for INB) | The device must be powered on with a clock applied. |
 | Input offset voltage | OADJ_A_FG0_VINx, OADJ_A_FG90_VINx and OADJ_B_FG0_VINx, where OADJ_A applies to ADC core A and OADJ_B applies to ADC core B, FG0 applies to dual channel mode for ADC cores A and B and single channel mode for ADC core B, FG90 applies to ADC core A in single channel mode and x = A for INA or B for INB) | Input offset adjustment in dual channel mode consists of changing OADJ_A_FG0_VINA for channel A and OADJ_B_FG0_VINB for channel B. In single channel mode, OADJ_A_FG90_VINx and OADJ_B_FG0_VINx must be adjusted | 
----table end---# 1. Device Must Be Powered On With a Clock Applied
+---table end---
+
+# 1. Device Must Be Powered On With a Clock Applied
 The device must be powered on with a clock applied.
 
 # 2. Input Offset Voltage
