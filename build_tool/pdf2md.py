@@ -5,16 +5,13 @@ import tqdm
 
 import os
 import openai
-from openai.embeddings_utils import get_embedding
 import time
 from dotenv import load_dotenv
 
 embedding_model = "text-embedding-ada-002"
 embedding_encoding = "cl100k_base"  # this the encoding for text-embedding-ada-002
 # set openai
-os.environ["OPENAI_API_KEY"] = "yPKz6gw9KNVZd6oBFQ2AoZvosF3TvX6C3XJbADgahZYj3wZNHNuhRMoDG9pzpN98"
-os.environ["OPENAI_API_BASE"] = "https://ai.api.moblin.net/api/openai/v1"
-
+load_dotenv()
 openai.api_key = os.environ.get('OPENAI_API_KEY')
 openai.api_base = os.environ.get('OPENAI_API_BASE')
 
@@ -214,8 +211,8 @@ def pdf2md(file_name):
         # gpt-4-32k works better than preview version in terms of understanding instruction
         result = openai.ChatCompletion.create(
             # model="gpt-3.5-turbo-16k",
-            model='gpt-4-32k',
-            # model='gpt-4-1106-preview',
+            # model='gpt-4-32k',
+            model='gpt-4-preview',
             # max_tokens=4000,
             messages=message,
 
@@ -250,8 +247,7 @@ def pdf2md(file_name):
 # running pdf2md to convert a pdf file to a well-structured markdown
 if __name__ == '__main__':
     start_time = time.time()
-    # md = pdf2md('test_kb', 'CA-IS372x-datasheet_cn')
-    md = pdf2md('Input PDF File', 3, 8, 92, '2022 年年度报告')
+    md = pdf2md('adc12dj5200se')
     # # save to local
     # with open('test.md', 'w', encoding='utf-8') as f:
     #     f.write(md)
