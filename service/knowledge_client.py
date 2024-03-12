@@ -9,7 +9,7 @@ import pandas as pd
 from whoosh.index import open_dir
 from whoosh.index import create_in
 from PIL import Image
-from utils.filter import filter_product_names, filter_knowledge, default_products
+from utils.filter import filter_product_names, filter_knowledge, critic_keywords
 import time
 from chromadb.config import Settings
 from whoosh.qparser import OrGroup
@@ -167,27 +167,6 @@ def retrieve_knowledge(question, question_embd, max_token, dataset, begin, only_
         print('after rank by lucene', time.time() - begin)
 
     returned_values = filter_knowledge(question, result_list)
-    # if verbose:
-    #     print('after filter knowledge by keywords', time.time() - begin)
-    # if len(returned_values) >= 2:
-    #     print(len(returned_values))
-    #
-    #     all_text, sale_list,img_path = returned_values
-    #
-    #     sales_info = ''
-    #     for index, (model, details) in enumerate(sale_list.items()):
-    #         price, _, _ = details  # We're ignoring the image paths for now
-    #         sales_info = f"{model} 的价格是 {price}\n" + sales_info
-    #     if len(sales_info) > 0:
-    #         all_text = '\n\n相关产品的价格信息：\n' + sales_info + '\n' + all_text
-    # else:
-    #     # Handle the case when the number of returned values is not 2
-    #
-    #     all_text = returned_values[0]
-    #     sale_list = {}
-    #     img_path=[]
-    #     print("oooooooooooooooooooooooo")
-    #     print(len(returned_values))
 
     if verbose:
         print('after filter', time.time() - begin)

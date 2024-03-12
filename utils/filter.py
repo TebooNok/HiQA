@@ -5,7 +5,7 @@ import re
 import csv
 
 ###
-default_products = list(
+critic_keywords = list(
     {'川土微', '共模电压', '超宽体', '增强型数字隔离器', 'IS373', 'CA-IS3105w', 'CA-IS3740lw', 'CA-IF1042vs-q1',
      'IS3722HS', 'IS3541', 'CA-IF4850HS', 'CAIS3730LW', 'CA-IS3642lw', 'IS362', 'IS3740HB', 'CA-IS3761lw', 'IS3531',
      'IS1306M25G', 'IS3760LN', 'CA-IS3643HW', 'CA-IS3730HW', 'CA-IS3101B', 'CA-IF1021s-q1', 'CA-IS3721lw',
@@ -88,13 +88,13 @@ default_products = list(
      'CA-IS3722LG', 'IS3721LW', 'IF1051VS-Q1', 'CAIS1305AM25W', 'CA-IS3742hn', 'CA-IS3730LN', 'cs817x20hs',
      'CA-IS3643lw', "IS384"})
 
-default_products.extend(['卓胜微', '南亚新材', '唯捷创芯', '广东生益', '思瑞浦', '浙江华正', '艾为', '金安国记'])
-default_products.extend(['adc12dj5200', 'adc12qj1600', 'ads131b', 'ads9815', 'afe7906', 'afe7951', 'afe882',
+critic_keywords.extend(['卓胜微', '南亚新材', '唯捷创芯', '广东生益', '思瑞浦', '浙江华正', '艾为', '金安国记'])
+critic_keywords.extend(['adc12dj5200', 'adc12qj1600', 'ads131b', 'ads9815', 'afe7906', 'afe7951', 'afe882',
                          'amc131', 'awrl1432', 'dac532', 'iwrl6432', 'ldc3114', 'lmg3422', 'opt3004',
                          'pga305', 'tps272', 'tps281', 'tps8804'])
 
 enemy_products = ['8100', '6801']
-default_products.extend(enemy_products)
+critic_keywords.extend(enemy_products)
 
 
 def contains_str(input_str, keyword):
@@ -184,8 +184,8 @@ def rank_values(multi_product):
 
 
 def filter_knowledge(question, results):
-    # openai.api_key = open_ai_api_key
-    query_list = set(filter_product_names(question, default_products))
+
+    query_list = set(filter_product_names(question, critic_keywords))
 
     multi_product = {}
     multi_product["multi"] = []
