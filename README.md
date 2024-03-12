@@ -1,29 +1,34 @@
 # HiQA
-Paper: [HiQA: A Hierarchical Contextual Augmentation RAG for Massive Documents QA, arXiv:2402.01767](https://arxiv.org/abs/2402.01767)
+**Paper**: [HiQA: A Hierarchical Contextual Augmentation RAG for Massive Documents QA](https://arxiv.org/abs/2402.01767), arXiv:2402.01767.
 
+HiQA provides a comprehensive toolkit for document processing, enabling the segmentation of documents into sections, enrichment with metadata, and embedding for in-depth analysis. It leverages a multi-route retrieval system to identify relevant knowledge in response to specific queries. This knowledge, along with the query, is then processed by a large language model (LLM) to generate answers. Although document processing incurs some initial costs, this investment significantly improves the quality of the results.
 
-HiQA offers a suite of tools designed for document processing, which includes segmenting documents into sections, enhancing them with metadata, and embedding them for detailed analysis. 
-This is followed by employing a multi-route retrieval system to search for relevant knowledge in response to a specific question. 
-The identified knowledge, alongside the question, is then fed into a large language model (LLM) to generate an answer. 
-While processing documents might incur some costs, this one-time process substantially enhances the quality of the outcomes.  
+## Usage
+Ensure your environment meets the following prerequisites:
+- Python version 3.9
+- Install dependencies from `requirements.txt` using the following command: 
+  \```
+  pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+  \```
+- Set your OpenAI API key in the environment variables.
+- To start the demo, execute:
+  \```
+  PYTHONUNBUFFERED=1 nohup streamlit run app_streamlit.py --server.port 8080 --server.address 0.0.0.0 > logs/run.log 2>&1 &
+  \```
+  Note: Before running the above command, manually create a `logs` directory.
 
-# How to use
-1. Python version == 3.9
-2. pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-3. Set your own OpenAI key
-4. Start demo: PYTHONUNBUFFERED=1 nohup streamlit run app_streamlit.py --server.port 8080 --server.address 0.0.0.0 > logs/run.log 2>&1 &
-5. The above command requires manually make a directory 'logs' 
+## Creating Your Own Dataset
+To build a dataset, follow these steps:
+1. Utilize the tools in the `build_tool` directory.
+2. Begin with a PDF file that is text-extractable.
+3. **Step 1**: Convert the PDF to a well-formatted markdown file using `pdf2md`, leveraging the `gpt-4-turbo-preview (0125)` model.
+4. **Step 2**: Convert the markdown file into a CSV file with `md2csv`, organizing content into sections with hierarchical metadata, and labeling tables.
+5. **Step 3**: Use `section2embedding` to append embedding vectors to sections.
+6. **Step 4**: Place all processed CSV files into a dataset directory. Load this dataset in `knowledge_client.py` for querying in the `app_streamlit.py` demo.
+   Note: File names and titles are processed through Named Entity Detection models to generate critical keywords, which are stored in `utils.filter.critic_keywords`.
 
-# How to create your own dataset?
-1. Files in 'build_tool' contains all tools for building a dataset.
-2. For a given pdf file (note that the pdf should be able to extract text)
-3. Step1, using pdf2md to convert pdf file into a well-formatted markdown, this step use gpt-4-turbo-preview (0125).
-4. Step2, using md2csv to convert markdown into a csv file contains splitting sections. Sections now contains hierarchy meta-data and tables are labeled.
-5. Step3, using section2embedding to add embedding vector.
-6. Step4, put all processed csv files into a dataset directory, load this in knowledge_client.py, and allow to query in app_streamlit.py demo.
-Notice that we passing all file name and file title to Named Entity Detect models to generate critic keywords, and storing in utils.filter.critic_keywords. 
-
-# How to extract and search images from a pdf?
-In image_service, load, build, and commit, this will create a directory /indexes of whoosh.
-One can use vlm (like ollama -> llava:34b) to generate description of each extracted image.
-Image search refer to app_streamlit.search_images_from_response
+## Extracting and Searching Images from a PDF
+For image processing:
+1. In `image_service`, execute load, build, and commit operations to create an `/indexes` directory for Whoosh.
+2. Use VLM (such as [Ollama -> Llama:34b](https://github.com/ollama/ollama/) ) to generate descriptions for each extracted image.
+3. Image searches can be conducted using `app_streamlit.search_images_from_response`.
