@@ -347,6 +347,38 @@ def remove_repeated_substrings(s):
     return s
 
 
+def create_and_load_collection(client, base_name, dataset_path):
+    # 生成唯一的集合名称
+    collection_name = base_name + str(random.randint(0, 10000))
+
+    # 创建集合
+    collection = client.create_collection(name=collection_name)
+    print(f'Collection {collection_name} created')
+
+    # 加载数据
+    embds = []
+    docs = []
+    metas = []
+    ids = []
+    id = 0
+
+    for filename in os.listdir(dataset_path):
+        if filename.endswith('.csv'):
+            filepath = os.path.join(dataset_path, filename)
+            df = pd.read_csv(filepath)
+            for _, row in df.iterrows():
+                section = row['section']
+                n_tokens = row['n_tokens']
+                embedding = [float(value) for value in row['embedding'][1:-1].split(',')]
+                embds.append(embedding)
+                docs.append(section)
+                ids.append('id' + str(id))
+                metas.append({'n_tokens': n_tokens, 'filename': filename, 'title': section.split('\n')[0]})
+                id += 1
+    collection.add(embeddings=embds, documents=docs, metadatas=metas, ids=ids)
+    return collection
+
+
 def init():
     global encoding
     global ixs
@@ -374,171 +406,17 @@ def init():
 
     chroma_client = chromadb.Client(settings=settings)
     chroma_client.reset()
-    collection_name_1 = "chipanalog" + str(random.randint(0, 10000))
-    collection_name_2 = "analog_book" + str(random.randint(0, 10000))
-    collection_name_3 = "financial" + str(random.randint(0, 10000))
-    collection_name_4 = "texas" + str(random.randint(0, 10000))
-    collection_name_5 = "texas_ori" + str(random.randint(0, 10000))
-    collection_name_6 = "texas_wo_hca" + str(random.randint(0, 10000))
-    collection_name_7 = "texas_chunk" + str(random.randint(0, 10000))
 
-    # try:
-    collection_1 = chroma_client.create_collection(name=collection_name_1)
-    collection_2 = chroma_client.create_collection(name=collection_name_2)
-    collection_3 = chroma_client.create_collection(name=collection_name_3)
-    collection_4 = chroma_client.create_collection(name=collection_name_4)
-    collection_5 = chroma_client.create_collection(name=collection_name_5)
-    collection_6 = chroma_client.create_collection(name=collection_name_6)
-    collection_7 = chroma_client.create_collection(name=collection_name_7)
-    enemy_collection = chroma_client.create_collection(name=(collection_name_1 + '_enemy'))
-    print('collection created')
+    collections = {}
+    collections['Product documents - Chipanalog'] = create_and_load_collection(chroma_client, "chipanalog", 'datasets/1_Chipanalog/embeddings')
+    collections['Book - Analog integrated circuit design'] = create_and_load_collection(chroma_client, "analog_book", 'datasets/2_Analog_Book/embeddings')
+    collections['Annual financial reports'] = create_and_load_collection(chroma_client, "financial", 'datasets/3_Annual financial reports/embeddings')
+    collections['Product documents - Texas Instruments'] = create_and_load_collection(chroma_client, "texas", 'datasets/4_Texas Instruments/embeddings')
+    # collections['Ablation - Origin TI'] = create_and_load_collection(chroma_client, "texas_ori", 'datasets/4_1_TI_origin/embeddings')
+    # collections['Ablation - without HCA TI'] = create_and_load_collection(chroma_client, "texas_wo_hca", 'datasets/4_2_TI_without_HCA/embeddings')
+    # collections['Ablation - fix chunk TI'] = create_and_load_collection(chroma_client, "texas_chunk", 'datasets/4_3_TI_chunk/embeddings')
+    enemy_collection = chroma_client.create_collection(name='chipanalog_enemy')
 
-    # def load_data_to_chromaDB():
-    embds = []
-    docs = []
-    metas = []
-    ids = []
-    id = 0
-    for filename in os.listdir('datasets/1_Chipanalog/embeddings'):
-        if filename.endswith('.csv'):
-            filepath = os.path.join('datasets/1_Chipanalog/embeddings/', filename)
-            df = pd.read_csv(filepath)
-            for index, row in df.iterrows():
-                section = row['section']
-                n_tokens = row['n_tokens']
-                embedding = [float(value) for value in row['embedding'][1:-1].split(',')]
-                embds.append(embedding)
-                docs.append(section)
-                ids.append('id' + str(id))
-                metas.append({'n_tokens': n_tokens, 'filename': filename, 'title': section.split('\n')[0]})
-                id += 1
-    collection_1.add(embeddings=embds, documents=docs, metadatas=metas, ids=ids)
-
-    # def load_data_to_chromaDB():
-    embds = []
-    docs = []
-    metas = []
-    ids = []
-    id = 0
-    for filename in os.listdir('datasets/2_Analog_Book/embeddings'):
-        if filename.endswith('.csv'):
-            filepath = os.path.join('datasets/2_Analog_Book/embeddings/', filename)
-            df = pd.read_csv(filepath)
-            for index, row in df.iterrows():
-                section = row['section']
-                n_tokens = row['n_tokens']
-                embedding = [float(value) for value in row['embedding'][1:-1].split(',')]
-                embds.append(embedding)
-                docs.append(section)
-                ids.append('id' + str(id))
-                metas.append({'n_tokens': n_tokens, 'filename': filename, 'title': section.split('\n')[0]})
-                id += 1
-    collection_2.add(embeddings=embds, documents=docs, metadatas=metas, ids=ids)
-
-    # def load_data_to_chromaDB():
-    embds = []
-    docs = []
-    metas = []
-    ids = []
-    id = 0
-    for filename in os.listdir('datasets/3_Annual financial reports/embeddings'):
-        if filename.endswith('.csv'):
-            filepath = os.path.join('datasets/3_Annual financial reports/embeddings/', filename)
-            df = pd.read_csv(filepath)
-            for index, row in df.iterrows():
-                section = row['section']
-                n_tokens = row['n_tokens']
-                embedding = [float(value) for value in row['embedding'][1:-1].split(',')]
-                embds.append(embedding)
-                docs.append(section)
-                ids.append('id' + str(id))
-                metas.append({'n_tokens': n_tokens, 'filename': filename, 'title': section.split('\n')[0]})
-                id += 1
-    collection_3.add(embeddings=embds, documents=docs, metadatas=metas, ids=ids)
-
-    # def load_data_to_chromaDB():
-    embds = []
-    docs = []
-    metas = []
-    ids = []
-    id = 0
-    for filename in os.listdir('datasets/4_Texas Instruments/embeddings'):
-        if filename.endswith('.csv'):
-            filepath = os.path.join('datasets/4_Texas Instruments/embeddings/', filename)
-            df = pd.read_csv(filepath)
-            for index, row in df.iterrows():
-                section = row['section']
-                n_tokens = row['n_tokens']
-                embedding = [float(value) for value in row['embedding'][1:-1].split(',')]
-                embds.append(embedding)
-                docs.append(section)
-                ids.append('id' + str(id))
-                metas.append({'n_tokens': n_tokens, 'filename': filename, 'title': section.split('\n')[0]})
-                id += 1
-    collection_4.add(embeddings=embds, documents=docs, metadatas=metas, ids=ids)
-
-    # def load_data_to_chromaDB():
-    embds = []
-    docs = []
-    metas = []
-    ids = []
-    id = 0
-    for filename in os.listdir('datasets/4_1_TI_origin/embeddings'):
-        if filename.endswith('.csv'):
-            filepath = os.path.join('datasets/4_1_TI_origin/embeddings/', filename)
-            df = pd.read_csv(filepath)
-            for index, row in df.iterrows():
-                section = row['section']
-                n_tokens = row['n_tokens']
-                embedding = [float(value) for value in row['embedding'][1:-1].split(',')]
-                embds.append(embedding)
-                docs.append(section)
-                ids.append('id' + str(id))
-                metas.append({'n_tokens': n_tokens, 'filename': filename, 'title': section.split('\n')[0]})
-                id += 1
-    collection_5.add(embeddings=embds, documents=docs, metadatas=metas, ids=ids)
-
-    # def load_data_to_chromaDB():
-    embds = []
-    docs = []
-    metas = []
-    ids = []
-    id = 0
-    for filename in os.listdir('datasets/4_2_TI_without_HCA/embeddings'):
-        if filename.endswith('.csv'):
-            filepath = os.path.join('datasets/4_2_TI_without_HCA/embeddings/', filename)
-            df = pd.read_csv(filepath)
-            for index, row in df.iterrows():
-                section = row['section']
-                n_tokens = row['n_tokens']
-                embedding = [float(value) for value in row['embedding'][1:-1].split(',')]
-                embds.append(embedding)
-                docs.append(section)
-                ids.append('id' + str(id))
-                metas.append({'n_tokens': n_tokens, 'filename': filename, 'title': section.split('\n')[0]})
-                id += 1
-    collection_6.add(embeddings=embds, documents=docs, metadatas=metas, ids=ids)
-
-    # def load_data_to_chromaDB():
-    embds = []
-    docs = []
-    metas = []
-    ids = []
-    id = 0
-    for filename in os.listdir('datasets/4_3_TI_chunk/embeddings'):
-        if filename.endswith('.csv'):
-            filepath = os.path.join('datasets/4_3_TI_chunk/embeddings/', filename)
-            df = pd.read_csv(filepath)
-            for index, row in df.iterrows():
-                section = row['section']
-                n_tokens = row['n_tokens']
-                embedding = [float(value) for value in row['embedding'][1:-1].split(',')]
-                embds.append(embedding)
-                docs.append(section)
-                ids.append('id' + str(id))
-                metas.append({'n_tokens': n_tokens, 'filename': filename, 'title': section.split('\n')[0]})
-                id += 1
-    collection_7.add(embeddings=embds, documents=docs, metadatas=metas, ids=ids)
     enemy_embds = []
     enemy_docs = []
     enemy_metas = []
@@ -553,16 +431,11 @@ def init():
         enemy_embds.append(embedding)
         enemy_docs.append(section)
         enemy_ids.append('id' + str(enemy_id))
-        enemy_metas.append({'n_tokens': n_tokens, 'filename': filename, 'title': section.split('\n')[0]})
+        enemy_metas.append({'n_tokens': n_tokens, 'filename': '竞品', 'title': section.split('\n')[0]})
         enemy_id += 1
-    print('doc size:', len(docs))
     print('enemy doc size:', len(enemy_docs))
 
-
     enemy_collection.add(embeddings=enemy_embds, documents=enemy_docs, metadatas=enemy_metas, ids=enemy_ids)
-    collections = {'Product documents - Texas Instruments': collection_4, 'Product documents - Chipanalog': collection_1,
-                   'Book - Analog integrated circuit design': collection_2, 'Annual financial reports': collection_3,
-                   'Ablation - Origin TI': collection_5, 'Ablation - without HCA TI': collection_6, 'Ablation - fix chunk TI': collection_7}
     print('load data successful')
 
 

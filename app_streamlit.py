@@ -18,8 +18,8 @@ if __name__ == '__main__':
 
     dataset = st.selectbox('Select a dataset',
                            ['Product documents - Texas Instruments', 'Product documents - Chipanalog',
-                            'Book - Analog integrated circuit design', 'Annual financial reports',
-                            'Ablation - Origin TI', 'Ablation - without HCA TI', 'Ablation - fix chunk TI'])
+                            'Book - Analog integrated circuit design', 'Annual financial reports'])
+                            # 'Ablation - Origin TI', 'Ablation - without HCA TI', 'Ablation - fix chunk TI'])
     max_tokens = st.selectbox('knowledge length', ['short', 'long'])
     if max_tokens == 'short':
         max_tokens = 2000
