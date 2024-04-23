@@ -17,7 +17,7 @@ Ensure your environment meets the following prerequisites:
 To build a dataset, follow these steps:
 1. Utilize the tools in the `build_tool` directory.
 2. Begin with a PDF file that is text-extractable.
-3. **Step 1**: Convert the PDF to a well-formatted markdown file using `pdf2md`, leveraging the `gpt-4-turbo-preview (0125)` model.
+3. **Step 1**: Convert the PDF to a well-formatted markdown file using `pdf2md`, leveraging the `gpt-4-turbo-preview (0125)` model. (Note that this process is costly! This step can be processed manually.)
 4. **Step 2**: Convert the markdown file into a CSV file with `md2csv`, organizing content into sections with hierarchical metadata, and labeling tables.
 5. **Step 3**: Use `section2embedding` to append embedding vectors to sections.
 6. **Step 4**: Place all processed CSV files into a dataset directory. Load this dataset in `knowledge_client.py` for querying in the `app_streamlit.py` demo.
