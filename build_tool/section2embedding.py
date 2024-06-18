@@ -15,8 +15,8 @@ os.environ["OPENAI_API_BASE"] = "https://ai.api.moblin.net/api/openai/v1"
 
 openai.api_key = os.environ.get('OPENAI_API_KEY')
 openai.api_base = os.environ.get('OPENAI_API_BASE')
-
-def split_and_embed(section, encoding,max_tokens=8000):
+OPENAI_EMBEDDING_MAXTOKENS=8000
+def split_and_embed(section, encoding):
     # Get the title from the first line
     lines = section.split("\n")
     title = lines[0]
@@ -31,7 +31,7 @@ def split_and_embed(section, encoding,max_tokens=8000):
     new_sections = []
 
     for sec in sections:
-        if len(encoding.encode(sec)) > max_tokens:
+        if len(encoding.encode(sec)) > OPENAI_EMBEDDING_MAXTOKENS:
             new_sections.extend(split_and_embed(sec, encoding))
         else:
             new_sections.append(sec)
@@ -39,7 +39,7 @@ def split_and_embed(section, encoding,max_tokens=8000):
     return new_sections
 
 def section_to_embed(file_name: str):
-    max_tokens = 800
+
     directory = os.path.join('sections', file_name)
     name = os.path.splitext(file_name)[0]
 
@@ -93,7 +93,7 @@ def section_to_embed(file_name: str):
             new_df_entries.append({'section': actual_section, 'n_tokens': len(encoding.encode(metadata_content)), 'embedding': get_embedding(metadata_content, engine=embedding_model)})
 
         else:
-            if n_tokens < max_tokens:
+            if n_tokens < OPENAI_EMBEDDING_MAXTOKENS:
                 new_df_entries.append({'section': section, 'n_tokens': n_tokens, 'embedding': get_embedding(section, engine=embedding_model)})
             else:
                 for new_section in split_and_embed(section, encoding):
