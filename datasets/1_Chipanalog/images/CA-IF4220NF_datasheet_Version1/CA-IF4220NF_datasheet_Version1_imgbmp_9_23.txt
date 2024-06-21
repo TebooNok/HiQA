@@ -1,3 +1,0 @@
-title: Not Found
-图  15 Propagation Delay vs Temperature  图  16 I CC  Supply Current vs Signaling Rate
-base name:CA-IF4220NF_datasheet_Version1

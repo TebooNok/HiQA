@@ -1,3 +1,0 @@
-title: Figure 6-11. DAC Source and Sink Current Capability
-Figure 6-10. DAC Footroom Over Temperature and Load DAC at midcode Figure 6-11. DAC Source and Sink Current Capability
-base name:afe88201

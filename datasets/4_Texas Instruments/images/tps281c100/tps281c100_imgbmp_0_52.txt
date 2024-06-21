@@ -1,3 +1,0 @@
-Shutdown
-Detection Gate Driver Current Sense Current Limit Thermal Shutdown Typical Application Schematic TPS281C100 SLVSH72 – DECEMBER 2023
-base name:tps281c100

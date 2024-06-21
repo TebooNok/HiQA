@@ -1,3 +1,0 @@
-title: 图  6- 58 “settling time” 计算结果
-�   Final value    ：   10u �   Percent of step   ：  0.1   图  6- 58 “settling time” 计算结果
-base name:book

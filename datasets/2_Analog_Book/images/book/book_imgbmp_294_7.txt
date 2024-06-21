@@ -1,3 +1,0 @@
-title: 图  8- 15  完成设置后的 “Model Library Setup” 窗口
-图  8- 15  完成设置后的 “Model Library Setup” 窗口
-base name:book

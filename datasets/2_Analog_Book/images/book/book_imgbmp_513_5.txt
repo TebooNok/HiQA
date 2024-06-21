@@ -1,3 +1,0 @@
-title: 图  A- 54 “Temperature” 扫描类型的设定
-图  A- 54 “Temperature” 扫描类型的设定   图  A- 55 “Design Variable” 设定
-base name:book

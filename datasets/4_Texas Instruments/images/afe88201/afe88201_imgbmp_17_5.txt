@@ -1,3 +1,0 @@
-title: Figure 6-35. Reference Voltage Temperature Drift
-Post-soldered 30 units Figure 6-35. Reference Voltage Temperature Drift
-base name:afe88201

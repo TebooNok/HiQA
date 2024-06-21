@@ -1,3 +1,0 @@
-title: SPI write to configure
-image_1 image_2 image_3 image_4 image_5 image_6 image_7 YNC/RESET
-base name:amc131m02
