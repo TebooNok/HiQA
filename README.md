@@ -9,6 +9,7 @@ Ensure your environment meets the following prerequisites:
 - Install dependencies from `requirements.txt` using the following command: 
   ``` pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple ```
 - Set your OpenAI API key in the environment variables.
+- To use the demo, you will need to attach [MasQA](https://github.com/TebooNok/MasQA) Dataset into ```/datasets/``` folder. 
 - To start the demo, execute:
   ``` PYTHONUNBUFFERED=1 nohup streamlit run app_streamlit.py --server.port 8080 --server.address 0.0.0.0 > logs/run.log 2>&1 & ```
   Note: Before running the above command, manually create a `logs` directory.
