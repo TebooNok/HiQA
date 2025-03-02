@@ -8,7 +8,7 @@ import openai
 import time
 from dotenv import load_dotenv
 
-embedding_model = "text-embedding-ada-002"
+embedding_model = "text-embedding-3-large"
 embedding_encoding = "cl100k_base"  # this the encoding for text-embedding-ada-002
 # set openai
 load_dotenv()
