@@ -12,7 +12,7 @@ client = OpenAI(
 )
 
 
-def send_messages(user_input, knowledge, role=None, model="gpt-3.5-turbo-1106"):
+def send_messages(user_input, knowledge, role=None, model="gpt-4o"):
     if not role:
         role = """Role: You are an intelligent customer service agent, please answer questions from a professional perspective.
 Note:
@@ -36,6 +36,7 @@ Note:
 
     result = client.chat.completions.create(
         model=model,
+        # model='gpt-4o',
         # model='gpt-4-32k',
         # model='gpt-4-1106-preview',
         # max_tokens=4000,
